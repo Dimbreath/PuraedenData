@@ -1,0 +1,53 @@
+-- params : ...
+-- function num : 0 , upvalues : _ENV
+require("CommonResource_FrameEffByName")
+require("CommonResource_LevelEffectByName")
+require("CommonResource_RedDollByName")
+require("CommonResource_GuildBossHeadLimitByName")
+require("CommonResource_RepeatGetByName")
+GetCommonResource_HeadFrameUis = function(ui, ...)
+  -- function num : 0_0 , upvalues : _ENV
+  local uis = {}
+  uis.ChoiceHeadGrp = GetCommonResource_FrameEffUis(ui:GetChild("ChoiceHeadGrp"))
+  uis.BackWhiteImage = ui:GetChild("BackWhiteImage")
+  uis.BackGreenImage = ui:GetChild("BackGreenImage")
+  uis.BackBlueImage = ui:GetChild("BackBlueImage")
+  uis.BackPurpleImage = ui:GetChild("BackPurpleImage")
+  uis.BackOrangeImage = ui:GetChild("BackOrangeImage")
+  uis.BackRedImage = ui:GetChild("BackRedImage")
+  uis.IconLoader = ui:GetChild("IconLoader")
+  uis.QualityWhiteImage = ui:GetChild("QualityWhiteImage")
+  uis.QualityGreenImage = ui:GetChild("QualityGreenImage")
+  uis.QualityBlueImage = ui:GetChild("QualityBlueImage")
+  uis.QualityPurpleImage = ui:GetChild("QualityPurpleImage")
+  uis.QualityOrangeImage = ui:GetChild("QualityOrangeImage")
+  uis.QualityRedImage = ui:GetChild("QualityRedImage")
+  uis.Star_07_smallImage = ui:GetChild("Star_07_smallImage")
+  uis.Star_06_smallImage = ui:GetChild("Star_06_smallImage")
+  uis.Star_05_smallImage = ui:GetChild("Star_05_smallImage")
+  uis.Star_04_smallImage = ui:GetChild("Star_04_smallImage")
+  uis.Star_03_smallImage = ui:GetChild("Star_03_smallImage")
+  uis.Star_02_smallImage = ui:GetChild("Star_02_smallImage")
+  uis.Star_01_smallImage = ui:GetChild("Star_01_smallImage")
+  uis.LevelTxt = ui:GetChild("LevelTxt")
+  uis.StageTxt = ui:GetChild("StageTxt")
+  uis.LevelEffect = GetCommonResource_LevelEffectUis(ui:GetChild("LevelEffect"))
+  uis.Expedition_1_Image = ui:GetChild("Expedition_1_Image")
+  uis.Expedition_2_Image = ui:GetChild("Expedition_2_Image")
+  uis.Expedition_3_Image = ui:GetChild("Expedition_3_Image")
+  uis.ExpeditionGrp = ui:GetChild("ExpeditionGrp")
+  uis.RedDot = GetCommonResource_RedDollUis(ui:GetChild("RedDot"))
+  uis.FirstPassImage = ui:GetChild("FirstPassImage")
+  uis.GuildBossHeadLimit = GetCommonResource_GuildBossHeadLimitUis(ui:GetChild("GuildBossHeadLimit"))
+  uis.n206 = GetCommonResource_RepeatGetUis(ui:GetChild("n206"))
+  uis.QualityCtrlCtr = ui:GetController("QualityCtrl")
+  uis.c1Ctr = ui:GetController("c1")
+  uis.c2Ctr = ui:GetController("c2")
+  uis.c3Ctr = ui:GetController("c3")
+  uis.c4Ctr = ui:GetController("c4")
+  uis.c5Ctr = ui:GetController("c5")
+  uis.root = ui
+  return uis
+end
+
+

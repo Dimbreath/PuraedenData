@@ -1,0 +1,12 @@
+-- params : ...
+-- function num : 0 , upvalues : _ENV
+GetTower_LayerNumberUis = function(ui, ...)
+  -- function num : 0_0
+  local uis = {}
+  uis.NameLoader = ui:GetChild("NameLoader")
+  uis.c1Ctr = ui:GetController("c1")
+  uis.root = ui
+  return uis
+end
+
+

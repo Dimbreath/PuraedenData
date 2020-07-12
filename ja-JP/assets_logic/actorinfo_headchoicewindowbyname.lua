@@ -1,0 +1,16 @@
+-- params : ...
+-- function num : 0 , upvalues : _ENV
+require("CommonResource_BlackBgAniByName")
+require("CommonResource_Popup_BByName")
+require("ActorInfo_HeadChoiceByName")
+GetActorInfo_HeadChoiceWindowUis = function(ui, ...)
+  -- function num : 0_0 , upvalues : _ENV
+  local uis = {}
+  uis.BlackBgAni = GetCommonResource_BlackBgAniUis(ui:GetChild("BlackBgAni"))
+  uis.Popup_B = GetCommonResource_Popup_BUis(ui:GetChild("Popup_B"))
+  uis.HeadChoiceGrp = GetActorInfo_HeadChoiceUis(ui:GetChild("HeadChoiceGrp"))
+  uis.root = ui
+  return uis
+end
+
+

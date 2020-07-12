@@ -1,0 +1,47 @@
+-- params : ...
+-- function num : 0 , upvalues : _ENV
+local SkillScript = {timelineName = "Fx_timeline_11301001_xp", totalHitCount = 27}
+SkillScript.Play = function(time, timelineEndCall, ...)
+  -- function num : 0_0 , upvalues : _ENV
+  MoveAtkCard(0, BattleConfig.positionZero, 0)
+  ChangeAtkState(0, "uniqueskill", false)
+  DisplaySkillMask(0, 1)
+  MoveAtkCard(999, BattleConfig.positionInvisible, 0)
+  MoveAtkCard(4499, BattleConfig.positionZero, 0)
+  MoveAtkCard(6499, BattleConfig.positionInvisible, 0)
+  SetDefCardsActive(0, false)
+  SetDefCardsActive(5966, true)
+  ChangeDefState(6865, "hit_1")
+  ChangeDefState(7032, "hit_2")
+  ChangeDefState(7199, "hit_1")
+  ChangeDefState(7365, "hit_2")
+  ChangeDefState(7532, "hit_1")
+  ChangeDefState(7699, "hit_2")
+  ChangeDefState(7865, "hit_1")
+  ChangeDefState(8032, "hit_2")
+  ChangeDefState(8199, "hit_1")
+  ChangeDefState(8365, "hit_2")
+  ChangeDefState(8532, "hit_1")
+  ChangeDefState(8699, "hit_2")
+  ChangeDefState(9365, "hit_1")
+  ChangeDefState(9532, "hit_2")
+  ChangeDefState(9699, "hit_1")
+  ChangeDefState(9865, "hit_2")
+  ChangeDefState(10032, "hit_1")
+  ChangeDefState(10198, "hit_2")
+  ChangeDefState(10365, "hit_1")
+  ChangeDefState(10532, "hit_2")
+  ChangeDefState(10698, "hit_1")
+  ChangeDefState(10865, "hit_2")
+  ChangeDefState(11032, "hit_1")
+  ChangeDefState(11198, "hit_2")
+  ChangeDefState(11365, "hit_1")
+  ChangeDefState(11532, "hit_2")
+  ChangeDefState(11698, "hit_1", true)
+  MoveAtkCard(12532, nil, 0)
+  ChangeAtkState(12532, "idle", true)
+  ClearSkillMask(time - 1, nil, 1, timelineEndCall)
+end
+
+return SkillScript
+
