@@ -85,65 +85,72 @@ PlotDetailWindow.InitTxt = function(...)
   (uis.titilenameTxt).text = (PUtil.get)(20000336)
   local Once = (PlotDungeonMgr.IsOnlyOnceState)(StageData.id)
   local stageType = (PlotDungeonMgr.GetStageChapterType)(StageData.id)
-  -- DECOMPILER ERROR at PC46: Confused about usage of register: R2 in 'UnsetPending'
+  local nameTxt = StageData.name
+  -- DECOMPILER ERROR at PC47: Confused about usage of register: R3 in 'UnsetPending'
 
   if Once and stageType == DungeonType.HeroDungeon then
     (uis.NumberTxt).text = StageData.name
   else
-    -- DECOMPILER ERROR at PC53: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC56: Confused about usage of register: R3 in 'UnsetPending'
 
-    ;
-    (uis.NumberTxt).text = StageData.remark .. "  " .. StageData.name
+    if nameTxt then
+      (uis.NumberTxt).text = StageData.remark .. "  " .. nameTxt
+    else
+      -- DECOMPILER ERROR at PC60: Confused about usage of register: R3 in 'UnsetPending'
+
+      ;
+      (uis.NumberTxt).text = StageData.remark
+    end
   end
-  -- DECOMPILER ERROR at PC59: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC66: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.vitalityTxt).text = (PUtil.get)(20000006)
-  -- DECOMPILER ERROR at PC66: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC73: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.vitalitynumberTxt).text = (ActorData.GetAssetCount)(AssetType.PHYSICAL)
-  -- DECOMPILER ERROR at PC75: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC82: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.vitalitynumber_01_Txt).text = (ActorData.GetAssetCount)(AssetType.PHYSICAL) - StageData.need_vit
-  -- DECOMPILER ERROR at PC81: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC88: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.recommendedcombatTxt).text = (PUtil.get)(20000007)
-  -- DECOMPILER ERROR at PC84: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC91: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.recommendedcombatmumberTxt).text = StageData.fc
-  -- DECOMPILER ERROR at PC90: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC97: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.mycombatTxt).text = (PUtil.get)(20000008)
-  -- DECOMPILER ERROR at PC95: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC102: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.mycombatnumberTxt).text = (ActorData.GetFc)()
-  -- DECOMPILER ERROR at PC104: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC111: Confused about usage of register: R3 in 'UnsetPending'
 
   if Const.NoShowAmount <= tonumber(StageData.challenge_num) then
     (uis.challengenumberTxt).visible = false
-    -- DECOMPILER ERROR at PC106: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC113: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     (uis.BattleImage).visible = false
   else
-    -- DECOMPILER ERROR at PC115: Confused about usage of register: R2 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC122: Confused about usage of register: R3 in 'UnsetPending'
 
     if Once then
       (uis.challengenumberTxt).text = (PUtil.get)(20000086)
     else
       local canChange = (PlotDungeonMgr.CanChangeTimesDungeon)()
-      -- DECOMPILER ERROR at PC128: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC135: Confused about usage of register: R4 in 'UnsetPending'
 
       if canChange > 0 then
         (uis.challengenumberTxt).text = (PUtil.get)(20000372, canChange)
       else
-        -- DECOMPILER ERROR at PC136: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC143: Confused about usage of register: R4 in 'UnsetPending'
 
         ;
         (uis.challengenumberTxt).text = (PUtil.get)(20000373, canChange)
@@ -159,18 +166,18 @@ PlotDetailWindow.InitButton = function(...)
   if not (PlotDungeonMgr.CurrentIsPassDungeon)() or not (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepOneBtn, false) then
     (uis.c1Ctr).selectedIndex = 0
   else
-    -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
 
-    if (PlotDungeonMgr.GetStageChapterType)(StageData.id) == DungeonType.HeroDungeon then
+    if (PlotDungeonMgr.GetStageChapterType)(StageData.id) == DungeonType.HeroDungeon or (PlotDungeonMgr.ActivityDungeonIsHero)(StageData.id) then
       (uis.c1Ctr).selectedIndex = 2
     else
       local tenSweep = (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepTenBtn, false)
-      -- DECOMPILER ERROR at PC36: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
 
       if tenSweep then
         (uis.c1Ctr).selectedIndex = 1
       else
-        -- DECOMPILER ERROR at PC39: Confused about usage of register: R1 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC45: Confused about usage of register: R1 in 'UnsetPending'
 
         ;
         (uis.c1Ctr).selectedIndex = 3

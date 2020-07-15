@@ -145,9 +145,6 @@ Net.OnConnected = function(...)
   do
     ;
     (LoginService.ReqLogin)(isReconnect)
-    -- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
-
-    LoginMgr.canTouch = true
   end
 end
 

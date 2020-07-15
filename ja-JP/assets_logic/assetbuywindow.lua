@@ -338,6 +338,9 @@ AssetBuyWindow.OnClose = function(...)
   if UIMgr:IsWindowOpen((WinResConfig.TaskWindow).name) and (TaskMgr.GetCurrentTaskType)() == TaskType.Daily then
     (TaskService.ReqTaskData)(TaskType.Daily, true)
   end
+  if UIMgr:IsWindowOpen((WinResConfig.CardWindow).name) then
+    UIMgr:SendWindowMessage("CardWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_AFTERCLOSEGOLD, {})
+  end
 end
 
 AssetBuyWindow.HandleMessage = function(msgId, para, ...)

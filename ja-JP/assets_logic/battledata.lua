@@ -171,6 +171,7 @@ teamB = {}
                                       self.saveClientBattleData = {}
                                       self.saveChallengeSummarizeData = {}
                                     end
+                                    self.savedSkillList = {}
                                   end
                                 end
                               end
@@ -606,8 +607,22 @@ end
 
 -- DECOMPILER ERROR at PC86: Confused about usage of register: R8 in 'UnsetPending'
 
+BattleData.GetCanCopySkill = function(atkCard, ...)
+  -- function num : 0_24 , upvalues : self
+  if self.savedSkillList then
+    for i = #self.savedSkillList, 1, -1 do
+      local info = (self.savedSkillList)[i]
+      if info and info.cardUid ~= atkCard:GetCardUid() and atkCard:GetCampFlag() == info.campFlag then
+        return info.skillConfig, info.cardUid
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC89: Confused about usage of register: R8 in 'UnsetPending'
+
 BattleData.AddSkillAtk = function(battleCard, ...)
-  -- function num : 0_24 , upvalues : self, ipairs, BattleCardCamp, _ENV, t_insert
+  -- function num : 0_25 , upvalues : self, ipairs, BattleCardCamp, _ENV, t_insert
   local maxCount = 1
   local skillAtkList = self.skillAtkList
   local leftCount = 0
@@ -636,20 +651,43 @@ BattleData.AddSkillAtk = function(battleCard, ...)
   local skillConfig = battleCard:GetSkillConfig()
   if skillConfig then
     if curCampFlag == BattleCardCamp.LEFT then
-      t_insert(self.skillAtkList, {campFlag = BattleCardCamp.LEFT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
-    else
-      if curCampFlag == BattleCardCamp.RIGHT then
-        t_insert(self.skillAtkList, 1, {campFlag = BattleCardCamp.RIGHT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
+      if skillConfig.special_type == BattleSkillSpecialType.COPY then
+        local skillConfig, copyCardUid = (BattleData.GetCanCopySkill)(battleCard)
+        if skillConfig then
+          t_insert(self.skillAtkList, {copyCardUid = copyCardUid, campFlag = BattleCardCamp.LEFT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
+        else
+          loge("没有可以复制的技能")
+          return 
+        end
+      else
+        do
+          t_insert(self.skillAtkList, {campFlag = BattleCardCamp.LEFT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
+          if curCampFlag == BattleCardCamp.RIGHT then
+            if skillConfig.special_type == BattleSkillSpecialType.COPY then
+              local skillConfig, copyCardUid = (BattleData.GetCanCopySkill)(battleCard)
+              if skillConfig then
+                t_insert(self.skillAtkList, 1, {copyCardUid = copyCardUid, campFlag = BattleCardCamp.RIGHT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
+              else
+                loge("没有可以复制的技能")
+                return 
+              end
+            else
+              do
+                t_insert(self.skillAtkList, 1, {campFlag = BattleCardCamp.RIGHT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
+                return true
+              end
+            end
+          end
+        end
       end
     end
   end
-  return true
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC92: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetCurSkillAtk = function(...)
-  -- function num : 0_25 , upvalues : self, _ENV, BattleCardCamp, math
+  -- function num : 0_26 , upvalues : self, _ENV, BattleCardCamp, math
   for i = #self.skillAtkList, 1, -1 do
     local curSkill = (self.skillAtkList)[i]
     if curSkill then
@@ -667,6 +705,8 @@ BattleData.GetCurSkillAtk = function(...)
               local value = curDander / maxDander
               UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_CARD_DANDER, {posIndex = battleCard:GetPosIndex(), targetValue = value, removeFullRage = true})
             end
+            ;
+            (table.insert)(self.savedSkillList, {campFlag = curSkill.campFlag, cardUid = curSkill.cardUid, skillConfig = curSkill.skillConfig})
             do return curSkill end
             do
               do
@@ -676,19 +716,19 @@ BattleData.GetCurSkillAtk = function(...)
                 end
                 ;
                 (BattleData.RemoveCurSkillAtk)(i)
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out DO_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out DO_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out IF_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_THEN_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-                -- DECOMPILER ERROR at PC86: LeaveBlock: unexpected jumping out IF_STMT
+                -- DECOMPILER ERROR at PC97: LeaveBlock: unexpected jumping out IF_STMT
 
               end
             end
@@ -699,27 +739,27 @@ BattleData.GetCurSkillAtk = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC95: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.RemoveCurSkillAtk = function(index, ...)
-  -- function num : 0_26 , upvalues : self, t_remove
+  -- function num : 0_27 , upvalues : self, t_remove
   local skillAtkList = self.skillAtkList
   if skillAtkList and not index then
     t_remove(skillAtkList, #skillAtkList)
   end
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetAllCardList = function(...)
-  -- function num : 0_27 , upvalues : self
+  -- function num : 0_28 , upvalues : self
   return self.allCardList
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetAliveCards = function(camp, ...)
-  -- function num : 0_28 , upvalues : self, ipairs, t_insert
+  -- function num : 0_29 , upvalues : self, ipairs, t_insert
   local liveCards = {}
   local allCardList = self.allCardList
   for _,v in ipairs(allCardList) do
@@ -733,10 +773,10 @@ BattleData.GetAliveCards = function(camp, ...)
   return liveCards
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetDisplayAliveCards = function(camp, ...)
-  -- function num : 0_29 , upvalues : self, ipairs, t_insert
+  -- function num : 0_30 , upvalues : self, ipairs, t_insert
   local liveCards = {}
   local allCardList = self.allCardList
   for _,v in ipairs(allCardList) do
@@ -750,10 +790,10 @@ BattleData.GetDisplayAliveCards = function(camp, ...)
   return liveCards
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC107: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetWaitAtkCards = function(...)
-  -- function num : 0_30 , upvalues : self, ipairs, t_insert
+  -- function num : 0_31 , upvalues : self, ipairs, t_insert
   local waitAtkCards = {}
   local allCardList = self:GetAllCardList()
   for _,v in ipairs(allCardList) do
@@ -764,10 +804,10 @@ BattleData.GetWaitAtkCards = function(...)
   return waitAtkCards
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC110: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetCardsByCamp = function(camp, ...)
-  -- function num : 0_31 , upvalues : self, ipairs, t_insert
+  -- function num : 0_32 , upvalues : self, ipairs, t_insert
   local allCards = self:GetAllCardList()
   local cards = {}
   for _,v in ipairs(allCards) do
@@ -778,10 +818,10 @@ BattleData.GetCardsByCamp = function(camp, ...)
   return cards
 end
 
--- DECOMPILER ERROR at PC110: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC113: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.IsOneSideDie = function(...)
-  -- function num : 0_32 , upvalues : self, ipairs, BattleCardCamp
+  -- function num : 0_33 , upvalues : self, ipairs, BattleCardCamp
   local allCardList = self:GetAllCardList()
   local selfDie = true
   local enemyDie = true
@@ -802,10 +842,10 @@ BattleData.IsOneSideDie = function(...)
   return true
 end
 
--- DECOMPILER ERROR at PC113: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC116: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.IsSelfSideDie = function(...)
-  -- function num : 0_33 , upvalues : self, ipairs, BattleCardCamp
+  -- function num : 0_34 , upvalues : self, ipairs, BattleCardCamp
   local allCardList = self:GetAllCardList()
   local selfDie = true
   for _,v in ipairs(allCardList) do
@@ -819,20 +859,20 @@ BattleData.IsSelfSideDie = function(...)
   return true
 end
 
--- DECOMPILER ERROR at PC116: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC119: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetOrderCard = function(...)
-  -- function num : 0_34 , upvalues : self, _ENV
+  -- function num : 0_35 , upvalues : self, _ENV
   local cardList = (self.GetWaitAtkCards)()
   ;
   (table.sort)(cardList, BattleData.AtkOrderSort)
   return cardList
 end
 
--- DECOMPILER ERROR at PC119: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.AtkOrderSort = function(a, b, ...)
-  -- function num : 0_35
+  -- function num : 0_36
   if b:GetSpd() >= a:GetSpd() then
     do return a:GetSpd() == b:GetSpd() end
     if b:GetCampFlag() >= a:GetCampFlag() then
@@ -843,10 +883,10 @@ BattleData.AtkOrderSort = function(a, b, ...)
   end
 end
 
--- DECOMPILER ERROR at PC122: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetCampByPosIndex = function(posIndex, ...)
-  -- function num : 0_36 , upvalues : BattleCardCamp
+  -- function num : 0_37 , upvalues : BattleCardCamp
   if posIndex < 100 then
     return BattleCardCamp.LEFT
   else
@@ -854,10 +894,10 @@ BattleData.GetCampByPosIndex = function(posIndex, ...)
   end
 end
 
--- DECOMPILER ERROR at PC125: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.IsCurAtkCard = function(card, ...)
-  -- function num : 0_37 , upvalues : _ENV
+  -- function num : 0_38 , upvalues : _ENV
   local curCard = (BattleData.GetCurAtkCard)()
   if card:GetPosIndex() ~= curCard:GetPosIndex() then
     do return not curCard or not card end
@@ -865,10 +905,10 @@ BattleData.IsCurAtkCard = function(card, ...)
   end
 end
 
--- DECOMPILER ERROR at PC128: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC131: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetCurAtkCard = function(...)
-  -- function num : 0_38 , upvalues : self, ipairs
+  -- function num : 0_39 , upvalues : self, ipairs
   local allCardList = self.allCardList
   local curAtkCard = nil
   if allCardList then
@@ -899,10 +939,10 @@ BattleData.GetCurAtkCard = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC131: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC134: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.GetCampDeadCount = function(camp, ...)
-  -- function num : 0_39 , upvalues : self, ipairs
+  -- function num : 0_40 , upvalues : self, ipairs
   local count = 0
   local allCardList = self.allCardList
   for i,card in ipairs(allCardList) do
@@ -916,10 +956,10 @@ BattleData.GetCampDeadCount = function(camp, ...)
   return count
 end
 
--- DECOMPILER ERROR at PC134: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R8 in 'UnsetPending'
 
 BattleData.ClearAtkFlag = function(...)
-  -- function num : 0_40 , upvalues : _ENV, self, ipairs
+  -- function num : 0_41 , upvalues : _ENV, self, ipairs
   loge("清除出手状态")
   local allCardList = self.allCardList
   if allCardList then
@@ -930,10 +970,10 @@ BattleData.ClearAtkFlag = function(...)
 end
 
 local random = math.random
--- DECOMPILER ERROR at PC138: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC141: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetRandomSeed = function(...)
-  -- function num : 0_41 , upvalues : _ENV, random, self, t_remove, t_insert
+  -- function num : 0_42 , upvalues : _ENV, random, self, t_remove, t_insert
   if IsBattleTest == true then
     return random(10000)
   end
@@ -948,10 +988,10 @@ BattleData.GetRandomSeed = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC141: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC144: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.SetBattleState = function(curBattleState, ...)
-  -- function num : 0_42 , upvalues : _ENV, self
+  -- function num : 0_43 , upvalues : _ENV, self
   if IsBattleServer == true then
     (BattleMgr.PlayBattleState)(curBattleState)
   else
@@ -959,17 +999,17 @@ BattleData.SetBattleState = function(curBattleState, ...)
   end
 end
 
--- DECOMPILER ERROR at PC144: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC147: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetBattleState = function(...)
-  -- function num : 0_43 , upvalues : self
+  -- function num : 0_44 , upvalues : self
   return self.curBattleState
 end
 
--- DECOMPILER ERROR at PC147: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC150: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetMonsterList = function(wave, stageId, battleType, ...)
-  -- function num : 0_44 , upvalues : _ENV, tonumber
+  -- function num : 0_45 , upvalues : _ENV, tonumber
   local list = {}
   local monsterGroup = (BattleData.GetMonsterGroup)(wave or 1, stageId, battleType)
   if monsterGroup then
@@ -988,10 +1028,10 @@ BattleData.GetMonsterList = function(wave, stageId, battleType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC150: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC153: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetEmbattleType = function(playType, ...)
-  -- function num : 0_45 , upvalues : _ENV, PlayType
+  -- function num : 0_46 , upvalues : _ENV, PlayType
   local E_EMBATTLE_TYPE = ProtoEnum.E_EMBATTLE_TYPE
   if playType == PlayType.CoinDungeon then
     return E_EMBATTLE_TYPE.EMBATTLE_GOLD
@@ -1006,10 +1046,10 @@ BattleData.GetEmbattleType = function(playType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC153: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC156: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetPlayTypeByEmbattleType = function(embattleType, ...)
-  -- function num : 0_46 , upvalues : _ENV, PlayType
+  -- function num : 0_47 , upvalues : _ENV, PlayType
   local E_EMBATTLE_TYPE = ProtoEnum.E_EMBATTLE_TYPE
   if embattleType == E_EMBATTLE_TYPE.EMBATTLE_GOLD then
     return PlayType.CoinDungeon
@@ -1024,10 +1064,10 @@ BattleData.GetPlayTypeByEmbattleType = function(embattleType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC156: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC159: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetPlayTypeByBattleType = function(battleType, ...)
-  -- function num : 0_47 , upvalues : _ENV, PlayType
+  -- function num : 0_48 , upvalues : _ENV, PlayType
   local E_BATTLE_TYPE = ProtoEnum.E_BATTLE_TYPE
   if battleType == E_BATTLE_TYPE.STORY then
     return PlayType.PlotDungeon
@@ -1082,10 +1122,10 @@ BattleData.GetPlayTypeByBattleType = function(battleType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC159: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC162: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetBattleTypeByPlayType = function(playType, ...)
-  -- function num : 0_48 , upvalues : _ENV, PlayType
+  -- function num : 0_49 , upvalues : _ENV, PlayType
   local E_BATTLE_TYPE = ProtoEnum.E_BATTLE_TYPE
   if playType == PlayType.PlotDungeon then
     return E_BATTLE_TYPE.STORY
@@ -1136,10 +1176,10 @@ BattleData.GetBattleTypeByPlayType = function(playType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC162: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC165: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetMonsterGroup = function(wave, stageId, battleType, ...)
-  -- function num : 0_49 , upvalues : self, _ENV, tonumber
+  -- function num : 0_50 , upvalues : self, _ENV, tonumber
   local battleType = battleType or self.battleType
   local stageId = stageId or self.stageId
   local E_BATTLE_TYPE = ProtoEnum.E_BATTLE_TYPE
@@ -1220,10 +1260,10 @@ BattleData.GetMonsterGroup = function(wave, stageId, battleType, ...)
   end
 end
 
--- DECOMPILER ERROR at PC165: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC168: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetBattleMapAndBGM = function(stageId, battleType, curWave, ...)
-  -- function num : 0_50 , upvalues : self, _ENV
+  -- function num : 0_51 , upvalues : self, _ENV
   if not battleType then
     battleType = self.battleType
   end
@@ -1259,10 +1299,10 @@ BattleData.GetBattleMapAndBGM = function(stageId, battleType, curWave, ...)
   end
 end
 
--- DECOMPILER ERROR at PC168: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC171: Confused about usage of register: R9 in 'UnsetPending'
 
 BattleData.GetChallengeType = function(battleType, ...)
-  -- function num : 0_51 , upvalues : _ENV
+  -- function num : 0_52 , upvalues : _ENV
   local E_BATTLE_TYPE = ProtoEnum.E_BATTLE_TYPE
   local E_CHALLENGE_TYPE = ProtoEnum.E_CHALLENGE_TYPE
   if battleType == E_BATTLE_TYPE.STORY then

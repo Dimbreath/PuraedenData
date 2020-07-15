@@ -506,33 +506,37 @@ CardWindow.HandleMessage = function(msgId, para, ...)
         ;
         (CardWindow.RefreshCardList)()
       else
-        if msgId == windowMsgEnum.E_MSG_CARD_GOODCHANGE then
-          (Card_LevelUpWindow.ResGoodChange)(CardWindow.RefreshCardList)
+        if msgId == windowMsgEnum.E_MSG_CARD_AFTERCLOSEGOLD then
+          (Card_SkillUpWindow.RefreshWindow)()
         else
-          if msgId == windowMsgEnum.E_MSG_CARD_REFRESHCARDLISTBUTTOM then
-            (CardWindow.RefreshCardList)()
+          if msgId == windowMsgEnum.E_MSG_CARD_GOODCHANGE then
+            (Card_LevelUpWindow.ResGoodChange)(CardWindow.RefreshCardList)
           else
-            if msgId == windowMsgEnum.E_MSG_CARD_STARUP then
-              (CardWindow.CheckEachButtonRedDot)()
-              ;
-              (Card_StarUpWindow.Refresh)()
-              ;
-              (Card_StarUpWindow.ShowStarUpEffect)(para)
-              cardData = (CardData.GetCardData)((CardData.ReturnCardID)())
-              -- DECOMPILER ERROR at PC72: Confused about usage of register: R3 in 'UnsetPending'
-
-              ;
-              ((uis.MessageGrp).BattleTwoTxt).text = cardData.fc
-              ;
+            if msgId == windowMsgEnum.E_MSG_CARD_REFRESHCARDLISTBUTTOM then
               (CardWindow.RefreshCardList)()
             else
-              if msgId == windowMsgEnum.E_MSG_CARD_AFTER_EXCHANGE then
-                (Card_StarUpWindow.RefreshCostInfo)()
+              if msgId == windowMsgEnum.E_MSG_CARD_STARUP then
+                (CardWindow.CheckEachButtonRedDot)()
                 ;
-                (Card_StageUpWindow.SetMaterialInfo)()
+                (Card_StarUpWindow.Refresh)()
                 ;
-                (Card_LevelUpWindow.UpdateItem)()
+                (Card_StarUpWindow.ShowStarUpEffect)(para)
+                cardData = (CardData.GetCardData)((CardData.ReturnCardID)())
+                -- DECOMPILER ERROR at PC79: Confused about usage of register: R3 in 'UnsetPending'
+
+                ;
+                ((uis.MessageGrp).BattleTwoTxt).text = cardData.fc
+                ;
+                (CardWindow.RefreshCardList)()
               else
+                if msgId == windowMsgEnum.E_MSG_CARD_AFTER_EXCHANGE then
+                  (Card_StarUpWindow.RefreshCostInfo)()
+                  ;
+                  (Card_StageUpWindow.SetMaterialInfo)()
+                  ;
+                  (Card_LevelUpWindow.UpdateItem)()
+                else
+                end
               end
             end
           end
@@ -556,7 +560,7 @@ CardWindow.HandleMessage = function(msgId, para, ...)
     if msgId == windowMsgEnum.E_MSG_CARD_CLOSECARDCHOICE then
       cardData = (CardData.GetCardData)((CardData.ReturnCardID)())
       excelData = ((TableData.gTable).BaseCardData)[cardData.id]
-      -- DECOMPILER ERROR at PC134: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC141: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.PictureLoader).url = nil

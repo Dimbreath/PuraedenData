@@ -75,7 +75,11 @@ ExpeditionEventWindow.CardItemRenderer = function(index, obj, ...)
   local hp = (obj:GetChild("HpBar")).asProgress
   local Dander = (obj:GetChild("DanderBar")).asProgress
   local c2 = obj:GetController("c2")
-  -- DECOMPILER ERROR at PC28: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC31: Confused about usage of register: R8 in 'UnsetPending'
+
+  ;
+  (model.BattleNameTxt).text = (PUtil.get)(60000235)
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R8 in 'UnsetPending'
 
   ;
   (model.BattelNumberTxt).text = cardData.fc
@@ -88,12 +92,12 @@ ExpeditionEventWindow.CardItemRenderer = function(index, obj, ...)
     Dander.value = data.supDander / cardData.max_dander * 100
     c2.selectedIndex = 0
   end
-  -- DECOMPILER ERROR at PC54: Confused about usage of register: R8 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC60: Confused about usage of register: R8 in 'UnsetPending'
 
   if index == SelectIndex then
     (model.c1Ctr).selectedIndex = 1
   else
-    -- DECOMPILER ERROR at PC57: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC63: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
     (model.c1Ctr).selectedIndex = 0

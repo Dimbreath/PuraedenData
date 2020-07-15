@@ -79,17 +79,30 @@ HandBookAlbumWindow.GetCountNum = function(type, ...)
 end
 
 HandBookAlbumWindow.SetCollectionNum = function(...)
-  -- function num : 0_4 , upvalues : _ENV, OpenType, uis, listData
+  -- function num : 0_4 , upvalues : _ENV, OpenType, winType, uis, listData
   local num = (HandBookMgr.GetAlbumCollectionNumByType)(OpenType)
-  -- DECOMPILER ERROR at PC14: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
 
   if num == 0 then
-    (uis.NumberTxt).text = (PUtil.get)(20000135, num, #listData)
-  else
-    -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+    if OpenType == winType.Activity then
+      (uis.NumberTxt).text = (PUtil.get)(20000135, num, #listData)
+    else
+      -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
 
-    ;
-    (uis.NumberTxt).text = (PUtil.get)(20000152, num, #listData)
+      ;
+      (uis.NumberTxt).text = (PUtil.get)(20000511, num, #listData)
+    end
+  else
+    -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
+
+    if OpenType == winType.Activity then
+      (uis.NumberTxt).text = (PUtil.get)(20000152, num, #listData)
+    else
+      -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
+
+      ;
+      (uis.NumberTxt).text = (PUtil.get)(20000510, num, #listData)
+    end
   end
 end
 

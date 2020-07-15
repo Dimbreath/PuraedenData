@@ -1241,4 +1241,20 @@ PlotDungeonMgr.ActivityDungeonRecodeID = function(id, ...)
   end
 end
 
+-- DECOMPILER ERROR at PC200: Confused about usage of register: R2 in 'UnsetPending'
+
+PlotDungeonMgr.ActivityDungeonIsHero = function(id, ...)
+  -- function num : 0_56 , upvalues : _ENV
+  if (PlotDungeonMgr.GetStageChapterType)(id) == DungeonType.ActivityDungeon then
+    local data = ((TableData.gTable).BaseStageData)[id]
+    if data.activity_type ~= 1 then
+      do
+        do return not data.activity_type end
+        do return false end
+        -- DECOMPILER ERROR: 2 unprocessed JMP targets
+      end
+    end
+  end
+end
+
 

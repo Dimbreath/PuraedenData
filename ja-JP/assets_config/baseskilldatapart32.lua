@@ -125,7 +125,7 @@ BaseSkillDataPart32 = {
 , 
 [47502012] = {id = 47502012, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 9900, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
-[47502013] = {id = 47502013, type = 2, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+[47502013] = {id = 47502013, type = 2, special_type = 1, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47502014] = {id = 47502014, type = 2, targetType = 3013, damage = 0, damage_up = 10000, damage_rate = -13900, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47600141:1000:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
@@ -141,7 +141,7 @@ BaseSkillDataPart32 = {
 , 
 [47502032] = {id = 47502032, type = 2, targetType = 2131, damage = 0, damage_up = 10000, damage_rate = 23800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
-[47502033] = {id = 47502033, type = 2, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+[47502033] = {id = 47502033, type = 2, special_type = 1, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47502034] = {id = 47502034, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 9900, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47600341:1000:10000,2:47600342:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
@@ -161,7 +161,7 @@ BaseSkillDataPart32 = {
 , 
 [47502052] = {id = 47502052, type = 2, targetType = 2002, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 9900, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
-[47502053] = {id = 47502053, type = 2, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
+[47502053] = {id = 47502053, type = 2, special_type = 1, targetType = 2006, move_pos_type = 3, damage = 0, damage_up = 10000, damage_rate = 16000, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 0, buff_list = "0", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 
 [47502054] = {id = 47502054, type = 2, targetType = 2161, damage = 0, damage_up = 10000, damage_rate = 23800, damage_rate_up = 0, strike_prob = 0, fall_prob = 0, buff_odds = 10000, buff_list = "1:47600541:1000:10000,2:47600542:3001:10000", show_id = 0, add_attr = "0", add_attr_type = 0, fc = 0, need_quality = 0, need_star = 0, sort_index = 0}
 , 

@@ -162,6 +162,31 @@ HomeWindow.OnInit = function(bridgeObj, ...)
     UIMgr:RemovePackage("UIBackground990x450", true)
     UIMgr:LoadPackage("UIBackground495x225")
     UIMgr:LoadPackage("UIBackground990x450")
+    local curHour = (LuaTime.GetGameHour)((ActorData.GetServerTime)())
+    if LoginMgr.lastOnlineHour then
+      if LoginMgr.lastOnlineHour < 5 and curHour >= 5 then
+        local curMin = (math.floor)((os.date)("%M", (math.floor)((ActorData.GetServerTime)() / 1000)))
+        if curMin >= 1 then
+          (MessageMgr.OpenSoloConfirmWindow)((PUtil.get)(40000013), function(...)
+    -- function num : 0_1_6 , upvalues : _ENV
+    (LoginMgr.ReturnToLoginWindow)()
+  end
+, nil, (PUtil.get)(60000004))
+          -- DECOMPILER ERROR at PC317: Confused about usage of register: R3 in 'UnsetPending'
+
+          LoginMgr.lastOnlineHour = curHour
+        end
+      else
+        do
+          -- DECOMPILER ERROR at PC320: Confused about usage of register: R2 in 'UnsetPending'
+
+          LoginMgr.lastOnlineHour = curHour
+          -- DECOMPILER ERROR at PC323: Confused about usage of register: R2 in 'UnsetPending'
+
+          LoginMgr.lastOnlineHour = curHour
+        end
+      end
+    end
   end
 end
 

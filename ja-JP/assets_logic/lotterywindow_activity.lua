@@ -14,51 +14,98 @@ LotteryWindow_Activity.RefreshWindow = function(_uis, ...)
     uis = _uis
   end
   ;
+  (LotteryWindow_Activity.PreLoadFxMain)(uis)
+  ;
   (LotteryWindow_Activity.ReceiveInitData)()
 end
 
 -- DECOMPILER ERROR at PC18: Confused about usage of register: R8 in 'UnsetPending'
 
-LotteryWindow_Activity.PreLoadFxMain = function(uis, ...)
-  -- function num : 0_1 , upvalues : _ENV, lotteryType, fx_main
-  local excelShowData = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
-  local lotteryCardId = tonumber(excelShowData.card_ids)
-  local cardData = ((TableData.gTable).BaseCardData)[lotteryCardId]
-  local fashionId = tonumber((split(cardData.fashion_ids, ":"))[3])
-  local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
-  do
-    if fx_main == nil then
-      local holder, effect = (LuaEffect.AddUIEffect)(fashionData.show_cg, false, false, Vector3.zero, 1)
-      holder:SetXY((((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).width / 2, (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).height / 2)
-      ;
-      (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).root):AddChild(holder)
-      fx_main = effect
-    end
-    ;
-    (Util.RecycleUIModel)((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader)
-    local boneModel = (Util.ShowUIModel)(fashionData.spd_bundle, (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader, fashionData.show_spine_type)
-    ;
-    (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
-    local scale = 20
-    ;
-    (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
-    ;
-    (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
-    ;
-    (CSLuaUtil.SetGOLocalPos)(boneModel, ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).width * 0.5, -((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).height, 0)
-    ;
-    (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_01_Btn).onClick):Set(function(...)
-    -- function num : 0_1_0 , upvalues : _ENV, lotteryCardId
-    OpenWindow("CardDetailsWindow", UILayer.HUD, lotteryCardId)
-  end
-)
+LotteryWindow_Activity.HideOrShowFxMain = function(isShow, ...)
+  -- function num : 0_1 , upvalues : fx_main
+  if fx_main ~= nil then
+    fx_main:SetActive(isShow)
   end
 end
 
 -- DECOMPILER ERROR at PC21: Confused about usage of register: R8 in 'UnsetPending'
 
+LotteryWindow_Activity.PreLoadFxMain = function(uis, ...)
+  -- function num : 0_2 , upvalues : _ENV, lotteryType, fx_main
+  local excelShowData = ((TableData.gTable).BaseLotteryShowData)[lotteryType]
+  local cardNum = #split(excelShowData.card_ids, ":")
+  -- DECOMPILER ERROR at PC16: Confused about usage of register: R3 in 'UnsetPending'
+
+  if cardNum == 1 then
+    ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 0
+    local lotteryCardId = tonumber(excelShowData.card_ids)
+    do
+      local cardData = ((TableData.gTable).BaseCardData)[lotteryCardId]
+      local fashionId = tonumber((split(cardData.fashion_ids, ":"))[3])
+      local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
+      if fx_main == nil then
+        local holder, effect = (LuaEffect.AddUIEffect)(fashionData.show_cg, false, false, Vector3.zero, 1)
+        do
+          holder:SetXY((((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).width / 2, (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).CardPicLoader).height / 2)
+          ;
+          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardPicLoader).root):AddChild(holder)
+          fx_main = effect
+        end
+      else
+        do
+          ;
+          (LotteryWindow_Activity2.HideOrShowFxMain)(false)
+          ;
+          (LotteryWindow_Activity.HideOrShowFxMain)(true)
+          ;
+          (Util.RecycleUIModel)((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader)
+          local boneModel = (Util.ShowUIModel)(fashionData.spd_bundle, (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader, fashionData.show_spine_type)
+          ;
+          (SkeletonAnimationUtil.SetAnimation)(boneModel, 0, "idle", true)
+          local scale = 20
+          ;
+          (CSLuaUtil.SetGOScale)(boneModel, scale, scale, scale)
+          ;
+          (SkeletonAnimationUtil.SetFlip)(boneModel, true, false)
+          ;
+          (CSLuaUtil.SetGOLocalPos)(boneModel, ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).width * 0.5, -((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader).height, 0)
+          ;
+          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn).onClick):Set(function(...)
+    -- function num : 0_2_0 , upvalues : _ENV, lotteryCardId
+    OpenWindow("CardDetailsWindow", UILayer.HUD, lotteryCardId)
+  end
+)
+          ;
+          (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn):GetChild("PicLoader")).url = (Util.GetItemUrl)(cardData.lottery_pic)
+        end
+        do
+          -- DECOMPILER ERROR at PC161: Confused about usage of register: R3 in 'UnsetPending'
+
+          ;
+          ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 1
+          for index,value in ipairs(split(excelShowData.card_ids, ":")) do
+            local cardId = tonumber(value)
+            local curCardData = ((TableData.gTable).BaseCardData)[cardId]
+            local seeBtn = ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).root):GetChild("Card_B" .. tostring(index) .. "_Btn")
+            ;
+            (seeBtn:GetChild("PicLoader")).url = (Util.GetItemUrl)(curCardData.lottery_pic)
+            ;
+            (seeBtn.onClick):Set(function(...)
+    -- function num : 0_2_1 , upvalues : _ENV, cardId
+    OpenWindow("CardDetailsWindow", UILayer.HUD, cardId)
+  end
+)
+          end
+        end
+      end
+    end
+  end
+end
+
+-- DECOMPILER ERROR at PC24: Confused about usage of register: R8 in 'UnsetPending'
+
 LotteryWindow_Activity.ReceiveInitData = function(...)
-  -- function num : 0_2 , upvalues : _ENV, beginTime, endTime, countTimer, uis, LotteryCardId
+  -- function num : 0_3 , upvalues : _ENV, beginTime, endTime, countTimer, uis, LotteryCardId
   local lData = ((LotteryData.GetLotteryData)()).data
   print("beginTime", lData.beginTime, "endTime", lData.endTime, "onceSurplusNum", lData.onceSurplusNum, "moreSurplusNum", lData.moreSurplusNum)
   beginTime = lData.beginTime
@@ -74,7 +121,7 @@ LotteryWindow_Activity.ReceiveInitData = function(...)
     ;
     ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).OneTimeBtn):GetChild("FreeNumberTxt")).visible = false
     countTimer = (LuaTime.CountDown)(lData.onceCdTime * 0.001, ((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).TimeTxt, function(...)
-    -- function num : 0_2_0 , upvalues : uis, _ENV, LotteryCardId, lData
+    -- function num : 0_3_0 , upvalues : uis, _ENV, LotteryCardId, lData
     -- DECOMPILER ERROR at PC3: Confused about usage of register: R0 in 'UnsetPending'
 
     (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).TimeTxt).visible = false
@@ -103,10 +150,10 @@ LotteryWindow_Activity.ReceiveInitData = function(...)
   (LotteryWindow_Activity.SetButtonInfo)(((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).SpecialOneTimeBtn, LotteryCardId.day, 0, lData.dayLottery)
 end
 
--- DECOMPILER ERROR at PC24: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound, ...)
-  -- function num : 0_3 , upvalues : _ENV, uis, LotteryCardId, beginTime, endTime, CostType
+  -- function num : 0_4 , upvalues : _ENV, uis, LotteryCardId, beginTime, endTime, CostType
   local excelData = ((TableData.gTable).BaseLotteryData)[id]
   local costStr, haveCount, needCount = nil, nil, nil
   local isKaQuan = excelData.type == 3
@@ -159,7 +206,7 @@ LotteryWindow_Activity.SetButtonInfo = function(btn, id, freeNum, dayLottery, so
   (btn.onClick):ClearCallFunc()
   ;
   (btn.onClick):Add(function(...)
-    -- function num : 0_3_0 , upvalues : _ENV, beginTime, endTime, freeNum, uis, id, CostType, sound, excelData, LotteryCardId, dayLottery
+    -- function num : 0_4_0 , upvalues : _ENV, beginTime, endTime, freeNum, uis, id, CostType, sound, excelData, LotteryCardId, dayLottery
     local curTime = (ActorData.GetServerTime)()
     if beginTime <= curTime and curTime <= endTime then
       (MessageMgr.SendCenterTips)((PUtil.get)(223))
@@ -207,7 +254,7 @@ LotteryWindow_Activity.SetButtonInfo = function(btn, id, freeNum, dayLottery, so
               local bindId = tonumber((split(excelData.cost, ":"))[2])
               if bind then
                 (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_3_0_0 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_0 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -227,7 +274,7 @@ LotteryWindow_Activity.SetButtonInfo = function(btn, id, freeNum, dayLottery, so
                 (LotteryData.SaveCurCostMode)(CostType.Diamond)
                 ;
                 (MessageMgr.OpenCostResConfirmWindow)(224, excelData.cost, function(...)
-      -- function num : 0_3_0_1 , upvalues : _ENV, id, sound
+      -- function num : 0_4_0_1 , upvalues : _ENV, id, sound
       (LotteryService.ReqLotteryDraw)(id)
       if sound ~= nil then
         (LuaSound.PlaySound)(sound, SoundBank.OTHER)
@@ -245,33 +292,33 @@ LotteryWindow_Activity.SetButtonInfo = function(btn, id, freeNum, dayLottery, so
   -- DECOMPILER ERROR: 15 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC27: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity.ReceiveDrawedData = function(para, ...)
-  -- function num : 0_4 , upvalues : _ENV, lotteryType
+  -- function num : 0_5 , upvalues : _ENV, lotteryType
   (ActorData.SubLotteryActivityNum)((para.data).lotteryId, 1)
   ;
   (LotteryMgr.PlayLotteryEffects)(function(...)
-    -- function num : 0_4_0 , upvalues : _ENV, lotteryType
+    -- function num : 0_5_0 , upvalues : _ENV, lotteryType
     (LotteryService.ReqLotteryInit)(lotteryType)
     UIMgr:SendWindowMessage("LotteryWindow", (WindowMsgEnum.Lottery).E_MSG_LOTTERY_DRAW_ANIMATION_END, {})
   end
 , para)
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity.ShowResult = function(para, ...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   OpenWindow("LotteryRewardWindow", UILayer.HUD, para, 0)
   ;
   (LotteryMgr.HideAllBackGroundEffects)()
 end
 
--- DECOMPILER ERROR at PC33: Confused about usage of register: R8 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R8 in 'UnsetPending'
 
 LotteryWindow_Activity.OnClose = function(...)
-  -- function num : 0_6 , upvalues : uis, _ENV, fx_main
+  -- function num : 0_7 , upvalues : uis, _ENV, fx_main
   if uis then
     (Util.RecycleUIModel)((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader)
   end

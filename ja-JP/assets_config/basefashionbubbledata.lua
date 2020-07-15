@@ -9,8 +9,6 @@ BaseFashionBubbleData = {
 , 
 [97010013] = {id = 97010013, bubble_text = (PUtil.get)(97010013), expression = "exp_surprise", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_4"}
 , 
-[97010014] = {id = 97010014, bubble_text = (PUtil.get)(97010014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_5"}
-, 
 [97010020] = {id = 97010020, bubble_text = (PUtil.get)(97010020), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_1"}
 , 
 [97010021] = {id = 97010021, bubble_text = (PUtil.get)(97010021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_2"}
@@ -18,8 +16,6 @@ BaseFashionBubbleData = {
 [97010022] = {id = 97010022, bubble_text = (PUtil.get)(97010022), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_3"}
 , 
 [97010023] = {id = 97010023, bubble_text = (PUtil.get)(97010023), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_4"}
-, 
-[97010024] = {id = 97010024, bubble_text = (PUtil.get)(97010024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_5"}
 , 
 [97010030] = {id = 97010030, bubble_text = (PUtil.get)(97010030), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_1"}
 , 
@@ -29,8 +25,6 @@ BaseFashionBubbleData = {
 , 
 [97010033] = {id = 97010033, bubble_text = (PUtil.get)(97010033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_4"}
 , 
-[97010034] = {id = 97010034, bubble_text = (PUtil.get)(97010034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_5"}
-, 
 [97010040] = {id = 97010040, bubble_text = (PUtil.get)(97010040), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_1"}
 , 
 [97010041] = {id = 97010041, bubble_text = (PUtil.get)(97010041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_2"}
@@ -39,8 +33,6 @@ BaseFashionBubbleData = {
 , 
 [97010043] = {id = 97010043, bubble_text = (PUtil.get)(97010043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_4"}
 , 
-[97010044] = {id = 97010044, bubble_text = (PUtil.get)(97010044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_5"}
-, 
 [97010050] = {id = 97010050, bubble_text = (PUtil.get)(97010050), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_1"}
 , 
 [97010051] = {id = 97010051, bubble_text = (PUtil.get)(97010051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_2"}
@@ -48,8 +40,6 @@ BaseFashionBubbleData = {
 [97010052] = {id = 97010052, bubble_text = (PUtil.get)(97010052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_3"}
 , 
 [97010053] = {id = 97010053, bubble_text = (PUtil.get)(97010053), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_4"}
-, 
-[97010054] = {id = 97010054, bubble_text = (PUtil.get)(97010054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_5"}
 , 
 [97010060] = {id = 97010060, bubble_text = (PUtil.get)(97010060), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "764:264", direction = 2, voice_path = "Evelynn_Main_1"}
 , 
@@ -151,8 +141,6 @@ BaseFashionBubbleData = {
 , 
 [97021043] = {id = 97021043, bubble_text = (PUtil.get)(97021043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "717:262", direction = 2, voice_path = "Iris_Main_3"}
 , 
-[97021044] = {id = 97021044, bubble_text = (PUtil.get)(97021044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "717:262", direction = 2, voice_path = "Iris_Main_4"}
-, 
 [97021051] = {id = 97021051, bubble_text = (PUtil.get)(97021051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "669:262", direction = 2, voice_path = "Aileen_Main_1"}
 , 
 [97021052] = {id = 97021052, bubble_text = (PUtil.get)(97021052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "669:262", direction = 2, voice_path = "Aileen_Main_2"}
@@ -209,8 +197,6 @@ BaseFashionBubbleData = {
 , 
 [97022034] = {id = 97022034, bubble_text = (PUtil.get)(97022034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "736:259", direction = 2, voice_path = "Noel_Main_4"}
 , 
-[97022035] = {id = 97022035, bubble_text = (PUtil.get)(97022035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "736:259", direction = 2, voice_path = "Noel_Main_5"}
-, 
 [97022041] = {id = 97022041, bubble_text = (PUtil.get)(97022041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "740:258", direction = 2, voice_path = "Quinn_Main_1"}
 , 
 [97022042] = {id = 97022042, bubble_text = (PUtil.get)(97022042), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "740:258", direction = 2, voice_path = "Quinn_Main_2"}
@@ -251,8 +237,6 @@ BaseFashionBubbleData = {
 , 
 [97030024] = {id = 97030024, bubble_text = (PUtil.get)(97030024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:268", direction = 1, voice_path = "Bridget_Main_4"}
 , 
-[97030025] = {id = 97030025, bubble_text = (PUtil.get)(97030025), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:268", direction = 1, voice_path = "Bridget_Main_5"}
-, 
 [97030031] = {id = 97030031, bubble_text = (PUtil.get)(97030031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "330:274", direction = 1, voice_path = "Aloe_Main_1"}
 , 
 [97030032] = {id = 97030032, bubble_text = (PUtil.get)(97030032), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "330:274", direction = 1, voice_path = "Aloe_Main_2"}
@@ -277,8 +261,6 @@ BaseFashionBubbleData = {
 , 
 [97030054] = {id = 97030054, bubble_text = (PUtil.get)(97030054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:260", direction = 1, voice_path = "Sara_Main_4"}
 , 
-[97030055] = {id = 97030055, bubble_text = (PUtil.get)(97030055), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:260", direction = 1, voice_path = "Sara_Main_5"}
-, 
 [97030061] = {id = 97030061, bubble_text = (PUtil.get)(97030061), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "758:272", direction = 2, voice_path = "Bell_Main_1"}
 , 
 [97030062] = {id = 97030062, bubble_text = (PUtil.get)(97030062), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "758:272", direction = 2, voice_path = "Bell_Main_2"}
@@ -301,8 +283,6 @@ BaseFashionBubbleData = {
 , 
 [97031014] = {id = 97031014, bubble_text = (PUtil.get)(97031014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "749:274", direction = 2, voice_path = "Lovey_Main_4"}
 , 
-[97031015] = {id = 97031015, bubble_text = (PUtil.get)(97031015), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "749:274", direction = 2, voice_path = "Lovey_Main_5"}
-, 
 [97031021] = {id = 97031021, bubble_text = (PUtil.get)(97031021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_1"}
 , 
 [97031022] = {id = 97031022, bubble_text = (PUtil.get)(97031022), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_2"}
@@ -318,8 +298,6 @@ BaseFashionBubbleData = {
 [97031033] = {id = 97031033, bubble_text = (PUtil.get)(97031033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_3"}
 , 
 [97031034] = {id = 97031034, bubble_text = (PUtil.get)(97031034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_4"}
-, 
-[97031035] = {id = 97031035, bubble_text = (PUtil.get)(97031035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_5"}
 , 
 [97031041] = {id = 97031041, bubble_text = (PUtil.get)(97031041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "717:277", direction = 2, voice_path = "Evanthe_Main_1"}
 , 
@@ -345,6 +323,22 @@ BaseFashionBubbleData = {
 , 
 [97031064] = {id = 97031064, bubble_text = (PUtil.get)(97031064), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "May_Main_4"}
 , 
+[97030081] = {id = 97030081, bubble_text = (PUtil.get)(97030081), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Main_1"}
+, 
+[97030082] = {id = 97030082, bubble_text = (PUtil.get)(97030082), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Main_2"}
+, 
+[97030083] = {id = 97030083, bubble_text = (PUtil.get)(97030083), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Main_3"}
+, 
+[97030084] = {id = 97030084, bubble_text = (PUtil.get)(97030084), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Main_4"}
+, 
+[97011071] = {id = 97011071, bubble_text = (PUtil.get)(97011071), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Main_1"}
+, 
+[97011072] = {id = 97011072, bubble_text = (PUtil.get)(97011072), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Main_2"}
+, 
+[97011073] = {id = 97011073, bubble_text = (PUtil.get)(97011073), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Main_3"}
+, 
+[97011074] = {id = 97011074, bubble_text = (PUtil.get)(97011074), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Main_4"}
+, 
 [97110010] = {id = 97110010, bubble_text = (PUtil.get)(97010010), expression = "exp_angry", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_1"}
 , 
 [97110011] = {id = 97110011, bubble_text = (PUtil.get)(97010011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_2"}
@@ -352,8 +346,6 @@ BaseFashionBubbleData = {
 [97110012] = {id = 97110012, bubble_text = (PUtil.get)(97010012), expression = "exp_said", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_3"}
 , 
 [97110013] = {id = 97110013, bubble_text = (PUtil.get)(97010013), expression = "exp_surprise", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_4"}
-, 
-[97110014] = {id = 97110014, bubble_text = (PUtil.get)(97010014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Main_5"}
 , 
 [97110020] = {id = 97110020, bubble_text = (PUtil.get)(97010020), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_1"}
 , 
@@ -363,8 +355,6 @@ BaseFashionBubbleData = {
 , 
 [97110023] = {id = 97110023, bubble_text = (PUtil.get)(97010023), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_4"}
 , 
-[97110024] = {id = 97110024, bubble_text = (PUtil.get)(97010024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:260", direction = 2, voice_path = "Olivia_Main_5"}
-, 
 [97110030] = {id = 97110030, bubble_text = (PUtil.get)(97010030), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_1"}
 , 
 [97110031] = {id = 97110031, bubble_text = (PUtil.get)(97010031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_2"}
@@ -372,8 +362,6 @@ BaseFashionBubbleData = {
 [97110032] = {id = 97110032, bubble_text = (PUtil.get)(97010032), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_3"}
 , 
 [97110033] = {id = 97110033, bubble_text = (PUtil.get)(97010033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_4"}
-, 
-[97110034] = {id = 97110034, bubble_text = (PUtil.get)(97010034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "314:270", direction = 1, voice_path = "April_Main_5"}
 , 
 [97110040] = {id = 97110040, bubble_text = (PUtil.get)(97010040), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_1"}
 , 
@@ -383,8 +371,6 @@ BaseFashionBubbleData = {
 , 
 [97110043] = {id = 97110043, bubble_text = (PUtil.get)(97010043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_4"}
 , 
-[97110044] = {id = 97110044, bubble_text = (PUtil.get)(97010044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "727:254", direction = 2, voice_path = "Lily_Main_5"}
-, 
 [97110050] = {id = 97110050, bubble_text = (PUtil.get)(97010050), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_1"}
 , 
 [97110051] = {id = 97110051, bubble_text = (PUtil.get)(97010051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_2"}
@@ -392,8 +378,6 @@ BaseFashionBubbleData = {
 [97110052] = {id = 97110052, bubble_text = (PUtil.get)(97010052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_3"}
 , 
 [97110053] = {id = 97110053, bubble_text = (PUtil.get)(97010053), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_4"}
-, 
-[97110054] = {id = 97110054, bubble_text = (PUtil.get)(97010054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "720:266", direction = 2, voice_path = "francesca_Main_5"}
 , 
 [97110060] = {id = 97110060, bubble_text = (PUtil.get)(97010060), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "764:264", direction = 2, voice_path = "Evelynn_Main_1"}
 , 
@@ -495,8 +479,6 @@ BaseFashionBubbleData = {
 , 
 [97121043] = {id = 97121043, bubble_text = (PUtil.get)(97021043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "717:262", direction = 2, voice_path = "Iris_Main_3"}
 , 
-[97121044] = {id = 97121044, bubble_text = (PUtil.get)(97021044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "717:262", direction = 2, voice_path = "Iris_Main_4"}
-, 
 [97121051] = {id = 97121051, bubble_text = (PUtil.get)(97021051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "669:262", direction = 2, voice_path = "Aileen_Main_1"}
 , 
 [97121052] = {id = 97121052, bubble_text = (PUtil.get)(97021052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "669:262", direction = 2, voice_path = "Aileen_Main_2"}
@@ -553,8 +535,6 @@ BaseFashionBubbleData = {
 , 
 [97122034] = {id = 97122034, bubble_text = (PUtil.get)(97022034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "736:259", direction = 2, voice_path = "Noel_Main_4"}
 , 
-[97122035] = {id = 97122035, bubble_text = (PUtil.get)(97022035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "736:259", direction = 2, voice_path = "Noel_Main_5"}
-, 
 [97122041] = {id = 97122041, bubble_text = (PUtil.get)(97022041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "740:258", direction = 2, voice_path = "Quinn_Main_1"}
 , 
 [97122042] = {id = 97122042, bubble_text = (PUtil.get)(97022042), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "740:258", direction = 2, voice_path = "Quinn_Main_2"}
@@ -595,8 +575,6 @@ BaseFashionBubbleData = {
 , 
 [97130024] = {id = 97130024, bubble_text = (PUtil.get)(97030024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:268", direction = 1, voice_path = "Bridget_Main_4"}
 , 
-[97130025] = {id = 97130025, bubble_text = (PUtil.get)(97030025), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:268", direction = 1, voice_path = "Bridget_Main_5"}
-, 
 [97130031] = {id = 97130031, bubble_text = (PUtil.get)(97030031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "324:258", direction = 1, voice_path = "Aloe_Main_1"}
 , 
 [97130032] = {id = 97130032, bubble_text = (PUtil.get)(97030032), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "324:258", direction = 1, voice_path = "Aloe_Main_2"}
@@ -621,8 +599,6 @@ BaseFashionBubbleData = {
 , 
 [97130054] = {id = 97130054, bubble_text = (PUtil.get)(97030054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:260", direction = 1, voice_path = "Sara_Main_4"}
 , 
-[97130055] = {id = 97130055, bubble_text = (PUtil.get)(97030055), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "389:260", direction = 1, voice_path = "Sara_Main_5"}
-, 
 [97130061] = {id = 97130061, bubble_text = (PUtil.get)(97030061), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "758:272", direction = 2, voice_path = "Bell_Main_1"}
 , 
 [97130062] = {id = 97130062, bubble_text = (PUtil.get)(97030062), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "758:272", direction = 2, voice_path = "Bell_Main_2"}
@@ -645,15 +621,13 @@ BaseFashionBubbleData = {
 , 
 [97131014] = {id = 97131014, bubble_text = (PUtil.get)(97031014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "781:282", direction = 2, voice_path = "Lovey_Main_4"}
 , 
-[97131015] = {id = 97131015, bubble_text = (PUtil.get)(97031015), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "781:282", direction = 2, voice_path = "Lovey_Main_5"}
+[97131021] = {id = 97131021, bubble_text = (PUtil.get)(97031021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Main_1"}
 , 
-[97131021] = {id = 97131021, bubble_text = (PUtil.get)(97031021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_1"}
+[97131022] = {id = 97131022, bubble_text = (PUtil.get)(97031022), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Main_2"}
 , 
-[97131022] = {id = 97131022, bubble_text = (PUtil.get)(97031022), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_2"}
+[97131023] = {id = 97131023, bubble_text = (PUtil.get)(97031023), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Main_3"}
 , 
-[97131023] = {id = 97131023, bubble_text = (PUtil.get)(97031023), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_3"}
-, 
-[97131024] = {id = 97131024, bubble_text = (PUtil.get)(97031024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Main_4"}
+[97131024] = {id = 97131024, bubble_text = (PUtil.get)(97031024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Main_4"}
 , 
 [97131031] = {id = 97131031, bubble_text = (PUtil.get)(97031031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_1"}
 , 
@@ -662,8 +636,6 @@ BaseFashionBubbleData = {
 [97131033] = {id = 97131033, bubble_text = (PUtil.get)(97031033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_3"}
 , 
 [97131034] = {id = 97131034, bubble_text = (PUtil.get)(97031034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_4"}
-, 
-[97131035] = {id = 97131035, bubble_text = (PUtil.get)(97031035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:270", direction = 2, voice_path = "Isabella_Main_5"}
 , 
 [97131041] = {id = 97131041, bubble_text = (PUtil.get)(97031041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "635:272", direction = 2, voice_path = "Evanthe_Main_1"}
 , 
@@ -689,6 +661,22 @@ BaseFashionBubbleData = {
 , 
 [97131064] = {id = 97131064, bubble_text = (PUtil.get)(97031064), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Main_4"}
 , 
+[97130081] = {id = 97130081, bubble_text = (PUtil.get)(97030081), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Main_1"}
+, 
+[97130082] = {id = 97130082, bubble_text = (PUtil.get)(97030082), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Main_2"}
+, 
+[97130083] = {id = 97130083, bubble_text = (PUtil.get)(97030083), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Main_3"}
+, 
+[97130084] = {id = 97130084, bubble_text = (PUtil.get)(97030084), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Main_4"}
+, 
+[97111071] = {id = 97111071, bubble_text = (PUtil.get)(97011071), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Main_1"}
+, 
+[97111072] = {id = 97111072, bubble_text = (PUtil.get)(97011072), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Main_2"}
+, 
+[97111073] = {id = 97111073, bubble_text = (PUtil.get)(97011073), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Main_3"}
+, 
+[97111074] = {id = 97111074, bubble_text = (PUtil.get)(97011074), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Main_4"}
+, 
 [97210010] = {id = 97210010, bubble_text = (PUtil.get)(97010010), expression = "exp_angry", bottom_frame = "Home:HomeWindowTalkPanel", position = "516:229", direction = 1, voice_path = "Shanon_Main_1"}
 , 
 [97210011] = {id = 97210011, bubble_text = (PUtil.get)(97010011), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "516:229", direction = 1, voice_path = "Shanon_Main_2"}
@@ -696,8 +684,6 @@ BaseFashionBubbleData = {
 [97210012] = {id = 97210012, bubble_text = (PUtil.get)(97010012), expression = "exp_said", bottom_frame = "Home:HomeWindowTalkPanel", position = "516:229", direction = 1, voice_path = "Shanon_Main_3"}
 , 
 [97210013] = {id = 97210013, bubble_text = (PUtil.get)(97010013), expression = "exp_surprise", bottom_frame = "Home:HomeWindowTalkPanel", position = "516:229", direction = 1, voice_path = "Shanon_Main_4"}
-, 
-[97210014] = {id = 97210014, bubble_text = (PUtil.get)(97010014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "516:229", direction = 1, voice_path = "Shanon_Main_5"}
 , 
 [97210020] = {id = 97210020, bubble_text = (PUtil.get)(97010020), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:329", direction = 2, voice_path = "Olivia_Main_1"}
 , 
@@ -707,8 +693,6 @@ BaseFashionBubbleData = {
 , 
 [97210023] = {id = 97210023, bubble_text = (PUtil.get)(97010023), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:329", direction = 2, voice_path = "Olivia_Main_4"}
 , 
-[97210024] = {id = 97210024, bubble_text = (PUtil.get)(97010024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "741:329", direction = 2, voice_path = "Olivia_Main_5"}
-, 
 [97210030] = {id = 97210030, bubble_text = (PUtil.get)(97010030), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:314", direction = 2, voice_path = "April_Main_1"}
 , 
 [97210031] = {id = 97210031, bubble_text = (PUtil.get)(97010031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:314", direction = 2, voice_path = "April_Main_2"}
@@ -716,8 +700,6 @@ BaseFashionBubbleData = {
 [97210032] = {id = 97210032, bubble_text = (PUtil.get)(97010032), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:314", direction = 2, voice_path = "April_Main_3"}
 , 
 [97210033] = {id = 97210033, bubble_text = (PUtil.get)(97010033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:314", direction = 2, voice_path = "April_Main_4"}
-, 
-[97210034] = {id = 97210034, bubble_text = (PUtil.get)(97010034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:314", direction = 2, voice_path = "April_Main_5"}
 , 
 [97210040] = {id = 97210040, bubble_text = (PUtil.get)(97010040), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "744:381", direction = 2, voice_path = "Lily_Main_1"}
 , 
@@ -727,8 +709,6 @@ BaseFashionBubbleData = {
 , 
 [97210043] = {id = 97210043, bubble_text = (PUtil.get)(97010043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "744:381", direction = 2, voice_path = "Lily_Main_4"}
 , 
-[97210044] = {id = 97210044, bubble_text = (PUtil.get)(97010044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "744:381", direction = 2, voice_path = "Lily_Main_5"}
-, 
 [97210050] = {id = 97210050, bubble_text = (PUtil.get)(97010050), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "735:266", direction = 2, voice_path = "francesca_Main_1"}
 , 
 [97210051] = {id = 97210051, bubble_text = (PUtil.get)(97010051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "735:266", direction = 2, voice_path = "francesca_Main_2"}
@@ -736,8 +716,6 @@ BaseFashionBubbleData = {
 [97210052] = {id = 97210052, bubble_text = (PUtil.get)(97010052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "735:266", direction = 2, voice_path = "francesca_Main_3"}
 , 
 [97210053] = {id = 97210053, bubble_text = (PUtil.get)(97010053), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "735:266", direction = 2, voice_path = "francesca_Main_4"}
-, 
-[97210054] = {id = 97210054, bubble_text = (PUtil.get)(97010054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "735:266", direction = 2, voice_path = "francesca_Main_5"}
 , 
 [97210060] = {id = 97210060, bubble_text = (PUtil.get)(97010060), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "291:323", direction = 1, voice_path = "Evelynn_Main_1"}
 , 
@@ -839,8 +817,6 @@ BaseFashionBubbleData = {
 , 
 [97221043] = {id = 97221043, bubble_text = (PUtil.get)(97021043), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "442:305", direction = 1, voice_path = "Iris_Main_3"}
 , 
-[97221044] = {id = 97221044, bubble_text = (PUtil.get)(97021044), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "442:305", direction = 1, voice_path = "Iris_Main_4"}
-, 
 [97221051] = {id = 97221051, bubble_text = (PUtil.get)(97021051), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "367:283", direction = 1, voice_path = "Aileen_Main_1"}
 , 
 [97221052] = {id = 97221052, bubble_text = (PUtil.get)(97021052), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "367:283", direction = 1, voice_path = "Aileen_Main_2"}
@@ -897,8 +873,6 @@ BaseFashionBubbleData = {
 , 
 [97222034] = {id = 97222034, bubble_text = (PUtil.get)(97022034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "372:283", direction = 1, voice_path = "Noel_Main_4"}
 , 
-[97222035] = {id = 97222035, bubble_text = (PUtil.get)(97022035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "372:283", direction = 1, voice_path = "Noel_Main_5"}
-, 
 [97222041] = {id = 97222041, bubble_text = (PUtil.get)(97022041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "312:305", direction = 1, voice_path = "Quinn_Main_1"}
 , 
 [97222042] = {id = 97222042, bubble_text = (PUtil.get)(97022042), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "312:305", direction = 1, voice_path = "Quinn_Main_2"}
@@ -939,8 +913,6 @@ BaseFashionBubbleData = {
 , 
 [97230024] = {id = 97230024, bubble_text = (PUtil.get)(97030024), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "743:333", direction = 2, voice_path = "Bridget_Main_4"}
 , 
-[97230025] = {id = 97230025, bubble_text = (PUtil.get)(97030025), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "743:333", direction = 2, voice_path = "Bridget_Main_5"}
-, 
 [97230031] = {id = 97230031, bubble_text = (PUtil.get)(97030031), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "207:315", direction = 1, voice_path = "Aloe_Main_1"}
 , 
 [97230032] = {id = 97230032, bubble_text = (PUtil.get)(97030032), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "207:315", direction = 1, voice_path = "Aloe_Main_2"}
@@ -965,8 +937,6 @@ BaseFashionBubbleData = {
 , 
 [97230054] = {id = 97230054, bubble_text = (PUtil.get)(97030054), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "540:391", direction = 2, voice_path = "Sara_Main_4"}
 , 
-[97230055] = {id = 97230055, bubble_text = (PUtil.get)(97030055), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "540:391", direction = 2, voice_path = "Sara_Main_5"}
-, 
 [97230061] = {id = 97230061, bubble_text = (PUtil.get)(97030061), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "381:406", direction = 1, voice_path = "Bell_Main_1"}
 , 
 [97230062] = {id = 97230062, bubble_text = (PUtil.get)(97030062), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "381:406", direction = 1, voice_path = "Bell_Main_2"}
@@ -989,8 +959,6 @@ BaseFashionBubbleData = {
 , 
 [97231014] = {id = 97231014, bubble_text = (PUtil.get)(97031014), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "567:295", direction = 1, voice_path = "Lovey_Main_4"}
 , 
-[97231015] = {id = 97231015, bubble_text = (PUtil.get)(97031015), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "567:295", direction = 1, voice_path = "Lovey_Main_5"}
-, 
 [97231021] = {id = 97231021, bubble_text = (PUtil.get)(97031021), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Main_1"}
 , 
 [97231022] = {id = 97231022, bubble_text = (PUtil.get)(97031022), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Main_2"}
@@ -1006,8 +974,6 @@ BaseFashionBubbleData = {
 [97231033] = {id = 97231033, bubble_text = (PUtil.get)(97031033), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "365:300", direction = 1, voice_path = "Isabella_Main_3"}
 , 
 [97231034] = {id = 97231034, bubble_text = (PUtil.get)(97031034), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "365:300", direction = 1, voice_path = "Isabella_Main_4"}
-, 
-[97231035] = {id = 97231035, bubble_text = (PUtil.get)(97031035), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "365:300", direction = 1, voice_path = "Isabella_Main_5"}
 , 
 [97231041] = {id = 97231041, bubble_text = (PUtil.get)(97031041), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "600:336", direction = 2, voice_path = "Evanthe_Main_1"}
 , 
@@ -1032,6 +998,22 @@ BaseFashionBubbleData = {
 [97231063] = {id = 97231063, bubble_text = (PUtil.get)(97031063), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Main_3"}
 , 
 [97231064] = {id = 97231064, bubble_text = (PUtil.get)(97031064), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Main_4"}
+, 
+[97230081] = {id = 97230081, bubble_text = (PUtil.get)(97030081), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Main_1"}
+, 
+[97230082] = {id = 97230082, bubble_text = (PUtil.get)(97030082), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Main_2"}
+, 
+[97230083] = {id = 97230083, bubble_text = (PUtil.get)(97030083), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Main_3"}
+, 
+[97230084] = {id = 97230084, bubble_text = (PUtil.get)(97030084), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Main_4"}
+, 
+[97211071] = {id = 97211071, bubble_text = (PUtil.get)(97011071), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Main_1"}
+, 
+[97211072] = {id = 97211072, bubble_text = (PUtil.get)(97011072), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Main_2"}
+, 
+[97211073] = {id = 97211073, bubble_text = (PUtil.get)(97011073), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Main_3"}
+, 
+[97211074] = {id = 97211074, bubble_text = (PUtil.get)(97011074), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Main_4"}
 , 
 [101100101] = {id = 101100101, bubble_text = (PUtil.get)(101100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Get_1"}
 , 
@@ -1305,7 +1287,7 @@ BaseFashionBubbleData = {
 , 
 [101310201] = {id = 101310201, bubble_text = (PUtil.get)(101310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Get_1"}
 , 
-[101310211] = {id = 101310211, bubble_text = (PUtil.get)(101310211), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Stage_2"}
+[101310211] = {id = 101310211, bubble_text = (PUtil.get)(101310211), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Stage_2"}
 , 
 [101310221] = {id = 101310221, bubble_text = (PUtil.get)(101310221), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Stage_3"}
 , 
@@ -1332,6 +1314,18 @@ BaseFashionBubbleData = {
 [101310611] = {id = 101310611, bubble_text = (PUtil.get)(101310611), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Stage_2"}
 , 
 [101310621] = {id = 101310621, bubble_text = (PUtil.get)(101310621), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Stage_3"}
+, 
+[101300801] = {id = 101300801, bubble_text = (PUtil.get)(101300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Get_1"}
+, 
+[101300811] = {id = 101300811, bubble_text = (PUtil.get)(101300811), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Stage_2"}
+, 
+[101300821] = {id = 101300821, bubble_text = (PUtil.get)(101300821), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Stage_3"}
+, 
+[101110701] = {id = 101110701, bubble_text = (PUtil.get)(101110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Get_1"}
+, 
+[101110711] = {id = 101110711, bubble_text = (PUtil.get)(101110711), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Stage_2"}
+, 
+[101110721] = {id = 101110721, bubble_text = (PUtil.get)(101110721), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Stage_3"}
 , 
 [102100101] = {id = 102100101, bubble_text = (PUtil.get)(102100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_In_1"}
 , 
@@ -1605,7 +1599,7 @@ BaseFashionBubbleData = {
 , 
 [102310201] = {id = 102310201, bubble_text = (PUtil.get)(102310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_In_1"}
 , 
-[102310202] = {id = 102310202, bubble_text = (PUtil.get)(102310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_In_1"}
+[102310202] = {id = 102310202, bubble_text = (PUtil.get)(102310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_In_1"}
 , 
 [102310203] = {id = 102310203, bubble_text = (PUtil.get)(102310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_In_1"}
 , 
@@ -1632,6 +1626,18 @@ BaseFashionBubbleData = {
 [102310602] = {id = 102310602, bubble_text = (PUtil.get)(102310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_In_1"}
 , 
 [102310603] = {id = 102310603, bubble_text = (PUtil.get)(102310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_In_1"}
+, 
+[102300801] = {id = 102300801, bubble_text = (PUtil.get)(102300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_In_1"}
+, 
+[102300802] = {id = 102300802, bubble_text = (PUtil.get)(102300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_In_1"}
+, 
+[102300803] = {id = 102300803, bubble_text = (PUtil.get)(102300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_In_1"}
+, 
+[102110701] = {id = 102110701, bubble_text = (PUtil.get)(102110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_In_1"}
+, 
+[102110702] = {id = 102110702, bubble_text = (PUtil.get)(102110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_In_1"}
+, 
+[102110703] = {id = 102110703, bubble_text = (PUtil.get)(102110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_In_1"}
 , 
 [103100101] = {id = 103100101, bubble_text = (PUtil.get)(103100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "445:258", direction = 2, voice_path = "Shanon_Stage_1"}
 , 
@@ -1933,6 +1939,18 @@ BaseFashionBubbleData = {
 , 
 [103310621] = {id = 103310621, bubble_text = (PUtil.get)(103310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "447:255", direction = 2, voice_path = "May_Stage_1"}
 , 
+[103300801] = {id = 103300801, bubble_text = (PUtil.get)(103300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "406:242", direction = 2, voice_path = "Lisa_Stage_1"}
+, 
+[103300811] = {id = 103300811, bubble_text = (PUtil.get)(103300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "401:251", direction = 2, voice_path = "Lisa_Stage_1"}
+, 
+[103300821] = {id = 103300821, bubble_text = (PUtil.get)(103300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "406:242", direction = 2, voice_path = "Lisa_Stage_1"}
+, 
+[103110701] = {id = 103110701, bubble_text = (PUtil.get)(103110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:246", direction = 2, voice_path = "Paroness_Stage_1"}
+, 
+[103110711] = {id = 103110711, bubble_text = (PUtil.get)(103110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "408:257", direction = 2, voice_path = "Paroness_Stage_1"}
+, 
+[103110721] = {id = 103110721, bubble_text = (PUtil.get)(103110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:246", direction = 2, voice_path = "Paroness_Stage_1"}
+, 
 [104100101] = {id = 104100101, bubble_text = (PUtil.get)(104100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "445:258", direction = 2, voice_path = "Shanon_Star_1"}
 , 
 [104100111] = {id = 104100111, bubble_text = (PUtil.get)(104100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "445:258", direction = 2, voice_path = "Shanon_Star_1"}
@@ -2232,6 +2250,18 @@ BaseFashionBubbleData = {
 [104310611] = {id = 104310611, bubble_text = (PUtil.get)(104310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "394:261", direction = 2, voice_path = "May_Star_1"}
 , 
 [104310621] = {id = 104310621, bubble_text = (PUtil.get)(104310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "447:255", direction = 2, voice_path = "May_Star_1"}
+, 
+[104300801] = {id = 104300801, bubble_text = (PUtil.get)(104300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "406:242", direction = 2, voice_path = "Lisa_Star_1"}
+, 
+[104300811] = {id = 104300811, bubble_text = (PUtil.get)(104300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "401:251", direction = 2, voice_path = "Lisa_Star_1"}
+, 
+[104300821] = {id = 104300821, bubble_text = (PUtil.get)(104300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "406:242", direction = 2, voice_path = "Lisa_Star_1"}
+, 
+[104110701] = {id = 104110701, bubble_text = (PUtil.get)(104110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:246", direction = 2, voice_path = "Paroness_Star_1"}
+, 
+[104110711] = {id = 104110711, bubble_text = (PUtil.get)(104110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "408:257", direction = 2, voice_path = "Paroness_Star_1"}
+, 
+[104110721] = {id = 104110721, bubble_text = (PUtil.get)(104110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "416:246", direction = 2, voice_path = "Paroness_Star_1"}
 , 
 [105100101] = {id = 105100101, bubble_text = (PUtil.get)(105100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Interaction_1"}
 , 
@@ -3593,15 +3623,15 @@ BaseFashionBubbleData = {
 , 
 [105310205] = {id = 105310205, bubble_text = (PUtil.get)(105310205), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_5"}
 , 
-[105310211] = {id = 105310211, bubble_text = (PUtil.get)(105310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_1"}
+[105310211] = {id = 105310211, bubble_text = (PUtil.get)(105310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Interaction_1"}
 , 
-[105310212] = {id = 105310212, bubble_text = (PUtil.get)(105310202), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_2"}
+[105310212] = {id = 105310212, bubble_text = (PUtil.get)(105310202), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Interaction_2"}
 , 
-[105310213] = {id = 105310213, bubble_text = (PUtil.get)(105310203), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_3"}
+[105310213] = {id = 105310213, bubble_text = (PUtil.get)(105310203), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Interaction_3"}
 , 
-[105310214] = {id = 105310214, bubble_text = (PUtil.get)(105310204), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_4"}
+[105310214] = {id = 105310214, bubble_text = (PUtil.get)(105310204), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Interaction_4"}
 , 
-[105310215] = {id = 105310215, bubble_text = (PUtil.get)(105310205), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Interaction_5"}
+[105310215] = {id = 105310215, bubble_text = (PUtil.get)(105310205), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Interaction_5"}
 , 
 [105310221] = {id = 105310221, bubble_text = (PUtil.get)(105310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Interaction_1"}
 , 
@@ -3732,6 +3762,66 @@ BaseFashionBubbleData = {
 [105310624] = {id = 105310624, bubble_text = (PUtil.get)(105310604), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_4"}
 , 
 [105310625] = {id = 105310625, bubble_text = (PUtil.get)(105310605), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Interaction_5"}
+, 
+[105300801] = {id = 105300801, bubble_text = (PUtil.get)(105300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_1"}
+, 
+[105300802] = {id = 105300802, bubble_text = (PUtil.get)(105300802), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_2"}
+, 
+[105300803] = {id = 105300803, bubble_text = (PUtil.get)(105300803), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_3"}
+, 
+[105300804] = {id = 105300804, bubble_text = (PUtil.get)(105300804), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_4"}
+, 
+[105300805] = {id = 105300805, bubble_text = (PUtil.get)(105300805), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Interaction_5"}
+, 
+[105300811] = {id = 105300811, bubble_text = (PUtil.get)(105300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Interaction_1"}
+, 
+[105300812] = {id = 105300812, bubble_text = (PUtil.get)(105300802), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Interaction_2"}
+, 
+[105300813] = {id = 105300813, bubble_text = (PUtil.get)(105300803), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Interaction_3"}
+, 
+[105300814] = {id = 105300814, bubble_text = (PUtil.get)(105300804), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Interaction_4"}
+, 
+[105300815] = {id = 105300815, bubble_text = (PUtil.get)(105300805), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Interaction_5"}
+, 
+[105300821] = {id = 105300821, bubble_text = (PUtil.get)(105300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Interaction_1"}
+, 
+[105300822] = {id = 105300822, bubble_text = (PUtil.get)(105300802), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Interaction_2"}
+, 
+[105300823] = {id = 105300823, bubble_text = (PUtil.get)(105300803), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Interaction_3"}
+, 
+[105300824] = {id = 105300824, bubble_text = (PUtil.get)(105300804), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Interaction_4"}
+, 
+[105300825] = {id = 105300825, bubble_text = (PUtil.get)(105300805), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Interaction_5"}
+, 
+[105110701] = {id = 105110701, bubble_text = (PUtil.get)(105110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Interaction_1"}
+, 
+[105110702] = {id = 105110702, bubble_text = (PUtil.get)(105110702), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Interaction_2"}
+, 
+[105110703] = {id = 105110703, bubble_text = (PUtil.get)(105110703), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Interaction_3"}
+, 
+[105110704] = {id = 105110704, bubble_text = (PUtil.get)(105110704), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Interaction_4"}
+, 
+[105110705] = {id = 105110705, bubble_text = (PUtil.get)(105110705), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Interaction_5"}
+, 
+[105110711] = {id = 105110711, bubble_text = (PUtil.get)(105110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Interaction_1"}
+, 
+[105110712] = {id = 105110712, bubble_text = (PUtil.get)(105110702), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Interaction_2"}
+, 
+[105110713] = {id = 105110713, bubble_text = (PUtil.get)(105110703), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Interaction_3"}
+, 
+[105110714] = {id = 105110714, bubble_text = (PUtil.get)(105110704), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Interaction_4"}
+, 
+[105110715] = {id = 105110715, bubble_text = (PUtil.get)(105110705), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Interaction_5"}
+, 
+[105110721] = {id = 105110721, bubble_text = (PUtil.get)(105110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Interaction_1"}
+, 
+[105110722] = {id = 105110722, bubble_text = (PUtil.get)(105110702), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Interaction_2"}
+, 
+[105110723] = {id = 105110723, bubble_text = (PUtil.get)(105110703), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Interaction_3"}
+, 
+[105110724] = {id = 105110724, bubble_text = (PUtil.get)(105110704), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Interaction_4"}
+, 
+[105110725] = {id = 105110725, bubble_text = (PUtil.get)(105110705), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Interaction_5"}
 , 
 [106100101] = {id = 106100101, bubble_text = (PUtil.get)(106100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Win_1"}
 , 
@@ -4005,7 +4095,7 @@ BaseFashionBubbleData = {
 , 
 [106310201] = {id = 106310201, bubble_text = (PUtil.get)(106310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Win_1"}
 , 
-[106310211] = {id = 106310211, bubble_text = (PUtil.get)(106310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Win_1"}
+[106310211] = {id = 106310211, bubble_text = (PUtil.get)(106310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Win_1"}
 , 
 [106310221] = {id = 106310221, bubble_text = (PUtil.get)(106310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Win_1"}
 , 
@@ -4032,6 +4122,18 @@ BaseFashionBubbleData = {
 [106310611] = {id = 106310611, bubble_text = (PUtil.get)(106310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Win_1"}
 , 
 [106310621] = {id = 106310621, bubble_text = (PUtil.get)(106310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Win_1"}
+, 
+[106300801] = {id = 106300801, bubble_text = (PUtil.get)(106300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Win_1"}
+, 
+[106300811] = {id = 106300811, bubble_text = (PUtil.get)(106300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Win_1"}
+, 
+[106300821] = {id = 106300821, bubble_text = (PUtil.get)(106300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Win_1"}
+, 
+[106110701] = {id = 106110701, bubble_text = (PUtil.get)(106110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Win_1"}
+, 
+[106110711] = {id = 106110711, bubble_text = (PUtil.get)(106110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Win_1"}
+, 
+[106110721] = {id = 106110721, bubble_text = (PUtil.get)(106110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Win_1"}
 , 
 [107100101] = {id = 107100101, bubble_text = (PUtil.get)(107100101), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "768:270", direction = 2, voice_path = "Shanon_Fail_1"}
 , 
@@ -4305,7 +4407,7 @@ BaseFashionBubbleData = {
 , 
 [107310201] = {id = 107310201, bubble_text = (PUtil.get)(107310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Fail_1"}
 , 
-[107310211] = {id = 107310211, bubble_text = (PUtil.get)(107310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "789:274", direction = 2, voice_path = "Ursula_Fail_1"}
+[107310211] = {id = 107310211, bubble_text = (PUtil.get)(107310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "747:274", direction = 2, voice_path = "Ursula_Fail_1"}
 , 
 [107310221] = {id = 107310221, bubble_text = (PUtil.get)(107310201), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "648:291", direction = 2, voice_path = "Ursula_Fail_1"}
 , 
@@ -4332,6 +4434,18 @@ BaseFashionBubbleData = {
 [107310611] = {id = 107310611, bubble_text = (PUtil.get)(107310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "290:269", direction = 1, voice_path = "May_Fail_1"}
 , 
 [107310621] = {id = 107310621, bubble_text = (PUtil.get)(107310601), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "577:258", direction = 2, voice_path = "May_Fail_1"}
+, 
+[107300801] = {id = 107300801, bubble_text = (PUtil.get)(107300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Lisa_Fail_1"}
+, 
+[107300811] = {id = 107300811, bubble_text = (PUtil.get)(107300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "399:269", direction = 1, voice_path = "Lisa_Fail_1"}
+, 
+[107300821] = {id = 107300821, bubble_text = (PUtil.get)(107300801), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "326:293", direction = 1, voice_path = "Lisa_Fail_1"}
+, 
+[107110701] = {id = 107110701, bubble_text = (PUtil.get)(107110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "334:259", direction = 1, voice_path = "Paroness_Fail_1"}
+, 
+[107110711] = {id = 107110711, bubble_text = (PUtil.get)(107110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "767:269", direction = 2, voice_path = "Paroness_Fail_1"}
+, 
+[107110721] = {id = 107110721, bubble_text = (PUtil.get)(107110701), expression = "exp_happy", bottom_frame = "Home:HomeWindowTalkPanel", position = "457:348", direction = 2, voice_path = "Paroness_Fail_1"}
 , 
 [108100101] = {id = 108100101, bubble_text = (PUtil.get)(108100101), voice_path = "Shanon_Go_1"}
 , 
@@ -4433,6 +4547,10 @@ BaseFashionBubbleData = {
 , 
 [108310601] = {id = 108310601, bubble_text = (PUtil.get)(108310601), voice_path = "May_Go_1"}
 , 
+[108300801] = {id = 108300801, bubble_text = (PUtil.get)(108300801), voice_path = "Lisa_Go_1"}
+, 
+[108110701] = {id = 108110701, bubble_text = (PUtil.get)(108110701), voice_path = "Paroness_Go_1"}
+, 
 [109100101] = {id = 109100101, voice_path = "Shanon_Game_1"}
 , 
 [109100201] = {id = 109100201, voice_path = "Olivia_Game_1"}
@@ -4532,6 +4650,10 @@ BaseFashionBubbleData = {
 [109310501] = {id = 109310501, voice_path = "Xiao_Game_1"}
 , 
 [109310601] = {id = 109310601, voice_path = "May_Game_1"}
+, 
+[109300801] = {id = 109300801, voice_path = "Lisa_Game_1"}
+, 
+[109110701] = {id = 109110701, voice_path = "Paroness_Game_1"}
 , 
 [111100101] = {id = 111100101, voice_path = "Shanon_Battle_N_1"}
 , 
@@ -5078,6 +5200,30 @@ BaseFashionBubbleData = {
 [111310604] = {id = 111310604, voice_path = "May_Battle_N_4"}
 , 
 [111310605] = {id = 111310605, voice_path = "May_Battle_N_5"}
+, 
+[111300801] = {id = 111300801, voice_path = "Lisa_Battle_N_1"}
+, 
+[111300802] = {id = 111300802, voice_path = "Lisa_Battle_N_2"}
+, 
+[111300803] = {id = 111300803, voice_path = "Lisa_Battle_N_3"}
+, 
+[111300804] = {id = 111300804, voice_path = "Lisa_Battle_N_4"}
+, 
+[111300805] = {id = 111300805, voice_path = "Lisa_Battle_N_5"}
+, 
+[111300806] = {id = 111300806, voice_path = "Lisa_Battle_N_6"}
+, 
+[111110701] = {id = 111110701, voice_path = "Paroness_Battle_N_1"}
+, 
+[111110702] = {id = 111110702, voice_path = "Paroness_Battle_N_2"}
+, 
+[111110703] = {id = 111110703, voice_path = "Paroness_Battle_N_3"}
+, 
+[111110704] = {id = 111110704, voice_path = "Paroness_Battle_N_4"}
+, 
+[111110705] = {id = 111110705, voice_path = "Paroness_Battle_N_5"}
+, 
+[111110706] = {id = 111110706, voice_path = "Paroness_Battle_N_6"}
 , 
 [112100101] = {id = 112100101, voice_path = "Shanon_Battle_Hit_1"}
 , 
@@ -5629,6 +5775,30 @@ BaseFashionBubbleData = {
 , 
 [112310605] = {id = 112310605, voice_path = "May_Battle_Hit_5"}
 , 
+[112300801] = {id = 112300801, voice_path = "Lisa_Battle_Hit_1"}
+, 
+[112300802] = {id = 112300802, voice_path = "Lisa_Battle_Hit_2"}
+, 
+[112300803] = {id = 112300803, voice_path = "Lisa_Battle_Hit_3"}
+, 
+[112300804] = {id = 112300804, voice_path = "Lisa_Battle_Hit_4"}
+, 
+[112300805] = {id = 112300805, voice_path = "Lisa_Battle_Hit_5"}
+, 
+[112300806] = {id = 112300806, voice_path = "Lisa_Battle_Hit_6"}
+, 
+[112110701] = {id = 112110701, voice_path = "Paroness_Battle_Hit_1"}
+, 
+[112110702] = {id = 112110702, voice_path = "Paroness_Battle_Hit_2"}
+, 
+[112110703] = {id = 112110703, voice_path = "Paroness_Battle_Hit_3"}
+, 
+[112110704] = {id = 112110704, voice_path = "Paroness_Battle_Hit_4"}
+, 
+[112110705] = {id = 112110705, voice_path = "Paroness_Battle_Hit_5"}
+, 
+[112110706] = {id = 112110706, voice_path = "Paroness_Battle_Hit_6"}
+, 
 [113100101] = {id = 113100101, voice_path = "Shanon_Battle_Die_1"}
 , 
 [113100201] = {id = 113100201, voice_path = "Olivia_Battle_Die_1"}
@@ -5728,6 +5898,10 @@ BaseFashionBubbleData = {
 [113310501] = {id = 113310501, voice_path = "Xiao_Battle_Die_1"}
 , 
 [113310601] = {id = 113310601, voice_path = "May_Battle_Die_1"}
+, 
+[113300801] = {id = 113300801, voice_path = "Lisa_Battle_Die_1"}
+, 
+[113110701] = {id = 113110701, voice_path = "Paroness_Battle_Die_1"}
 , 
 [114100101] = {id = 114100101, voice_path = "Shanon_Battle_H_1"}
 , 
@@ -5929,6 +6103,14 @@ BaseFashionBubbleData = {
 , 
 [114310602] = {id = 114310602, voice_path = "May_Battle_H_2"}
 , 
+[114300801] = {id = 114300801, voice_path = "Lisa_Battle_H_1"}
+, 
+[114300802] = {id = 114300802, voice_path = "Lisa_Battle_H_2"}
+, 
+[114110701] = {id = 114110701, voice_path = "Paroness_Battle_H_1"}
+, 
+[114110702] = {id = 114110702, voice_path = "Paroness_Battle_H_2"}
+, 
 [115100101] = {id = 115100101, voice_path = "Shanon_Battle_C_1"}
 , 
 [115100102] = {id = 115100102, voice_path = "Shanon_Battle_C_2"}
@@ -6128,6 +6310,14 @@ BaseFashionBubbleData = {
 [115310601] = {id = 115310601, voice_path = "May_Battle_C_1"}
 , 
 [115310602] = {id = 115310602, voice_path = "May_Battle_C_2"}
+, 
+[115300801] = {id = 115300801, voice_path = "Lisa_Battle_C_1"}
+, 
+[115300802] = {id = 115300802, voice_path = "Lisa_Battle_C_2"}
+, 
+[115110701] = {id = 115110701, voice_path = "Paroness_Battle_C_1"}
+, 
+[115110702] = {id = 115110702, voice_path = "Paroness_Battle_C_2"}
 , 
 [121200101] = {id = 121200101, voice_path = "ME_Harry_Battle_N_1"}
 , 

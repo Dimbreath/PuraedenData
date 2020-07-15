@@ -141,11 +141,15 @@ end
 
 -- DECOMPILER ERROR at PC31: Confused about usage of register: R0 in 'UnsetPending'
 
-CardService.OnReqSkillUp = function(id, skillID, num, ...)
+CardService.OnReqSkillUp = function(id, skillID, num, skillData, ...)
   -- function num : 0_9 , upvalues : _ENV
-  local send = {id = id, skillId = skillID, num = num}
-  ;
-  (Net.Send)((Proto.MsgName).ReqSkillUp, send, (Proto.MsgName).ResSkillUp)
+  if not skillData then
+    local send = {id = id, skillId = skillID or 0, num = num or 0, 
+skillData = {}
+}
+    ;
+    (Net.Send)((Proto.MsgName).ReqSkillUp, send, (Proto.MsgName).ResSkillUp)
+  end
 end
 
 -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'

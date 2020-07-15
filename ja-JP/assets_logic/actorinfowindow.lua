@@ -8,6 +8,7 @@ local ActorInfoWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
 local MAXLEVEL = 70
+local _effect = nil
 ActorInfoWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, ActorInfoWindow
   bridgeObj:SetView((WinResConfig.ActorInfoWindow).package, (WinResConfig.ActorInfoWindow).comName)
@@ -34,7 +35,10 @@ ActorInfoWindow.BindingUI = function(...)
 end
 
 ActorInfoWindow.BasicInfoSet = function(...)
-  -- function num : 0_2 , upvalues : _ENV, uis
+  -- function num : 0_2 , upvalues : uis, _ENV
+  -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
+
+  ((uis.InfoAssemblyGrp).Guild_02_Txt).text = ""
   local m = {}
   m.windowName = (WinResConfig.ActorInfoWindow).name
   m.Tip = (PUtil.get)(107)
@@ -218,11 +222,13 @@ ActorInfoWindow.RefreshWindow = function(...)
 end
 
 ActorInfoWindow.InitUIEffect = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis, contentPane
-  local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_PLAYER_INFO_EFFECT, false, true)
-  holder:SetXY(((uis.InfoAssemblyGrp).root).width / 2, ((uis.InfoAssemblyGrp).root).height / 2)
-  contentPane:AddChild(holder)
-  contentPane:SetChildIndex(holder, contentPane:GetChildIndex((uis.InfoAssemblyGrp).root))
+  -- function num : 0_4 , upvalues : _effect, _ENV, uis, contentPane
+  if _effect == nil then
+    _effect = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_PLAYER_INFO_EFFECT, false, true)
+    _effect:SetXY(((uis.InfoAssemblyGrp).root).width / 2, ((uis.InfoAssemblyGrp).root).height / 2)
+    contentPane:AddChild(_effect)
+    contentPane:SetChildIndex(_effect, contentPane:GetChildIndex((uis.InfoAssemblyGrp).root))
+  end
 end
 
 ActorInfoWindow.OnShown = function(...)
@@ -263,7 +269,12 @@ ActorInfoWindow.OnHide = function(...)
 end
 
 ActorInfoWindow.OnClose = function(...)
-  -- function num : 0_7 , upvalues : _ENV, uis, contentPane, argTable
+  -- function num : 0_7 , upvalues : _effect, _ENV, uis, contentPane, argTable
+  if _effect ~= nil then
+    _effect:Dispose()
+    _effect = nil
+  end
+  ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.ActorInfoWindow).name)
   ;
   (Util.RecycleUIModel)(uis.PictureLoader)

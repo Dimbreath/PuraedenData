@@ -414,7 +414,7 @@ HandBookMgr.GetAlbumCollectionNumByType = function(type, ...)
   local Amount = 0
   for _,v in ipairs(self.AlbumData) do
     local data = ((TableData.gTable).BaseHandbookCGData)[v.CGId]
-    if data.type == type then
+    if data ~= nil and data.type == type then
       Amount = Amount + 1
     end
   end

@@ -776,31 +776,25 @@ MessageMgr.ShowGetGoods = function(goods, equips, showProp, props, ...)
     local eachGoods = nil
     for i = 1, count do
       eachGoods = goods[i]
-      -- DECOMPILER ERROR at PC37: Unhandled construct in 'MakeBoolean' P1
+      if NoShowGetGoods[eachGoods.id] == nil and eachGoods.type ~= (ProtoEnum.E_GOODS_TYPE).OTHER then
+        if eachGoods.value <= 0 then
+          do
+            item = {}
+            item.Type = eachGoods.type
+            item.id = eachGoods.id
+            item.Num = eachGoods.value
+            item.attr = eachGoods.attr
+            ;
+            (table.insert)(items, item)
+            -- DECOMPILER ERROR at PC42: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-      -- DECOMPILER ERROR at PC37: Unhandled construct in 'MakeBoolean' P1
+            -- DECOMPILER ERROR at PC42: LeaveBlock: unexpected jumping out IF_STMT
 
-      if NoShowGetGoods[eachGoods.id] == nil and eachGoods.type ~= (ProtoEnum.E_GOODS_TYPE).OTHER and eachGoods.value <= 0 and eachGoods.type == (ProtoEnum.E_GOODS_TYPE).CARD then
-        local CardData = ((TableData.gTable).BaseCardData)[eachGoods.id]
-        local debris = split(CardData.debris_goods, ":")
-        item = {}
-        item.Type = tonumber(debris[1])
-        item.id = tonumber(debris[2])
-        item.Num = tonumber(debris[3])
-        ;
-        (table.insert)(items, item)
-      end
-      do
-        do
-          item = {}
-          item.Type = eachGoods.type
-          item.id = eachGoods.id
-          item.Num = eachGoods.value
-          item.attr = eachGoods.attr
-          ;
-          (table.insert)(items, item)
-          -- DECOMPILER ERROR at PC76: LeaveBlock: unexpected jumping out DO_STMT
+            -- DECOMPILER ERROR at PC42: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
+            -- DECOMPILER ERROR at PC42: LeaveBlock: unexpected jumping out IF_STMT
+
+          end
         end
       end
     end

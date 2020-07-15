@@ -265,6 +265,8 @@ LotteryWindow.OnClose = function(...)
   (LotteryWindow_Activity.OnClose)()
   ;
   (LotteryWindow_Activity2.OnClose)()
+  ;
+  (ResHelper.ClearAllCache)()
 end
 
 LotteryWindow.HandleMessage = function(msgId, para, ...)

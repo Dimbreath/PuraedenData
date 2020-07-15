@@ -9,6 +9,8 @@ GetLand_LandUis = function(ui, ...)
   uis.LogoImage = ui:GetChild("LogoImage")
   uis.TouchBtn = ui:GetChild("TouchBtn")
   uis.SetBtn = ui:GetChild("SetBtn")
+  uis.ServiceBtn = ui:GetChild("ServiceBtn")
+  uis.CopyrightTxt = ui:GetChild("CopyrightTxt")
   uis.root = ui
   return uis
 end

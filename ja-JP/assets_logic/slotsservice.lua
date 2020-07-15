@@ -76,9 +76,13 @@ SlotsService.ResSlotsOperation = function(msg, ...)
   (SlotsData.GetItemData)(msg.RewardItems)
   ;
   (SlotsData.CanReset)(msg.reset)
+  local mSlot = (SlotsData.SlotRound)()
+  ;
+  (SlotsData.ChangeRound)(mSlot < msg.round)
   ;
   (SlotsData.SlotRound)(msg.round)
   UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 ;

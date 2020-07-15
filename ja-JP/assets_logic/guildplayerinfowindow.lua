@@ -43,7 +43,10 @@ GuildPlayerInfoWindow.InitVariable = function(...)
 end
 
 GuildPlayerInfoWindow.InitText = function(...)
-  -- function num : 0_3
+  -- function num : 0_3 , upvalues : uis, _ENV
+  -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
+
+  ((uis.PlayerInfoGrp).NameTxt).text = (PUtil.get)(60000527)
 end
 
 GuildPlayerInfoWindow.InitList = function(...)

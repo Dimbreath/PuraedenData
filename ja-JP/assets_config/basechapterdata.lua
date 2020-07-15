@@ -95,7 +95,7 @@ BaseChapterData = {
 , 
 [51410001] = {id = 51410001, name = (PUtil.get)(85110001), type = 101, stages = "52500101:52500102:52500103:52500104:52500105:52500106:52500107:52500108:52500109:52500110:52500111:52500112:52500113:52500114:52500115", open_condition = "72501001:0:1", pre = 0, next = "51420001", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 , 
-[51420001] = {id = 51420001, name = (PUtil.get)(85120001), type = 101, stages = "52510101:52510102:52510103:52510104:52510105:52510106", open_condition = "72501001:0:1,72504611:52500105:1", pre = 51410001, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
+[51420001] = {id = 51420001, name = (PUtil.get)(85120001), type = 101, stages = "52510101:52510102:52510103:52510104:52510105:52510106", open_condition = "72501001:0:1,72504611:52500115:1", pre = 51410001, next = "0", activity_id = 33000101, bg_res = "ActivityDungeon:Map_01", story_id = "0", story_times = "0"}
 }
 return BaseChapterData
 

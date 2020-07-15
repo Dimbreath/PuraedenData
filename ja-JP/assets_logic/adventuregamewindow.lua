@@ -902,9 +902,6 @@ AdventureGameWindow.HandleMessage = function(msgId, para, ...)
                             if msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH_CTRL_REDDOT then
                               (AdventureGameWindow.RefreshCtrlDiceRedDot)()
                             else
-                              if msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH_BUILDING_STATUE then
-                                (AdventureGameWindow.RefreshBuildingRedDot)()
-                              end
                             end
                           end
                         end
@@ -918,6 +915,8 @@ AdventureGameWindow.HandleMessage = function(msgId, para, ...)
         end
       end
     end
+  end
+  if msgId == (WindowMsgEnum.Adventure).E_MSG_REFRESH_BUILDING_STATUE then
   end
 end
 

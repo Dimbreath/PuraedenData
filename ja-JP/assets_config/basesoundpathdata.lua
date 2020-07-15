@@ -2942,6 +2942,640 @@ BaseSoundPathData = {
 [330080401] = {id = 330080401, play_frame = 26, path = "sfx_boss_yilvbo_pt_wh_18fr", bank = "boss_yilvbo"}
 , 
 [330080402] = {id = 330080402, play_frame = 33, path = "sfx_boss_yilvbo_pt_tx_23fr", bank = "boss_yilvbo"}
+, 
+[320010101] = {id = 320010101, play_frame = 19, path = "sfx_jy1_hali_big_wh_19fr", bank = "jy1_hali"}
+, 
+[320010102] = {id = 320010102, play_frame = 26, path = "sfx_jy1_hali_big_tx_26fr", bank = "jy1_hali"}
+, 
+[320010103] = {id = 320010103, play_frame = 36, path = "sfx_jy1_hali_big_wh_36fr", bank = "jy1_hali"}
+, 
+[320010104] = {id = 320010104, play_frame = 38, path = "sfx_jy1_hali_big_tx_38fr", bank = "jy1_hali"}
+, 
+[320010105] = {id = 320010105, play_frame = 76, path = "sfx_jy1_hali_big_wh_76fr", bank = "jy1_hali"}
+, 
+[320010106] = {id = 320010106, play_frame = 86, path = "sfx_jy1_hali_big_tx_86fr", bank = "jy1_hali"}
+, 
+[320010201] = {id = 320010201, play_frame = 30, path = "sfx_jy1_hali_pt_wh_30fr", bank = "jy1_hali"}
+, 
+[320010202] = {id = 320010202, play_frame = 35, path = "sfx_jy1_hali_pt_tx_35fr", bank = "jy1_hali"}
+, 
+[320010203] = {id = 320010203, play_frame = 44, path = "sfx_jy1_hali_pt_wh_44fr", bank = "jy1_hali"}
+, 
+[320010204] = {id = 320010204, play_frame = 45, path = "sfx_jy1_hali_pt_tx_45fr", bank = "jy1_hali"}
+, 
+[320010301] = {id = 320010301, play_frame = 4, path = "sfx_jy1_hali_small_wh_4fr", bank = "jy1_hali"}
+, 
+[320010302] = {id = 320010302, play_frame = 5, path = "sfx_jy1_hali_small_tx_5fr", bank = "jy1_hali"}
+, 
+[320010303] = {id = 320010303, play_frame = 17, path = "sfx_jy1_hali_small_wh_17fr", bank = "jy1_hali"}
+, 
+[320010304] = {id = 320010304, play_frame = 18, path = "sfx_jy1_hali_small_tx_18fr", bank = "jy1_hali"}
+, 
+[320010305] = {id = 320010305, play_frame = 54, path = "sfx_jy1_hali_small_wh_54fr", bank = "jy1_hali"}
+, 
+[320010306] = {id = 320010306, play_frame = 77, path = "sfx_jy1_hali_small_wh_77fr", bank = "jy1_hali"}
+, 
+[320010307] = {id = 320010307, play_frame = 92, path = "sfx_jy1_hali_small_tx_92fr", bank = "jy1_hali"}
+, 
+[320010401] = {id = 320010401, play_frame = 22, path = "sfx_jy1_hali_pt_wh_30fr", bank = "jy1_hali"}
+, 
+[320010402] = {id = 320010402, play_frame = 23, path = "sfx_jy1_hali_pt_tx_35fr", bank = "jy1_hali"}
+, 
+[320020101] = {id = 320020101, play_frame = 68, path = "sfx_jy2_peierpeitua_big_wh_68fr", bank = "jy2_peierpeitua"}
+, 
+[320020102] = {id = 320020102, play_frame = 74, path = "sfx_jy2_peierpeitua_big_tx_74fr", bank = "jy2_peierpeitua"}
+, 
+[320020201] = {id = 320020201, play_frame = 47, path = "sfx_jy2_peierpeitua_pt_wh_47fr", bank = "jy2_peierpeitua"}
+, 
+[320020202] = {id = 320020202, play_frame = 53, path = "sfx_jy2_peierpeitua_pt_tx_53fr", bank = "jy2_peierpeitua"}
+, 
+[320020301] = {id = 320020301, play_frame = 52, path = "sfx_jy2_peierpeitua_small_wh_52fr", bank = "jy2_peierpeitua"}
+, 
+[320020302] = {id = 320020302, play_frame = 58, path = "sfx_jy2_peierpeitua_small_tx_58fr", bank = "jy2_peierpeitua"}
+, 
+[320020401] = {id = 320020401, play_frame = 8, path = "sfx_jy2_peierpeitua_pt_wh_47fr", bank = "jy2_peierpeitua"}
+, 
+[320020402] = {id = 320020402, play_frame = 14, path = "sfx_jy2_peierpeitua_pt_tx_53fr", bank = "jy2_peierpeitua"}
+, 
+[320030101] = {id = 320030101, play_frame = 9, path = "sfx_jy3_laqide_big_tx_9fr", bank = "jy3_laqide"}
+, 
+[320030102] = {id = 320030102, play_frame = 23, path = "sfx_jy3_laqide_big_tx_23fr", bank = "jy3_laqide"}
+, 
+[320030103] = {id = 320030103, play_frame = 42, path = "sfx_jy3_laqide_big_wh_42fr", bank = "jy3_laqide"}
+, 
+[320030104] = {id = 320030104, play_frame = 47, path = "sfx_jy3_laqide_big_tx_47fr", bank = "jy3_laqide"}
+, 
+[320030105] = {id = 320030105, play_frame = 57, path = "sfx_jy3_laqide_big_wh_57fr", bank = "jy3_laqide"}
+, 
+[320030106] = {id = 320030106, play_frame = 60, path = "sfx_jy3_laqide_big_tx_60fr", bank = "jy3_laqide"}
+, 
+[320030107] = {id = 320030107, play_frame = 82, path = "sfx_jy3_laqide_big_wh_82fr", bank = "jy3_laqide"}
+, 
+[320030108] = {id = 320030108, play_frame = 88, path = "sfx_jy3_laqide_big_tx_88fr", bank = "jy3_laqide"}
+, 
+[320030109] = {id = 320030109, play_frame = 129, path = "sfx_jy3_laqide_big_wh_129fr", bank = "jy3_laqide"}
+, 
+[320030110] = {id = 320030110, play_frame = 132, path = "sfx_jy3_laqide_big_tx_132fr", bank = "jy3_laqide"}
+, 
+[320030201] = {id = 320030201, play_frame = 27, path = "sfx_jy3_laqide_pt_wh_27fr", bank = "jy3_laqide"}
+, 
+[320030202] = {id = 320030202, play_frame = 47, path = "sfx_jy3_laqide_pt_wh_47fr", bank = "jy3_laqide"}
+, 
+[320030203] = {id = 320030203, play_frame = 51, path = "sfx_jy3_laqide_pt_tx_51fr", bank = "jy3_laqide"}
+, 
+[320030301] = {id = 320030301, play_frame = 3, path = "sfx_jy3_laqide_small_wh_3fr", bank = "jy3_laqide"}
+, 
+[320030302] = {id = 320030302, play_frame = 4, path = "sfx_jy3_laqide_small_tx_4fr", bank = "jy3_laqide"}
+, 
+[320030303] = {id = 320030303, play_frame = 22, path = "sfx_jy3_laqide_small_wh_22fr", bank = "jy3_laqide"}
+, 
+[320030304] = {id = 320030304, play_frame = 28, path = "sfx_jy3_laqide_small_tx_28fr", bank = "jy3_laqide"}
+, 
+[320030305] = {id = 320030305, play_frame = 44, path = "sfx_jy3_laqide_small_wh_44fr", bank = "jy3_laqide"}
+, 
+[320030306] = {id = 320030306, play_frame = 45, path = "sfx_jy3_laqide_small_tx_45fr", bank = "jy3_laqide"}
+, 
+[320030307] = {id = 320030307, play_frame = 68, path = "sfx_jy3_laqide_small_wh_68fr", bank = "jy3_laqide"}
+, 
+[320030308] = {id = 320030308, play_frame = 77, path = "sfx_jy3_laqide_small_tx_77fr", bank = "jy3_laqide"}
+, 
+[320030401] = {id = 320030401, play_frame = 3, path = "sfx_jy3_laqide_pt_wh_47fr", bank = "jy3_laqide"}
+, 
+[320030402] = {id = 320030402, play_frame = 7, path = "sfx_jy3_laqide_pt_tx_51fr", bank = "jy3_laqide"}
+, 
+[320040101] = {id = 320040101, play_frame = 14, path = "sfx_jy4_sasikaisi_big_tx_14fr", bank = "jy4_sasikaisi"}
+, 
+[320040102] = {id = 320040102, play_frame = 62, path = "sfx_jy4_sasikaisi_big_wh_62fr", bank = "jy4_sasikaisi"}
+, 
+[320040103] = {id = 320040103, play_frame = 66, path = "sfx_jy4_sasikaisi_big_tx_66fr", bank = "jy4_sasikaisi"}
+, 
+[320040104] = {id = 320040104, play_frame = 74, path = "sfx_jy4_sasikaisi_big_wh_74fr", bank = "jy4_sasikaisi"}
+, 
+[320040105] = {id = 320040105, play_frame = 77, path = "sfx_jy4_sasikaisi_big_tx_77fr", bank = "jy4_sasikaisi"}
+, 
+[320040106] = {id = 320040106, play_frame = 117, path = "sfx_jy4_sasikaisi_big_wh_117fr", bank = "jy4_sasikaisi"}
+, 
+[320040107] = {id = 320040107, play_frame = 123, path = "sfx_jy4_sasikaisi_big_tx_123fr", bank = "jy4_sasikaisi"}
+, 
+[320040201] = {id = 320040201, play_frame = 19, path = "sfx_jy4_sasikaisi_pt_wh_19fr", bank = "jy4_sasikaisi"}
+, 
+[320040202] = {id = 320040202, play_frame = 22, path = "sfx_jy4_sasikaisi_pt_tx_22fr", bank = "jy4_sasikaisi"}
+, 
+[320040203] = {id = 320040203, play_frame = 32, path = "sfx_jy4_sasikaisi_pt_wh_32fr", bank = "jy4_sasikaisi"}
+, 
+[320040204] = {id = 320040204, play_frame = 34, path = "sfx_jy4_sasikaisi_pt_tx_34fr", bank = "jy4_sasikaisi"}
+, 
+[320040301] = {id = 320040301, play_frame = 18, path = "sfx_jy4_sasikaisi_small_wh_18fr", bank = "jy4_sasikaisi"}
+, 
+[320040302] = {id = 320040302, play_frame = 22, path = "sfx_jy4_sasikaisi_small_tx_22fr", bank = "jy4_sasikaisi"}
+, 
+[320040303] = {id = 320040303, play_frame = 37, path = "sfx_jy4_sasikaisi_small_wh_37fr", bank = "jy4_sasikaisi"}
+, 
+[320040304] = {id = 320040304, play_frame = 38, path = "sfx_jy4_sasikaisi_small_tx_38fr", bank = "jy4_sasikaisi"}
+, 
+[320040305] = {id = 320040305, play_frame = 47, path = "sfx_jy4_sasikaisi_small_wh_47fr", bank = "jy4_sasikaisi"}
+, 
+[320040306] = {id = 320040306, play_frame = 49, path = "sfx_jy4_sasikaisi_small_tx_49fr", bank = "jy4_sasikaisi"}
+, 
+[320040307] = {id = 320040307, play_frame = 64, path = "sfx_jy4_sasikaisi_small_wh_64fr", bank = "jy4_sasikaisi"}
+, 
+[320040308] = {id = 320040308, play_frame = 65, path = "sfx_jy4_sasikaisi_small_tx_65fr", bank = "jy4_sasikaisi"}
+, 
+[320040309] = {id = 320040309, play_frame = 99, path = "sfx_jy4_sasikaisi_small_wh_99fr", bank = "jy4_sasikaisi"}
+, 
+[320040310] = {id = 320040310, play_frame = 103, path = "sfx_jy4_sasikaisi_small_tx_103fr", bank = "jy4_sasikaisi"}
+, 
+[320040401] = {id = 320040401, play_frame = 5, path = "sfx_jy4_sasikaisi_pt_wh_19fr", bank = "jy4_sasikaisi"}
+, 
+[320040402] = {id = 320040402, play_frame = 12, path = "sfx_jy4_sasikaisi_pt_tx_22fr", bank = "jy4_sasikaisi"}
+, 
+[320050101] = {id = 320050101, play_frame = 4, path = "sfx_jy5_piyela_big_tx_4fr", bank = "jy5_piyela"}
+, 
+[320050102] = {id = 320050102, play_frame = 21, path = "sfx_jy5_piyela_big_tx_21fr", bank = "jy5_piyela"}
+, 
+[320050103] = {id = 320050103, play_frame = 49, path = "sfx_jy5_piyela_big_tx_49fr", bank = "jy5_piyela"}
+, 
+[320050104] = {id = 320050104, play_frame = 72, path = "sfx_jy5_piyela_big_tx_72fr", bank = "jy5_piyela"}
+, 
+[320050105] = {id = 320050105, play_frame = 93, path = "sfx_jy5_piyela_big_tx_93fr", bank = "jy5_piyela"}
+, 
+[320050106] = {id = 320050106, play_frame = 119, path = "sfx_jy5_piyela_big_tx_119fr", bank = "jy5_piyela"}
+, 
+[320050107] = {id = 320050107, play_frame = 139, path = "sfx_jy5_piyela_big_tx_139fr", bank = "jy5_piyela"}
+, 
+[320050108] = {id = 320050108, play_frame = 168, path = "sfx_jy5_piyela_big_tx_168fr", bank = "jy5_piyela"}
+, 
+[320050109] = {id = 320050109, play_frame = 177, path = "sfx_jy5_piyela_big_tx_177fr", bank = "jy5_piyela"}
+, 
+[320050110] = {id = 320050110, play_frame = 207, path = "sfx_jy5_piyela_big_tx_207fr", bank = "jy5_piyela"}
+, 
+[320050201] = {id = 320050201, play_frame = 30, path = "sfx_jy5_piyela_pt_wh_30fr", bank = "jy5_piyela"}
+, 
+[320050202] = {id = 320050202, play_frame = 34, path = "sfx_jy5_piyela_pt_tx_34fr", bank = "jy5_piyela"}
+, 
+[320050203] = {id = 320050203, play_frame = 49, path = "sfx_jy5_piyela_pt_tx_49fr", bank = "jy5_piyela"}
+, 
+[320050301] = {id = 320050301, play_frame = 62, path = "sfx_jy5_piyela_small_wh_62fr", bank = "jy5_piyela"}
+, 
+[320050302] = {id = 320050302, play_frame = 70, path = "sfx_jy5_piyela_small_tx_70fr", bank = "jy5_piyela"}
+, 
+[320050401] = {id = 320050401, play_frame = 29, path = "sfx_jy5_piyela_pt_wh_30fr", bank = "jy5_piyela"}
+, 
+[320050402] = {id = 320050402, play_frame = 41, path = "sfx_jy5_piyela_pt_tx_34fr", bank = "jy5_piyela"}
+, 
+[320060101] = {id = 320060101, play_frame = 30, path = "sfx_jy6_saifuni_big_wh_30fr", bank = "jy6_saifuni"}
+, 
+[320060102] = {id = 320060102, play_frame = 52, path = "sfx_jy6_saifuni_big_tx_52fr", bank = "jy6_saifuni"}
+, 
+[320060103] = {id = 320060103, play_frame = 71, path = "sfx_jy6_saifuni_big_tx_71fr", bank = "jy6_saifuni"}
+, 
+[320060201] = {id = 320060201, play_frame = 22, path = "sfx_jy6_saifuni_pt_wh_22fr", bank = "jy6_saifuni"}
+, 
+[320060202] = {id = 320060202, play_frame = 26, path = "sfx_jy6_saifuni_pt_tx_26fr", bank = "jy6_saifuni"}
+, 
+[320060301] = {id = 320060301, play_frame = 24, path = "sfx_jy6_saifuni_small_wh_24fr", bank = "jy6_saifuni"}
+, 
+[320060302] = {id = 320060302, play_frame = 52, path = "sfx_jy6_saifuni_small_tx_52fr", bank = "jy6_saifuni"}
+, 
+[320060401] = {id = 320060401, play_frame = 18, path = "sfx_jy6_saifuni_pt_wh_22fr", bank = "jy6_saifuni"}
+, 
+[320060402] = {id = 320060402, play_frame = 24, path = "sfx_jy6_saifuni_pt_tx_26fr", bank = "jy6_saifuni"}
+, 
+[320070101] = {id = 320070101, play_frame = 4, path = "sfx_jy7_heluxiya_big_tx_4fr", bank = "jy7_heluxiya"}
+, 
+[320070102] = {id = 320070102, play_frame = 44, path = "sfx_jy7_heluxiya_big_tx_44fr", bank = "jy7_heluxiya"}
+, 
+[320070103] = {id = 320070103, play_frame = 95, path = "sfx_jy7_heluxiya_big_wh_95fr", bank = "jy7_heluxiya"}
+, 
+[320070104] = {id = 320070104, play_frame = 98, path = "sfx_jy7_heluxiya_big_tx_98fr", bank = "jy7_heluxiya"}
+, 
+[320070201] = {id = 320070201, play_frame = 30, path = "sfx_jy7_heluxiya_pt_wh_30fr", bank = "jy7_heluxiya"}
+, 
+[320070202] = {id = 320070202, play_frame = 36, path = "sfx_jy7_heluxiya_pt_tx_36fr", bank = "jy7_heluxiya"}
+, 
+[320070301] = {id = 320070301, play_frame = 23, path = "sfx_jy7_heluxiya_small_wh_23fr", bank = "jy7_heluxiya"}
+, 
+[320070302] = {id = 320070302, play_frame = 31, path = "sfx_jy7_heluxiya_small_tx_31fr", bank = "jy7_heluxiya"}
+, 
+[320070303] = {id = 320070303, play_frame = 53, path = "sfx_jy7_heluxiya_small_wh_53fr", bank = "jy7_heluxiya"}
+, 
+[320070304] = {id = 320070304, play_frame = 59, path = "sfx_jy7_heluxiya_small_tx_59fr", bank = "jy7_heluxiya"}
+, 
+[320070305] = {id = 320070305, play_frame = 102, path = "sfx_jy7_heluxiya_small_wh_102fr", bank = "jy7_heluxiya"}
+, 
+[320070306] = {id = 320070306, play_frame = 108, path = "sfx_jy7_heluxiya_small_tx_108fr", bank = "jy7_heluxiya"}
+, 
+[320070401] = {id = 320070401, play_frame = 28, path = "sfx_jy7_heluxiya_pt_wh_30fr", bank = "jy7_heluxiya"}
+, 
+[320070402] = {id = 320070402, play_frame = 34, path = "sfx_jy7_heluxiya_pt_tx_36fr", bank = "jy7_heluxiya"}
+, 
+[320080101] = {id = 320080101, play_frame = 34, path = "sfx_jy8_lina_big_wh_34fr", bank = "jy8_lina"}
+, 
+[320080102] = {id = 320080102, play_frame = 94, path = "sfx_jy8_lina_big_tx_94fr", bank = "jy8_lina"}
+, 
+[320080103] = {id = 320080103, play_frame = 102, path = "sfx_jy8_lina_big_tx_102fr", bank = "jy8_lina"}
+, 
+[320080201] = {id = 320080201, play_frame = 47, path = "sfx_jy8_lina_pt_wh_47fr", bank = "jy8_lina"}
+, 
+[320080202] = {id = 320080202, play_frame = 54, path = "sfx_jy8_lina_pt_tx_54fr", bank = "jy8_lina"}
+, 
+[320080203] = {id = 320080203, play_frame = 81, path = "sfx_jy8_lina_pt_tx_81fr", bank = "jy8_lina"}
+, 
+[320080301] = {id = 320080301, play_frame = 32, path = "sfx_jy8_lina_small_wh_32fr", bank = "jy8_lina"}
+, 
+[320080302] = {id = 320080302, play_frame = 44, path = "sfx_jy8_lina_small_tx_44fr", bank = "jy8_lina"}
+, 
+[320080303] = {id = 320080303, play_frame = 99, path = "sfx_jy8_lina_small_wh_99fr", bank = "jy8_lina"}
+, 
+[320080304] = {id = 320080304, play_frame = 112, path = "sfx_jy8_lina_small_tx_112fr", bank = "jy8_lina"}
+, 
+[320080401] = {id = 320080401, play_frame = 28, path = "sfx_jy8_lina_pt_wh_47fr", bank = "jy8_lina"}
+, 
+[320080402] = {id = 320080402, play_frame = 58, path = "sfx_jy8_lina_pt_tx_54fr", bank = "jy8_lina"}
+, 
+[320090101] = {id = 320090101, play_frame = 18, path = "sfx_jy9_atuluo_big_wh_18fr", bank = "jy9_atuluo"}
+, 
+[320090102] = {id = 320090102, play_frame = 57, path = "sfx_jy9_atuluo_big_wh_57fr", bank = "jy9_atuluo"}
+, 
+[320090103] = {id = 320090103, play_frame = 60, path = "sfx_jy9_atuluo_big_tx_60fr", bank = "jy9_atuluo"}
+, 
+[320090201] = {id = 320090201, play_frame = 16, path = "sfx_jy9_atuluo_pt_wh_16fr", bank = "jy9_atuluo"}
+, 
+[320090202] = {id = 320090202, play_frame = 17, path = "sfx_jy9_atuluo_pt_tx_17fr", bank = "jy9_atuluo"}
+, 
+[320090203] = {id = 320090203, play_frame = 32, path = "sfx_jy9_atuluo_pt_wh_32fr", bank = "jy9_atuluo"}
+, 
+[320090204] = {id = 320090204, play_frame = 34, path = "sfx_jy9_atuluo_pt_tx_34fr", bank = "jy9_atuluo"}
+, 
+[320090205] = {id = 320090205, play_frame = 48, path = "sfx_jy9_atuluo_pt_wh_48fr", bank = "jy9_atuluo"}
+, 
+[320090206] = {id = 320090206, play_frame = 51, path = "sfx_jy9_atuluo_pt_tx_51fr", bank = "jy9_atuluo"}
+, 
+[320090301] = {id = 320090301, play_frame = 14, path = "sfx_jy9_atuluo_small_wh_14fr", bank = "jy9_atuluo"}
+, 
+[320090302] = {id = 320090302, play_frame = 19, path = "sfx_jy9_atuluo_small_tx_19fr", bank = "jy9_atuluo"}
+, 
+[320090303] = {id = 320090303, play_frame = 24, path = "sfx_jy9_atuluo_small_wh_24fr", bank = "jy9_atuluo"}
+, 
+[320090304] = {id = 320090304, play_frame = 28, path = "sfx_jy9_atuluo_small_tx_28fr", bank = "jy9_atuluo"}
+, 
+[320090305] = {id = 320090305, play_frame = 38, path = "sfx_jy9_atuluo_small_wh_38fr", bank = "jy9_atuluo"}
+, 
+[320090306] = {id = 320090306, play_frame = 39, path = "sfx_jy9_atuluo_small_tx_39fr", bank = "jy9_atuluo"}
+, 
+[320090307] = {id = 320090307, play_frame = 67, path = "sfx_jy9_atuluo_small_wh_67fr", bank = "jy9_atuluo"}
+, 
+[320090308] = {id = 320090308, play_frame = 71, path = "sfx_jy9_atuluo_small_tx_71fr", bank = "jy9_atuluo"}
+, 
+[320090401] = {id = 320090401, play_frame = 14, path = "sfx_jy9_atuluo_pt_wh_16fr", bank = "jy9_atuluo"}
+, 
+[320090402] = {id = 320090402, play_frame = 18, path = "sfx_jy9_atuluo_pt_tx_17fr", bank = "jy9_atuluo"}
+, 
+[320100101] = {id = 320100101, play_frame = 2, path = "sfx_jy10_moyila_big_tx_2fr", bank = "jy10_moyila"}
+, 
+[320100102] = {id = 320100102, play_frame = 109, path = "sfx_jy10_moyila_big_tx_109fr", bank = "jy10_moyila"}
+, 
+[320100201] = {id = 320100201, play_frame = 20, path = "sfx_jy10_moyila_pt_wh_20fr", bank = "jy10_moyila"}
+, 
+[320100202] = {id = 320100202, play_frame = 25, path = "sfx_jy10_moyila_pt_tx_25fr", bank = "jy10_moyila"}
+, 
+[320100301] = {id = 320100301, play_frame = 4, path = "sfx_jy10_moyila_small_tx_4fr", bank = "jy10_moyila"}
+, 
+[320100302] = {id = 320100302, play_frame = 114, path = "sfx_jy10_moyila_small_tx_114fr", bank = "jy10_moyila"}
+, 
+[320100303] = {id = 320100303, play_frame = 140, path = "sfx_jy10_moyila_small_tx_140fr", bank = "jy10_moyila"}
+, 
+[320100401] = {id = 320100401, play_frame = 17, path = "sfx_jy10_moyila_pt_wh_20fr", bank = "jy10_moyila"}
+, 
+[320100402] = {id = 320100402, play_frame = 27, path = "sfx_jy10_moyila_pt_tx_25fr", bank = "jy10_moyila"}
+, 
+[320110101] = {id = 320110101, play_frame = 24, path = "sfx_jy11_bangni_big_wh_24fr", bank = "jy11_bangni"}
+, 
+[320110102] = {id = 320110102, play_frame = 47, path = "sfx_jy11_bangni_big_wh_47fr", bank = "jy11_bangni"}
+, 
+[320110103] = {id = 320110103, play_frame = 95, path = "sfx_jy11_bangni_big_wh_95fr", bank = "jy11_bangni"}
+, 
+[320110104] = {id = 320110104, play_frame = 98, path = "sfx_jy11_bangni_big_tx_98fr", bank = "jy11_bangni"}
+, 
+[320110201] = {id = 320110201, play_frame = 4, path = "sfx_jy11_bangni_pt_wh_4fr", bank = "jy11_bangni"}
+, 
+[320110202] = {id = 320110202, play_frame = 44, path = "sfx_jy11_bangni_pt_wh_44fr", bank = "jy11_bangni"}
+, 
+[320110203] = {id = 320110203, play_frame = 46, path = "sfx_jy11_bangni_pt_tx_46fr", bank = "jy11_bangni"}
+, 
+[320110301] = {id = 320110301, play_frame = 15, path = "sfx_jy11_bangni_small_wh_15fr", bank = "jy11_bangni"}
+, 
+[320110302] = {id = 320110302, play_frame = 33, path = "sfx_jy11_bangni_small_wh_33fr", bank = "jy11_bangni"}
+, 
+[320110303] = {id = 320110303, play_frame = 46, path = "sfx_jy11_bangni_small_wh_46fr", bank = "jy11_bangni"}
+, 
+[320110304] = {id = 320110304, play_frame = 50, path = "sfx_jy11_bangni_small_tx_50fr", bank = "jy11_bangni"}
+, 
+[320110305] = {id = 320110305, play_frame = 66, path = "sfx_jy11_bangni_small_wh_66fr", bank = "jy11_bangni"}
+, 
+[320110306] = {id = 320110306, play_frame = 72, path = "sfx_jy11_bangni_small_tx_72fr", bank = "jy11_bangni"}
+, 
+[320110401] = {id = 320110401, play_frame = 7, path = "sfx_jy11_bangni_pt_wh_4fr", bank = "jy11_bangni"}
+, 
+[320110402] = {id = 320110402, play_frame = 39, path = "sfx_jy11_bangni_pt_wh_44fr", bank = "jy11_bangni"}
+, 
+[320110403] = {id = 320110403, play_frame = 50, path = "sfx_jy11_bangni_pt_tx_46fr", bank = "jy11_bangni"}
+, 
+[320120101] = {id = 320120101, play_frame = 23, path = "sfx_jy12_kaixi_big_wh_23fr", bank = "jy12_kaixi"}
+, 
+[320120102] = {id = 320120102, play_frame = 28, path = "sfx_jy12_kaixi_big_tx_28fr", bank = "jy12_kaixi"}
+, 
+[320120103] = {id = 320120103, play_frame = 47, path = "sfx_jy12_kaixi_big_wh_47fr", bank = "jy12_kaixi"}
+, 
+[320120104] = {id = 320120104, play_frame = 52, path = "sfx_jy12_kaixi_big_tx_52fr", bank = "jy12_kaixi"}
+, 
+[320120105] = {id = 320120105, play_frame = 69, path = "sfx_jy12_kaixi_big_wh_69fr", bank = "jy12_kaixi"}
+, 
+[320120106] = {id = 320120106, play_frame = 73, path = "sfx_jy12_kaixi_big_tx_73fr", bank = "jy12_kaixi"}
+, 
+[320120107] = {id = 320120107, play_frame = 82, path = "sfx_jy12_kaixi_big_wh_82fr", bank = "jy12_kaixi"}
+, 
+[320120108] = {id = 320120108, play_frame = 88, path = "sfx_jy12_kaixi_big_tx_88fr", bank = "jy12_kaixi"}
+, 
+[320120109] = {id = 320120109, play_frame = 102, path = "sfx_jy12_kaixi_big_tx_102fr", bank = "jy12_kaixi"}
+, 
+[320120110] = {id = 320120110, play_frame = 102, path = "sfx_jy12_kaixi_big_wh_102fr", bank = "jy12_kaixi"}
+, 
+[320120201] = {id = 320120201, play_frame = 24, path = "sfx_jy12_kaixi_pt_wh_24fr", bank = "jy12_kaixi"}
+, 
+[320120202] = {id = 320120202, play_frame = 28, path = "sfx_jy12_kaixi_pt_tx_28fr", bank = "jy12_kaixi"}
+, 
+[320120301] = {id = 320120301, play_frame = 32, path = "sfx_jy12_kaixi_small_wh_32fr", bank = "jy12_kaixi"}
+, 
+[320120302] = {id = 320120302, play_frame = 34, path = "sfx_jy12_kaixi_small_tx_34fr", bank = "jy12_kaixi"}
+, 
+[320120303] = {id = 320120303, play_frame = 47, path = "sfx_jy12_kaixi_small_wh_47fr", bank = "jy12_kaixi"}
+, 
+[320120304] = {id = 320120304, play_frame = 53, path = "sfx_jy12_kaixi_small_tx_53fr", bank = "jy12_kaixi"}
+, 
+[320120305] = {id = 320120305, play_frame = 73, path = "sfx_jy12_kaixi_small_wh_73fr", bank = "jy12_kaixi"}
+, 
+[320120306] = {id = 320120306, play_frame = 75, path = "sfx_jy12_kaixi_small_tx_75fr", bank = "jy12_kaixi"}
+, 
+[320130101] = {id = 320130101, play_frame = 9, path = "sfx_jy13_aerfu_big_wh_9fr", bank = "jy13_aerfu"}
+, 
+[320130102] = {id = 320130102, play_frame = 13, path = "sfx_jy13_aerfu_big_tx_13fr", bank = "jy13_aerfu"}
+, 
+[320130103] = {id = 320130103, play_frame = 26, path = "sfx_jy13_aerfu_big_wh_26fr", bank = "jy13_aerfu"}
+, 
+[320130104] = {id = 320130104, play_frame = 28, path = "sfx_jy13_aerfu_big_tx_28fr", bank = "jy13_aerfu"}
+, 
+[320130105] = {id = 320130105, play_frame = 36, path = "sfx_jy13_aerfu_big_tx_36fr", bank = "jy13_aerfu"}
+, 
+[320130106] = {id = 320130106, play_frame = 36, path = "sfx_jy13_aerfu_big_wh_36fr", bank = "jy13_aerfu"}
+, 
+[320130107] = {id = 320130107, play_frame = 64, path = "sfx_jy13_aerfu_big_tx_64fr", bank = "jy13_aerfu"}
+, 
+[320130108] = {id = 320130108, play_frame = 64, path = "sfx_jy13_aerfu_big_wh_64fr", bank = "jy13_aerfu"}
+, 
+[320130201] = {id = 320130201, play_frame = 9, path = "sfx_jy13_aerfu_pt_tx_9fr", bank = "jy13_aerfu"}
+, 
+[320130202] = {id = 320130202, play_frame = 9, path = "sfx_jy13_aerfu_pt_wh_9fr", bank = "jy13_aerfu"}
+, 
+[320130203] = {id = 320130203, play_frame = 37, path = "sfx_jy13_aerfu_pt_wh_37fr", bank = "jy13_aerfu"}
+, 
+[320130204] = {id = 320130204, play_frame = 40, path = "sfx_jy13_aerfu_pt_tx_40fr", bank = "jy13_aerfu"}
+, 
+[320130301] = {id = 320130301, play_frame = 12, path = "sfx_jy13_aerfu_small_wh_12fr", bank = "jy13_aerfu"}
+, 
+[320130302] = {id = 320130302, play_frame = 14, path = "sfx_jy13_aerfu_small_tx_14fr", bank = "jy13_aerfu"}
+, 
+[320130303] = {id = 320130303, play_frame = 35, path = "sfx_jy13_aerfu_small_wh_35fr", bank = "jy13_aerfu"}
+, 
+[320130304] = {id = 320130304, play_frame = 39, path = "sfx_jy13_aerfu_small_tx_39fr", bank = "jy13_aerfu"}
+, 
+[320130305] = {id = 320130305, play_frame = 64, path = "sfx_jy13_aerfu_small_wh_64fr", bank = "jy13_aerfu"}
+, 
+[320130306] = {id = 320130306, play_frame = 68, path = "sfx_jy13_aerfu_small_tx_68fr", bank = "jy13_aerfu"}
+, 
+[320130401] = {id = 320130401, play_frame = 12, path = "sfx_jy13_aerfu_pt_wh_9fr", bank = "jy13_aerfu"}
+, 
+[320130402] = {id = 320130402, play_frame = 14, path = "sfx_jy13_aerfu_pt_tx_9fr", bank = "jy13_aerfu"}
+, 
+[320140101] = {id = 320140101, play_frame = 29, path = "sfx_jy14_aimier_big_wh_29fr", bank = "jy14_aimier"}
+, 
+[320140102] = {id = 320140102, play_frame = 32, path = "sfx_jy14_aimier_big_tx_32fr", bank = "jy14_aimier"}
+, 
+[320140103] = {id = 320140103, play_frame = 51, path = "sfx_jy14_aimier_big_wh_51fr", bank = "jy14_aimier"}
+, 
+[320140104] = {id = 320140104, play_frame = 52, path = "sfx_jy14_aimier_big_tx_52fr", bank = "jy14_aimier"}
+, 
+[320140105] = {id = 320140105, play_frame = 67, path = "sfx_jy14_aimier_big_wh_67fr", bank = "jy14_aimier"}
+, 
+[320140106] = {id = 320140106, play_frame = 70, path = "sfx_jy14_aimier_big_tx_70fr", bank = "jy14_aimier"}
+, 
+[320140107] = {id = 320140107, play_frame = 104, path = "sfx_jy14_aimier_big_wh_104fr", bank = "jy14_aimier"}
+, 
+[320140108] = {id = 320140108, play_frame = 108, path = "sfx_jy14_aimier_big_tx_108fr", bank = "jy14_aimier"}
+, 
+[320140109] = {id = 320140109, play_frame = 150, path = "sfx_jy14_aimier_big_wh_150fr", bank = "jy14_aimier"}
+, 
+[320140110] = {id = 320140110, play_frame = 157, path = "sfx_jy14_aimier_big_tx_157fr", bank = "jy14_aimier"}
+, 
+[320140201] = {id = 320140201, play_frame = 13, path = "sfx_jy14_aimier_pt_wh_13fr", bank = "jy14_aimier"}
+, 
+[320140202] = {id = 320140202, play_frame = 18, path = "sfx_jy14_aimier_pt_tx_18fr", bank = "jy14_aimier"}
+, 
+[320140203] = {id = 320140203, play_frame = 18, path = "sfx_jy14_aimier_pt_wh_18fr", bank = "jy14_aimier"}
+, 
+[320140204] = {id = 320140204, play_frame = 32, path = "sfx_jy14_aimier_pt_wh_32fr", bank = "jy14_aimier"}
+, 
+[320140205] = {id = 320140205, play_frame = 34, path = "sfx_jy14_aimier_pt_tx_34fr", bank = "jy14_aimier"}
+, 
+[320140206] = {id = 320140206, play_frame = 44, path = "sfx_jy14_aimier_pt_wh_44fr", bank = "jy14_aimier"}
+, 
+[320140207] = {id = 320140207, play_frame = 49, path = "sfx_jy14_aimier_pt_tx_49fr", bank = "jy14_aimier"}
+, 
+[320140301] = {id = 320140301, play_frame = 7, path = "sfx_jy14_aimier_small_wh_7fr", bank = "jy14_aimier"}
+, 
+[320140302] = {id = 320140302, play_frame = 12, path = "sfx_jy14_aimier_small_tx_12fr", bank = "jy14_aimier"}
+, 
+[320140303] = {id = 320140303, play_frame = 53, path = "sfx_jy14_aimier_small_wh_53fr", bank = "jy14_aimier"}
+, 
+[320140304] = {id = 320140304, play_frame = 56, path = "sfx_jy14_aimier_small_tx_56fr", bank = "jy14_aimier"}
+, 
+[320140305] = {id = 320140305, play_frame = 77, path = "sfx_jy14_aimier_small_wh_77fr", bank = "jy14_aimier"}
+, 
+[320140306] = {id = 320140306, play_frame = 78, path = "sfx_jy14_aimier_small_tx_78fr", bank = "jy14_aimier"}
+, 
+[320140401] = {id = 320140401, play_frame = 17, path = "sfx_jy14_aimier_pt_wh_13fr", bank = "jy14_aimier"}
+, 
+[320140402] = {id = 320140402, play_frame = 22, path = "sfx_jy14_aimier_pt_tx_18fr", bank = "jy14_aimier"}
+, 
+[320150101] = {id = 320150101, play_frame = 15, path = "sfx_jy15_aertuo_big_wh_15fr", bank = "jy15_aertuo"}
+, 
+[320150102] = {id = 320150102, play_frame = 22, path = "sfx_jy15_aertuo_big_tx_22fr", bank = "jy15_aertuo"}
+, 
+[320150103] = {id = 320150103, play_frame = 38, path = "sfx_jy15_aertuo_big_wh_38fr", bank = "jy15_aertuo"}
+, 
+[320150104] = {id = 320150104, play_frame = 44, path = "sfx_jy15_aertuo_big_tx_44fr", bank = "jy15_aertuo"}
+, 
+[320150105] = {id = 320150105, play_frame = 78, path = "sfx_jy15_aertuo_big_wh_78fr", bank = "jy15_aertuo"}
+, 
+[320150106] = {id = 320150106, play_frame = 82, path = "sfx_jy15_aertuo_big_tx_82fr", bank = "jy15_aertuo"}
+, 
+[320150201] = {id = 320150201, play_frame = 12, path = "sfx_jy15_aertuo_pt_wh_12fr", bank = "jy15_aertuo"}
+, 
+[320150202] = {id = 320150202, play_frame = 22, path = "sfx_jy15_aertuo_pt_tx_22fr", bank = "jy15_aertuo"}
+, 
+[320150301] = {id = 320150301, play_frame = 17, path = "sfx_jy15_aertuo_small_wh_17fr", bank = "jy15_aertuo"}
+, 
+[320150302] = {id = 320150302, play_frame = 23, path = "sfx_jy15_aertuo_small_wh_23fr", bank = "jy15_aertuo"}
+, 
+[320150303] = {id = 320150303, play_frame = 49, path = "sfx_jy15_aertuo_small_wh_49fr", bank = "jy15_aertuo"}
+, 
+[320150304] = {id = 320150304, play_frame = 58, path = "sfx_jy15_aertuo_small_tx_58fr", bank = "jy15_aertuo"}
+, 
+[320160101] = {id = 320160101, play_frame = 21, path = "sfx_jy16_luoxi_big_wh_21fr", bank = "jy16_luoxi"}
+, 
+[320160102] = {id = 320160102, play_frame = 46, path = "sfx_jy16_luoxi_big_wh_46fr", bank = "jy16_luoxi"}
+, 
+[320160103] = {id = 320160103, play_frame = 52, path = "sfx_jy16_luoxi_big_tx_52fr", bank = "jy16_luoxi"}
+, 
+[320160104] = {id = 320160104, play_frame = 68, path = "sfx_jy16_luoxi_big_tx_68fr", bank = "jy16_luoxi"}
+, 
+[320160105] = {id = 320160105, play_frame = 81, path = "sfx_jy16_luoxi_big_tx_81fr", bank = "jy16_luoxi"}
+, 
+[320160201] = {id = 320160201, play_frame = 23, path = "sfx_jy16_luoxi_pt_wh_23fr", bank = "jy16_luoxi"}
+, 
+[320160202] = {id = 320160202, play_frame = 33, path = "sfx_jy16_luoxi_pt_tx_33fr", bank = "jy16_luoxi"}
+, 
+[320160301] = {id = 320160301, play_frame = 25, path = "sfx_jy16_luoxi_small_wh_25fr", bank = "jy16_luoxi"}
+, 
+[320160302] = {id = 320160302, play_frame = 29, path = "sfx_jy16_luoxi_small_tx_29fr", bank = "jy16_luoxi"}
+, 
+[320160303] = {id = 320160303, play_frame = 38, path = "sfx_jy16_luoxi_small_wh_38fr", bank = "jy16_luoxi"}
+, 
+[320160304] = {id = 320160304, play_frame = 44, path = "sfx_jy16_luoxi_small_tx_44fr", bank = "jy16_luoxi"}
+, 
+[320160305] = {id = 320160305, play_frame = 73, path = "sfx_jy16_luoxi_small_wh_73fr", bank = "jy16_luoxi"}
+, 
+[320160306] = {id = 320160306, play_frame = 77, path = "sfx_jy16_luoxi_small_tx_77fr", bank = "jy16_luoxi"}
+, 
+[320160401] = {id = 320160401, play_frame = 15, path = "sfx_jy16_luoxi_pt_wh_23fr", bank = "jy16_luoxi"}
+, 
+[320160402] = {id = 320160402, play_frame = 24, path = "sfx_jy16_luoxi_pt_tx_33fr", bank = "jy16_luoxi"}
+, 
+[320170101] = {id = 320170101, play_frame = 27, path = "sfx_jy17_jierbote_big_wh_27fr", bank = "jy17_jierbote"}
+, 
+[320170102] = {id = 320170102, play_frame = 33, path = "sfx_jy17_jierbote_big_tx_33fr", bank = "jy17_jierbote"}
+, 
+[320170103] = {id = 320170103, play_frame = 49, path = "sfx_jy17_jierbote_big_wh_49fr", bank = "jy17_jierbote"}
+, 
+[320170104] = {id = 320170104, play_frame = 62, path = "sfx_jy17_jierbote_big_tx_62fr", bank = "jy17_jierbote"}
+, 
+[320170105] = {id = 320170105, play_frame = 103, path = "sfx_jy17_jierbote_big_wh_103fr", bank = "jy17_jierbote"}
+, 
+[320170106] = {id = 320170106, play_frame = 113, path = "sfx_jy17_jierbote_big_tx_113fr", bank = "jy17_jierbote"}
+, 
+[320170201] = {id = 320170201, play_frame = 32, path = "sfx_jy17_jierbote_pt_wh_32fr", bank = "jy17_jierbote"}
+, 
+[320170202] = {id = 320170202, play_frame = 41, path = "sfx_jy17_jierbote_pt_tx_41fr", bank = "jy17_jierbote"}
+, 
+[320170301] = {id = 320170301, play_frame = 27, path = "sfx_jy17_jierbote_small_wh_27fr", bank = "jy17_jierbote"}
+, 
+[320170302] = {id = 320170302, play_frame = 37, path = "sfx_jy17_jierbote_small_tx_37fr", bank = "jy17_jierbote"}
+, 
+[320170303] = {id = 320170303, play_frame = 66, path = "sfx_jy17_jierbote_small_wh_66fr", bank = "jy17_jierbote"}
+, 
+[320170304] = {id = 320170304, play_frame = 68, path = "sfx_jy17_jierbote_small_tx_68fr", bank = "jy17_jierbote"}
+, 
+[320170401] = {id = 320170401, play_frame = 19, path = "sfx_jy17_jierbote_pt_wh_32fr", bank = "jy17_jierbote"}
+, 
+[320170402] = {id = 320170402, play_frame = 27, path = "sfx_jy17_jierbote_pt_tx_41fr", bank = "jy17_jierbote"}
+, 
+[320180101] = {id = 320180101, play_frame = 19, path = "sfx_jy18_paerwei_big_wh_19fr", bank = "jy18_paerwei"}
+, 
+[320180102] = {id = 320180102, play_frame = 47, path = "sfx_jy18_paerwei_big_wh_47fr", bank = "jy18_paerwei"}
+, 
+[320180103] = {id = 320180103, play_frame = 63, path = "sfx_jy18_paerwei_big_tx_63fr", bank = "jy18_paerwei"}
+, 
+[320180201] = {id = 320180201, play_frame = 5, path = "sfx_jy18_paerwei_pt_wh_5fr", bank = "jy18_paerwei"}
+, 
+[320180202] = {id = 320180202, play_frame = 32, path = "sfx_jy18_paerwei_pt_wh_32fr", bank = "jy18_paerwei"}
+, 
+[320180203] = {id = 320180203, play_frame = 42, path = "sfx_jy18_paerwei_pt_tx_42fr", bank = "jy18_paerwei"}
+, 
+[320180204] = {id = 320180204, play_frame = 54, path = "sfx_jy18_paerwei_pt_wh_54fr", bank = "jy18_paerwei"}
+, 
+[320180205] = {id = 320180205, play_frame = 58, path = "sfx_jy18_paerwei_pt_tx_58fr", bank = "jy18_paerwei"}
+, 
+[320180301] = {id = 320180301, play_frame = 22, path = "sfx_jy18_paerwei_small_wh_22fr", bank = "jy18_paerwei"}
+, 
+[320180302] = {id = 320180302, play_frame = 34, path = "sfx_jy18_paerwei_small_tx_34fr", bank = "jy18_paerwei"}
+, 
+[320180303] = {id = 320180303, play_frame = 72, path = "sfx_jy18_paerwei_small_wh_72fr", bank = "jy18_paerwei"}
+, 
+[320180304] = {id = 320180304, play_frame = 88, path = "sfx_jy18_paerwei_small_tx_88fr", bank = "jy18_paerwei"}
+, 
+[320180401] = {id = 320180401, play_frame = 9, path = "sfx_jy18_paerwei_pt_wh_5fr", bank = "jy18_paerwei"}
+, 
+[320180402] = {id = 320180402, play_frame = 28, path = "sfx_jy18_paerwei_pt_wh_32fr", bank = "jy18_paerwei"}
+, 
+[320180403] = {id = 320180403, play_frame = 38, path = "sfx_jy18_paerwei_pt_tx_42fr", bank = "jy18_paerwei"}
+, 
+[320180404] = {id = 320180404, play_frame = 54, path = "sfx_jy18_paerwei_pt_wh_54fr", bank = "jy18_paerwei"}
+, 
+[320180405] = {id = 320180405, play_frame = 72, path = "sfx_jy18_paerwei_pt_tx_58fr", bank = "jy18_paerwei"}
+, 
+[320190101] = {id = 320190101, play_frame = 12, path = "sfx_jy19_tier_big_wh_12fr", bank = "jy19_tier"}
+, 
+[320190102] = {id = 320190102, play_frame = 37, path = "sfx_jy19_tier_big_wh_37fr", bank = "jy19_tier"}
+, 
+[320190103] = {id = 320190103, play_frame = 52, path = "sfx_jy19_tier_big_tx_52fr", bank = "jy19_tier"}
+, 
+[320190104] = {id = 320190104, play_frame = 89, path = "sfx_jy19_tier_big_wh_89fr", bank = "jy19_tier"}
+, 
+[320190105] = {id = 320190105, play_frame = 103, path = "sfx_jy19_tier_big_tx_103fr", bank = "jy19_tier"}
+, 
+[320190106] = {id = 320190106, play_frame = 158, path = "sfx_jy19_tier_big_wh_158fr", bank = "jy19_tier"}
+, 
+[320190107] = {id = 320190107, play_frame = 183, path = "sfx_jy19_tier_big_tx_183fr", bank = "jy19_tier"}
+, 
+[320190201] = {id = 320190201, play_frame = 19, path = "sfx_jy19_tier_pt_wh_19fr", bank = "jy19_tier"}
+, 
+[320190202] = {id = 320190202, play_frame = 42, path = "sfx_jy19_tier_pt_wh_42fr", bank = "jy19_tier"}
+, 
+[320190203] = {id = 320190203, play_frame = 57, path = "sfx_jy19_tier_pt_tx_57fr", bank = "jy19_tier"}
+, 
+[320190301] = {id = 320190301, play_frame = 22, path = "sfx_jy19_tier_small_wh_22fr", bank = "jy19_tier"}
+, 
+[320190302] = {id = 320190302, play_frame = 67, path = "sfx_jy19_tier_small_wh_67fr", bank = "jy19_tier"}
+, 
+[320190303] = {id = 320190303, play_frame = 82, path = "sfx_jy19_tier_small_tx_82fr", bank = "jy19_tier"}
+, 
+[320190304] = {id = 320190304, play_frame = 97, path = "sfx_jy19_tier_small_tx_97fr", bank = "jy19_tier"}
+, 
+[320190401] = {id = 320190401, play_frame = 9, path = "sfx_jy19_tier_pt_wh_19fr", bank = "jy19_tier"}
+, 
+[320190402] = {id = 320190402, play_frame = 34, path = "sfx_jy19_tier_pt_wh_42fr", bank = "jy19_tier"}
+, 
+[320190403] = {id = 320190403, play_frame = 57, path = "sfx_jy19_tier_pt_tx_57fr", bank = "jy19_tier"}
+, 
+[320200101] = {id = 320200101, play_frame = 42, path = "sfx_jy20_maliya_big_wh_42fr", bank = "jy20_maliya"}
+, 
+[320200102] = {id = 320200102, play_frame = 47, path = "sfx_jy20_maliya_big_wh_47fr", bank = "jy20_maliya"}
+, 
+[320200103] = {id = 320200103, play_frame = 56, path = "sfx_jy20_maliya_big_tx_56fr", bank = "jy20_maliya"}
+, 
+[320200201] = {id = 320200201, play_frame = 34, path = "sfx_jy20_maliya_pt_wh_34fr", bank = "jy20_maliya"}
+, 
+[320200202] = {id = 320200202, play_frame = 48, path = "sfx_jy20_maliya_pt_wh_48fr", bank = "jy20_maliya"}
+, 
+[320200301] = {id = 320200301, play_frame = 42, path = "sfx_jy20_maliya_small_tx_42fr", bank = "jy20_maliya"}
+, 
+[320200302] = {id = 320200302, play_frame = 50, path = "sfx_jy20_maliya_small_tx_50fr", bank = "jy20_maliya"}
+, 
+[320200303] = {id = 320200303, play_frame = 57, path = "sfx_jy20_maliya_small_tx_57fr", bank = "jy20_maliya"}
+, 
+[320200401] = {id = 320200401, play_frame = 28, path = "sfx_jy20_maliya_pt_wh_34fr", bank = "jy20_maliya"}
+, 
+[320200402] = {id = 320200402, play_frame = 47, path = "sfx_jy20_maliya_pt_wh_48fr", bank = "jy20_maliya"}
 }
 return BaseSoundPathData
 

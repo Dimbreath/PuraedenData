@@ -15,6 +15,7 @@ GetLand_PactUis = function(ui, ...)
   uis.SureBtn = ui:GetChild("SureBtn")
   uis.PactWordA = GetLand_PactWordUis(ui:GetChild("PactWordA"))
   uis.PactWordB = GetLand_PactWordUis(ui:GetChild("PactWordB"))
+  uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis
 end

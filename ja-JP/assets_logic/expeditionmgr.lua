@@ -103,8 +103,17 @@ end
 
 -- DECOMPILER ERROR at PC62: Confused about usage of register: R1 in 'UnsetPending'
 
+ExpeditionMgr.GetSweepDander = function(...)
+  -- function num : 0_8 , upvalues : self
+  if self.ExpeditionData then
+    return (self.ExpeditionData).sweepDander
+  end
+end
+
+-- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+
 ExpeditionMgr.GetExpeditionNum = function(expeditionID, ...)
-  -- function num : 0_8 , upvalues : _ENV
+  -- function num : 0_9 , upvalues : _ENV
   local ExpeditionData = (TableData.gTable).BaseExpeditionData
   local Data = {}
   for _,v in pairs(ExpeditionData) do
@@ -112,7 +121,7 @@ ExpeditionMgr.GetExpeditionNum = function(expeditionID, ...)
   end
   ;
   (table.sort)(Data, function(a, b, ...)
-    -- function num : 0_8_0
+    -- function num : 0_9_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -124,10 +133,10 @@ ExpeditionMgr.GetExpeditionNum = function(expeditionID, ...)
   end
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetStageNum = function(stageId, ...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   local eData = (ExpeditionMgr.GetExpeditionPoints)((ExpeditionMgr.GetCurrentExpeditionId)())
   for i,v in ipairs(eData) do
     if v.id == tonumber(stageId) then
@@ -136,10 +145,10 @@ ExpeditionMgr.GetStageNum = function(stageId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetCurrentEndStage = function(expeditionId, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   local stageS = (ExpeditionMgr.GetExpeditionPoints)(expeditionId)
   for _,v in ipairs(stageS) do
     if v.next == 0 then
@@ -148,24 +157,24 @@ ExpeditionMgr.GetCurrentEndStage = function(expeditionId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R1 in 'UnsetPending'
-
-ExpeditionMgr.GetMaxFight = function(...)
-  -- function num : 0_11 , upvalues : self
-  return (self.ExpeditionData).cardMaxNum
-end
-
 -- DECOMPILER ERROR at PC74: Confused about usage of register: R1 in 'UnsetPending'
 
-ExpeditionMgr.GetAlreadyFightCard = function(...)
+ExpeditionMgr.GetMaxFight = function(...)
   -- function num : 0_12 , upvalues : self
-  return (self.ExpeditionData).yetCardState
+  return (self.ExpeditionData).cardMaxNum
 end
 
 -- DECOMPILER ERROR at PC77: Confused about usage of register: R1 in 'UnsetPending'
 
+ExpeditionMgr.GetAlreadyFightCard = function(...)
+  -- function num : 0_13 , upvalues : self
+  return (self.ExpeditionData).yetCardState
+end
+
+-- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+
 ExpeditionMgr.GetEnemyFormation = function(...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   local formation = {}
   for i = 1, 6 do
     local data = (ExpeditionMgr.GetRivalDataByPos)(i)
@@ -180,10 +189,10 @@ ExpeditionMgr.GetEnemyFormation = function(...)
   return formation
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ChapterSortNum = function(number, ...)
-  -- function num : 0_14 , upvalues : self
+  -- function num : 0_15 , upvalues : self
   if number then
     self.ChapterSort = number
   else
@@ -191,10 +200,10 @@ ExpeditionMgr.ChapterSortNum = function(number, ...)
   end
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.SweepNum = function(number, ...)
-  -- function num : 0_15 , upvalues : self
+  -- function num : 0_16 , upvalues : self
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   if number then
@@ -204,10 +213,10 @@ ExpeditionMgr.SweepNum = function(number, ...)
   end
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionBuff = function(buffs, ...)
-  -- function num : 0_16 , upvalues : self
+  -- function num : 0_17 , upvalues : self
   -- DECOMPILER ERROR at PC3: Confused about usage of register: R1 in 'UnsetPending'
 
   if buffs then
@@ -217,10 +226,10 @@ ExpeditionMgr.ExpeditionBuff = function(buffs, ...)
   end
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionAltarData = function(data, ...)
-  -- function num : 0_17 , upvalues : _ENV, self
+  -- function num : 0_18 , upvalues : _ENV, self
   if data then
     local buffs = {}
     for _,v in ipairs(data) do
@@ -234,10 +243,10 @@ ExpeditionMgr.ExpeditionAltarData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetSpecialMerchantData = function(id, ...)
-  -- function num : 0_18 , upvalues : _ENV, self
+  -- function num : 0_19 , upvalues : _ENV, self
   local mTable = {}
   for _,v in ipairs((self.ExpeditionData).exBuy) do
     if v.stageId == id then
@@ -246,7 +255,7 @@ ExpeditionMgr.GetSpecialMerchantData = function(id, ...)
   end
   ;
   (table.sort)(mTable, function(a, b, ...)
-    -- function num : 0_18_0
+    -- function num : 0_19_0
     do return a.shopType < b.shopType end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -254,10 +263,10 @@ ExpeditionMgr.GetSpecialMerchantData = function(id, ...)
   return mTable
 end
 
--- DECOMPILER ERROR at PC95: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.RefreshSpecialMerchantData = function(data, ...)
-  -- function num : 0_19 , upvalues : _ENV, self
+  -- function num : 0_20 , upvalues : _ENV, self
   for _,v in ipairs((self.ExpeditionData).exBuy) do
     if v.stageId == data.stageId and v.shopType == data.shopType then
       v.buyNum = data.buyNum
@@ -266,10 +275,10 @@ ExpeditionMgr.RefreshSpecialMerchantData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC98: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionMerchantData = function(data, ...)
-  -- function num : 0_20 , upvalues : self
+  -- function num : 0_21 , upvalues : self
   if data then
     self.MerchantData = data
   else
@@ -277,10 +286,10 @@ ExpeditionMgr.ExpeditionMerchantData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC101: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.RefreshMerchantData = function(data, ...)
-  -- function num : 0_21 , upvalues : _ENV, self
+  -- function num : 0_22 , upvalues : _ENV, self
   for _,v in ipairs(self.MerchantData) do
     if v.shopType == data.shopType then
       v.buyNum = data.buyNum
@@ -289,10 +298,10 @@ ExpeditionMgr.RefreshMerchantData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC104: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetRivalDataByPos = function(pos, ...)
-  -- function num : 0_22 , upvalues : self, _ENV
+  -- function num : 0_23 , upvalues : self, _ENV
   local dataS = (self.ExpeditionData).rivalCard
   for _,v in ipairs(dataS) do
     if v.pos == pos then
@@ -301,10 +310,10 @@ ExpeditionMgr.GetRivalDataByPos = function(pos, ...)
   end
 end
 
--- DECOMPILER ERROR at PC107: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionIsChallenging = function(data, ...)
-  -- function num : 0_23 , upvalues : self
+  -- function num : 0_24 , upvalues : self
   if data ~= nil then
     self.IsInitWindow = data
   else
@@ -312,10 +321,10 @@ ExpeditionMgr.ExpeditionIsChallenging = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC110: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetExpeditionPoints = function(expeditionId, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   local ExpeditionData = (TableData.gTable).BaseExpeditionStageData
   local points = {}
   for _,v in pairs(ExpeditionData) do
@@ -325,7 +334,7 @@ ExpeditionMgr.GetExpeditionPoints = function(expeditionId, ...)
   end
   ;
   (table.sort)(points, function(a, b, ...)
-    -- function num : 0_24_0
+    -- function num : 0_25_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -333,10 +342,10 @@ ExpeditionMgr.GetExpeditionPoints = function(expeditionId, ...)
   return points
 end
 
--- DECOMPILER ERROR at PC113: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionStageIsPass = function(stageID, ...)
-  -- function num : 0_25 , upvalues : _ENV
+  -- function num : 0_26 , upvalues : _ENV
   local eData = (ExpeditionMgr.GetExpeditionPoints)((ExpeditionMgr.GetCurrentExpeditionId)())
   local curStage = (ExpeditionMgr.GetCurrentStage)()
   if curStage == -1 then
@@ -350,33 +359,33 @@ ExpeditionMgr.ExpeditionStageIsPass = function(stageID, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC116: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionStageCanChallenge = function(stageID, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   local curStage = (ExpeditionMgr.GetCurrentStage)()
   do return curStage == stageID end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC119: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionStageIsFight = function(stageID, ...)
-  -- function num : 0_27 , upvalues : _ENV
+  -- function num : 0_28 , upvalues : _ENV
   local ExpeditionData = ((TableData.gTable).BaseExpeditionStageData)[stageID]
   do return ExpeditionData.type == (ExpeditionMgr.StageType).General or ExpeditionData.type == (ExpeditionMgr.StageType).Hard or ExpeditionData.type == (ExpeditionMgr.StageType).Dead end
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC122: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.OnClickChallenge = function(stageID, ...)
-  -- function num : 0_28 , upvalues : _ENV
+  -- function num : 0_29 , upvalues : _ENV
   local ExpeditionData = ((TableData.gTable).BaseExpeditionStageData)[stageID]
   local btnData = {}
   btnData.btnTxt = (PUtil.get)(20000021)
   btnData.fun = function(cards, ...)
-    -- function num : 0_28_0 , upvalues : _ENV, stageID
+    -- function num : 0_29_0 , upvalues : _ENV, stageID
     (ExpeditionService.OnReqIntoExpedition)(stageID, cards)
   end
 
@@ -384,6 +393,7 @@ ExpeditionMgr.OnClickChallenge = function(stageID, ...)
   externalData.buff = tonumber(ExpeditionData.buff_ids)
   externalData.maxFight = (ExpeditionMgr.GetMaxFight)()
   externalData.cardState = (ExpeditionMgr.GetAlreadyFightCard)()
+  externalData.sweepDander = (ExpeditionMgr.GetSweepDander)() or 0
   local formationData = {}
   formationData.formationType = FormationType.Expedition
   formationData.otherPlayerList = (ExpeditionMgr.GetEnemyFormation)()
@@ -393,12 +403,12 @@ ExpeditionMgr.OnClickChallenge = function(stageID, ...)
   formationData.ExternalData = externalData
   formationData.battleType = (ProtoEnum.E_BATTLE_TYPE).EXPEDITION
   formationData.closeFun = function(...)
-    -- function num : 0_28_1 , upvalues : _ENV
+    -- function num : 0_29_1 , upvalues : _ENV
     (ExpeditionMgr.ExpeditionIsChallenging)(false)
   end
 
   formationData.backFun = function(...)
-    -- function num : 0_28_2 , upvalues : _ENV
+    -- function num : 0_29_2 , upvalues : _ENV
     (ExpeditionMgr.ExpeditionIsChallenging)(true)
     ;
     (ExpeditionMgr.SetSettleResult)(false)
@@ -409,10 +419,10 @@ ExpeditionMgr.OnClickChallenge = function(stageID, ...)
   (MessageMgr.OpenFormationWindow)(formationData)
 end
 
--- DECOMPILER ERROR at PC125: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetSelfFormation = function(...)
-  -- function num : 0_29 , upvalues : self, _ENV
+  -- function num : 0_30 , upvalues : self, _ENV
   local formation = {}
   local dataS = (self.ExpeditionData).battleCardState
   for _,v in ipairs(dataS) do
@@ -426,24 +436,24 @@ ExpeditionMgr.GetSelfFormation = function(...)
   return formation
 end
 
--- DECOMPILER ERROR at PC128: Confused about usage of register: R1 in 'UnsetPending'
-
-ExpeditionMgr.ShowSettleResult = function(...)
-  -- function num : 0_30 , upvalues : self
-  return self.SettleResult
-end
-
 -- DECOMPILER ERROR at PC131: Confused about usage of register: R1 in 'UnsetPending'
 
-ExpeditionMgr.SetSettleResult = function(data, ...)
+ExpeditionMgr.ShowSettleResult = function(...)
   -- function num : 0_31 , upvalues : self
-  self.SettleResult = data
+  return self.SettleResult
 end
 
 -- DECOMPILER ERROR at PC134: Confused about usage of register: R1 in 'UnsetPending'
 
+ExpeditionMgr.SetSettleResult = function(data, ...)
+  -- function num : 0_32 , upvalues : self
+  self.SettleResult = data
+end
+
+-- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+
 ExpeditionMgr.ShowSettleType = function(msg, ...)
-  -- function num : 0_32 , upvalues : _ENV, self
+  -- function num : 0_33 , upvalues : _ENV, self
   local success = msg.success
   local reward = msg.reward
   local isSweep = msg.isSweep
@@ -460,7 +470,7 @@ ExpeditionMgr.ShowSettleType = function(msg, ...)
       (ExpeditionMgr.SetExpeditionData)(msg.expedition)
       ;
       (MessageMgr.OpenRewardByGoods)(reward, function(...)
-    -- function num : 0_32_0 , upvalues : _ENV, msg
+    -- function num : 0_33_0 , upvalues : _ENV, msg
     UIMgr:SendWindowMessage((WinResConfig.ExpeditionWindow).name, (WindowMsgEnum.ExpeditionWindow).SWEEP_SHOW, (msg.expedition).stageId)
   end
 )
@@ -474,9 +484,9 @@ ExpeditionMgr.ShowSettleType = function(msg, ...)
       local btn = {}
       btn.btnTxt = (PUtil.get)(60000004)
       btn.fun = function(...)
-    -- function num : 0_32_1 , upvalues : _ENV
+    -- function num : 0_33_1 , upvalues : _ENV
     ld("Battle", function(...)
-      -- function num : 0_32_1_0 , upvalues : _ENV
+      -- function num : 0_33_1_0 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -509,10 +519,10 @@ ExpeditionMgr.ShowSettleType = function(msg, ...)
   end
 end
 
--- DECOMPILER ERROR at PC137: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.ExpeditionCanClick = function(value, ...)
-  -- function num : 0_33 , upvalues : self
+  -- function num : 0_34 , upvalues : self
   if value ~= nil then
     self.CanClick = value
   else
@@ -520,10 +530,10 @@ ExpeditionMgr.ExpeditionCanClick = function(value, ...)
   end
 end
 
--- DECOMPILER ERROR at PC140: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.OpenExpeditionSettle = function(ExpeditionData, reward, ...)
-  -- function num : 0_34 , upvalues : _ENV
+  -- function num : 0_35 , upvalues : _ENV
   local m = {}
   m.BattleType = (ProtoEnum.E_BATTLE_TYPE).EXPEDITION
   m.CardAddIntimacy = ExpeditionData.card_intimacy
@@ -538,19 +548,19 @@ ExpeditionMgr.OpenExpeditionSettle = function(ExpeditionData, reward, ...)
   local btn2 = {}
   btn2.btnTxt = (PUtil.get)(20000016)
   btn2.fun = function(...)
-    -- function num : 0_34_0 , upvalues : _ENV, ExpeditionData
+    -- function num : 0_35_0 , upvalues : _ENV, ExpeditionData
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       ld("Battle", function(...)
-      -- function num : 0_34_0_0 , upvalues : _ENV
+      -- function num : 0_35_0_0 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
       UIMgr:CloseWindow((WinResConfig.BattleWinConvergeWindow).name)
       UIMgr:SetOnShownComplete((WinResConfig.ExpeditionWindow).name, function(...)
-      -- function num : 0_34_0_1 , upvalues : ExpeditionData, _ENV
+      -- function num : 0_35_0_1 , upvalues : ExpeditionData, _ENV
       if ExpeditionData.next == 0 then
         (SimpleTimer.setTimeout)(0.2, function(...)
-        -- function num : 0_34_0_1_0 , upvalues : _ENV
+        -- function num : 0_35_0_1_0 , upvalues : _ENV
         (MessageMgr.SendCenterTips)((PUtil.get)(20000117))
       end
 )
@@ -567,10 +577,10 @@ ExpeditionMgr.OpenExpeditionSettle = function(ExpeditionData, reward, ...)
   (CommonWinMgr.OpenBattleSettleConvergeWindow)(m)
 end
 
--- DECOMPILER ERROR at PC143: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC146: Confused about usage of register: R1 in 'UnsetPending'
 
 ExpeditionMgr.GetShopDataConfig = function(type, times, ...)
-  -- function num : 0_35 , upvalues : _ENV
+  -- function num : 0_36 , upvalues : _ENV
   times = times + 1
   local ShopData = (TableData.gTable).BaseExpeditionShopData
   for _,v in pairs(ShopData) do

@@ -21,7 +21,7 @@ BaseSkillBuffEffectData = {
 , 
 [109] = {id = 109, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_feet_path = "0", effect_feet_priority = 0, buff_show_times = "0"}
 , 
-[110] = {id = 110, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_feet_path = "0", effect_feet_priority = 0, buff_show_times = "0"}
+[110] = {id = 110, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "BuffIcon:buff_110", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_feet_path = "0", effect_feet_priority = 0, buff_show_times = "0"}
 , 
 [111] = {id = 111, attribute_id = 0, control_type = "0", words_path = "0", words_opportunity = 0, icon_path = "0", icon_priority = 0, effect_head_path = "0", effect_head_priority = 0, effect_body_path = "0", effect_body_priority = 0, effect_around_path = "0", effect_around_priority = 0, effect_feet_path = "0", effect_feet_priority = 0, buff_show_times = "0"}
 , 

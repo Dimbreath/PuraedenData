@@ -83,21 +83,7 @@ BaseHandbookAdventureChapterData = {
 , 
 [51200001] = {id = 51200001, type = 2, activity_type = 0, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52200101:52200102:52200103:52200104:52200105:52200106", sort = 1}
 , 
-[51410001] = {id = 51410001, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52500101:52500102:52500103:52500104:52500105", sort = 1}
-, 
-[51410002] = {id = 51410002, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52500201:52500202:52500203:52500204:52500205", sort = 2}
-, 
-[51410003] = {id = 51410003, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52500301:52500302:52500303:52500304:52500305", sort = 3}
-, 
-[51410004] = {id = 51410004, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52500401:52500402:52500403:52500404:52500405", sort = 4}
-, 
-[51420001] = {id = 51420001, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52510101:52510102:52510103:52510104:52510105", sort = 5}
-, 
-[51420002] = {id = 51420002, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52510201:52510202:52510203:52510204:52510205", sort = 6}
-, 
-[51420003] = {id = 51420003, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52510301:52510302:52510303:52510304:52510305", sort = 7}
-, 
-[51420004] = {id = 51420004, type = 3, activity_type = 301, name = (PUtil.get)(85120001), remark = (PUtil.get)(85120001), record_ids = "52510401:52510402:52510403:52510404:52510405", sort = 8}
+[51410001] = {id = 51410001, type = 3, activity_type = 301, name = (PUtil.get)(85180100), remark = (PUtil.get)(85180100), record_ids = "52500103:52500106:52500109:52500112:52500115", sort = 1}
 }
 return BaseHandbookAdventureChapterData
 

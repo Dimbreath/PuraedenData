@@ -61,44 +61,65 @@ ActivityDungeonExchangeWindow.InitBtn = function(...)
   ;
   (ActivityDungeonExchangeWindow.SetBtnContent)((uis.GetReward_A).root, times[1])
   ;
-  (ActivityDungeonExchangeWindow.SetBtnContent)((uis.GetReward_B).root, times[2])
+  (ActivityDungeonExchangeWindow.SetBtnContent)((uis.GetReward_B).root, times[2], tonumber(times[1]))
   ;
-  (ActivityDungeonExchangeWindow.SetBtnContent)((uis.GetReward_C).root, times[3])
-  -- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+  (ActivityDungeonExchangeWindow.SetBtnContent)((uis.GetReward_C).root, times[3], tonumber(times[2]))
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
-  (uis.ResetBtn).text = (PUtil.get)(60000069)
+  (uis.ResetBtn).text = (PUtil.get)(20000519)
   ;
   ((uis.ResetBtn).onClick):Set(function(...)
     -- function num : 0_4_0 , upvalues : _ENV, configData
-    (SlotsService.ReqSlotsReset)(configData.type)
+    (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000514), function(...)
+      -- function num : 0_4_0_0 , upvalues : _ENV, configData
+      (SlotsService.ReqSlotsReset)(configData.type)
+    end
+)
   end
 )
 end
 
-ActivityDungeonExchangeWindow.SetBtnContent = function(com, times, ...)
+ActivityDungeonExchangeWindow.SetBtnContent = function(com, times, preTimes, ...)
   -- function num : 0_5 , upvalues : _ENV, configData
   if times == nil or tonumber(times) <= 0 then
     com.visible = false
   end
   times = tonumber(times)
-  local btn = com:GetChild("n4")
-  btn.text = (PUtil.get)(20000458, times)
   local icon = com:GetChild("IconLoader")
   local txt = com:GetChild("NumberTxt")
   local singleCost = split(configData.cost, ":")
+  local count = (ActorData.GetAssetCount)(tonumber(singleCost[2]))
   local Const = singleCost[1] .. ":" .. singleCost[2] .. ":" .. tonumber(singleCost[3]) * times
-  ;
-  (Util.SetConsumption)(Const, icon, txt, false, true)
-  ;
-  (btn.onClick):Set(function(...)
+  if not (Util.CheckCostResources)(Const, nil, nil, true) and count > 0 and times > 1 and preTimes and preTimes > 0 then
+    local preConst = singleCost[1] .. ":" .. singleCost[2] .. ":" .. tonumber(singleCost[3]) * preTimes
+    if (Util.CheckCostResources)(preConst, nil, nil, true) then
+      local mTimes = (math.floor)(count / tonumber(singleCost[3]))
+      if preTimes < mTimes then
+        times = mTimes
+      end
+    end
+  end
+  do
+    local btn = com:GetChild("n4")
+    btn.text = (PUtil.get)(20000458, times)
+    local Const = singleCost[1] .. ":" .. singleCost[2] .. ":" .. tonumber(singleCost[3]) * times
+    ;
+    (Util.SetConsumption)(Const, icon, txt, false, true)
+    ;
+    (btn.onClick):Set(function(...)
     -- function num : 0_5_0 , upvalues : singleCost, _ENV, configData, times
     local Const = singleCost[1] .. ":" .. singleCost[2] .. ":" .. 1
-    if (Util.CheckCostResources)(Const, nil) then
+    if (Util.CheckCostResources)(Const, nil, nil, true) then
       (SlotsService.ReqSlotsOperation)(configData.type, times)
+    else
+      local data = (Util.GetConfigDataByID)(singleCost[2])
+      ;
+      (MessageMgr.SendCenterTips)((PUtil.get)(177, data.name))
     end
   end
 )
+  end
 end
 
 ActivityDungeonExchangeWindow.OnShown = function(...)
@@ -121,7 +142,7 @@ ActivityDungeonExchangeWindow.OnShown = function(...)
 )
   ;
   (ActivityDungeonExchangeWindow.SetRoundShow)((SlotsData.SlotRound)())
-  local time = (((ActivityMgr.InitActivityDungeonData)()).baseActivityInfo).endTime
+  local time = (((ActivityMgr.InitActivityDungeonData)()).baseActivityInfo).destroyTime
   ;
   (ActivityDungeonExchangeWindow.SetCountDown)(time)
 end
@@ -251,8 +272,12 @@ ActivityDungeonExchangeWindow.SetListShow = function(mList, isAim, ...)
     (line:GetChild("NameTxt")).text = (PUtil.get)(20000461)
   end
   local count, getCount = (ActivityDungeonExchangeWindow.GetAimCount)(mList)
-  ;
-  (line:GetChild("NumberTxt")).text = (PUtil.get)(20000462, count - getCount, count)
+  if count - getCount > 0 then
+    (line:GetChild("NumberTxt")).text = (PUtil.get)(20000462, count - getCount, count)
+  else
+    ;
+    (line:GetChild("NumberTxt")).text = (PUtil.get)(20000515, count - getCount, count)
+  end
   ;
   ((uis.RewardShow).RewardList):AddChild(line)
   for i,v in ipairs(mList) do
@@ -263,7 +288,7 @@ ActivityDungeonExchangeWindow.SetListShow = function(mList, isAim, ...)
     ;
     (Util.SetAllItemIcon)(reward:GetChild("AllItemIcon"), itemID, 1, false, false, true)
     ;
-    (reward:GetChild("NameTxt")).text = propData.name .. "             *" .. item[3]
+    (reward:GetChild("NameTxt")).text = propData.name .. "x" .. item[3]
     local roundNum = ((SlotsData.SlotRound)())
     local getCount = nil
     if roundNum == RoundData.num_round then
@@ -276,8 +301,12 @@ ActivityDungeonExchangeWindow.SetListShow = function(mList, isAim, ...)
       end
     end
     local max = v.reward_max
-    ;
-    (reward:GetChild("ItemNumberTxt")).text = (PUtil.get)(20000463, max - getCount, max)
+    if max - getCount > 0 then
+      (reward:GetChild("ItemNumberTxt")).text = (PUtil.get)(20000463, max - getCount, max)
+    else
+      ;
+      (reward:GetChild("ItemNumberTxt")).text = (PUtil.get)(20000516, max - getCount, max)
+    end
     ;
     ((uis.RewardShow).RewardList):AddChild(reward)
     if i < #mList then
@@ -387,6 +416,17 @@ ActivityDungeonExchangeWindow.SetRoundShow = function(round, ...)
       end
     end
   end
+  local count = ((uis.RewardShow).LabelList).numItems
+  for i = 1, count do
+    local obj = ((uis.RewardShow).LabelList):GetChildAt(i - 1)
+    if obj then
+      if i - 1 == round then
+        ChangeUIController(obj, "c1", 1)
+      else
+        ChangeUIController(obj, "c1", 0)
+      end
+    end
+  end
 end
 
 ActivityDungeonExchangeWindow.OnHide = function(...)
@@ -463,7 +503,7 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
     if #goods + #equip >= 10 then
       (ActivityDungeonExchangeWindow.PlayAnimation)("ten", goods, equip)
     else
-      local colorNum = (ActivityDungeonExchangeWindow.GetLotteryColor)(goods, equip)
+      local colorNum = (ActivityDungeonExchangeWindow.GetLotteryColor)(goods, equip) or 1
       ;
       (ActivityDungeonExchangeWindow.PlayAnimation)(aniName[colorNum + 1], goods, equip)
     end
@@ -484,6 +524,17 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
     (ActivityDungeonExchangeWindow.SetResetShow)()
   end
 )
+          local isChange = (SlotsData.ChangeRound)()
+          if isChange then
+            (SlotsData.ChangeRound)(false)
+            UIMgr:SetOnHideComplete((WinResConfig.RewardShowWindow).name, function(...)
+    -- function num : 0_18_1 , upvalues : _ENV
+    local content = (PUtil.get)(20000512, (SlotsData.SlotRound)() + 1)
+    ;
+    (MessageMgr.OpenSoloConfirmWindow)(content, nil, (PUtil.get)(20000513))
+  end
+)
+          end
         end
       end
     end

@@ -57,6 +57,74 @@ BaseDropGroupLevelData = {
 , 
 [27100308] = {id = 27100308, type = 1010, level_limit = "1:999", drop_ids = "22800009"}
 , 
+[27100401] = {id = 27100401, type = 1013, level_limit = "1:13", drop_ids = "28300001"}
+, 
+[27100402] = {id = 27100402, type = 1013, level_limit = "14:17", drop_ids = "28300002"}
+, 
+[27100403] = {id = 27100403, type = 1013, level_limit = "18:21", drop_ids = "28300003"}
+, 
+[27100404] = {id = 27100404, type = 1013, level_limit = "22:25", drop_ids = "28300004"}
+, 
+[27100405] = {id = 27100405, type = 1013, level_limit = "26:29", drop_ids = "28300005"}
+, 
+[27100406] = {id = 27100406, type = 1013, level_limit = "30:34", drop_ids = "28300006"}
+, 
+[27100407] = {id = 27100407, type = 1013, level_limit = "35:39", drop_ids = "28300007"}
+, 
+[27100408] = {id = 27100408, type = 1013, level_limit = "40:44", drop_ids = "28300008"}
+, 
+[27100409] = {id = 27100409, type = 1013, level_limit = "45:49", drop_ids = "28300009"}
+, 
+[27100410] = {id = 27100410, type = 1013, level_limit = "50:51", drop_ids = "28300010"}
+, 
+[27100411] = {id = 27100411, type = 1013, level_limit = "52:54", drop_ids = "28300011"}
+, 
+[27100412] = {id = 27100412, type = 1013, level_limit = "55:56", drop_ids = "28300012"}
+, 
+[27100413] = {id = 27100413, type = 1013, level_limit = "57:59", drop_ids = "28300013"}
+, 
+[27100414] = {id = 27100414, type = 1013, level_limit = "60:61", drop_ids = "28300014"}
+, 
+[27100415] = {id = 27100415, type = 1013, level_limit = "62:64", drop_ids = "28300015"}
+, 
+[27100416] = {id = 27100416, type = 1013, level_limit = "65:66", drop_ids = "28300016"}
+, 
+[27100417] = {id = 27100417, type = 1013, level_limit = "67:70", drop_ids = "28300017"}
+, 
+[27100418] = {id = 27100418, type = 1012, level_limit = "1:13", drop_ids = "28300018"}
+, 
+[27100419] = {id = 27100419, type = 1012, level_limit = "14:17", drop_ids = "28300019"}
+, 
+[27100420] = {id = 27100420, type = 1012, level_limit = "18:21", drop_ids = "28300020"}
+, 
+[27100421] = {id = 27100421, type = 1012, level_limit = "22:25", drop_ids = "28300021"}
+, 
+[27100422] = {id = 27100422, type = 1012, level_limit = "26:29", drop_ids = "28300022"}
+, 
+[27100423] = {id = 27100423, type = 1012, level_limit = "30:34", drop_ids = "28300023"}
+, 
+[27100424] = {id = 27100424, type = 1012, level_limit = "35:39", drop_ids = "28300024"}
+, 
+[27100425] = {id = 27100425, type = 1012, level_limit = "40:44", drop_ids = "28300025"}
+, 
+[27100426] = {id = 27100426, type = 1012, level_limit = "45:49", drop_ids = "28300026"}
+, 
+[27100427] = {id = 27100427, type = 1012, level_limit = "50:51", drop_ids = "28300027"}
+, 
+[27100428] = {id = 27100428, type = 1012, level_limit = "52:54", drop_ids = "28300028"}
+, 
+[27100429] = {id = 27100429, type = 1012, level_limit = "55:56", drop_ids = "28300029"}
+, 
+[27100430] = {id = 27100430, type = 1012, level_limit = "57:59", drop_ids = "28300030"}
+, 
+[27100431] = {id = 27100431, type = 1012, level_limit = "60:61", drop_ids = "28300031"}
+, 
+[27100432] = {id = 27100432, type = 1012, level_limit = "62:64", drop_ids = "28300032"}
+, 
+[27100433] = {id = 27100433, type = 1012, level_limit = "65:66", drop_ids = "28300033"}
+, 
+[27100434] = {id = 27100434, type = 1012, level_limit = "67:70", drop_ids = "28300034"}
+, 
 [27200101] = {id = 27200101, type = 2001, level_limit = "1:9", drop_ids = "24120001"}
 , 
 [27200102] = {id = 27200102, type = 2001, level_limit = "10:14", drop_ids = "24120002"}

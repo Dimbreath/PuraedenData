@@ -31,7 +31,7 @@ battle_failure = {id = "battle_failure"}
 , 
 buy_num_exceed_max = {id = "buy_num_exceed_max", name = "購入可能回数MAX"}
 , 
-card_group_not_null = {id = "card_group_not_null", name = "出陣陣容には空の値を入れられない"}
+card_group_not_null = {id = "card_group_not_null", name = "パーティーを編成してください"}
 , 
 card_include = {id = "card_include"}
 , 

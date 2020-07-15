@@ -215,19 +215,22 @@ AdventureMiniRPSGameWindow.ShowResult = function(gesture, npcGesture, status, ..
 )
   ;
   (SimpleTimer.setTimeout)(1.4, function(...)
-    -- function num : 0_15_1 , upvalues : pos, _ENV, uis, finalIndex
-    do
-      if pos ~= nil then
-        local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_ADVENTUREGAME_RPS_WIN)
-        ;
-        (uis.root):AddChild(holder)
-        holder:SetXY(pos.x, pos.y)
+    -- function num : 0_15_1 , upvalues : pos, status, _ENV, uis, finalIndex
+    if pos ~= nil then
+      if status == AdventureRewardType.Win then
+        (LuaSound.PlaySound)(LuaSound.GAME_CARD_WIN, SoundBank.OTHER)
       end
-      -- DECOMPILER ERROR at PC18: Confused about usage of register: R0 in 'UnsetPending'
+      local holder = (LuaEffect.AddUIEffect)(UIEffectEnum.UI_ADVENTUREGAME_RPS_WIN)
+      ;
+      (uis.root):AddChild(holder)
+      holder:SetXY(pos.x, pos.y)
+    end
+    do
+      -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = finalIndex
-      -- DECOMPILER ERROR at PC20: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
 
       ;
       (uis.WordTxt).text = ""

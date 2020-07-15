@@ -1,9 +1,9 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseMailLimitData = {
-[21100001] = {id = 21100001, limit_num = 1500}
+[21100001] = {id = 21100001, limit_num = 10000}
 , 
-[21100002] = {id = 21100002, limit_num = 1500}
+[21100002] = {id = 21100002, limit_num = 10000}
 , 
 [21100003] = {id = 21100003, limit_num = 1000000}
 , 

@@ -38,27 +38,48 @@ SkillParse.Init = function(atkEndCallBack, skillShowConfig, ...)
       (table.insert)(defCards, defCard)
     end
   end
-  if SkillScript then
-    local count = SkillScript.totalHitCount
-    local hurtSectionTable = {}
-    if skillShowConfig and skillShowConfig.hurt_section then
-      hurtSectionTable = split(skillShowConfig.hurt_section, ":")
-      if #hurtSectionTable < count then
-        for i = #hurtSectionTable + 1, count do
-          hurtSectionTable[i] = 1
+  if #atkInfo.doubleAtkInfo > 0 then
+    for _,doubleAtk in ipairs(atkInfo.doubleAtkInfo) do
+      for _,defCardInfo in ipairs(doubleAtk.defCardsInfo) do
+        local defCardUid = defCardInfo.defCardUid
+        local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
+        if defCardInfo.isCounter == false then
+          local isFind = false
+          for i,v in ipairs(defCards) do
+            if v:GetPosIndex() == defCard:GetPosIndex() then
+              isFind = true
+            end
+          end
+          if isFind == false then
+            (table.insert)(defCards, defCard)
+          end
         end
       end
-    else
-      do
-        for i = 1, count do
-          hurtSectionTable[i] = 1
-        end
-        do
-          local totalCount = 0
-          for i,v in ipairs(hurtSectionTable) do
-            totalCount = totalCount + v
+    end
+  end
+  do
+    if SkillScript then
+      local count = SkillScript.totalHitCount
+      local hurtSectionTable = {}
+      if skillShowConfig and skillShowConfig.hurt_section then
+        hurtSectionTable = split(skillShowConfig.hurt_section, ":")
+        if #hurtSectionTable < count then
+          for i = #hurtSectionTable + 1, count do
+            hurtSectionTable[i] = 1
           end
-          hurtTableList = (BattleUtil.SplitHurt)(atkInfo.defCardsInfo, count, hurtSectionTable, totalCount)
+        end
+      else
+        do
+          for i = 1, count do
+            hurtSectionTable[i] = 1
+          end
+          do
+            local totalCount = 0
+            for i,v in ipairs(hurtSectionTable) do
+              totalCount = totalCount + v
+            end
+            hurtTableList = (BattleUtil.SplitHurt)(atkInfo.defCardsInfo, count, hurtSectionTable, totalCount)
+          end
         end
       end
     end

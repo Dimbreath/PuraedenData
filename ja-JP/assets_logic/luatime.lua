@@ -283,5 +283,17 @@ LuaTime.GetRangeTime = function(str, ...)
   return startTime, (string.format)("%02d:%02d", endHour, endMin)
 end
 
+LuaTime.GetGameHour = function(time, ...)
+  -- function num : 0_16 , upvalues : _ENV
+  local deviceZone = tonumber((os.date)("%z", 0)) / 100
+  return tonumber((os.date)("%H", (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)))
+end
+
+LuaTime.GetTimeWithTimezone = function(time, ...)
+  -- function num : 0_17 , upvalues : _ENV
+  local deviceZone = tonumber((os.date)("%z", 0)) / 100
+  return (math.floor)((time + (Game.timeZone - deviceZone) * 3600 * 1000) / 1000)
+end
+
 return LuaTime
 

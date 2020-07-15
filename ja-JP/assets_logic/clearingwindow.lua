@@ -202,20 +202,26 @@ ClearingWindow.SetBtnShow = function(...)
   if SweepData.isFastWeep then
     (uis.c2Ctr).selectedIndex = 3
   else
-    -- DECOMPILER ERROR at PC14: Confused about usage of register: R0 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
 
-    if (FunctionControlMgr.GetFunctionState)(ControlID.Clear_SweepFiftyBtn) then
-      (uis.c2Ctr).selectedIndex = 2
+    if (PlotDungeonMgr.ActivityDungeonIsHero)(SweepData.stageId) then
+      (uis.c2Ctr).selectedIndex = 0
     else
-      -- DECOMPILER ERROR at PC24: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
 
-      if (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepTenBtn) then
-        (uis.c2Ctr).selectedIndex = 1
+      if (FunctionControlMgr.GetFunctionState)(ControlID.Clear_SweepFiftyBtn) then
+        (uis.c2Ctr).selectedIndex = 2
       else
-        -- DECOMPILER ERROR at PC27: Confused about usage of register: R0 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC33: Confused about usage of register: R0 in 'UnsetPending'
 
-        ;
-        (uis.c2Ctr).selectedIndex = 0
+        if (FunctionControlMgr.GetFunctionState)(ControlID.StageDetail_SweepTenBtn) then
+          (uis.c2Ctr).selectedIndex = 1
+        else
+          -- DECOMPILER ERROR at PC36: Confused about usage of register: R0 in 'UnsetPending'
+
+          ;
+          (uis.c2Ctr).selectedIndex = 0
+        end
       end
     end
   end

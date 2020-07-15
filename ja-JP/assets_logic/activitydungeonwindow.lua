@@ -11,6 +11,9 @@ local stages = {}
 local centerIndex = 0
 local midX = nil
 local isInit = true
+local UntilPos = "ActivityUntilPos"
+local chapterRe = 0
+local isRe = false
 ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, ActivityDungeonWindow, isInit, ChapterIds, currentChapter
   bridgeObj:SetView((WinResConfig.ActivityDungeonWindow).package, (WinResConfig.ActivityDungeonWindow).comName)
@@ -77,7 +80,7 @@ ActivityDungeonWindow.InitMapList = function(...)
 end
 
 ActivityDungeonWindow.ListRenderer = function(index, obj, ...)
-  -- function num : 0_2 , upvalues : _ENV, stages, centerIndex, uis, ActivityDungeonWindow, isInit
+  -- function num : 0_2 , upvalues : _ENV, stages, centerIndex, ActivityDungeonWindow, uis, isInit, UntilPos, currentChapter, isRe
   local stageId = tonumber(stages[index + 1])
   if stageId == nil or stageId == -1 then
     obj.visible = false
@@ -103,27 +106,53 @@ ActivityDungeonWindow.ListRenderer = function(index, obj, ...)
   end
   ;
   (obj.onClick):Set(function(...)
-    -- function num : 0_2_0 , upvalues : index, centerIndex, _ENV, stageId, uis
+    -- function num : 0_2_0 , upvalues : index, centerIndex, ActivityDungeonWindow, _ENV, stageId, uis
     if index == centerIndex then
-      (PlotDungeonMgr.OnClickStage)(stageId, false)
+      if (ActivityDungeonWindow.PlotActivityIsOpen)() then
+        (PlotDungeonMgr.OnClickStage)(stageId, false)
+      else
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(20000520))
+      end
     else
       ;
       (uis.MapList):ScrollToView(index - 2, true)
     end
   end
 )
+  local debris = stageData.card_show
+  local debrisBg = obj:GetChild("n14")
+  local debrisLoader = obj:GetChild("RewardLoader")
+  if debris and debris ~= "0" then
+    debrisBg.visible = true
+    debrisLoader.visible = true
+    debrisLoader.url = (Util.GetItemUrl)(debris)
+  else
+    debrisBg.visible = false
+    debrisLoader.visible = false
+  end
   local mIndex = (ActivityDungeonWindow.GetChallengeIndex)()
-  if mIndex == 0 and index == 2 and isInit then
-    local ss = 1.3
-    obj.scale = Vector2(ss, ss)
-    obj.width = 236 * ss
-    centerIndex = index
-    isInit = false
+  if index == 2 and isInit then
+    local RIndex = tonumber((Util.GetPlayerSetting)(UntilPos .. currentChapter, -1))
+    if mIndex == 0 or isRe and RIndex == 2 then
+      local ss = 1.3
+      obj.scale = Vector2(ss, ss)
+      obj.width = 236 * ss
+      centerIndex = index
+      isInit = false
+    end
   end
 end
 
+ActivityDungeonWindow.PlotActivityIsOpen = function(...)
+  -- function num : 0_3 , upvalues : _ENV
+  local time = (((ActivityMgr.InitActivityDungeonData)()).baseActivityInfo).endTime
+  do return time - (ActorData.GetServerTime)() > 0 end
+  -- DECOMPILER ERROR: 1 unprocessed JMP targets
+end
+
 ActivityDungeonWindow.SetCountDown = function(time, ...)
-  -- function num : 0_3 , upvalues : mTime, uis, _ENV
+  -- function num : 0_4 , upvalues : mTime, uis, _ENV
   if mTime then
     mTime:Stop()
   end
@@ -137,7 +166,7 @@ ActivityDungeonWindow.SetCountDown = function(time, ...)
     (uis.Time_02_Txt).text = (PUtil.get)(20000221)
   else
     mTime = (LuaTime.CountDown)(time * 0.001 - (ActorData.GetServerTime)() * 0.001, uis.Time_02_Txt, function(...)
-    -- function num : 0_3_0 , upvalues : uis, _ENV
+    -- function num : 0_4_0 , upvalues : uis, _ENV
     -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
     (uis.Time_02_Txt).text = (PUtil.get)(20000221)
@@ -147,14 +176,14 @@ ActivityDungeonWindow.SetCountDown = function(time, ...)
 end
 
 ActivityDungeonWindow.OnListScroll = function(...)
-  -- function num : 0_4 , upvalues : uis, midX, _ENV, centerIndex
+  -- function num : 0_5 , upvalues : uis, midX, _ENV, centerIndex
   if uis == nil then
     return 
   end
   midX = -((((uis.MapList).container).cachedTransform).localPosition).x + (uis.MapList).viewWidth / 2
   ;
   (uis.MapList):TraversalItem(function(index, obj, ...)
-    -- function num : 0_4_0 , upvalues : _ENV, midX, centerIndex
+    -- function num : 0_5_0 , upvalues : _ENV, midX, centerIndex
     local dist = (math.abs)(midX - obj.x - obj.width / 2)
     if obj.width < dist then
       obj.scale = Vector2.one
@@ -174,33 +203,35 @@ ActivityDungeonWindow.OnListScroll = function(...)
 end
 
 ActivityDungeonWindow.InitBtnEvent = function(...)
-  -- function num : 0_5 , upvalues : uis, _ENV, currentChapter, ChapterIds, ActivityDungeonWindow
+  -- function num : 0_6 , upvalues : uis, _ENV, currentChapter, ChapterIds, ActivityDungeonWindow, chapterRe
   ((uis.Difficulty_01_Btn):GetChild("NameTxt")).text = (PUtil.get)(20000217)
   ;
   ((uis.Difficulty_01_Btn).onClick):Set(function(...)
-    -- function num : 0_5_0 , upvalues : currentChapter, ChapterIds, ActivityDungeonWindow, _ENV
+    -- function num : 0_6_0 , upvalues : currentChapter, ChapterIds, ActivityDungeonWindow, _ENV, chapterRe
     currentChapter = ChapterIds.Simple
     ;
     (ActivityDungeonWindow.RefreshChapter)()
     ;
     (PlotDungeonMgr.SetSelectChapter)(currentChapter)
+    chapterRe = currentChapter
   end
 )
   ;
   ((uis.Difficulty_02_Btn):GetChild("NameTxt")).text = (PUtil.get)(20000218)
   ;
   ((uis.Difficulty_02_Btn).onClick):Set(function(...)
-    -- function num : 0_5_1 , upvalues : _ENV, ChapterIds, currentChapter, ActivityDungeonWindow, uis
+    -- function num : 0_6_1 , upvalues : _ENV, ChapterIds, currentChapter, ActivityDungeonWindow, chapterRe, uis
     if (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult) then
       currentChapter = ChapterIds.Difficult
       ;
       (ActivityDungeonWindow.RefreshChapter)()
       ;
       (PlotDungeonMgr.SetSelectChapter)(currentChapter)
+      chapterRe = currentChapter
     else
       ;
       (MessageMgr.SendCenterTips)((PUtil.get)(20000383))
-      -- DECOMPILER ERROR at PC23: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0
@@ -209,7 +240,7 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
 )
   ;
   ((uis.ExchangeBtn).onClick):Set(function(...)
-    -- function num : 0_5_2 , upvalues : _ENV
+    -- function num : 0_6_2 , upvalues : _ENV
     ld("Slots")
     ;
     (SlotsService.ReqSlotsData)((SlotsData.SlotType).ACTIVITY_SLOT)
@@ -217,7 +248,7 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
 )
   ;
   ((uis.PlotBtn).onClick):Set(function(...)
-    -- function num : 0_5_3 , upvalues : _ENV
+    -- function num : 0_6_3 , upvalues : _ENV
     local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
     local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
     ;
@@ -226,7 +257,7 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
 )
   if not (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult) then
     ((uis.Difficulty_02_Btn).onClick):AddCapture(function(eventContext, ...)
-    -- function num : 0_5_4 , upvalues : _ENV
+    -- function num : 0_6_4 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(20000383))
     eventContext:StopPropagation()
   end
@@ -240,7 +271,7 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
 end
 
 ActivityDungeonWindow.SetRedDot = function(...)
-  -- function num : 0_6 , upvalues : uis, _ENV
+  -- function num : 0_7 , upvalues : uis, _ENV
   ((uis.ExchangeBtn):GetChild("RedDot")).visible = (ActorData.GetAssetCount)(AssetType.ACTIVITY_SCORE) > 0
   ;
   ((uis.PlotBtn):GetChild("RedDot")).visible = (ActivityMgr.PlotRedDotShow)()
@@ -248,13 +279,14 @@ ActivityDungeonWindow.SetRedDot = function(...)
 end
 
 ActivityDungeonWindow.RefreshChapter = function(...)
-  -- function num : 0_7 , upvalues : _ENV, currentChapter, uis, stages, ActivityDungeonWindow
+  -- function num : 0_8 , upvalues : _ENV, currentChapter, uis, stages, isRe, ActivityDungeonWindow, UntilPos
   local chapterData = ((TableData.gTable).BaseChapterData)[tonumber(currentChapter)]
   -- DECOMPILER ERROR at PC9: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   (uis.NameTxt).text = chapterData.name
   stages = split(chapterData.stages, ":")
+  local lastStage = tonumber(stages[#stages])
   ;
   (table.insert)(stages, 1, -1)
   ;
@@ -263,22 +295,33 @@ ActivityDungeonWindow.RefreshChapter = function(...)
   (table.insert)(stages, -1)
   ;
   (table.insert)(stages, -1)
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R1 in 'UnsetPending'
+  isRe = false
+  local sIndex = (ActivityDungeonWindow.GetChallengeIndex)()
+  do
+    if (PlotDungeonMgr.IsPassDungeon)(lastStage) then
+      local index = tonumber((Util.GetPlayerSetting)(UntilPos .. currentChapter, -1))
+      if index >= 0 then
+        isRe = true
+        sIndex = index - 2
+      end
+    end
+    -- DECOMPILER ERROR at PC69: Confused about usage of register: R3 in 'UnsetPending'
 
-  ;
-  (uis.MapList).numItems = #stages
-  ;
-  (SimpleTimer.setTimeout)(0.01, function(...)
-    -- function num : 0_7_0 , upvalues : uis, ActivityDungeonWindow
+    ;
+    (uis.MapList).numItems = #stages
+    ;
+    (SimpleTimer.setTimeout)(0.01, function(...)
+    -- function num : 0_8_0 , upvalues : uis, sIndex
     if uis then
-      (uis.MapList):ScrollToView((ActivityDungeonWindow.GetChallengeIndex)(), true)
+      (uis.MapList):ScrollToView(sIndex, true)
     end
   end
 )
+  end
 end
 
 ActivityDungeonWindow.GetChallengeIndex = function(...)
-  -- function num : 0_8 , upvalues : _ENV, stages
+  -- function num : 0_9 , upvalues : _ENV, stages
   for i,v in ipairs(stages) do
     local stageId = tonumber(v)
     if stageId ~= -1 and (PlotDungeonMgr.IsFirstChallengeStage)(stageId) then
@@ -289,18 +332,18 @@ ActivityDungeonWindow.GetChallengeIndex = function(...)
 end
 
 ActivityDungeonWindow.OnShown = function(...)
-  -- function num : 0_9 , upvalues : _ENV, ActivityDungeonWindow
+  -- function num : 0_10 , upvalues : _ENV, ActivityDungeonWindow
   local time = (((ActivityMgr.InitActivityDungeonData)()).baseActivityInfo).endTime
   ;
   (ActivityDungeonWindow.SetCountDown)(time)
 end
 
 ActivityDungeonWindow.OnHide = function(...)
-  -- function num : 0_10
+  -- function num : 0_11
 end
 
 ActivityDungeonWindow.OnClose = function(...)
-  -- function num : 0_11 , upvalues : mTime, uis, contentPane, argTable, _ENV
+  -- function num : 0_12 , upvalues : mTime, uis, contentPane, argTable, _ENV, UntilPos, chapterRe, centerIndex
   if mTime then
     mTime:Stop()
   end
@@ -309,22 +352,24 @@ ActivityDungeonWindow.OnClose = function(...)
   argTable = {}
   ;
   (CommonWinMgr.RemoveAssets)((WinResConfig.ActivityDungeonWindow).name)
+  ;
+  (Util.SetPlayerSetting)(UntilPos .. chapterRe, centerIndex)
 end
 
 ActivityDungeonWindow.InitAssetStrip = function(...)
-  -- function num : 0_12 , upvalues : _ENV, uis, currentChapter
+  -- function num : 0_13 , upvalues : _ENV, uis, currentChapter
   local m = {}
   m.windowName = (WinResConfig.ActivityDungeonWindow).name
   m.Tip = (PUtil.get)(20000216)
   m.model = uis.AssetStripGrp
   m.moneyTypes = {AssetType.DIAMOND_BIND, AssetType.DIAMOND, AssetType.GOLD, AssetType.PHYSICAL}
   m.CloseBtnFun = function(...)
-    -- function num : 0_12_0 , upvalues : currentChapter
+    -- function num : 0_13_0 , upvalues : currentChapter
     currentChapter = 0
   end
 
   m.BackBtnFun = function(...)
-    -- function num : 0_12_1 , upvalues : currentChapter
+    -- function num : 0_13_1 , upvalues : currentChapter
     currentChapter = 0
   end
 
@@ -333,7 +378,7 @@ ActivityDungeonWindow.InitAssetStrip = function(...)
 end
 
 ActivityDungeonWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_13 , upvalues : _ENV, ActivityDungeonWindow
+  -- function num : 0_14 , upvalues : _ENV, ActivityDungeonWindow
   if msgId == (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH then
     (ActivityDungeonWindow.RefreshChapter)()
   else

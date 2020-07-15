@@ -1,101 +1,99 @@
 -- params : ...
 -- function num : 0 , upvalues : _ENV
 BaseAdventureGameQuestionData = {
-[76440001] = {id = 76440001, description = "冒険者募集は1日何回無料で募集できますか？", type = 1, open_range = "3:99", answer1 = "一回", answer2 = "三回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
+[76440001] = {id = 76440001, description = "一般募集は1日何回無料で募集できますか？", type = 1, open_range = "3:99", answer1 = "五回", answer2 = "一回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
 , 
-[76440002] = {id = 76440002, description = "一般募集は1日何回無料で募集できますか？", type = 1, open_range = "3:99", answer1 = "五回", answer2 = "一回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
+[76440002] = {id = 76440002, description = "冒険者がレベルに達したら、どうやってレベルを突破するのか？", type = 1, open_range = "3:99", answer1 = "突破素材を集める", answer2 = "神様に願掛けをする", answer3 = "冒険者に魔力を補充する", right_answer = "1", event_id = "76420301"}
 , 
-[76440003] = {id = 76440003, description = "冒険者がレベルに達したら、どうやってレベルを突破するのか？", type = 1, open_range = "3:99", answer1 = "突破素材を集める", answer2 = "神様に願掛けをする", answer3 = "冒険者に魔力を補充する", right_answer = "1", event_id = "76420301"}
+[76440003] = {id = 76440003, description = "どこから冒険者の突破素材を手に入れますか？", type = 1, open_range = "3:99", answer1 = "ストーリーと様々な冒険", answer2 = "神に祈る", answer3 = "冒険者自分で何とかする", right_answer = "1", event_id = "76420301"}
 , 
-[76440004] = {id = 76440004, description = "どこから冒険者の突破素材を手に入れますか？", type = 1, open_range = "3:99", answer1 = "ストーリーと様々な冒険", answer2 = "神に祈る", answer3 = "冒険者自分で何とかする", right_answer = "1", event_id = "76420301"}
+[76440004] = {id = 76440004, description = "冒険者が突破した後、獲得できないのは何ですか？", type = 1, open_range = "3:99", answer1 = "幸運値を上げる", answer2 = "基礎ステータスを上げる", answer3 = "戦闘力を高める", right_answer = "1", event_id = "76420301"}
 , 
-[76440005] = {id = 76440005, description = "冒険者が突破した後、獲得できないのは何ですか？", type = 1, open_range = "3:99", answer1 = "幸運値を上げる", answer2 = "基礎ステータスを上げる", answer3 = "戦闘力を高める", right_answer = "1", event_id = "76420301"}
+[76440005] = {id = 76440005, description = "日常討伐でどんなアイテムを獲得できないですか？", type = 1, open_range = "20:99", answer1 = "ダイヤモンド", answer2 = "経験薬剤", answer3 = "金貨", right_answer = "1", event_id = "76420301"}
 , 
-[76440006] = {id = 76440006, description = "日常討伐でどんなアイテムを獲得できないですか？", type = 1, open_range = "20:99", answer1 = "ダイヤモンド", answer2 = "経験薬剤", answer3 = "金貨", right_answer = "1", event_id = "76420301"}
+[76440006] = {id = 76440006, description = "闘技場では、どんな目標に対して「圧勝」で挑戦できますか？", type = 1, open_range = "15:99", answer1 = "もっと低い順位", answer2 = "もっと高い順位", answer3 = "同じ順位", right_answer = "1", event_id = "76420301"}
 , 
-[76440007] = {id = 76440007, description = "闘技場では、どんな目標に対して「圧勝」で挑戦できますか？", type = 1, open_range = "15:99", answer1 = "もっと低い順位", answer2 = "もっと高い順位", answer3 = "同じ順位", right_answer = "1", event_id = "76420301"}
+[76440007] = {id = 76440007, description = "闘技場では、どのくらいを「シーズン」としていますか？", type = 1, open_range = "15:99", answer1 = "1か月", answer2 = "一週間", answer3 = "3か月", right_answer = "1", event_id = "76420301"}
 , 
-[76440008] = {id = 76440008, description = "闘技場では、どのくらいを「シーズン」としていますか？", type = 1, open_range = "15:99", answer1 = "1か月", answer2 = "一週間", answer3 = "3か月", right_answer = "1", event_id = "76420301"}
+[76440008] = {id = 76440008, description = "闘技場では、毎日の精算時間はいつですか？", type = 1, open_range = "15:99", answer1 = "21.30-22.00", answer2 = "23.00-23.30", answer3 = "00.00-00.30", right_answer = "1", event_id = "76420301"}
 , 
-[76440009] = {id = 76440009, description = "闘技場では、毎日の精算時間はいつですか？", type = 1, open_range = "15:99", answer1 = "21.30-22.00", answer2 = "23.00-23.30", answer3 = "00.00-00.30", right_answer = "1", event_id = "76420301"}
+[76440009] = {id = 76440009, description = "冒険者にとって、装備はもっともの作用はなんですか？", type = 1, open_range = "24:99", answer1 = "戦闘力を高める", answer2 = "綺麗", answer3 = "保温する", right_answer = "1", event_id = "76420301"}
 , 
-[76440010] = {id = 76440010, description = "冒険者にとって、装備はもっともの作用はなんですか？", type = 1, open_range = "24:99", answer1 = "戦闘力を高める", answer2 = "綺麗", answer3 = "保温する", right_answer = "1", event_id = "76420301"}
+[76440010] = {id = 76440010, description = "装備の入手方法はなんですか？", type = 1, open_range = "24:99", answer1 = "天の塔に挑戦する", answer2 = "他のプレイヤーに強要する", answer3 = "騎士団の配布を待つ", right_answer = "1", event_id = "76420301"}
 , 
-[76440011] = {id = 76440011, description = "装備の入手方法はなんですか？", type = 1, open_range = "24:99", answer1 = "天の塔に挑戦する", answer2 = "他のプレイヤーに強要する", answer3 = "騎士団の配布を待つ", right_answer = "1", event_id = "76420301"}
+[76440011] = {id = 76440011, description = "余分の装備はどうするのか？", type = 1, open_range = "24:99", answer1 = "星の砂に分解する", answer2 = "騎士団に贈る", answer3 = "冒険ギルドに贈る", right_answer = "1", event_id = "76420301"}
 , 
-[76440012] = {id = 76440012, description = "余分の装備はどうするのか？", type = 1, open_range = "24:99", answer1 = "星の砂に分解する", answer2 = "騎士団に贈る", answer3 = "冒険ギルドに贈る", right_answer = "1", event_id = "76420301"}
+[76440012] = {id = 76440012, description = "冒険者の幸運値はどんな作用があるのか？", type = 1, open_range = "24:99", answer1 = "天の塔でのドロップ率を上げる", answer2 = "募集の確率を上げる", answer3 = "会心の確率を上げる", right_answer = "1", event_id = "76420301"}
 , 
-[76440013] = {id = 76440013, description = "冒険者の幸運値はどんな作用があるのか？", type = 1, open_range = "24:99", answer1 = "天の塔でのドロップ率を上げる", answer2 = "募集の確率を上げる", answer3 = "会心の確率を上げる", right_answer = "1", event_id = "76420301"}
+[76440013] = {id = 76440013, description = "天の塔に挑戦するのはどんなボーナスを獲得できますか？", type = 1, open_range = "24:99", answer1 = "装備", answer2 = "経験薬剤", answer3 = "冒険者の欠片", right_answer = "1", event_id = "76420301"}
 , 
-[76440014] = {id = 76440014, description = "天の塔に挑戦するのはどんなボーナスを獲得できますか？", type = 1, open_range = "24:99", answer1 = "装備", answer2 = "経験薬剤", answer3 = "冒険者の欠片", right_answer = "1", event_id = "76420301"}
+[76440014] = {id = 76440014, description = "秘境では、冒険者はキャンプに駐屯することの作用が何でしょうか？", type = 1, open_range = "20:99", answer1 = "キャンプでの産出を得る", answer2 = "冒険者のスタミナを回復する", answer3 = "冒険者の戦闘力を高める", right_answer = "1", event_id = "76420301"}
 , 
-[76440015] = {id = 76440015, description = "秘境では、冒険者はキャンプに駐屯することの作用が何でしょうか？", type = 1, open_range = "20:99", answer1 = "キャンプでの産出を得る", answer2 = "冒険者のスタミナを回復する", answer3 = "冒険者の戦闘力を高める", right_answer = "1", event_id = "76420301"}
+[76440015] = {id = 76440015, description = "ストーリーをスキップした場合、どこで再チェックできますか？", type = 1, open_range = "20:99", answer1 = "手帳：冒険記録", answer2 = "手帳：記憶アルバム", answer3 = "手帳：メンバー一覧", right_answer = "1", event_id = "76420301"}
 , 
-[76440016] = {id = 76440016, description = "ストーリーをスキップした場合、どこで再チェックできますか？", type = 1, open_range = "20:99", answer1 = "手帳：冒険記録", answer2 = "手帳：記憶アルバム", answer3 = "手帳：メンバー一覧", right_answer = "1", event_id = "76420301"}
+[76440016] = {id = 76440016, description = "どうやって冒険者の好感度を上げますか？", type = 1, open_range = "20:99", answer1 = "贈り物をする", answer2 = "毎日10回告白する", answer3 = "良い装備を着用する", right_answer = "1", event_id = "76420301"}
 , 
-[76440017] = {id = 76440017, description = "どうやって冒険者の好感度を上げますか？", type = 1, open_range = "20:99", answer1 = "贈り物をする", answer2 = "毎日10回告白する", answer3 = "良い装備を着用する", right_answer = "1", event_id = "76420301"}
+[76440017] = {id = 76440017, description = "冒険者の好感度を上げるのはどんな作用があるのか？", type = 1, open_range = "20:99", answer1 = "幕間物語を開放する", answer2 = "冒険者の戦闘力を上げる", answer3 = "新立ち絵を獲得する", right_answer = "1", event_id = "76420301"}
 , 
-[76440018] = {id = 76440018, description = "冒険者の好感度を上げるのはどんな作用があるのか？", type = 1, open_range = "20:99", answer1 = "幕間物語を開放する", answer2 = "冒険者の戦闘力を上げる", answer3 = "新立ち絵を獲得する", right_answer = "1", event_id = "76420301"}
+[76440018] = {id = 76440018, description = "1日に何回遠征できますか？", type = 1, open_range = "30:99", answer1 = "一回", answer2 = "五回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
 , 
-[76440019] = {id = 76440019, description = "1日に何回遠征できますか？", type = 1, open_range = "30:99", answer1 = "一回", answer2 = "五回", answer3 = "無限回", right_answer = "1", event_id = "76420301"}
+[76440019] = {id = 76440019, description = "遠征では行えない行動を選んでください", type = 1, open_range = "30:99", answer1 = "タロットカード占い", answer2 = "宝箱獲得", answer3 = "モンスター挑戦", right_answer = "1", event_id = "76420301"}
 , 
-[76440020] = {id = 76440020, description = "遠征に挑戦する時、どんな事件を触発しませんか？", type = 1, open_range = "30:99", answer1 = "タロットカードの占い", answer2 = "宝箱事件", answer3 = "モンスターに挑戦する", right_answer = "1", event_id = "76420301"}
+[76440020] = {id = 76440020, description = "潜在力をアップするのはどんな作用があるのか？", type = 1, open_range = "30:99", answer1 = "全員のステータスを上げる", answer2 = "冒険者をもっと賢くする", answer3 = "冒険者をもっと魅力する", right_answer = "1", event_id = "76420301"}
 , 
-[76440021] = {id = 76440021, description = "潜在力をアップするのはどんな作用があるのか？", type = 1, open_range = "30:99", answer1 = "全員のステータスを上げる", answer2 = "冒険者をもっと賢くする", answer3 = "冒険者をもっと魅力する", right_answer = "1", event_id = "76420301"}
+[76440021] = {id = 76440021, description = "以下の何がギルドに入ったのメリットではありません？", type = 1, open_range = "20:99", answer1 = "サブストーリーを開放する", answer2 = "ギルドの贈り物", answer3 = "仲間を作る", right_answer = "1", event_id = "76420301"}
 , 
-[76440022] = {id = 76440022, description = "以下の何がギルドに入ったのメリットではありません？", type = 1, open_range = "20:99", answer1 = "サブストーリーを開放する", answer2 = "ギルドの贈り物", answer3 = "仲間を作る", right_answer = "1", event_id = "76420301"}
+[76440022] = {id = 76440022, description = "エイプリルの一番好きなことはなんですか？", type = 1, open_range = "3:99", answer1 = "悪戯", answer2 = "昼寝", answer3 = "美食を楽しむ", right_answer = "1", event_id = "76420301"}
 , 
-[76440023] = {id = 76440023, description = "エイプリルの一番好きなことはなんですか？", type = 1, open_range = "3:99", answer1 = "悪戯", answer2 = "昼寝", answer3 = "美食を楽しむ", right_answer = "1", event_id = "76420301"}
+[76440023] = {id = 76440023, description = "エイプリルはどんな性格ですか？", type = 1, open_range = "3:99", answer1 = "活発", answer2 = "優しい", answer3 = "冷酷", right_answer = "1", event_id = "76420301"}
 , 
-[76440024] = {id = 76440024, description = "エイプリルはどんな性格ですか？", type = 1, open_range = "3:99", answer1 = "活発", answer2 = "優しい", answer3 = "冷酷", right_answer = "1", event_id = "76420301"}
+[76440024] = {id = 76440024, description = "オリヴィアが最も得意の武器はなんですか？", type = 1, open_range = "3:99", answer1 = "長剣", answer2 = "槍", answer3 = "双剣", right_answer = "1", event_id = "76420301"}
 , 
-[76440025] = {id = 76440025, description = "オリヴィアが最も得意の武器はなんですか？", type = 1, open_range = "3:99", answer1 = "長剣", answer2 = "槍", answer3 = "双剣", right_answer = "1", event_id = "76420301"}
+[76440025] = {id = 76440025, description = "オリヴィアの家はどんなものですか？", type = 1, open_range = "3:99", answer1 = "貴族", answer2 = "商人", answer3 = "貧民", right_answer = "1", event_id = "76420301"}
 , 
-[76440026] = {id = 76440026, description = "オリヴィアの家はどんなものですか？", type = 1, open_range = "3:99", answer1 = "貴族", answer2 = "商人", answer3 = "貧民", right_answer = "1", event_id = "76420301"}
+[76440026] = {id = 76440026, description = "シャノンにとって、最も重要なものは何ですか？", type = 1, open_range = "3:99", answer1 = "お金", answer2 = "力", answer3 = "知識", right_answer = "1", event_id = "76420301"}
 , 
-[76440027] = {id = 76440027, description = "シャノンにとって、最も重要なものは何ですか？", type = 1, open_range = "3:99", answer1 = "お金", answer2 = "力", answer3 = "知識", right_answer = "1", event_id = "76420301"}
+[76440027] = {id = 76440027, description = "プライドに加入する前、シャノンの職業は何ですか？", type = 1, open_range = "3:99", answer1 = "冒険ギルドの受付嬢", answer2 = "バウンティハンター", answer3 = "航海士", right_answer = "1", event_id = "76420301"}
 , 
-[76440028] = {id = 76440028, description = "プライドに加入する前、シャノンの職業は何ですか？", type = 1, open_range = "3:99", answer1 = "冒険ギルドの受付嬢", answer2 = "バウンティハンター", answer3 = "航海士", right_answer = "1", event_id = "76420301"}
+[76440028] = {id = 76440028, description = "フランチェスカはどこで育ちましたか？", type = 1, open_range = "3:99", answer1 = "大図書館", answer2 = "教会", answer3 = "漁村", right_answer = "1", event_id = "76420301"}
 , 
-[76440029] = {id = 76440029, description = "フランチェスカはどこで育ちましたか？", type = 1, open_range = "3:99", answer1 = "大図書館", answer2 = "教会", answer3 = "漁村", right_answer = "1", event_id = "76420301"}
+[76440029] = {id = 76440029, description = "フランチェスカの心で一番大切なものは何ですか？", type = 1, open_range = "3:99", answer1 = "知識", answer2 = "お金", answer3 = "力", right_answer = "1", event_id = "76420301"}
 , 
-[76440030] = {id = 76440030, description = "フランチェスカの心で一番大切なものは何ですか？", type = 1, open_range = "3:99", answer1 = "知識", answer2 = "お金", answer3 = "力", right_answer = "1", event_id = "76420301"}
+[76440030] = {id = 76440030, description = "リリーの父親はどんな職業ですか？", type = 1, open_range = "20:99", answer1 = "騎士団の幹部", answer2 = "病院のお医者さん", answer3 = "商会の会長", right_answer = "1", event_id = "76420301"}
 , 
-[76440031] = {id = 76440031, description = "リリーの父親はどんな職業ですか？", type = 1, open_range = "20:99", answer1 = "騎士団の幹部", answer2 = "病院のお医者さん", answer3 = "商会の会長", right_answer = "1", event_id = "76420301"}
+[76440031] = {id = 76440031, description = "リリーはレッドとしての特性は何ですか？", type = 1, open_range = "20:99", answer1 = "吐血", answer2 = "眠い", answer3 = "暗闇を怖がる", right_answer = "1", event_id = "76420301"}
 , 
-[76440032] = {id = 76440032, description = "リリーはレッドとしての特性は何ですか？", type = 1, open_range = "20:99", answer1 = "吐血", answer2 = "眠い", answer3 = "暗闇を怖がる", right_answer = "1", event_id = "76420301"}
+[76440032] = {id = 76440032, description = "ノエル旅行の目的は何ですか？", type = 1, open_range = "20:99", answer1 = "ペットの研究", answer2 = "修学旅行", answer3 = "友達を作る", right_answer = "1", event_id = "76420301"}
 , 
-[76440033] = {id = 76440033, description = "ノエル旅行の目的は何ですか？", type = 1, open_range = "20:99", answer1 = "ペットの研究", answer2 = "修学旅行", answer3 = "友達を作る", right_answer = "1", event_id = "76420301"}
+[76440033] = {id = 76440033, description = "旅の中、人気があまり高かったため、ノエルはどんな称号を得たんですか？", type = 1, open_range = "20:99", answer1 = "ギルドクラッシャー", answer2 = "アイドル歌姫", answer3 = "天才学者", right_answer = "1", event_id = "76420301"}
 , 
-[76440034] = {id = 76440034, description = "旅の中、人気があまり高かったため、ノエルはどんな称号を得たんですか？", type = 1, open_range = "20:99", answer1 = "ギルドクラッシャー", answer2 = "アイドル歌姫", answer3 = "天才学者", right_answer = "1", event_id = "76420301"}
+[76440034] = {id = 76440034, description = "ユーナが優れた鍛冶屋になろうとしたの初心はなんですか？", type = 1, open_range = "30:99", answer1 = "両親を超える", answer2 = "もっとお金を稼ぐ", answer3 = "伝説の装備を鍛造する", right_answer = "1", event_id = "76420301"}
 , 
-[76440035] = {id = 76440035, description = "ユーナが優れた鍛冶屋になろうとしたの初心はなんですか？", type = 1, open_range = "30:99", answer1 = "両親を超える", answer2 = "もっとお金を稼ぐ", answer3 = "伝説の装備を鍛造する", right_answer = "1", event_id = "76420301"}
+[76440035] = {id = 76440035, description = "カノンが自分につけた称号はなんですか？", type = 1, open_range = "30:99", answer1 = "冥夜の堕天使", answer2 = "創聖大天使", answer3 = "絶対最強神", right_answer = "1", event_id = "76420301"}
 , 
-[76440036] = {id = 76440036, description = "カノンが自分につけた称号はなんですか？", type = 1, open_range = "30:99", answer1 = "冥夜の堕天使", answer2 = "創聖大天使", answer3 = "絶対最強神", right_answer = "1", event_id = "76420301"}
+[76440036] = {id = 76440036, description = "今のサラにとって、何が一番大切ですか？", type = 1, open_range = "50:99", answer1 = "平和で穏やかな日", answer2 = "贅沢な生活", answer3 = "雇い主の報酬", right_answer = "1", event_id = "76420301"}
 , 
-[76440037] = {id = 76440037, description = "今のサラにとって、何が一番大切ですか？", type = 1, open_range = "35:99", answer1 = "平和で穏やかな日", answer2 = "贅沢な生活", answer3 = "雇い主の報酬", right_answer = "1", event_id = "76420301"}
+[76440037] = {id = 76440037, description = "ケイトが最も恐れているものは何ですか？", type = 1, open_range = "50:99", answer1 = "血", answer2 = "モンスター", answer3 = "刃", right_answer = "1", event_id = "76420301"}
 , 
-[76440038] = {id = 76440038, description = "ケイトが最も恐れているものは何ですか？", type = 1, open_range = "50:99", answer1 = "血", answer2 = "モンスター", answer3 = "刃", right_answer = "1", event_id = "76420301"}
+[76440038] = {id = 76440038, description = "ケイトとシャノンはどんな関係ですか？", type = 1, open_range = "50:99", answer1 = "幼馴染", answer2 = "姉妹", answer3 = "医師と患者", right_answer = "1", event_id = "76420301"}
 , 
-[76440039] = {id = 76440039, description = "ケイトとシャノンはどんな関係ですか？", type = 1, open_range = "50:99", answer1 = "幼馴染", answer2 = "姉妹", answer3 = "医師と患者", right_answer = "1", event_id = "76420301"}
+[76440039] = {id = 76440039, description = "何度も誘拐されたフラワーは、どんな性格ですか？", type = 1, open_range = "45:99", answer1 = "優しさ、慈愛", answer2 = "冷たい、暗い", answer3 = "誘惑、魅力", right_answer = "1", event_id = "76420301"}
 , 
-[76440040] = {id = 76440040, description = "何度も誘拐されたフラワーは、どんな性格ですか？", type = 1, open_range = "45:99", answer1 = "優しさ、慈愛", answer2 = "冷たい、暗い", answer3 = "誘惑、魅力", right_answer = "1", event_id = "76420301"}
+[76440040] = {id = 76440040, description = "以下のいずれかはエヴァンテの興味に属しません？", type = 1, open_range = "30:99", answer1 = "仕事", answer2 = "ゲーム", answer3 = "漫画を読む", right_answer = "1", event_id = "76420301"}
 , 
-[76440041] = {id = 76440041, description = "以下のいずれかはエヴァンテの興味に属しません？", type = 1, open_range = "30:99", answer1 = "仕事", answer2 = "ゲーム", answer3 = "漫画を読む", right_answer = "1", event_id = "76420301"}
+[76440041] = {id = 76440041, description = "エヴァンテは女神を担当する時、主な仕事は何ですか？", type = 1, open_range = "3:99", answer1 = "転生", answer2 = "教え諭す", answer3 = "芸術創造", right_answer = "1", event_id = "76420301"}
 , 
-[76440042] = {id = 76440042, description = "エヴァンテは女神を担当する時、主な仕事は何ですか？", type = 1, open_range = "3:99", answer1 = "転生", answer2 = "教え諭す", answer3 = "芸術創造", right_answer = "1", event_id = "76420301"}
+[76440042] = {id = 76440042, description = "ラヴィにとっては、何が一番重要ですか？", type = 1, open_range = "65:99", answer1 = "恋", answer2 = "財産", answer3 = "権力", right_answer = "1", event_id = "76420301"}
 , 
-[76440043] = {id = 76440043, description = "ラヴィにとっては、何が一番重要ですか？", type = 1, open_range = "65:99", answer1 = "恋", answer2 = "財産", answer3 = "権力", right_answer = "1", event_id = "76420301"}
+[76440043] = {id = 76440043, description = "リッタは自分の商品をどこに貯蔵するのが好きですか？", type = 1, open_range = "20:99", answer1 = "穴", answer2 = "埠頭", answer3 = "商会", right_answer = "1", event_id = "76420301"}
 , 
-[76440044] = {id = 76440044, description = "リッタは自分の商品をどこに貯蔵するのが好きですか？", type = 1, open_range = "20:99", answer1 = "穴", answer2 = "埠頭", answer3 = "商会", right_answer = "1", event_id = "76420301"}
+[76440044] = {id = 76440044, description = "リッタは専門の雑貨商人になってきて、何を頼りにしていますか？", type = 1, open_range = "30:99", answer1 = "商売の天賦", answer2 = "両親の産業", answer3 = "友人の援助", right_answer = "1", event_id = "76420301"}
 , 
-[76440045] = {id = 76440045, description = "リッタは専門の雑貨商人になってきて、何を頼りにしていますか？", type = 1, open_range = "30:99", answer1 = "商売の天賦", answer2 = "両親の産業", answer3 = "友人の援助", right_answer = "1", event_id = "76420301"}
+[76440045] = {id = 76440045, description = "ハリーが一番得意なスポーツは何ですか？", type = 1, open_range = "3:99", answer1 = "レース", answer2 = "立ち高跳び", answer3 = "泳ぐ", right_answer = "1", event_id = "76420301"}
 , 
-[76440046] = {id = 76440046, description = "ハリーが一番得意なスポーツは何ですか？", type = 1, open_range = "3:99", answer1 = "レース", answer2 = "立ち高跳び", answer3 = "泳ぐ", right_answer = "1", event_id = "76420301"}
+[76440046] = {id = 76440046, description = "アルトゥーロが一番誇りに思っているものは何ですか？", type = 1, open_range = "30:99", answer1 = "全身の筋肉", answer2 = "格好良い相貌", answer3 = "完璧な身長", right_answer = "1", event_id = "76420301"}
 , 
-[76440047] = {id = 76440047, description = "アルトゥーロが一番誇りに思っているものは何ですか？", type = 1, open_range = "30:99", answer1 = "全身の筋肉", answer2 = "格好良い相貌", answer3 = "完璧な身長", right_answer = "1", event_id = "76420301"}
-, 
-[76440048] = {id = 76440048, description = "パルヴィがエイプリル達に捕まった時、どんなスーパー特技を使った？", type = 1, open_range = "30:99", answer1 = "スーパー土下座", answer2 = "急速に逃げ隠れる", answer3 = "スーパー黒竜波", right_answer = "1", event_id = "76420301"}
+[76440047] = {id = 76440047, description = "パルヴィがエイプリル達に捕まった時、どんなスーパー特技を使った？", type = 1, open_range = "30:99", answer1 = "スーパー土下座", answer2 = "急速に逃げ隠れる", answer3 = "スーパー黒竜波", right_answer = "1", event_id = "76420301"}
 , 
 [76440069] = {id = 76440069, description = "天國の転生を担当している女神は誰ですか？", type = 2, open_range = "3:99", answer1 = "エヴァンテ", answer2 = "ガブリエル", answer3 = "ミカエル", right_answer = "1", event_id = "0"}
 , 

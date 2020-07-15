@@ -99,11 +99,16 @@ HandBookStoryPlotWindow.ChapterIsUnlock = function(id, ...)
 end
 
 HandBookStoryPlotWindow.OnRenderChapterList = function(index, obj, ...)
-  -- function num : 0_3 , upvalues : chapterS, _ENV, HandBookStoryPlotWindow, chapterIndex
+  -- function num : 0_3 , upvalues : chapterS, argTable, _ENV, HandBookStoryPlotWindow, chapterIndex
   index = index + 1
   local data = chapterS[index]
-  ;
-  (obj:GetChild("NameTxt")).text = (PUtil.get)(20000127, index)
+  local openType = argTable[1]
+  if openType == (HandBookMgr.AdventureStoryType).Activity then
+    (obj:GetChild("NameTxt")).text = (PUtil.get)(20000517)
+  else
+    ;
+    (obj:GetChild("NameTxt")).text = (PUtil.get)(20000127, index)
+  end
   ;
   (obj:GetChild("WordTxt")).text = data.name
   local line = obj:GetChild("StoryLine")
@@ -143,6 +148,8 @@ HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
   (obj:GetChild("NumberTxt")).text = (PUtil.get)(20000249, index)
   ;
   (obj:GetChild("WordTxt")).text = RecordData.remark
+  ;
+  (obj:GetChild("LockTxt")).text = (PUtil.get)(60000085)
   ;
   (obj.onClick):Set(function(...)
     -- function num : 0_4_0 , upvalues : _ENV, stageId, RecordData

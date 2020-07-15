@@ -412,8 +412,15 @@ CardChoiceWindow.SetCg = function(fashionId, ...)
     (CardChoiceWindow.ProcessModelWithRT)(model)
     ;
     (CSLuaUtil.SetGOLocalPos)(model, DesignScreen.width * 0.5, -DesignScreen.height * 0.5, 0)
-    ;
-    (CSLuaUtil.SetGOScale)(model, 1, 1, 1)
+    local curScreenScale = Screen.width / Screen.height
+    local designScale = DesignScreen.width / DesignScreen.height
+    if designScale < curScreenScale then
+      (CSLuaUtil.SetGOScale)(model, 1, 1, 1)
+    else
+      local scale = designScale / curScreenScale
+      ;
+      (CSLuaUtil.SetGOScale)(model, scale, scale, scale)
+    end
   else
     do
       if isStatic == "0" then

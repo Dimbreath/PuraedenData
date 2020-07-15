@@ -308,58 +308,51 @@ BattlePlay.PlayAtk = function(...)
   local isCrit = false
   for _,v in ipairs(atkInfo.defCardsInfo) do
     local defCardUid = v.defCardUid
-    do
-      local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-      if defCard:IsDisplayAlive() == true then
-        (BattleAtk.SetWaitActionCardState)(defCard:GetPosIndex(), false)
-      end
-      if v.isCrit == true then
-        do
-          isCrit = true
-          -- DECOMPILER ERROR at PC100: LeaveBlock: unexpected jumping out IF_THEN_STMT
-
-          -- DECOMPILER ERROR at PC100: LeaveBlock: unexpected jumping out IF_STMT
-
-        end
-      end
+    local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
+    if defCard:IsDisplayAlive() == true then
+      (BattleAtk.SetWaitActionCardState)(defCard:GetPosIndex(), false)
+    end
+    if v.isCrit == true then
+      isCrit = true
     end
   end
   local skillId = atkInfo.skillId
   local skillType = atkInfo.skillType
   local skillConfig = ((TableData.GetBaseSkillData)(skillId))
-  local skillShowConfig = nil
-  if skillConfig then
-    local fashionId = atkCard:GetFashionId()
-    local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
-    skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
-  end
   do
-    local attackType = BattleAttackType.STAND
-    if skillShowConfig then
-      attackType = skillShowConfig.move_type
+    local skillShowConfig = nil
+    if skillConfig then
+      local fashionId = atkCard:GetFashionId()
+      local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
+      skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
     end
-    local noAtkAction = atkInfo.noAtkAction
-    if noAtkAction == true or atkFail == true then
-      attackType = BattleAttackType.STAND
-    end
-    local noMove = noAtkAction or atkFail
-    local targetSelf = atkInfo.targetSelf
-    if targetSelf == true and attackType ~= BattleAttackType.STAND then
-      attackType = BattleAttackType.JUMP
-    end
-    local isTreatment = atkInfo.isTreatment
-    if isTreatment then
-      attackType = BattleAttackType.STAND
-    end
-    totalDamage = 0
-    local atkEndCallBack = function(...)
+    do
+      local attackType = BattleAttackType.STAND
+      if skillShowConfig then
+        attackType = skillShowConfig.move_type
+      end
+      local noAtkAction = atkInfo.noAtkAction
+      if noAtkAction == true or atkFail == true then
+        attackType = BattleAttackType.STAND
+      end
+      local noMove = noAtkAction or atkFail
+      local targetSelf = atkInfo.targetSelf
+      if targetSelf == true and attackType ~= BattleAttackType.STAND then
+        attackType = BattleAttackType.JUMP
+      end
+      local isTreatment = atkInfo.isTreatment
+      if isTreatment then
+        attackType = BattleAttackType.STAND
+      end
+      totalDamage = 0
+      local atkEndCallBack = function(...)
     -- function num : 0_10_0 , upvalues : atkInfo, atkCard, totalDamage, UIMgr, _ENV, isCrit, math
     if atkInfo and atkCard and totalDamage < 0 then
       UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_DAMAGE, {camp = atkCard:GetCampFlag(), isCrit = isCrit, totalDamage = (math.abs)(totalDamage)})
     end
   end
 
-    local allEndCallBack = function(...)
+      local allEndCallBack = function(...)
     -- function num : 0_10_1 , upvalues : _ENV, skillType, UIMgr, atkCard, BattleState
     loge("整个攻击动作完成")
     if skillType ~= BattleSkillType.SKILL then
@@ -371,72 +364,76 @@ BattlePlay.PlayAtk = function(...)
     ClearSkillMask()
   end
 
-    if skillConfig and skillConfig.move_pos_type and OvertureMgr.isPlaying ~= true then
-      atkInfo.movePosType = skillConfig.move_pos_type
-    else
-      if skillShowConfig and OvertureMgr.isPlaying ~= true then
-        atkInfo.movePosType = skillShowConfig.move_pos_type
-      end
-    end
-    local realDefCardsInfo = (BattleAtk.GetRealDefCard)(atkInfo.defCardsInfo)
-    if #realDefCardsInfo == 1 then
-      local defCardInfo = realDefCardsInfo[1]
-      local defCardUid = defCardInfo.defCardUid
-      local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-      local assistAtkInfo = atkInfo.assistAtkInfo
-      if defCard then
-        if #assistAtkInfo > 0 then
-          (self.PlayAssistAtk)(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack)
-        else
-          if #atkInfo.doubleAtkInfo > 0 then
-            atkInfo.isStrike = false
-            -- DECOMPILER ERROR at PC209: Confused about usage of register: R20 in 'UnsetPending'
-
-            if (atkInfo.doubleAtkInfo)[1] then
-              ((atkInfo.doubleAtkInfo)[1]).lastAtk = true
-              -- DECOMPILER ERROR at PC213: Confused about usage of register: R20 in 'UnsetPending'
-
-              ;
-              ((atkInfo.doubleAtkInfo)[1]).movePosType = atkInfo.movePosType
-              ;
-              (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
-    -- function num : 0_10_2 , upvalues : _ENV, atkCard, self, attackType, defCard, atkInfo, atkEndCallBack, allEndCallBack
-    ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
-    ;
-    (self.StartPlay)(attackType, atkCard, {defCard}, (atkInfo.doubleAtkInfo)[1], atkEndCallBack, allEndCallBack)
-  end
-)
-            end
-          else
-            atkInfo.lastAtk = true
-            ;
-            (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, atkEndCallBack, allEndCallBack)
-          end
-          UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
-          totalDamage = totalDamage + defCardInfo.hpDef
+      if skillConfig and skillConfig.move_pos_type and OvertureMgr.isPlaying ~= true then
+        atkInfo.movePosType = skillConfig.move_pos_type
+      else
+        if skillShowConfig and OvertureMgr.isPlaying ~= true then
+          atkInfo.movePosType = skillShowConfig.move_pos_type
         end
       end
-    else
-      do
-        if #realDefCardsInfo > 1 then
-          atkInfo.lastAtk = true
-          local defCards = {}
-          for _,v in ipairs(realDefCardsInfo) do
-            local defCardUid = v.defCardUid
-            local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
-            ;
-            (table.insert)(defCards, defCard)
-            totalDamage = totalDamage + v.hpDef
-          end
-          ;
-          (self.StartPlay)(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack)
-        else
-          do
-            atkInfo.lastAtk = true
-            ;
-            (self.StartPlay)(attackType, atkCard, {}, atkInfo, atkEndCallBack, allEndCallBack)
-            UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
-            totalDamage = totalDamage
+      local realDefCardsInfo = (BattleAtk.GetRealDefCard)(atkInfo.defCardsInfo)
+      if #realDefCardsInfo == 1 then
+        local defCardInfo = realDefCardsInfo[1]
+        local defCardUid = defCardInfo.defCardUid
+        local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
+        local assistAtkInfo = atkInfo.assistAtkInfo
+        if defCard then
+          if #assistAtkInfo > 0 then
+            (self.PlayAssistAtk)(attackType, atkCard, defCard, atkInfo, atkEndCallBack, allEndCallBack)
+          else
+            if #atkInfo.doubleAtkInfo > 0 then
+              atkInfo.isStrike = false
+              atkInfo.lastAtk = true
+              -- DECOMPILER ERROR at PC210: Confused about usage of register: R20 in 'UnsetPending'
+
+              if (atkInfo.doubleAtkInfo)[1] then
+                ((atkInfo.doubleAtkInfo)[1]).lastAtk = true
+                -- DECOMPILER ERROR at PC214: Confused about usage of register: R20 in 'UnsetPending'
+
+                ;
+                ((atkInfo.doubleAtkInfo)[1]).movePosType = atkInfo.movePosType
+                local defCard_double = (BattleData.GetCardInfoByUid)(((((atkInfo.doubleAtkInfo)[1]).defCardsInfo)[1]).defCardUid)
+                ;
+                (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
+    -- function num : 0_10_2 , upvalues : _ENV, atkCard, self, attackType, defCard_double, atkInfo, atkEndCallBack, allEndCallBack
+    ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
+    ;
+    (self.StartPlay)(attackType, atkCard, {defCard_double}, (atkInfo.doubleAtkInfo)[1], atkEndCallBack, allEndCallBack)
+  end
+)
+              end
+            else
+              do
+                do
+                  atkInfo.lastAtk = true
+                  ;
+                  (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, atkEndCallBack, allEndCallBack)
+                  UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
+                  totalDamage = totalDamage + defCardInfo.hpDef
+                  if #realDefCardsInfo > 1 then
+                    atkInfo.lastAtk = true
+                    local defCards = {}
+                    for _,v in ipairs(realDefCardsInfo) do
+                      local defCardUid = v.defCardUid
+                      local defCard = (BattleData.GetCardInfoByUid)(defCardUid)
+                      ;
+                      (table.insert)(defCards, defCard)
+                      totalDamage = totalDamage + v.hpDef
+                    end
+                    ;
+                    (self.StartPlay)(attackType, atkCard, defCards, atkInfo, atkEndCallBack, allEndCallBack)
+                  else
+                    do
+                      atkInfo.lastAtk = true
+                      ;
+                      (self.StartPlay)(attackType, atkCard, {}, atkInfo, atkEndCallBack, allEndCallBack)
+                      UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
+                      totalDamage = totalDamage
+                    end
+                  end
+                end
+              end
+            end
           end
         end
       end
@@ -462,12 +459,13 @@ BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEn
 
     ;
     ((atkInfo.doubleAtkInfo)[1]).movePosType = atkInfo.movePosType
-    ;
-    (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
-    -- function num : 0_11_0 , upvalues : _ENV, atkCard, self, attackType, defCard, atkInfo, moveType, assistAtkInfo, atkEndCallBack, allEndCallBack
+    local defCard_double = (BattleData.GetCardInfoByUid)(((((atkInfo.doubleAtkInfo)[1]).defCardsInfo)[1]).defCardUid)
+    do
+      (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
+    -- function num : 0_11_0 , upvalues : _ENV, atkCard, self, attackType, defCard_double, atkInfo, moveType, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
     ShowHurtNum(HurtNumType.DOUBLE_ATTACK, 0, atkCard)
     ;
-    (self.StartPlay)(attackType, atkCard, {defCard}, (atkInfo.doubleAtkInfo)[1], function(...)
+    (self.StartPlay)(attackType, atkCard, {defCard_double}, (atkInfo.doubleAtkInfo)[1], function(...)
       -- function num : 0_11_0_0 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
       self.AssistCameraMove = true
       ;
@@ -476,17 +474,20 @@ BattlePlay.PlayAssistAtk = function(attackType, atkCard, defCard, atkInfo, atkEn
 )
   end
 )
+    end
   else
-    ;
-    (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
+    do
+      ;
+      (self.StartPlay)(attackType, atkCard, {defCard}, atkInfo, function(...)
     -- function num : 0_11_1 , upvalues : self, moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack
     self.AssistCameraMove = true
     ;
     (self.PlayOneAssistAtk)(moveType, atkCard, defCard, assistAtkInfo, atkEndCallBack, allEndCallBack)
   end
 )
+      UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
+    end
   end
-  UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_SHOW_SKILL_INFO, {atkCard = atkCard, skillType = atkInfo.skillType})
 end
 
 -- DECOMPILER ERROR at PC64: Confused about usage of register: R15 in 'UnsetPending'
@@ -709,7 +710,8 @@ BattlePlay.StartPlay = function(attackType, atkCard, defCards, atkInfo, atkEndCa
       local showId = (BattleSkill.GetSkillShowId)(fashionId, skillType)
       local skillShowConfig = ((TableData.gTable).BaseSkillShowData)[showId]
       local scriptPath = skillShowConfig.effect_attack
-      if scriptPath == nil or scriptPath == "" or scriptPath and (string.find)(scriptPath, "SkillScript") == nil then
+      local oriSkillConfig = atkCard:GetSkillConfig()
+      if oriSkillConfig.special_type ~= BattleSkillSpecialType.COPY and (scriptPath == nil or scriptPath == "" or not scriptPath or (string.find)(scriptPath, "SkillScript") == nil) then
         atkCard:PlayCommonSkillEffect(function(...)
     -- function num : 0_16_1 , upvalues : _ENV, skillId, atkCard, callBack
     (BattlePlay.ShowSkillCard)(skillId, atkCard:GetPosIndex(), callBack)

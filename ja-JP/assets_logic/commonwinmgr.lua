@@ -245,6 +245,8 @@ CommonWinMgr.OpenArenaBattleWindow = function(sData, ...)
     end
 )
     else
+      ;
+      (LuaSound.LoadAndPlayBGM)(1010002)
       UIMgr:CloseWindow((WinResConfig.BattleWinConvergeWindow).name)
     end
   end

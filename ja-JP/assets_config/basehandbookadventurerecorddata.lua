@@ -351,85 +351,15 @@ BaseHandbookAdventureRecordData = {
 , 
 [52200106] = {id = 52200106, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000256:75000267", sort = 6}
 , 
-[52500101] = {id = 52500101, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
+[52500103] = {id = 52500103, name = (PUtil.get)(85180101), remark = (PUtil.get)(85180101, 1, 1), icon = "HandBookBanner:Activity_01_1", story_id = "75901111:75901112:75901121", sort = 1}
 , 
-[52500102] = {id = 52500102, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
+[52500106] = {id = 52500106, name = (PUtil.get)(85180102), remark = (PUtil.get)(85180102, 1, 2), icon = "HandBookBanner:Activity_01_2", story_id = "75901131:75901141:75901142", sort = 2}
 , 
-[52500103] = {id = 52500103, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
+[52500109] = {id = 52500109, name = (PUtil.get)(85180103), remark = (PUtil.get)(85180103, 1, 3), icon = "HandBookBanner:Activity_01_3", story_id = "75901151:75901152:75901161", sort = 3}
 , 
-[52500104] = {id = 52500104, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
+[52500112] = {id = 52500112, name = (PUtil.get)(85180104), remark = (PUtil.get)(85180104, 1, 4), icon = "HandBookBanner:Activity_01_4", story_id = "75901171:75901181:75901182", sort = 4}
 , 
-[52500105] = {id = 52500105, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52500201] = {id = 52500201, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52500202] = {id = 52500202, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52500203] = {id = 52500203, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52500204] = {id = 52500204, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52500205] = {id = 52500205, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52500301] = {id = 52500301, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52500302] = {id = 52500302, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52500303] = {id = 52500303, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52500304] = {id = 52500304, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52500305] = {id = 52500305, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52500401] = {id = 52500401, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52500402] = {id = 52500402, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52500403] = {id = 52500403, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52500404] = {id = 52500404, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52500405] = {id = 52500405, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52510101] = {id = 52510101, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52510102] = {id = 52510102, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52510103] = {id = 52510103, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52510104] = {id = 52510104, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52510105] = {id = 52510105, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52510201] = {id = 52510201, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52510202] = {id = 52510202, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52510203] = {id = 52510203, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52510204] = {id = 52510204, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52510205] = {id = 52510205, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52510301] = {id = 52510301, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52510302] = {id = 52510302, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52510303] = {id = 52510303, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52510304] = {id = 52510304, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52510305] = {id = 52510305, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
-, 
-[52510401] = {id = 52510401, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_1", story_id = "75000165", sort = 1}
-, 
-[52510402] = {id = 52510402, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_2", story_id = "75000211:75000242", sort = 2}
-, 
-[52510403] = {id = 52510403, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_3", story_id = "75000243", sort = 3}
-, 
-[52510404] = {id = 52510404, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_4", story_id = "75000244:75000254", sort = 4}
-, 
-[52510405] = {id = 52510405, name = (PUtil.get)(85140101), remark = (PUtil.get)(85130101, 1, 6), icon = "HandBookBanner:handbook_13_5", story_id = "75000245", sort = 5}
+[52500115] = {id = 52500115, name = (PUtil.get)(85180105), remark = (PUtil.get)(85180105, 1, 5), icon = "HandBookBanner:Activity_01_5", story_id = "75901191:75901192:75901101", sort = 5}
 }
 return BaseHandbookAdventureRecordData
 

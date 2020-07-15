@@ -122,7 +122,8 @@ LoginWindow.ReInitData = function(...)
 end
 
 LoginWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_6 , upvalues : _ENV, LoginMgr, contentPane, uis, LoginWindow
+  -- function num : 0_6 , upvalues : LoginMgr, _ENV, contentPane, uis, LoginWindow
+  LoginMgr.lastOnlineHour = nil
   ResHelper = CS.ResHelper
   ;
   (ResHelper.ClearAllCache)()

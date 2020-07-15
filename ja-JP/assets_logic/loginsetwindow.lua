@@ -49,6 +49,10 @@ LoginSetWindow.InitBtn = function(...)
 
   ;
   (setUis.MoveBtn).text = (PUtil.get)(20000502)
+  -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
+
+  ;
+  (setUis.RepairBtn).text = (PUtil.get)(40002069)
   ;
   ((setUis.NoticeBtn).onClick):Set(function(...)
     -- function num : 0_2_0 , upvalues : _ENV
@@ -83,6 +87,24 @@ LoginSetWindow.InitBtn = function(...)
   ((setUis.AgreementBtn).onClick):Set(function(...)
     -- function num : 0_2_3 , upvalues : _ENV
     OpenWindow((WinResConfig.PactWindow).name, UILayer.HUD)
+  end
+)
+  ;
+  ((setUis.RepairBtn).onClick):Set(function(...)
+    -- function num : 0_2_4 , upvalues : _ENV
+    (MessageMgr.OpenConfirmWindow)((PUtil.get)(40002067), function(...)
+      -- function num : 0_2_4_0 , upvalues : _ENV
+      local ioTools = CS.IOTools
+      if ioTools then
+        (ioTools.DeleteAllFiles)((ioTools.GetUpdateBasePath)(), true)
+        ;
+        (Application.Quit)()
+      end
+    end
+, function(...)
+      -- function num : 0_2_4_1
+    end
+, nil, (PUtil.get)(40002068), (PUtil.get)(60000005), true, UILayer.God)
   end
 )
 end

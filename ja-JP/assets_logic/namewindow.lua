@@ -133,6 +133,7 @@ NameWindow.ClickConfirmBtn = function(...)
   if (Util.NameCheck)(name, (PUtil.get)(60000377), Const.MIN_NAME_LENGTH, Const.MAX_NAME_LENGTH) == false then
     return 
   end
+  name = (Util.ReplaceSpace)(name)
   local key = (LoginMgr.GetAccount)() .. "_NAME"
   ;
   (Util.SetPlayerSetting)(key, name)

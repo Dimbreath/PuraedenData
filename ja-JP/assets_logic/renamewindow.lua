@@ -116,6 +116,7 @@ RenameWindow.ClickConfirmBtn = function(...)
     (MessageMgr.SendCenterTips)((PUtil.get)(60000380))
     return 
   end
+  name = (Util.ReplaceSpace)(name)
   ;
   (MessageMgr.OpenCostResConfirmWindow)(60000524, (((TableData.gTable).BaseFixedData)[ActorData.MODIFY_NAME_COST]).array_value, function(...)
     -- function num : 0_12_0 , upvalues : _ENV, name

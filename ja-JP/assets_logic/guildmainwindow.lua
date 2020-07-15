@@ -465,8 +465,9 @@ GuildMainWindow.RefreshChatItem = function(index, item, ...)
       end
       do
         local content = wordGrp:GetChild("WordTxt")
-        ;
-        (headGrp:GetChild("ActorHeadLoader")).url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
+        local mLoader = headGrp:GetChild("ActorHeadLoader")
+        mLoader.url = (Util.GetHeadIconByFashionId)(data.fashionHead, HeadIconType.ROUND)
+        mLoader:InvalidateBatchingState()
         content.text = (EmojiParser.inst):Parse(data.content)
         if ChatIsMax then
           content.width = ChatMaxWidth

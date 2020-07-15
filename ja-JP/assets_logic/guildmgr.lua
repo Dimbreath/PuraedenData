@@ -244,6 +244,7 @@ GuildMgr.PreCreateGuild = function(guildName, ...)
   if (Util.NameCheck)(guildName, (PUtil.get)(60000215), Const.MIN_NAME_LENGTH, Const.MAX_NAME_LENGTH) == false then
     return 
   end
+  guildName = (Util.ReplaceSpace)(guildName)
   ;
   (MessageMgr.OpenCostResConfirmWindow)(60000525, (((TableData.gTable).BaseFixedData)[GuildData.CREATE_GUILD_COST]).array_value, function(...)
     -- function num : 0_11_0 , upvalues : _ENV, guildName
@@ -751,6 +752,7 @@ GuildMgr.ReqChangeGuildName = function(name, ...)
   if (Util.NameCheck)(name, (PUtil.get)(60000215), Const.MIN_NAME_LENGTH, Const.MAX_NAME_LENGTH) == false then
     return 
   end
+  name = (Util.ReplaceSpace)(name)
   ;
   (MessageMgr.OpenCostResConfirmWindow)(60000405, (((TableData.gTable).BaseFixedData)[GuildData.MODIFY_NAME_COST]).array_value, function(...)
     -- function num : 0_33_0 , upvalues : _ENV, name

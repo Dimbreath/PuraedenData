@@ -151,7 +151,9 @@ BaseHandbookCGData = {
 , 
 [26131060] = {id = 26131060, name = (PUtil.get)(86502001), remark = (PUtil.get)(86602001), des = (PUtil.get)(90000001, (PUtil.get)(86400040)), type = 2, chapter_id = 11301006, index = 50, icon = "HandBookCGBanner:92101001", fashion_id = "92101001"}
 , 
-[26300001] = {id = 26300001, name = (PUtil.get)(86501001), remark = (PUtil.get)(86601001), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92101001", fashion_id = "92101001"}
+[26300101] = {id = 26300101, name = (PUtil.get)(86508001), remark = (PUtil.get)(86608001), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 1, icon = "HandBookCGBanner:92108001", fashion_id = "92108001"}
+, 
+[26300102] = {id = 26300102, name = (PUtil.get)(86508002), remark = (PUtil.get)(86608002), des = (PUtil.get)(90000001, (PUtil.get)(86400001)), type = 3, chapter_id = 51410001, index = 2, icon = "HandBookCGBanner:92108002", fashion_id = "92108002"}
 }
 return BaseHandbookCGData
 
