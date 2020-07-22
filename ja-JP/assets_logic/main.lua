@@ -335,8 +335,6 @@ InitScreenResolution = function(...)
         value = "1"
       end
     end
-    ;
-    (PlayerPrefs.SetString)(PlayerPrefsKeyName.SETTING_QUALITY, value)
   else
     if Application.platform == RuntimePlatform.IPhonePlayer then
       Game.resolutionRatioMin = 6600
@@ -353,8 +351,6 @@ InitScreenResolution = function(...)
           value = "1"
         end
       end
-      ;
-      (PlayerPrefs.SetString)(PlayerPrefsKeyName.SETTING_QUALITY, value)
     else
       Game.defaultBattleFrame = "0"
       Game.defaultPlotCharacterType = 2
@@ -362,6 +358,7 @@ InitScreenResolution = function(...)
     end
   end
   if value ~= "nil" then
+    (PlayerPrefs.SetString)(PlayerPrefsKeyName.SETTING_QUALITY, value)
     value = tonumber(value)
     if value == 0 then
       launch:SetHResolution(Game.resolutionRatioMin)

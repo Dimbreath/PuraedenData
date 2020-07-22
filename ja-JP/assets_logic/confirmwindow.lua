@@ -245,6 +245,10 @@ ConfirmWindow.HandleMessage = function(msgId, para, ...)
         else
           if msgId == (WindowMsgEnum.MessageWindow).E_MSG_POP_UP_CONFIRM then
             _inAnim:Play()
+          else
+            if msgId == (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL then
+              (ConfirmWindow.ClickCancelBtn)()
+            end
           end
         end
       end

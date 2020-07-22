@@ -160,9 +160,13 @@ StarUpPropertyWindow.Init = function(...)
 end
 
 StarUpPropertyWindow.ClickBlankBtn = function(...)
-  -- function num : 0_9 , upvalues : _ENV, argTable
-  local config = ((TableData.gTable).BaseCardStarUpData)[(argTable[2]).id * 100 + (argTable[2]).star]
+  -- function num : 0_9 , upvalues : _ENV
   UIMgr:CloseWindow((WinResConfig.StarUpPropertyWindow).name)
+end
+
+StarUpPropertyWindow.OnClose = function(...)
+  -- function num : 0_10 , upvalues : _ENV, argTable, uis, contentPane
+  local config = ((TableData.gTable).BaseCardStarUpData)[(argTable[2]).id * 100 + (argTable[2]).star]
   if config.skill_level_number ~= 0 then
     (CardData.SaveHowManySkillGetFromQ)({(CardData.CurrentCardInfo)["passiveSkillId" .. config.skill_level_number]})
     ;
@@ -174,10 +178,6 @@ StarUpPropertyWindow.ClickBlankBtn = function(...)
     (CommonWinMgr.OpenCommonFcUp)((CardData.CurrentCardInfo).id)
     UIMgr:SendWindowMessage("CardWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_STARUP_TRUE, {})
   end
-end
-
-StarUpPropertyWindow.OnClose = function(...)
-  -- function num : 0_10 , upvalues : uis, contentPane, _ENV
   uis = nil
   contentPane = nil
   ;

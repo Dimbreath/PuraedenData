@@ -177,7 +177,7 @@ AdventureMiniRPSGameWindow.ClickQuitBtn = function(...)
 end
 
 AdventureMiniRPSGameWindow.ShowResult = function(gesture, npcGesture, status, ...)
-  -- function num : 0_15 , upvalues : _ENV, _components, _gestureName, _npcDrawAnim, uis
+  -- function num : 0_15 , upvalues : _ENV, _components, _gestureName, _npcDrawAnim, uis, argTable
   local finalIndex, npc, pos = nil, nil, nil
   if status == AdventureRewardType.Even then
     finalIndex = 2
@@ -215,7 +215,7 @@ AdventureMiniRPSGameWindow.ShowResult = function(gesture, npcGesture, status, ..
 )
   ;
   (SimpleTimer.setTimeout)(1.4, function(...)
-    -- function num : 0_15_1 , upvalues : pos, status, _ENV, uis, finalIndex
+    -- function num : 0_15_1 , upvalues : pos, status, _ENV, uis, finalIndex, argTable
     if pos ~= nil then
       if status == AdventureRewardType.Win then
         (LuaSound.PlaySound)(LuaSound.GAME_CARD_WIN, SoundBank.OTHER)
@@ -236,10 +236,11 @@ AdventureMiniRPSGameWindow.ShowResult = function(gesture, npcGesture, status, ..
       (uis.WordTxt).text = ""
       ;
       (SimpleTimer.setTimeout)(2, function(...)
-      -- function num : 0_15_1_0 , upvalues : _ENV
-      UIMgr:CloseWindow((WinResConfig.AdventureMiniRPSGameWindow).name)
+      -- function num : 0_15_1_0 , upvalues : _ENV, status, argTable
+      local rewardInfo = (AdventureData.GetMiniGameRewardInfo)(AdventureEventType.RPS, status)
       ;
-      (AdventureMgr.AfterShowResult)()
+      (AdventureService.ReqAdventureEventReward)(argTable[1], AdventureEventType.RPS, false, {[1] = rewardInfo.Id})
+      UIMgr:CloseWindow((WinResConfig.AdventureMiniRPSGameWindow).name)
     end
 )
     end

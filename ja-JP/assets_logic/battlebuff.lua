@@ -122,12 +122,13 @@ effectRounds = {}
   end
 
     battleBuff.GetEffectTable = function(self, ...)
-    -- function num : 0_0_13 , upvalues : _ENV, atkCard, ipairs, t_insert
+    -- function num : 0_0_13 , upvalues : _ENV, ipairs, t_insert
     if self.effectTable then
       return self.effectTable
     else
       local effectTable = {}
-      local skillLevel = (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), self:GetSkillId()) or 0
+      local atkCard = (BattleData.GetCardInfoByPos)(self.atkPos)
+      local skillLevel = atkCard and (BattleSkill.GetSkillLevel)(atkCard:GetCardUid(), self:GetSkillId()) or 0
       local attrTable = (BattleBuffEffect.ParseEffectAttrValue)(self, skillLevel)
       for _,oneEffect in ipairs(attrTable) do
         t_insert(effectTable, {effectId = oneEffect.effectId, attributeId = 0, value = (oneEffect.base).value, realValue = (oneEffect.base).value})

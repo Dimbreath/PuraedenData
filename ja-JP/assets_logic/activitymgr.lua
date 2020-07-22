@@ -174,8 +174,24 @@ end
 
 -- DECOMPILER ERROR at PC133: Confused about usage of register: R2 in 'UnsetPending'
 
+ActivityMgr.GetMultipleIsOpenByChallengeType = function(challengeType, ...)
+  -- function num : 0_12 , upvalues : _ENV, openActivityList
+  for _,v in ipairs(openActivityList) do
+    local activityData = ((TableData.gTable).BaseActivityData)[v]
+    if activityData.type == (ActivityMgr.ActivityType).Drop_Multiple then
+      local param = split(activityData.parameter1, ":")
+      if param and tonumber(param[1]) == challengeType then
+        return true
+      end
+    end
+  end
+  return false
+end
+
+-- DECOMPILER ERROR at PC136: Confused about usage of register: R2 in 'UnsetPending'
+
 ActivityMgr.VitGetInitData = function(data, ...)
-  -- function num : 0_12 , upvalues : self
+  -- function num : 0_13 , upvalues : self
   if data == nil then
     return self.VitGetInit
   else
@@ -183,10 +199,10 @@ ActivityMgr.VitGetInitData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC136: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC139: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.GetVitConfigData = function(...)
-  -- function num : 0_13 , upvalues : self, _ENV
+  -- function num : 0_14 , upvalues : self, _ENV
   if self.VitConfigData ~= nil and #self.VitConfigData > 0 then
     return self.VitConfigData
   end
@@ -197,7 +213,7 @@ ActivityMgr.GetVitConfigData = function(...)
   end
   ;
   (table.sort)(self.VitConfigData, function(a, b, ...)
-    -- function num : 0_13_0
+    -- function num : 0_14_0
     do return a.id < b.id end
     -- DECOMPILER ERROR: 1 unprocessed JMP targets
   end
@@ -205,10 +221,10 @@ ActivityMgr.GetVitConfigData = function(...)
   return self.VitConfigData
 end
 
--- DECOMPILER ERROR at PC139: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC142: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.GetVitState = function(id, ...)
-  -- function num : 0_14 , upvalues : _ENV, self
+  -- function num : 0_15 , upvalues : _ENV, self
   for _,v in ipairs((self.VitGetInit).canGetId) do
     if id == v then
       return (ActivityMgr.VitGetState).MayGet
@@ -227,10 +243,10 @@ ActivityMgr.GetVitState = function(id, ...)
   return (ActivityMgr.VitGetState).Unable
 end
 
--- DECOMPILER ERROR at PC142: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC145: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.SetGetVitData = function(id, ...)
-  -- function num : 0_15 , upvalues : _ENV, self
+  -- function num : 0_16 , upvalues : _ENV, self
   (table.insert)((self.VitGetInit).getedId, id)
   local pos = 0
   for i,v in ipairs((self.VitGetInit).extraId) do
@@ -257,13 +273,13 @@ ActivityMgr.SetGetVitData = function(id, ...)
   loge("未在可领取和可补领集合中找到" .. id)
 end
 
--- DECOMPILER ERROR at PC148: Confused about usage of register: R2 in 'UnsetPending'
-
-ActivityMgr.SignItemState = {Already = 1, Enable = 2, UnEnable = 3}
 -- DECOMPILER ERROR at PC151: Confused about usage of register: R2 in 'UnsetPending'
 
+ActivityMgr.SignItemState = {Already = 1, Enable = 2, UnEnable = 3}
+-- DECOMPILER ERROR at PC154: Confused about usage of register: R2 in 'UnsetPending'
+
 ActivityMgr.SingInitData = function(data, ...)
-  -- function num : 0_16 , upvalues : self
+  -- function num : 0_17 , upvalues : self
   if data == nil then
     return self.SignInit
   else
@@ -271,10 +287,10 @@ ActivityMgr.SingInitData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC154: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC157: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.SetSignData = function(data, ...)
-  -- function num : 0_17 , upvalues : self
+  -- function num : 0_18 , upvalues : self
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   (self.SignInit).totalSignInDay = data.totalSignInDay
@@ -292,10 +308,10 @@ ActivityMgr.SetSignData = function(data, ...)
   (self.SignInit).canGetExtra = data.canGetExtra
 end
 
--- DECOMPILER ERROR at PC157: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC160: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.SetExtraId = function(id, enableGet, ...)
-  -- function num : 0_18 , upvalues : self
+  -- function num : 0_19 , upvalues : self
   -- DECOMPILER ERROR at PC1: Confused about usage of register: R2 in 'UnsetPending'
 
   (self.SignInit).extraId = id
@@ -305,19 +321,19 @@ ActivityMgr.SetExtraId = function(id, enableGet, ...)
   (self.SignInit).canGetExtra = enableGet
 end
 
--- DECOMPILER ERROR at PC160: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC163: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.CheckIsDisPosRedDot = function(...)
-  -- function num : 0_19 , upvalues : self, _ENV
+  -- function num : 0_20 , upvalues : self, _ENV
   if not (self.SignInit).canSignIn and not (ActivityMgr.EnableGetExtra)() then
     (RedDotMgr.EliminateRedDot)((WinResConfig.ActivityMainWindow).name, RedDotComID.Activity_Sign)
   end
 end
 
--- DECOMPILER ERROR at PC163: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC166: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.GetSignState = function(index, ...)
-  -- function num : 0_20 , upvalues : self, _ENV
+  -- function num : 0_21 , upvalues : self, _ENV
   local SignNum = (self.SignInit).signInedDay
   if index < SignNum then
     return (ActivityMgr.SignItemState).Already
@@ -330,18 +346,18 @@ ActivityMgr.GetSignState = function(index, ...)
   end
 end
 
--- DECOMPILER ERROR at PC166: Confused about usage of register: R2 in 'UnsetPending'
+-- DECOMPILER ERROR at PC169: Confused about usage of register: R2 in 'UnsetPending'
 
 ActivityMgr.EnableGetExtra = function(...)
-  -- function num : 0_21 , upvalues : self
+  -- function num : 0_22 , upvalues : self
   return (self.SignInit).canGetExtra
 end
 
 local maxInteger = {}
--- DECOMPILER ERROR at PC170: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC173: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.InitSevenDayTaskData = function(data, ...)
-  -- function num : 0_22 , upvalues : self
+  -- function num : 0_23 , upvalues : self
   if data == nil then
     return self.SevenDayTaskData
   else
@@ -349,17 +365,17 @@ ActivityMgr.InitSevenDayTaskData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC173: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC176: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.GetRemainDay = function(...)
-  -- function num : 0_23 , upvalues : _ENV, self
+  -- function num : 0_24 , upvalues : _ENV, self
   return (math.ceil)(((self.SevenDayTaskData).SevenDayActInfo).rewardTime / 86400000)
 end
 
--- DECOMPILER ERROR at PC176: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC179: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.GetTaskGroupIsOpen = function(groupID, ...)
-  -- function num : 0_24 , upvalues : _ENV
+  -- function num : 0_25 , upvalues : _ENV
   local groupList = (((ActivityMgr.InitSevenDayTaskData)()).SevenDayActInfo).openedGroup
   for _,v in ipairs(groupList) do
     if v == groupID then
@@ -369,10 +385,10 @@ ActivityMgr.GetTaskGroupIsOpen = function(groupID, ...)
   return false
 end
 
--- DECOMPILER ERROR at PC179: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC182: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.GetMaxInteger = function(actId, ...)
-  -- function num : 0_25 , upvalues : maxInteger, _ENV
+  -- function num : 0_26 , upvalues : maxInteger, _ENV
   if maxInteger[actId] then
     return maxInteger[actId]
   else
@@ -384,10 +400,10 @@ ActivityMgr.GetMaxInteger = function(actId, ...)
   end
 end
 
--- DECOMPILER ERROR at PC182: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC185: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.CalculateMaxInteger = function(actId, ...)
-  -- function num : 0_26 , upvalues : _ENV
+  -- function num : 0_27 , upvalues : _ENV
   local activityData = ((TableData.gTable).BaseActivityData)[actId]
   local groupList = split(activityData.task_group, ":")
   local count = 0
@@ -402,10 +418,10 @@ ActivityMgr.CalculateMaxInteger = function(actId, ...)
   return count
 end
 
--- DECOMPILER ERROR at PC185: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC188: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.InitSevenLoginData = function(data, ...)
-  -- function num : 0_27 , upvalues : self
+  -- function num : 0_28 , upvalues : self
   if data == nil then
     return self.SevenLoginData
   else
@@ -413,10 +429,10 @@ ActivityMgr.InitSevenLoginData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC188: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC191: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.InitActivityDungeonData = function(data, ...)
-  -- function num : 0_28 , upvalues : self
+  -- function num : 0_29 , upvalues : self
   if data == nil then
     return self.DungeonActivityInfo
   else
@@ -424,10 +440,10 @@ ActivityMgr.InitActivityDungeonData = function(data, ...)
   end
 end
 
--- DECOMPILER ERROR at PC191: Confused about usage of register: R3 in 'UnsetPending'
+-- DECOMPILER ERROR at PC194: Confused about usage of register: R3 in 'UnsetPending'
 
 ActivityMgr.PlotRedDotShow = function(...)
-  -- function num : 0_29 , upvalues : _ENV
+  -- function num : 0_30 , upvalues : _ENV
   local value = (Util.GetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, -1)
   do return not value or tonumber(value) > 0 end
   -- DECOMPILER ERROR: 2 unprocessed JMP targets

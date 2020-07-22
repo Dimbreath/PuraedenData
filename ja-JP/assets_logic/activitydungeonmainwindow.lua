@@ -146,6 +146,8 @@ ActivityDungeonMainWindow.InitInvariable = function(...)
   ((uis.ExchangeBtn):GetChild("RedDot")).visible = (ActorData.GetAssetCount)(AssetType.ACTIVITY_SCORE) > 0
   ;
   ((uis.PlotBtn):GetChild("RedDot")).visible = (ActivityMgr.PlotRedDotShow)()
+  ;
+  (GuideData.RegisterGuideAndControl)(ControlID.HandBook_Album, uis.PlotBtn, (WinResConfig.ActivityDungeonMainWindow).name)
   -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 

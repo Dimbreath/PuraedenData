@@ -182,16 +182,16 @@ FastSweepWindow.CreateDebrisTemplate = function(debrisID, times, ...)
 
       ;
       (templateModel.Number_02_Txt).text = times
-      -- DECOMPILER ERROR at PC39: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC37: Confused about usage of register: R6 in 'UnsetPending'
 
       if times <= 0 then
-        (templateModel.Number_02_Txt).color = ((CS.UnityEngine).Color).red
+        (templateModel.Number_02_Txt).color = Const.LackColorRGB
       end
-      -- DECOMPILER ERROR at PC43: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC41: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (templateModel.Time_02_Txt).text = times * Consumption
-      -- DECOMPILER ERROR at PC48: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC46: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (templateModel.DefaultBtn).selected = (FastSweepWindow.IsChooseDebris)(debrisID)
@@ -201,11 +201,11 @@ FastSweepWindow.CreateDebrisTemplate = function(debrisID, times, ...)
     (FastSweepWindow.onChanged)(debrisID, templateModel.DefaultBtn)
   end
 )
-      -- DECOMPILER ERROR at PC59: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC57: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (templateModel.Number_01_Txt).text = (PUtil.get)(20000401)
-      -- DECOMPILER ERROR at PC65: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC63: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (templateModel.Time_01_Txt).text = (PUtil.get)(20000402)

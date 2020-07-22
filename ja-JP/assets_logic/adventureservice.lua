@@ -157,10 +157,8 @@ end
 
 AdventureService.RecvAdventureEventReward = function(msg, ...)
   -- function num : 0_10 , upvalues : _ENV
-  UIMgr:SendWindowMessage((WinResConfig.AdventureGame_GoldGame).name, (WindowMsgEnum.Adventure).E_MSG_GOLD_REWARDS)
-  UIMgr:SendWindowMessage((WinResConfig.AdventureGame_Question).name, (WindowMsgEnum.Adventure).E_MSG_QUESTION_REWARDS)
-  UIMgr:SendWindowMessage((WinResConfig.AdventureGame_BrickGame).name, (WindowMsgEnum.Adventure).E_MSG_BRICK_REWARDS)
-  -- DECOMPILER ERROR at PC29: Confused about usage of register: R1 in 'UnsetPending'
+  (AdventureMgr.AfterShowResult)()
+  -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   AdventureData.UndoneEvent = msg.undoneEvent
   ;

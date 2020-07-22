@@ -88,8 +88,24 @@ AdventureWindow.OnInit = function(bridge, ...)
   -- DECOMPILER ERROR: 6 unprocessed JMP targets
 end
 
+AdventureWindow.SetMultipleShow = function(challengeList, obj, ...)
+  -- function num : 0_1 , upvalues : _ENV
+  local multiPle = obj:GetChild("Tips")
+  if not multiPle then
+    return 
+  end
+  local isOpen = false
+  for _,v in ipairs(challengeList) do
+    local state = (ActivityMgr.GetMultipleIsOpenByChallengeType)(v)
+    if not isOpen then
+      isOpen = state
+    end
+  end
+  multiPle.visible = isOpen
+end
+
 AdventureWindow.SetLightOrDark = function(...)
-  -- function num : 0_1 , upvalues : isNight, _ENV, uis
+  -- function num : 0_2 , upvalues : isNight, _ENV, uis
   local selectIndex = 0
   if isNight then
     selectIndex = 1
@@ -109,7 +125,7 @@ end
 local dailyType = {PlayType.RoleExpDungeon, PlayType.CoinDungeon, PlayType.EquipmentExpDungeon}
 local functionID = {ControlID.Daily_Medical, ControlID.Daily_Gold, ControlID.Daily_Crystal}
 AdventureWindow.SetDailyShow = function(...)
-  -- function num : 0_2 , upvalues : dailyType, _ENV, functionID, DailyDungeonTips, AdventureWindow
+  -- function num : 0_3 , upvalues : dailyType, _ENV, functionID, DailyDungeonTips, AdventureWindow
   local remainTime = 0
   local index = 0
   for i = 1, 3 do
@@ -133,7 +149,7 @@ AdventureWindow.SetDailyShow = function(...)
 end
 
 AdventureWindow.GetDailyNameByType = function(type, ...)
-  -- function num : 0_3 , upvalues : _ENV
+  -- function num : 0_4 , upvalues : _ENV
   if type == PlayType.RoleExpDungeon then
     return (PUtil.get)(40002002)
   else
@@ -148,7 +164,7 @@ AdventureWindow.GetDailyNameByType = function(type, ...)
 end
 
 AdventureWindow.BindingUI = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis
+  -- function num : 0_5 , upvalues : _ENV, uis
   local winName = (WinResConfig.AdventureWindow).name
   local BindingUI = RedDotMgr.BindingUI
   local RedDotComID = RedDotComID
@@ -164,7 +180,7 @@ AdventureWindow.BindingUI = function(...)
 end
 
 AdventureWindow.RegisterGuide = function(...)
-  -- function num : 0_5 , upvalues : _ENV, uis
+  -- function num : 0_6 , upvalues : _ENV, uis
   local winName = (WinResConfig.AdventureWindow).name
   local RegisterGuideAndControl = GuideData.RegisterGuideAndControl
   local ControlID = ControlID
@@ -179,7 +195,7 @@ AdventureWindow.RegisterGuide = function(...)
 end
 
 AdventureWindow.Update = function(...)
-  -- function num : 0_6 , upvalues : _ENV, endVelocity, AdventureWindow
+  -- function num : 0_7 , upvalues : _ENV, endVelocity, AdventureWindow
   if (math.abs)(endVelocity) > 10 then
     endVelocity = (Umath.Lerp)(endVelocity, 0, Time.deltaTime * 5)
     ;
@@ -187,7 +203,7 @@ AdventureWindow.Update = function(...)
   end
   if (Input.GetKey)(KeyCode.Z) and (Input.GetKeyDown)(KeyCode.C) then
     UIMgr:SetOnShownComplete((WinResConfig.HomeWindow).name, function(...)
-    -- function num : 0_6_0 , upvalues : _ENV
+    -- function num : 0_7_0 , upvalues : _ENV
     OpenWindow((WinResConfig.FunctionOpenWindow).name, UILayer.HUD1, 200203)
   end
 )
@@ -196,7 +212,7 @@ AdventureWindow.Update = function(...)
 end
 
 AdventureWindow.MoveBg = function(dis, ...)
-  -- function num : 0_7 , upvalues : uis, middleMax, middleMin, cloudHolder
+  -- function num : 0_8 , upvalues : uis, middleMax, middleMin, cloudHolder
   if middleMax < ((uis.NearComp).root).x + dis * 0.8 then
     dis = (middleMax - ((uis.NearComp).root).x) * 1.25
   end
@@ -223,7 +239,7 @@ AdventureWindow.MoveBg = function(dis, ...)
 end
 
 AdventureWindow.OnShown = function(...)
-  -- function num : 0_8 , upvalues : _ENV, uis, SFXoffset, isNight, AdventureWindow, canMove
+  -- function num : 0_9 , upvalues : _ENV, uis, SFXoffset, isNight, AdventureWindow, canMove
   (GuideMgr.MildGuideTrigger)((WinResConfig.AdventureWindow).name)
   local centerPos = Vector2(((uis.MiddleComp).root).width / 2, ((uis.MiddleComp).root).height / 2) + SFXoffset
   local sfxName = UIEffectEnum.UI_ADVENTURE_BG
@@ -267,10 +283,24 @@ AdventureWindow.OnShown = function(...)
   if UIMgr:IsWindowOpen((WinResConfig.GuideWindow).name) then
     canMove = false
   end
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).STORE_CHALLENGE}, (uis.MiddleComp).AdventureIconBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).GOLD_CHALLENGE, (ProtoEnum.E_CHALLENGE_TYPE).EXP_CHALLENGE, (ProtoEnum.E_CHALLENGE_TYPE).EQUIPEXP_CHALLENGE}, (uis.MiddleComp).ExperimentIconBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).TOWER_CHALLENGE}, (uis.MiddleComp).MapWorkshopIconBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).EXPEDITION_CHALLENGE}, (uis.MiddleComp).ExpeditionIconBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ARENA_CHALLENGE}, (uis.MiddleComp).ArenaIconBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE}, (uis.MiddleComp).HeroBtn)
+  ;
+  (AdventureWindow.SetMultipleShow)({(ProtoEnum.E_CHALLENGE_TYPE).ADVENTURE_CHALLENGE}, (uis.MiddleComp).RichIconBtn)
 end
 
 AdventureWindow.AniIsPlay = function(id, ...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_10 , upvalues : _ENV
   local aniStr = (Util.GetPlayerSetting)(PlayerPrefsKeyName.ADVENTURE_UNLOCK_ANI, "")
   local yetPlay = split(aniStr, ":")
   for _,v in ipairs(yetPlay) do
@@ -281,15 +311,15 @@ AdventureWindow.AniIsPlay = function(id, ...)
 end
 
 AdventureWindow.IsRequest = function(...)
-  -- function num : 0_10
+  -- function num : 0_11
 end
 
 AdventureWindow.InitBtn = function(...)
-  -- function num : 0_11 , upvalues : uis, AdventureWindow, _ENV
+  -- function num : 0_12 , upvalues : uis, AdventureWindow, _ENV
   (((uis.MiddleComp).AdventureIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_0 , upvalues : AdventureWindow, _ENV
+    -- function num : 0_12_0 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.OnClickRequestService)(function(...)
-      -- function num : 0_11_0_0 , upvalues : _ENV
+      -- function num : 0_12_0_0 , upvalues : _ENV
       (PlotDungeonService.ReqStoryInfo)((ProtoEnum.E_CHALLENGE_TYPE).STORE_CHALLENGE)
     end
 )
@@ -297,11 +327,11 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).ArenaIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_1 , upvalues : AdventureWindow, _ENV
+    -- function num : 0_12_1 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.OnClickRequestService)(function(...)
-      -- function num : 0_11_1_0 , upvalues : _ENV
+      -- function num : 0_12_1_0 , upvalues : _ENV
       ld("Arena", function(...)
-        -- function num : 0_11_1_0_0 , upvalues : _ENV
+        -- function num : 0_12_1_0_0 , upvalues : _ENV
         (ArenaMgr.TryOpenArenaUI)()
       end
 )
@@ -311,11 +341,11 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).ExperimentIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_2 , upvalues : AdventureWindow, _ENV
+    -- function num : 0_12_2 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.OnClickRequestService)(function(...)
-      -- function num : 0_11_2_0 , upvalues : _ENV
+      -- function num : 0_12_2_0 , upvalues : _ENV
       ld("DailyDungeon", function(...)
-        -- function num : 0_11_2_0_0 , upvalues : _ENV
+        -- function num : 0_12_2_0_0 , upvalues : _ENV
         (DailyDungeonService.ReqInitData)()
       end
 )
@@ -325,10 +355,10 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).RichIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_3 , upvalues : _ENV
+    -- function num : 0_12_3 , upvalues : _ENV
     print("RichIcon")
     ld("Adventure", function(...)
-      -- function num : 0_11_3_0 , upvalues : _ENV
+      -- function num : 0_12_3_0 , upvalues : _ENV
       (AdventureMgr.TryOpenAdventureUI)()
     end
 )
@@ -336,10 +366,10 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).ExpeditionIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_4 , upvalues : _ENV
+    -- function num : 0_12_4 , upvalues : _ENV
     print("ExpeditionIcon")
     ld("Expedition", function(...)
-      -- function num : 0_11_4_0 , upvalues : _ENV
+      -- function num : 0_12_4_0 , upvalues : _ENV
       (ExpeditionService.OnReqExpeditionData)()
     end
 )
@@ -347,11 +377,11 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).HeroBtn).onClick):Set(function(...)
-    -- function num : 0_11_5 , upvalues : AdventureWindow, _ENV
+    -- function num : 0_12_5 , upvalues : AdventureWindow, _ENV
     (AdventureWindow.PrepareHeroAsset)()
     ;
     (AdventureWindow.OnClickRequestService)(function(...)
-      -- function num : 0_11_5_0 , upvalues : _ENV
+      -- function num : 0_12_5_0 , upvalues : _ENV
       (PlotDungeonService.ReqStoryInfo)((ProtoEnum.E_CHALLENGE_TYPE).ELITE_CHALLENGE)
     end
 )
@@ -359,9 +389,9 @@ AdventureWindow.InitBtn = function(...)
 )
   ;
   (((uis.MiddleComp).MapWorkshopIconBtn).onClick):Set(function(...)
-    -- function num : 0_11_6 , upvalues : _ENV
+    -- function num : 0_12_6 , upvalues : _ENV
     ld("Tower", function(...)
-      -- function num : 0_11_6_0 , upvalues : _ENV
+      -- function num : 0_12_6_0 , upvalues : _ENV
       (TowerMgr.TryOpenTowerUI)()
     end
 )
@@ -370,7 +400,7 @@ AdventureWindow.InitBtn = function(...)
 end
 
 AdventureWindow.OnClickRequestService = function(fun, ...)
-  -- function num : 0_12 , upvalues : _ENV
+  -- function num : 0_13 , upvalues : _ENV
   (Util.SetOnClickDelay)(0.1)
   if fun then
     fun()
@@ -378,7 +408,7 @@ AdventureWindow.OnClickRequestService = function(fun, ...)
 end
 
 AdventureWindow.PrepareHeroAsset = function(...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_14 , upvalues : _ENV
   local resList = {}
   local chapterData = (TableData.gTable).BaseChapterData
   for _,v in pairs(chapterData) do
@@ -393,11 +423,11 @@ AdventureWindow.PrepareHeroAsset = function(...)
 end
 
 AdventureWindow.OnHide = function(...)
-  -- function num : 0_14
+  -- function num : 0_15
 end
 
 AdventureWindow.OnClose = function(...)
-  -- function num : 0_15 , upvalues : _ENV, cloudHolder, AdventureWindow, uis, Swipe, DailyDungeonTips
+  -- function num : 0_16 , upvalues : _ENV, cloudHolder, AdventureWindow, uis, Swipe, DailyDungeonTips
   (LuaEffect.DestroyEffect)(cloudHolder)
   cloudHolder = nil
   ;
@@ -414,7 +444,7 @@ AdventureWindow.OnClose = function(...)
 end
 
 AdventureWindow.InitAssetStrip = function(...)
-  -- function num : 0_16 , upvalues : _ENV, uis
+  -- function num : 0_17 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.AdventureWindow).name
   m.Tip = (PUtil.get)(20000052)
@@ -425,7 +455,7 @@ AdventureWindow.InitAssetStrip = function(...)
 end
 
 AdventureWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_17
+  -- function num : 0_18
 end
 
 return AdventureWindow

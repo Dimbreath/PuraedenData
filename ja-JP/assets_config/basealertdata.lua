@@ -211,7 +211,7 @@ rmi_result_error = {id = "rmi_result_error", name = "サーバーにエラーが
 , 
 rmi_result_param_error = {id = "rmi_result_param_error", name = "サーバーにエラーが発生しました、後ほど再試行してください"}
 , 
-server_busy = {id = "server_busy", name = "サーバーが忙しいです"}
+server_busy = {id = "server_busy", name = "サーバーがビジー状態であるため、後でお試しください。"}
 , 
 server_close = {id = "server_close", name = "サーバーとの接続が切断されました"}
 , 

@@ -83,6 +83,8 @@ RedDotMgr.Init = function(...)
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Moon_Res, RedDotComID.Shop_Gift)
   ;
   (RedDotMgr.RegisterNode)(winName, RedDotComID.Moon_Dia, RedDotComID.Shop_Gift)
+  ;
+  (RedDotMgr.RegisterNode)(winName, RedDotComID.FREE_GIFT, RedDotComID.Shop_Gift)
   winName = (WinResConfig.AdventureWindow).name
   ;
   (RedDotMgr.RegisterRootNode)(winName, RedDotComID.Adventure_Main, RedDotComID.Home_Adventure, (WinResConfig.HomeWindow).name)
@@ -550,10 +552,15 @@ RedDotMgr.ProcessRedDot = function(id, params, IsAdd, ...)
                                                           end
                                                         else
                                                           do
-                                                            local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
-                                                            if node then
-                                                              loge(logStr .. "普通红点ID" .. id)
-                                                              node.NodeValue = IsAdd
+                                                            do
+                                                              local node = RedDotManager:GetNodeByObj((WinResConfig.HomeWindow).name, id)
+                                                              if node then
+                                                                loge(logStr .. "普通红点ID" .. id)
+                                                                node.NodeValue = IsAdd
+                                                              end
+                                                              if id == RedDotComID.FREE_GIFT then
+                                                                UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT)
+                                                              end
                                                             end
                                                           end
                                                         end

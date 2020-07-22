@@ -7,6 +7,7 @@ local uis, contentPane, mTime, ShopGridData = nil, nil, nil, nil
 local isSendMsg = false
 local currentType = -1
 local isBackOpen = false
+local freeItem = nil
 ShopWindow.OnInit = function(bridgeObj, ...)
   -- function num : 0_0 , upvalues : _ENV, contentPane, uis, currentType, isBackOpen, ShopWindow, isSendMsg
   bridgeObj:SetView((WinResConfig.ShopWindow).package, (WinResConfig.ShopWindow).comName)
@@ -284,20 +285,12 @@ ShopWindow.RefreshWin = function(...)
     (SuperSDKUtil.SendAdStoreOpened)()
     return 
   else
-    -- DECOMPILER ERROR at PC26: Confused about usage of register: R0 in 'UnsetPending'
-
     if currentType == ShopType.GiftBuy then
-      (uis.c1Ctr).selectedIndex = 1
-      ;
-      (ShopWindow.SetTypeShow)(currentType)
-      ;
-      (ShopWindow.RefreshGiftPanel)()
-      ;
-      (SuperSDKUtil.SendAdStoreOpened)()
+      (ShopService.ReqActivityInfoList)()
       return 
     end
   end
-  -- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC30: Confused about usage of register: R0 in 'UnsetPending'
 
   ;
   (uis.c1Ctr).selectedIndex = 2
@@ -337,7 +330,7 @@ ShopWindow.RefreshWin = function(...)
   (ShopWindow.RefreshItemList)()
   local RefreshNumberTxt = (uis.RefreshBtn):GetChild("RefreshNumberTxt")
   local consume = (ShopMgr.GetRefreshConsumption)(shopData.id, refreshTimes + 1)
-  -- DECOMPILER ERROR at PC89: Confused about usage of register: R6 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC82: Confused about usage of register: R6 in 'UnsetPending'
 
   ;
   (uis.RefreshBtn).text = (PUtil.get)(20000070)
@@ -366,7 +359,7 @@ ShopWindow.RefreshWin = function(...)
     RefreshNumberTxt.text = consumeConfigs[3]
   else
     do
-      -- DECOMPILER ERROR at PC122: Confused about usage of register: R6 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC115: Confused about usage of register: R6 in 'UnsetPending'
 
       ;
       (uis.RefreshBtn).visible = false
@@ -377,8 +370,21 @@ ShopWindow.RefreshWin = function(...)
   end
 end
 
+ShopWindow.ShowGiftBuy = function(...)
+  -- function num : 0_8 , upvalues : uis, ShopWindow, currentType, _ENV
+  -- DECOMPILER ERROR at PC1: Confused about usage of register: R0 in 'UnsetPending'
+
+  (uis.c1Ctr).selectedIndex = 1
+  ;
+  (ShopWindow.SetTypeShow)(currentType)
+  ;
+  (ShopWindow.RefreshGiftPanel)()
+  ;
+  (SuperSDKUtil.SendAdStoreOpened)()
+end
+
 ShopWindow.SetRefreshBtnShow = function(type, ...)
-  -- function num : 0_8 , upvalues : uis
+  -- function num : 0_9 , upvalues : uis
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   (uis.RefreshBtn).visible = type == 1
@@ -386,7 +392,7 @@ ShopWindow.SetRefreshBtnShow = function(type, ...)
 end
 
 ShopWindow.RefreshRechargePanel = function(...)
-  -- function num : 0_9 , upvalues : uis, _ENV, ShopWindow
+  -- function num : 0_10 , upvalues : uis, _ENV, ShopWindow
   local diamondGrp = uis.Diamonds
   local chargeList = (PayData.GetChargeListInfo)()
   -- DECOMPILER ERROR at PC8: Confused about usage of register: R2 in 'UnsetPending'
@@ -408,14 +414,14 @@ ShopWindow.RefreshRechargePanel = function(...)
 end
 
 ShopWindow.RefreshDiamondTips = function(tips, info, index, ...)
-  -- function num : 0_10 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R3 in 'UnsetPending'
 
   if tips and info then
     (tips.root).visible = true
     ;
     ((tips.root).onClick):Set(function(...)
-    -- function num : 0_10_0 , upvalues : _ENV, info
+    -- function num : 0_11_0 , upvalues : _ENV, info
     (PayMgr.SendPayCheck)(info.id)
   end
 )
@@ -429,7 +435,7 @@ ShopWindow.RefreshDiamondTips = function(tips, info, index, ...)
 end
 
 ShopWindow.RefreshGiftPanel = function(...)
-  -- function num : 0_11 , upvalues : uis, _ENV, ShopWindow
+  -- function num : 0_12 , upvalues : uis, _ENV, ShopWindow
   local list = uis.GiftList
   local chargeList = (PayData.GetGiftBuyListInfo)()
   list:RemoveChildrenToPool()
@@ -445,8 +451,16 @@ ShopWindow.RefreshGiftPanel = function(...)
   end
 end
 
+ShopWindow.JugeFreeGiftRedDot = function(...)
+  -- function num : 0_13 , upvalues : _ENV, freeItem
+  local node = RedDotManager:GetNodeByObj((WinResConfig.ShopWindow).name, RedDotComID.FREE_GIFT)
+  if freeItem then
+    (freeItem:GetChild("RedDot")).visible = node.NodeValue
+  end
+end
+
 ShopWindow.RefreshGift = function(gift, info, ...)
-  -- function num : 0_12 , upvalues : _ENV, ShopWindow
+  -- function num : 0_14 , upvalues : _ENV, freeItem, ShopWindow
   local config = ((TableData.gTable).BasePayProductData)[info.id]
   if gift and info and config then
     local sell_level = split(config.sell_level, ":")
@@ -459,63 +473,80 @@ ShopWindow.RefreshGift = function(gift, info, ...)
         ChangeUIController(gift, "Lock", 1)
       end
       local wordTxt = (gift:GetChild("GiftTips")):GetChild("WordTxt")
-      local remainTime = (PayData.GetProductRemainTimes)(info.id)
-      if config.type == PayProductType.LittleMonthCard or config.type == PayProductType.BigMonthCard then
-        local remainDay = (PayData.GetRemainMonthCardDay)(config.type)
-        if remainDay > 0 then
-          wordTxt.text = (PUtil.get)(20000325, remainDay)
-        else
-          wordTxt.text = (PUtil.get)(20000330)
+      do
+        local remainTime = (PayData.GetProductRemainTimes)(info.id)
+        if config.product_id == "jp.red.free" then
+          if freeItem == nil then
+            freeItem = gift
+          end
+          ;
+          (ShopWindow.JugeFreeGiftRedDot)()
         end
-        local canGet = (PayData.GetMonthCardCanGet)(config.type)
-        ;
-        (gift:GetChild("RedDot")).visible = canGet
-      elseif config.sell_limit_type == PayProductLimitType.NoLimit then
-        wordTxt.text = (PUtil.get)(20000331)
-      elseif config.sell_limit_type == PayProductLimitType.DayLimit then
-        if remainTime > 0 then
-          ChangeUIController(gift, "c1", 0)
-          wordTxt.text = (PUtil.get)(20000332, remainTime)
-        else
-          ChangeUIController(gift, "c1", 1)
+        if config.type == PayProductType.LittleMonthCard or config.type == PayProductType.BigMonthCard then
+          local remainDay = (PayData.GetRemainMonthCardDay)(config.type)
+          if remainDay > 0 then
+            wordTxt.text = (PUtil.get)(20000325, remainDay)
+          else
+            wordTxt.text = (PUtil.get)(20000330)
+          end
+          local canGet = (PayData.GetMonthCardCanGet)(config.type)
+          ;
+          (gift:GetChild("RedDot")).visible = canGet
+        elseif config.sell_limit_type == PayProductLimitType.NoLimit then
+          wordTxt.text = (PUtil.get)(20000331)
+        elseif config.sell_limit_type == PayProductLimitType.DayLimit then
+          if remainTime > 0 then
+            ChangeUIController(gift, "c1", 0)
+            wordTxt.text = (PUtil.get)(20000332, remainTime)
+          else
+            ChangeUIController(gift, "c1", 1)
+          end
+        elseif config.sell_limit_type == PayProductLimitType.WeekLimit then
+          if remainTime > 0 then
+            ChangeUIController(gift, "c1", 0)
+            wordTxt.text = (PUtil.get)(20000333, remainTime)
+          else
+            ChangeUIController(gift, "c1", 1)
+          end
+        elseif config.sell_limit_type == PayProductLimitType.MouthLimit then
+          if remainTime > 0 then
+            ChangeUIController(gift, "c1", 0)
+            wordTxt.text = (PUtil.get)(20000334, remainTime)
+          else
+            ChangeUIController(gift, "c1", 1)
+          end
+        elseif config.sell_limit_type == PayProductLimitType.ForeverLimit then
+          if remainTime > 0 then
+            ChangeUIController(gift, "c1", 0)
+            wordTxt.text = (PUtil.get)(20000335, remainTime)
+          else
+            ChangeUIController(gift, "c1", 1)
+          end
         end
-      elseif config.sell_limit_type == PayProductLimitType.WeekLimit then
-        if remainTime > 0 then
-          ChangeUIController(gift, "c1", 0)
-          wordTxt.text = (PUtil.get)(20000333, remainTime)
-        else
-          ChangeUIController(gift, "c1", 1)
-        end
-      elseif config.sell_limit_type == PayProductLimitType.MouthLimit then
-        if remainTime > 0 then
-          ChangeUIController(gift, "c1", 0)
-          wordTxt.text = (PUtil.get)(20000334, remainTime)
-        else
-          ChangeUIController(gift, "c1", 1)
-        end
-      elseif config.sell_limit_type == PayProductLimitType.ForeverLimit then
-        if remainTime > 0 then
-          ChangeUIController(gift, "c1", 0)
-          wordTxt.text = (PUtil.get)(20000335, remainTime)
-        else
-          ChangeUIController(gift, "c1", 1)
-        end
-      end
-      ;
-      (gift.onClick):Set(function(...)
-    -- function num : 0_12_0 , upvalues : config, _ENV, remainTime, ShopWindow, info
+        do
+          if config.type == PayProductType.ActivityGift and config.activity_id ~= nil and config.product_id ~= "jp.red.free" then
+            local endTime = (ShopMgr.GetGiftCountDown)(config.activity_id)
+            if endTime then
+              wordTxt.text = (PUtil.get)(229, (LuaTime.GetLeftTimeStr)((math.floor)(endTime * 0.001), true))
+            end
+          end
+          ;
+          (gift.onClick):Set(function(...)
+    -- function num : 0_14_0 , upvalues : config, _ENV, remainTime, ShopWindow, info
     if config.sell_limit_type == PayProductLimitType.NoLimit or remainTime > 0 then
       (ShopWindow.OnClickProduct)(info.id)
     end
   end
 )
+        end
+        -- DECOMPILER ERROR: 20 unprocessed JMP targets
+      end
     end
   end
-  -- DECOMPILER ERROR: 17 unprocessed JMP targets
 end
 
 ShopWindow.OnClickProduct = function(id, ...)
-  -- function num : 0_13 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : _ENV
   local config = ((TableData.gTable).BasePayProductData)[id]
   if not config then
     return 
@@ -533,7 +564,7 @@ ShopWindow.OnClickProduct = function(id, ...)
 end
 
 ShopWindow.InitShopBtn = function(...)
-  -- function num : 0_14 , upvalues : _ENV, uis, ShopWindow
+  -- function num : 0_16 , upvalues : _ENV, uis, ShopWindow
   local btnData = (ShopMgr.GetOpenShopData)()
   ;
   (((uis.ShopPanelGrp).ChongzhiBtn):GetChild("NameTxt")).text = (PUtil.get)(20000314)
@@ -557,37 +588,37 @@ ShopWindow.InitShopBtn = function(...)
   (((uis.ShopPanelGrp).YuanzhenBtn):GetController("c1")).selectedIndex = 3
   ;
   (((uis.ShopPanelGrp).ZahuoBtn).onClick):Set(function(...)
-    -- function num : 0_14_0 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_0 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.Grocer)
   end
 )
   ;
   (((uis.ShopPanelGrp).ShenmiBtn).onClick):Set(function(...)
-    -- function num : 0_14_1 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_1 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.MysteryShop)
   end
 )
   ;
   (((uis.ShopPanelGrp).DaibiBtn).onClick):Set(function(...)
-    -- function num : 0_14_2 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_2 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.TokenShop)
   end
 )
   ;
   (((uis.ShopPanelGrp).YuanzhenBtn).onClick):Set(function(...)
-    -- function num : 0_14_3 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_3 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.ExpeditionShop)
   end
 )
   ;
   (((uis.ShopPanelGrp).ChongzhiBtn).onClick):Set(function(...)
-    -- function num : 0_14_4 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_4 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.Recharge)
   end
 )
   ;
   (((uis.ShopPanelGrp).LibaoBtn).onClick):Set(function(...)
-    -- function num : 0_14_5 , upvalues : ShopWindow, _ENV
+    -- function num : 0_16_5 , upvalues : ShopWindow, _ENV
     (ShopWindow.OnClickShopType)(ShopType.GiftBuy)
   end
 )
@@ -597,20 +628,20 @@ ShopWindow.InitShopBtn = function(...)
   (((uis.Diamonds).Diamonds_B_Btn):GetChild("WordTxt")).text = (PUtil.get)(20000367)
   ;
   (((uis.Diamonds).Diamonds_A_Btn).onClick):Set(function(...)
-    -- function num : 0_14_6 , upvalues : _ENV
+    -- function num : 0_16_6 , upvalues : _ENV
     OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, (PUtil.get)(89102003), (PUtil.get)(20000366))
   end
 )
   ;
   (((uis.Diamonds).Diamonds_B_Btn).onClick):Set(function(...)
-    -- function num : 0_14_7 , upvalues : _ENV
+    -- function num : 0_16_7 , upvalues : _ENV
     OpenWindow((WinResConfig.ExplainWindow).name, UILayer.HUD1, (PUtil.get)(89102001), (PUtil.get)(20000367))
   end
 )
 end
 
 ShopWindow.OnClickShopType = function(type, ...)
-  -- function num : 0_15 , upvalues : currentType, ShopWindow, _ENV
+  -- function num : 0_17 , upvalues : currentType, ShopWindow, _ENV
   if type == currentType then
     return 
   end
@@ -619,14 +650,10 @@ ShopWindow.OnClickShopType = function(type, ...)
   if type == ShopType.Recharge then
     currentType = ShopType.Recharge
     ;
-    (ShopWindow.RefreshWin)()
-    ;
     (PayService.ReqPayData)(false)
   else
     if type == ShopType.GiftBuy then
       currentType = ShopType.GiftBuy
-      ;
-      (ShopWindow.RefreshWin)()
       ;
       (PayService.ReqPayData)(false)
     else
@@ -638,13 +665,13 @@ ShopWindow.OnClickShopType = function(type, ...)
 end
 
 ShopWindow.SetInputIgnore = function(...)
-  -- function num : 0_16 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
   (GRoot.inst).touchable = false
   ;
   (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_16_0 , upvalues : _ENV
+    -- function num : 0_18_0 , upvalues : _ENV
     -- DECOMPILER ERROR at PC2: Confused about usage of register: R0 in 'UnsetPending'
 
     (GRoot.inst).touchable = true
@@ -653,7 +680,7 @@ ShopWindow.SetInputIgnore = function(...)
 end
 
 ShopWindow.SetTypeShow = function(shopType, ...)
-  -- function num : 0_17 , upvalues : _ENV, uis
+  -- function num : 0_19 , upvalues : _ENV, uis
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R1 in 'UnsetPending'
 
   if shopType == ShopType.Grocer then
@@ -720,21 +747,21 @@ ShopWindow.SetTypeShow = function(shopType, ...)
 end
 
 ShopWindow.OnShown = function(...)
-  -- function num : 0_18 , upvalues : isBackOpen, ShopWindow
+  -- function num : 0_20 , upvalues : isBackOpen, ShopWindow
   if isBackOpen then
     (ShopWindow.RefreshWin)()
   end
 end
 
 ShopWindow.OnHide = function(...)
-  -- function num : 0_19 , upvalues : mTime
+  -- function num : 0_21 , upvalues : mTime
   if mTime then
     mTime:Stop()
   end
 end
 
 ShopWindow.InitAssetStrip = function(...)
-  -- function num : 0_20 , upvalues : _ENV, uis
+  -- function num : 0_22 , upvalues : _ENV, uis
   local m = {}
   m.windowName = (WinResConfig.ShopWindow).name
   m.Tip = (PUtil.get)(20000069)
@@ -745,7 +772,7 @@ ShopWindow.InitAssetStrip = function(...)
 end
 
 ShopWindow.OnClose = function(...)
-  -- function num : 0_21 , upvalues : _ENV, ShopGridData, uis, contentPane, currentType
+  -- function num : 0_23 , upvalues : _ENV, ShopGridData, uis, freeItem, contentPane, currentType
   (GuideData.AbolishControlRefer)((WinResConfig.ShopWindow).name)
   ;
   (RedDotMgr.RemoveUIRefer)((WinResConfig.ShopWindow).name)
@@ -753,12 +780,13 @@ ShopWindow.OnClose = function(...)
   (CommonWinMgr.RemoveAssets)((WinResConfig.ShopWindow).name)
   ShopGridData = nil
   uis = nil
+  freeItem = nil
   contentPane = nil
   currentType = -1
 end
 
 ShopWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_22 , upvalues : _ENV, ShopWindow, uis, ShopGridData, currentType
+  -- function num : 0_24 , upvalues : _ENV, ShopWindow, uis, ShopGridData, currentType
   if msgId == (WindowMsgEnum.ShopWindow).E_MSG_REFRESH then
     (ShopWindow.RefreshWin)()
   else
@@ -766,7 +794,7 @@ ShopWindow.HandleMessage = function(msgId, para, ...)
       (uis.CommodityList):SetAnimIsPlay(false)
       ;
       (SimpleTimer.setTimeout)(0.5, function(...)
-    -- function num : 0_22_0 , upvalues : uis
+    -- function num : 0_24_0 , upvalues : uis
     (uis.CommodityList):SetAnimIsPlay(true)
   end
 )
@@ -780,6 +808,14 @@ ShopWindow.HandleMessage = function(msgId, para, ...)
         currentType = para
         ;
         (ShopWindow.RefreshWin)()
+      else
+        if msgId == (WindowMsgEnum.ShopWindow).E_MSG_GET_ACTIVITYINFO then
+          (ShopWindow.ShowGiftBuy)()
+        else
+          if msgId == (WindowMsgEnum.ShopWindow).E_MSG_CLEAR_FREEGIFTREDDOT then
+            (ShopWindow.JugeFreeGiftRedDot)()
+          end
+        end
       end
     end
   end

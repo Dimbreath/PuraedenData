@@ -302,16 +302,16 @@ ArenaData.CovertArenaRivalFormationToLocalPlayer = function(arenaRivalCards, pow
 
     ;
     (formation[(arenaRivalCards[i]).position]).fashionId = ((CardData.GetFashionConfig)(arenaRivalCards[i])).id
-    -- DECOMPILER ERROR at PC26: Confused about usage of register: R8 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC24: Confused about usage of register: R8 in 'UnsetPending'
 
     ;
-    (formation[(arenaRivalCards[i]).position]).spd = (Util.GetCardSpeed)(arenaRivalCards[i])
-    -- DECOMPILER ERROR at PC32: Confused about usage of register: R8 in 'UnsetPending'
+    (formation[(arenaRivalCards[i]).position]).spd = (arenaRivalCards[i]).speed
+    -- DECOMPILER ERROR at PC30: Confused about usage of register: R8 in 'UnsetPending'
 
     if i == 1 then
       (formation[(arenaRivalCards[i]).position]).fc = power
     else
-      -- DECOMPILER ERROR at PC37: Confused about usage of register: R8 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC35: Confused about usage of register: R8 in 'UnsetPending'
 
       ;
       (formation[(arenaRivalCards[i]).position]).fc = 0

@@ -820,7 +820,7 @@ HomeWindow.onClickLotteryBtn = function(...)
     -- function num : 0_32_0 , upvalues : _ENV
     (Util.SetDelayCall)(function(...)
       -- function num : 0_32_0_0 , upvalues : _ENV
-      OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
+      (ActorService.ReqActivityLottery)()
     end
 )
   end

@@ -62,6 +62,8 @@ BaseGuidePointData = {
 [78303000] = {id = 78303000, name = 88803000, remark = 88813000, icon = "GuideTips:GuideTips_001", type = 30, sort = 30, function_id = 100104}
 , 
 [78303100] = {id = 78303100, name = 88803100, remark = 88813100, icon = "GuideTips:GuideTips_004", type = 31, sort = 10, function_id = 303002}
+, 
+[78303200] = {id = 78303200, name = 88803200, remark = 88813200, icon = "GuideTips:GuideTips_003", type = 32, sort = 31, function_id = 200206}
 }
 return BaseGuidePointData
 

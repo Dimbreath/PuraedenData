@@ -579,13 +579,19 @@ ClearingWindow.OnClose = function(...)
 end
 
 ClearingWindow.HandleMessage = function(msgId, ...)
-  -- function num : 0_19 , upvalues : _ENV, ClearingWindow, timer2, SweepData
+  -- function num : 0_19 , upvalues : _ENV, ClearingWindow, timer2, SweepData, uis
   if msgId == (WindowMsgEnum.ClearingWindow).E_MSG_REWARD_REFRESH then
     (ClearingWindow.TimerListStop)()
     timer2:stop()
     SweepData = (PlotDungeonMgr.GetSweepData)()
     ;
     (ClearingWindow.RefreshWindow)()
+  else
+    -- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
+
+    if msgId == (WindowMsgEnum.ClearingWindow).E_MSG_PHYSICAL_REFRESH then
+      (uis.vitalitynumberTxt).text = (ActorData.GetAssetCount)(AssetType.PHYSICAL)
+    end
   end
 end
 

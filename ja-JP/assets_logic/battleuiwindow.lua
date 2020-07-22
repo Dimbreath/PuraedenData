@@ -832,7 +832,7 @@ BattleUIWindow.OnClickSkipBtn = function(...)
 
     Time.timeScale = saveTimeScale
   end
-, nil, (PUtil.get)(40002061), (PUtil.get)(40002062))
+, nil, (PUtil.get)(40002061), (PUtil.get)(40002062), false, UILayer.HUD)
     end
   end
 end
@@ -1098,7 +1098,7 @@ BattleUIWindow.UpdateCardRage = function(info, ...)
       if (BattleBuff.IsForbiddenSkill)(battleCard) == true then
         return 
       end
-      local isSuccess = (BattleData.AddSkillAtk)(battleCard)
+      local isSuccess = (BattleData.AddSkillAtk)(battleCard, true)
       if isSuccess then
         (GuideMgr.RemoveFightMildGuide)(posIndex)
         ;

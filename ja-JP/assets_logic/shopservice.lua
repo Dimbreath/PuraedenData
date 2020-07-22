@@ -12,6 +12,8 @@ ShopService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResShopReset, ShopService.OnResShopReset)
   ;
   (Net.AddListener)((Proto.MsgName).ResShopBuy, ShopService.OnResShopBuy)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResActivityInfoList, ShopService.OnResActivityInfoList)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -108,6 +110,23 @@ ShopService.OnResShopBuy = function(msg, ...)
     UIMgr:CloseWindow((WinResConfig.ShopBuyWindow).name)
     UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_REFRESH_ITEM)
   end
+end
+
+-- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+
+ShopService.ReqActivityInfoList = function(...)
+  -- function num : 0_10 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqActivityInfoList, m, (Proto.MsgName).ResActivityInfoList)
+end
+
+-- DECOMPILER ERROR at PC37: Confused about usage of register: R0 in 'UnsetPending'
+
+ShopService.OnResActivityInfoList = function(msg, ...)
+  -- function num : 0_11 , upvalues : _ENV
+  (ShopMgr.SetActivityData)(msg.baseActivityInfo)
+  UIMgr:SendWindowMessage((WinResConfig.ShopWindow).name, (WindowMsgEnum.ShopWindow).E_MSG_GET_ACTIVITYINFO)
 end
 
 ;

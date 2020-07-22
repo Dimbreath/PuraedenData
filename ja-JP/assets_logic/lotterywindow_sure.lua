@@ -14,6 +14,10 @@ LotteryWindow_Sure.RefreshWindow = function(_uis, ...)
   end
   ;
   (LotteryWindow_Sure.ReceiveInitData)()
+  ;
+  (LotteryWindow_Activity.HideOrShowFxMain)(false)
+  ;
+  (LotteryWindow_Activity2.HideOrShowFxMain)(false)
 end
 
 -- DECOMPILER ERROR at PC15: Confused about usage of register: R7 in 'UnsetPending'

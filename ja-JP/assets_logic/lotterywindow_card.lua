@@ -25,6 +25,10 @@ LotteryWindow_Card.RefreshWindow = function(uis, ...)
     ;
     (LotteryWindow_Card.ReceiveInitData)()
   end
+  ;
+  (LotteryWindow_Activity.HideOrShowFxMain)(false)
+  ;
+  (LotteryWindow_Activity2.HideOrShowFxMain)(false)
 end
 
 -- DECOMPILER ERROR at PC23: Confused about usage of register: R7 in 'UnsetPending'

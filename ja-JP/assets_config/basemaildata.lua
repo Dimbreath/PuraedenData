@@ -38,6 +38,8 @@ BaseMailData = {
 [78410005] = {id = 78410005, title = 88410005, sender = 88500005, content = 88610005, rewards = "0", date = 30, prior = 0, delete = 0}
 , 
 [78410006] = {id = 78410006, title = 88410006, sender = 88500006, content = 88610006, rewards = "0", date = 30, prior = 0, delete = 0}
+, 
+[78410007] = {id = 78410007, title = 88410006, sender = 88500006, content = 88610006, rewards = "0", date = 30, prior = 0, delete = 0}
 }
 return BaseMailData
 

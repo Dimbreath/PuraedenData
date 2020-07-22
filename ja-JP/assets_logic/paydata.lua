@@ -18,6 +18,9 @@ PayData.SavePayData = function(msg, ...)
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R1 in 'UnsetPending'
 
   PayData.savePayData = msg
+  for i,v in ipairs((PayData.savePayData).productList) do
+    print("礼包活动id   ", v.productId)
+  end
 end
 
 -- DECOMPILER ERROR at PC11: Confused about usage of register: R0 in 'UnsetPending'
@@ -94,7 +97,7 @@ PayData.GetGiftBuyListInfo = function(...)
     end
   end
   for i,v in pairs(config) do
-    if v.platform == platform and (v.type == PayProductType.LittleMonthCard or v.type == PayProductType.BigMonthCard or v.type == PayProductType.RechargeGift) then
+    if v.platform == platform and (v.type == PayProductType.LittleMonthCard or v.type == PayProductType.ActivityGift or v.type == PayProductType.BigMonthCard or v.type == PayProductType.RechargeGift) then
       local info = (PayData.GetProductInfo)(v.product_id)
       if info then
         info.id = v.id

@@ -263,6 +263,15 @@ BattleFailConvergeWindow.InitBottom = function(...)
   end
   ;
   (BattleFailConvergeWindow.SetBgLoader)()
+  ;
+  (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.BattleFailConvergeWindow).name, function(...)
+    -- function num : 0_3_0 , upvalues : uis, winData
+    local tran = (uis.root):GetTransform("in")
+    if not tran.playing then
+      ((winData.btn2).fun)()
+    end
+  end
+)
 end
 
 BattleFailConvergeWindow.SetBgLoader = function(...)

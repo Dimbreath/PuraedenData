@@ -230,7 +230,7 @@ LotteryWindow.SetLotteryDate = function(lType, ...)
 end
 
 LotteryWindow.OnClose = function(...)
-  -- function num : 0_7 , upvalues : uis, contentPane, lotteryType, LotteryType, cardIndex, isAutoPlay, timeLineTimer, lotteryBtns, UI_LOTTERY_REWARD_TEXT, _ENV, UI_LOTTERY_REWARD_END
+  -- function num : 0_7 , upvalues : uis, contentPane, lotteryType, LotteryType, cardIndex, isAutoPlay, timeLineTimer, _ENV, lotteryBtns, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END
   uis = nil
   contentPane = nil
   lotteryType = nil
@@ -238,6 +238,8 @@ LotteryWindow.OnClose = function(...)
   cardIndex = nil
   isAutoPlay = false
   timeLineTimer = nil
+  ;
+  (LotteryMgr.SetIsLotterying)(false)
   lotteryBtns = {}
   if UI_LOTTERY_REWARD_TEXT ~= nil then
     (ResHelper.DestroyGameObject)(UI_LOTTERY_REWARD_TEXT)
@@ -305,6 +307,7 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
     end
   else
     if msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW then
+      (LotteryMgr.SetIsLotterying)(true)
       if lotteryType == LotteryType.Card then
         (LotteryWindow_Card.ReceiveDrawedData)(para)
       else
@@ -331,29 +334,35 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
       local randomCard = (Util.Shuffle)((para.data).goods)
       ;
       (LotteryWindow.BubbleSortGoods)(randomCard)
-      -- DECOMPILER ERROR at PC138: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC142: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (para.data).goods = randomCard
       drawResult = para
-      -- DECOMPILER ERROR at PC141: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC145: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (uis.TouchScreenBtn).visible = true
+      ;
+      (LotteryWindow_Activity.HideOrShowFxMain)(false)
+      ;
+      (LotteryWindow_Activity2.HideOrShowFxMain)(false)
     else
       do
-        -- DECOMPILER ERROR at PC147: Confused about usage of register: R3 in 'UnsetPending'
+        -- DECOMPILER ERROR at PC159: Confused about usage of register: R3 in 'UnsetPending'
 
         if msgId == windowMsgEnum.E_MSG_LOTTERY_REWARDCLOSE then
           (uis.TouchScreenBtn).visible = false
-          -- DECOMPILER ERROR at PC150: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC162: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.StartWord).root).visible = false
-          -- DECOMPILER ERROR at PC153: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC165: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.LotteryPanelGrp).BgImage).visible = false
+          ;
+          (LotteryMgr.SetIsLotterying)(false)
         else
         end
         if msgId ~= windowMsgEnum.E_MSG_THE_ENDOFTHE_FRESH or msgId == windowMsgEnum.E_MSG_LOTTERY_DRAW_ANIMATION_END then
@@ -362,10 +371,14 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
           isAutoPlay = false
           ;
           (LotteryWindow.ShowCardProcess)(drawResult)
-          -- DECOMPILER ERROR at PC173: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC189: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((uis.LotteryPanelGrp).BgImage).visible = true
+          ;
+          (LotteryWindow_Activity.HideOrShowFxMain)(true)
+          ;
+          (LotteryWindow_Activity2.HideOrShowFxMain)(true)
         else
           if msgId == windowMsgEnum.E_MSG_ONCLOSE_NEWGET then
             if cardIndex < #cardResults then
@@ -406,13 +419,13 @@ LotteryWindow.HandleMessage = function(msgId, para, ...)
                         end
                       end
                     end
-                    -- DECOMPILER ERROR at PC261: Confused about usage of register: R3 in 'UnsetPending'
+                    -- DECOMPILER ERROR at PC285: Confused about usage of register: R3 in 'UnsetPending'
 
                     ;
                     ((uis.GechaCardEffectGrp).root).visible = false
                     if msgId == windowMsgEnum.E_MSG_ONCLICKCARDGET_SKIPBTN then
                       isAutoPlay = true
-                      -- DECOMPILER ERROR at PC270: Confused about usage of register: R3 in 'UnsetPending'
+                      -- DECOMPILER ERROR at PC294: Confused about usage of register: R3 in 'UnsetPending'
 
                       ;
                       ((uis.GechaCardEffectGrp).SkipBtn).visible = false

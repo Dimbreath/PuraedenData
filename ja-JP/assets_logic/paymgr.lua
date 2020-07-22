@@ -24,9 +24,15 @@ end
 
 PayMgr.DealAfterPayCheck = function(msg, ...)
   -- function num : 0_1 , upvalues : _ENV
-  if msg and Game.useSDK == true then
+  -- DECOMPILER ERROR at PC20: Unhandled construct in 'MakeBoolean' P1
+
+  -- DECOMPILER ERROR at PC20: Unhandled construct in 'MakeBoolean' P1
+
+  if msg and msg.productId ~= "jp.red.free" and Game.useSDK == true then
     (SuperSDKUtil.Pay)(msg.productId, msg.sOrderId .. "_" .. msg.sParam .. "_" .. (PayData.GetPayCheckParam)())
   end
+  ;
+  (RedDotMgr.EliminateRedDot)((WinResConfig.ShopWindow).name, RedDotComID.FREE_GIFT)
 end
 
 

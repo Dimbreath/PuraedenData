@@ -310,7 +310,11 @@ SystemSetWindow.InitSoundSlider = function(grp, on, ...)
 end
 
 SystemSetWindow.OnClose = function(...)
-  -- function num : 0_12 , upvalues : SystemSetWindow, uis, contentPane, argTable
+  -- function num : 0_12 , upvalues : argTable, _ENV, isPause, SystemSetWindow, uis, contentPane
+  if argTable.Type ~= SystemSetType.NonBattle and isPause ~= true then
+    (BattleMgr.ContinueBattle)()
+  end
+  ;
   (SystemSetWindow.RemoveEvent)()
   uis = nil
   contentPane = nil
@@ -339,11 +343,8 @@ SystemSetWindow.ClickBattleOutBtn = function(...)
 end
 
 SystemSetWindow.ClickCloseBtn = function(...)
-  -- function num : 0_15 , upvalues : _ENV, argTable, isPause
+  -- function num : 0_15 , upvalues : _ENV
   UIMgr:CloseWindow((WinResConfig.SystemSetWindow).name)
-  if argTable.Type ~= SystemSetType.NonBattle and isPause ~= true then
-    (BattleMgr.ContinueBattle)()
-  end
 end
 
 SystemSetWindow.ClickActionBarBtn = function(...)

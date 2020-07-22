@@ -288,10 +288,8 @@ AdventureMgr.Move = function(...)
         -- DECOMPILER ERROR at PC96: Confused about usage of register: R1 in 'UnsetPending'
 
         AdventureData.CurrentMoveNode = 0
-        ;
-        (AdventureMgr.ShowTenTimeResult)()
       end
-      -- DECOMPILER ERROR at PC102: Confused about usage of register: R1 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC99: Confused about usage of register: R1 in 'UnsetPending'
 
       ;
       (GRoot.inst).touchable = true
@@ -915,9 +913,6 @@ AdventureMgr.ChooseGesture = function(nodeId, gesture, ...)
   end
   do
     UIMgr:SendWindowMessage((WinResConfig.AdventureMiniRPSGameWindow).name, (WindowMsgEnum.Adventure).E_MSG_SHOW_RPS_RESULT, {Self = gesture, NPC = npcGesture, Result = result})
-    local rewardInfo = (AdventureData.GetMiniGameRewardInfo)(AdventureEventType.RPS, result)
-    ;
-    (AdventureService.ReqAdventureEventReward)(nodeId, AdventureEventType.RPS, false, {[1] = rewardInfo.Id})
   end
 end
 

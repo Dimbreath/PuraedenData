@@ -32,6 +32,18 @@ TenTimeResultWindow.InitText = function(...)
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.TenTimeResultGrp).SureBtn).text = (PUtil.get)(60000004)
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.TenTimeResultGrp).titlenameTxt).text = (PUtil.get)(60000530)
+  -- DECOMPILER ERROR at PC21: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.TenTimeResultGrp).Tips_A_Grp).NameTxt).text = (PUtil.get)(60000531)
+  -- DECOMPILER ERROR at PC29: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  (((uis.TenTimeResultGrp).Tips_B_Grp).NameTxt).text = (PUtil.get)(60000532)
 end
 
 TenTimeResultWindow.InitList = function(...)

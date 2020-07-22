@@ -1193,7 +1193,7 @@ end
 -- DECOMPILER ERROR at PC241: Confused about usage of register: R9 in 'UnsetPending'
 
 CardData.SetToMaxExchange = function(...)
-  -- function num : 0_61 , upvalues : _ENV, self
+  -- function num : 0_61 , upvalues : _ENV, self, WILD_CARD
   local wildCardCount = (ActorData.GetGoodsCount)(self.WildCardId, PropType.ITEM)
   if self.CardPiecesToUpgrade < wildCardCount then
     if self.CardPiecesToUpgrade == self.CurrentExchangePieces then
@@ -1204,7 +1204,12 @@ CardData.SetToMaxExchange = function(...)
     (self.ChangeExchangePieces)(self.CardPiecesToUpgrade - self.CurrentExchangePieces)
   else
     if wildCardCount == 0 then
-      (MessageMgr.SendCenterTips)((PUtil.get)(60000080))
+      if self.WildCardId == WILD_CARD then
+        (MessageMgr.SendCenterTips)((PUtil.get)(60000080))
+      else
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(60000528))
+      end
       return 
     else
       if wildCardCount == self.CurrentExchangePieces then

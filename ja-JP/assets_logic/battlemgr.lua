@@ -216,9 +216,7 @@ BattleMgr.InitCurAtkInfo = function(...)
       print("pos:", v:GetPosIndex(), " hp:", v:GetHp(), " displayHp:", v:GetDisPlayHp(), " dander:", v:GetDander(), " maxHp:", v:GetMaxHp())
       if v:GetHp() ~= v:GetDisPlayHp() then
         loge("战斗异常，表现血量和实际血量对不上")
-        ;
-        (BattleData.SetBattleState)(BattleState.BATTLE_ERROR)
-        return 
+        v:ResetDisplayHp()
       end
     end
   end
@@ -236,28 +234,30 @@ BattleMgr.InitCurAtkInfo = function(...)
     (BattleDataCount.ClearNoUsedBuffCount)()
     ;
     (BattleBuffMgr.SetAllBuffRoundActive)(false)
-    ;
-    (BattleData.AddAutoSkill)()
-    local curSkill = (BattleData.GetCurSkillAtk)()
-    if curSkill then
-      PrintTable(curSkill, " 找到必杀技： ")
-      local cardUid = curSkill.cardUid
-      local skillConfig = curSkill.skillConfig
-      local atkCard = (BattleData.GetCardInfoByUid)(cardUid)
-      if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
-        (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
-      else
-        ;
-        (BattleAtk.InsertSkillInfo)(curSkill)
-      end
-      local curAtkInfo = BattleAtk.curAtkInfo
-      if curAtkInfo then
-        (BattleMgr.GetAtkInfoDes)(curAtkInfo)
-        ;
-        (BattleBuffMgr.SetAllBuffRoundActive)(true)
-        ;
-        (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK)
-        return 
+    local forceFunc = BattleData.forceNextAttackFunc
+    if forceFunc == nil then
+      (BattleData.AddAutoSkill)()
+      local curSkill = (BattleData.GetCurSkillAtk)()
+      if curSkill then
+        PrintTable(curSkill, " 找到必杀技： ")
+        local cardUid = curSkill.cardUid
+        local skillConfig = curSkill.skillConfig
+        local atkCard = (BattleData.GetCardInfoByUid)(cardUid)
+        if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
+          (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
+        else
+          ;
+          (BattleAtk.InsertSkillInfo)(curSkill)
+        end
+        local curAtkInfo = BattleAtk.curAtkInfo
+        if curAtkInfo then
+          (BattleMgr.GetAtkInfoDes)(curAtkInfo)
+          ;
+          (BattleBuffMgr.SetAllBuffRoundActive)(true)
+          ;
+          (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK)
+          return 
+        end
       end
     end
     do
@@ -323,55 +323,63 @@ end
 BattleMgr.StartToAtk = function(...)
   -- function num : 0_9 , upvalues : _ENV, UIMgr, BattleState
   local BattleAtk = BattleAtk
+  local forceFunc = BattleData.forceNextAttackFunc
   local atkCard = (BattleData.GetCurAtkCard)()
-  if atkCard then
-    if IsBattleServer ~= true then
-      UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_ORDER_LINE)
-    end
-    atkCard:SetIsAlreadyAtk(true)
-    local nextCard = (BattleData.GetCurAtkCard)()
-    if nextCard then
-      nextCard:SetIsAlreadyAtk(false, true)
-    end
+  if atkCard or forceFunc then
     log("创建攻击数据")
-    local isSmallSkill = (BattleAtk.GetIsUseSmallSkill)(atkCard)
-    if isSmallSkill == true then
-      if (BattleBuff.IsForbiddenSmall)(atkCard) == true then
-        (BattleAtk.InsetAttackFailInfo)(atkCard)
-      else
-        local skillConfig = atkCard:GetSmallSkillConfig()
-        if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
-          (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
-        else
-          ;
-          (BattleAtk.InsertSmallSkillInfo)(atkCard)
-        end
-      end
+    -- DECOMPILER ERROR at PC16: Confused about usage of register: R3 in 'UnsetPending'
+
+    if forceFunc then
+      BattleData.forceNextAttackFunc = nil
+      forceFunc()
     else
-      do
-        if (BattleBuff.IsForbiddenNormal)(atkCard) == true then
+      if IsBattleServer ~= true then
+        UIMgr:SendWindowMessage("BattleUIWindow", (WindowMsgEnum.BattleUIWindow).E_MSG_UPDATE_ORDER_LINE)
+      end
+      atkCard:SetIsAlreadyAtk(true)
+      local nextCard = (BattleData.GetCurAtkCard)()
+      if nextCard then
+        nextCard:SetIsAlreadyAtk(false, true)
+      end
+      local isSmallSkill = (BattleAtk.GetIsUseSmallSkill)(atkCard)
+      if isSmallSkill == true then
+        if (BattleBuff.IsForbiddenSmall)(atkCard) == true then
           (BattleAtk.InsetAttackFailInfo)(atkCard)
         else
-          local skillConfig = atkCard:GetNormalAttackConfig()
+          local skillConfig = atkCard:GetSmallSkillConfig()
           if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
             (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
           else
             ;
-            (BattleAtk.InsetNormalAttackInfo)(atkCard)
+            (BattleAtk.InsertSmallSkillInfo)(atkCard)
           end
         end
+      else
         do
-          do
-            local curAtkInfo = BattleAtk.curAtkInfo
-            if curAtkInfo then
-              (BattleMgr.GetAtkInfoDes)(curAtkInfo)
+          if (BattleBuff.IsForbiddenNormal)(atkCard) == true then
+            (BattleAtk.InsetAttackFailInfo)(atkCard)
+          else
+            local skillConfig = atkCard:GetNormalAttackConfig()
+            if (BattleSkill.IsNoAttackActionSkill)(skillConfig) then
+              (BattleAtk.InsertBuffNoAtk)(atkCard, false, skillConfig)
+            else
               ;
-              (BattleBuffMgr.SetAllBuffRoundActive)(true)
-              ;
-              (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK)
+              (BattleAtk.InsetNormalAttackInfo)(atkCard)
             end
-            ;
-            (BattleData.SetBattleState)(BattleState.CHANGE_ROUND)
+          end
+          do
+            do
+              local curAtkInfo = BattleAtk.curAtkInfo
+              if curAtkInfo then
+                (BattleMgr.GetAtkInfoDes)(curAtkInfo)
+                ;
+                (BattleBuffMgr.SetAllBuffRoundActive)(true)
+                ;
+                (BattleData.SetBattleState)(BattleState.BUFF_BEFORE_ATTACK)
+              end
+              ;
+              (BattleData.SetBattleState)(BattleState.CHANGE_ROUND)
+            end
           end
         end
       end
@@ -506,7 +514,13 @@ BattleMgr.CloseBattle = function(force, callback, noLoading, ...)
     ;
     (Util.MoveBattleCamera)(Vector3.zero, 0)
     ;
+    (CSLuaUtil.SetGOLocalEuler)(Game.battleCamera, 15, 0, 0)
+    ;
     (Util.SetCameraActive)(Game.battleCamera, false)
+    local cameraBattle = (Game.battleCamera):GetComponentInChildren(typeof(Camera))
+    if cameraBattle then
+      cameraBattle.enabled = true
+    end
     ;
     (BattleBuffMgr.InitBuffList)()
     ;

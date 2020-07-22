@@ -14,11 +14,13 @@ local isInit = true
 local UntilPos = "ActivityUntilPos"
 local chapterRe = 0
 local isRe = false
+local timer = 0
 ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, ActivityDungeonWindow, isInit, ChapterIds, currentChapter
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, timer, uis, ActivityDungeonWindow, isInit, ChapterIds, currentChapter
   bridgeObj:SetView((WinResConfig.ActivityDungeonWindow).package, (WinResConfig.ActivityDungeonWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
+  timer = 0
   uis = GetActivityDungeon_ActivityDungeonUis(contentPane)
   ;
   (ActivityDungeonWindow.InitAssetStrip)()
@@ -30,7 +32,7 @@ ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
   ChapterIds = {Simple = ActivityData.normal_chapter, Difficult = ActivityData.hard_chapter}
   ;
   (ActivityDungeonWindow.InitBtnEvent)()
-  -- DECOMPILER ERROR at PC47: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC49: Confused about usage of register: R3 in 'UnsetPending'
 
   if currentChapter > 0 then
     if currentChapter == ChapterIds.Simple then
@@ -38,7 +40,7 @@ ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
       ;
       ((uis.Difficulty_01_Btn).onClick):Call()
     else
-      -- DECOMPILER ERROR at PC54: Confused about usage of register: R3 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC56: Confused about usage of register: R3 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 1
@@ -47,14 +49,14 @@ ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
     end
   else
     local hard = (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult)
-    -- DECOMPILER ERROR at PC67: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC69: Confused about usage of register: R4 in 'UnsetPending'
 
     if hard then
       (uis.c1Ctr).selectedIndex = 1
       ;
       ((uis.Difficulty_02_Btn).onClick):Call()
     else
-      -- DECOMPILER ERROR at PC74: Confused about usage of register: R4 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC76: Confused about usage of register: R4 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0
@@ -63,7 +65,7 @@ ActivityDungeonWindow.OnInit = function(bridgeObj, ...)
     end
   end
   do
-    -- DECOMPILER ERROR at PC81: Confused about usage of register: R3 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC83: Confused about usage of register: R3 in 'UnsetPending'
 
     ;
     ((uis.MapList).scrollPane).bouncebackEffect = false
@@ -176,7 +178,7 @@ ActivityDungeonWindow.SetCountDown = function(time, ...)
 end
 
 ActivityDungeonWindow.OnListScroll = function(...)
-  -- function num : 0_5 , upvalues : uis, midX, _ENV, centerIndex
+  -- function num : 0_5 , upvalues : uis, midX, _ENV, centerIndex, timer
   if uis == nil then
     return 
   end
@@ -198,16 +200,19 @@ ActivityDungeonWindow.OnListScroll = function(...)
     end
   end
 )
-  ;
-  (uis.MapList):RefreshVirtualList()
+  timer = timer + 1
+  if timer % 2 == 0 then
+    (uis.MapList):RefreshVirtualList()
+  end
 end
 
 ActivityDungeonWindow.InitBtnEvent = function(...)
-  -- function num : 0_6 , upvalues : uis, _ENV, currentChapter, ChapterIds, ActivityDungeonWindow, chapterRe
+  -- function num : 0_6 , upvalues : uis, _ENV, UntilPos, currentChapter, centerIndex, ChapterIds, ActivityDungeonWindow, chapterRe
   ((uis.Difficulty_01_Btn):GetChild("NameTxt")).text = (PUtil.get)(20000217)
   ;
   ((uis.Difficulty_01_Btn).onClick):Set(function(...)
-    -- function num : 0_6_0 , upvalues : currentChapter, ChapterIds, ActivityDungeonWindow, _ENV, chapterRe
+    -- function num : 0_6_0 , upvalues : _ENV, UntilPos, currentChapter, centerIndex, ChapterIds, ActivityDungeonWindow, chapterRe
+    (Util.SetPlayerSetting)(UntilPos .. currentChapter, centerIndex)
     currentChapter = ChapterIds.Simple
     ;
     (ActivityDungeonWindow.RefreshChapter)()
@@ -220,8 +225,9 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
   ((uis.Difficulty_02_Btn):GetChild("NameTxt")).text = (PUtil.get)(20000218)
   ;
   ((uis.Difficulty_02_Btn).onClick):Set(function(...)
-    -- function num : 0_6_1 , upvalues : _ENV, ChapterIds, currentChapter, ActivityDungeonWindow, chapterRe, uis
+    -- function num : 0_6_1 , upvalues : _ENV, ChapterIds, UntilPos, currentChapter, centerIndex, ActivityDungeonWindow, chapterRe, uis
     if (PlotDungeonMgr.ChapterIsOpen)(ChapterIds.Difficult) then
+      (Util.SetPlayerSetting)(UntilPos .. currentChapter, centerIndex)
       currentChapter = ChapterIds.Difficult
       ;
       (ActivityDungeonWindow.RefreshChapter)()
@@ -231,7 +237,7 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
     else
       ;
       (MessageMgr.SendCenterTips)((PUtil.get)(20000383))
-      -- DECOMPILER ERROR at PC25: Confused about usage of register: R0 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
 
       ;
       (uis.c1Ctr).selectedIndex = 0
@@ -268,6 +274,8 @@ ActivityDungeonWindow.InitBtnEvent = function(...)
   end
   ;
   (ActivityDungeonWindow.SetRedDot)()
+  ;
+  (GuideData.RegisterGuideAndControl)(ControlID.HandBook_Album, uis.PlotBtn, (WinResConfig.ActivityDungeonWindow).name)
 end
 
 ActivityDungeonWindow.SetRedDot = function(...)

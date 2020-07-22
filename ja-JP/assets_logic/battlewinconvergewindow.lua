@@ -15,8 +15,9 @@ local currentIndex = 0
 local tempPop, ToolsTxt, ToolsBtn = nil, nil, nil
 local playerExpAniTime = 4
 local fashionId = 0
+local isCanClick = false
 BattleWinConvergeWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, winData, battleSummarizeData, uis, BattleWinConvergeWindow, tempPop, ToolsTxt, ToolsBtn
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, winData, isCanClick, battleSummarizeData, uis, BattleWinConvergeWindow, tempPop, ToolsTxt, ToolsBtn
   bridgeObj:SetView((WinResConfig.BattleWinConvergeWindow).package, (WinResConfig.BattleWinConvergeWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -24,6 +25,7 @@ BattleWinConvergeWindow.OnInit = function(bridgeObj, ...)
   if not winData then
     return 
   end
+  isCanClick = false
   battleSummarizeData = (BattleResultCount.GetBattleDamageData)()
   uis = GetBattle_BattleWinUis(contentPane)
   ;
@@ -34,7 +36,7 @@ BattleWinConvergeWindow.OnInit = function(bridgeObj, ...)
   (BattleWinConvergeWindow.InitSpecialTip)()
   ;
   (BattleWinConvergeWindow.InitFunctionControl)()
-  -- DECOMPILER ERROR at PC40: Confused about usage of register: R1 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.RewardGrp).HurtTxt).text = (PUtil.get)(20000410)
@@ -216,7 +218,7 @@ BattleWinConvergeWindow.InitBtn = function(...)
 end
 
 BattleWinConvergeWindow.SetBtn = function(ui, btnData, ...)
-  -- function num : 0_6 , upvalues : playerExpAniTime, winData, _ENV, uis
+  -- function num : 0_6 , upvalues : playerExpAniTime, winData, _ENV, isCanClick, uis
   if not btnData then
     ui.visible = false
   else
@@ -232,7 +234,9 @@ BattleWinConvergeWindow.SetBtn = function(ui, btnData, ...)
     end
     ;
     (SimpleTimer.setTimeout)(waitTime, function(...)
-    -- function num : 0_6_0 , upvalues : ui, uis, btnData
+    -- function num : 0_6_0 , upvalues : isCanClick, ui, uis, btnData
+    isCanClick = true
+    ;
     (ui.onClick):Set(function(...)
       -- function num : 0_6_0_0 , upvalues : ui, uis, btnData
       if ui.visible and ui.alpha > 0.95 and ((uis.RewardGrp).root).alpha > 0.95 then
@@ -623,7 +627,7 @@ BattleWinConvergeWindow.SetBgLoader = function(...)
 end
 
 BattleWinConvergeWindow.InitBottomReward = function(...)
-  -- function num : 0_17 , upvalues : uis, _ENV, BattleWinConvergeWindow, winData, itemType, itemList, fashionId
+  -- function num : 0_17 , upvalues : uis, _ENV, BattleWinConvergeWindow, winData, itemType, itemList, fashionId, isCanClick
   -- DECOMPILER ERROR at PC6: Confused about usage of register: R0 in 'UnsetPending'
 
   ((uis.RewardGrp).Reward_01_Txt).text = (PUtil.get)(20000354)
@@ -727,6 +731,14 @@ BattleWinConvergeWindow.InitBottomReward = function(...)
           end
           ;
           (BattleWinConvergeWindow.SetBgLoader)()
+          ;
+          (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.BattleWinConvergeWindow).name, function(...)
+    -- function num : 0_17_3 , upvalues : isCanClick, winData
+    if isCanClick then
+      ((winData.btn2).fun)()
+    end
+  end
+)
         end
       end
     end

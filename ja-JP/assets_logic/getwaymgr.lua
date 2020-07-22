@@ -99,22 +99,18 @@ GetWayMgr.Goto = function(id, ...)
 )
                             else
                               if id == ControlID.Home_LotteryBtn then
-                                ld("Lottery", function(...)
-    -- function num : 0_0_5 , upvalues : _ENV
-    OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
-  end
-)
+                                (ActorService.ReqActivityLottery)()
                               else
                                 if id == ControlID.Adventure_Expedition then
                                   ld("Expedition", function(...)
-    -- function num : 0_0_6 , upvalues : _ENV
+    -- function num : 0_0_5 , upvalues : _ENV
     (ExpeditionService.OnReqExpeditionData)()
   end
 )
                                 else
                                   if id == ControlID.Home_UnionBtn then
                                     ld("Guild", function(...)
-    -- function num : 0_0_7 , upvalues : _ENV
+    -- function num : 0_0_6 , upvalues : _ENV
     (GuildMgr.OpenGuild)()
   end
 )
@@ -135,15 +131,11 @@ GetWayMgr.Goto = function(id, ...)
                                               (EquiptMgr.OpenEquipmentWindow)(EquiptOpenType.Identify)
                                             else
                                               if id == ControlID.Lottery_Part or id == ControlID.Lottery_Equip or id == ControlID.Lottery_Card then
-                                                ld("Lottery", function(...)
-    -- function num : 0_0_8 , upvalues : _ENV
-    OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
-  end
-)
+                                                (ActorService.ReqActivityLottery)()
                                               else
                                                 if id == ControlID.Adventure_Tower then
                                                   ld("Tower", function(...)
-    -- function num : 0_0_9 , upvalues : _ENV
+    -- function num : 0_0_7 , upvalues : _ENV
     (TowerMgr.TryOpenTowerUI)()
   end
 )
@@ -177,7 +169,7 @@ GetWayMgr.Goto = function(id, ...)
                                                                   else
                                                                     if id == ControlID.Guild_Guess then
                                                                       ld("Guild", function(...)
-    -- function num : 0_0_10 , upvalues : _ENV
+    -- function num : 0_0_8 , upvalues : _ENV
     if (ActorData.GetGuildID)() == 0 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000280))
     else
@@ -189,7 +181,7 @@ GetWayMgr.Goto = function(id, ...)
                                                                     else
                                                                       if id == ControlID.Guild_Construction then
                                                                         ld("Guild", function(...)
-    -- function num : 0_0_11 , upvalues : _ENV
+    -- function num : 0_0_9 , upvalues : _ENV
     if (ActorData.GetGuildID)() == 0 then
       (MessageMgr.SendCenterTips)((PUtil.get)(20000280))
     else
@@ -204,21 +196,21 @@ GetWayMgr.Goto = function(id, ...)
                                                                         else
                                                                           if id == ControlID.Home_MailBtn then
                                                                             ld("Mail", function(...)
-    -- function num : 0_0_12 , upvalues : _ENV
+    -- function num : 0_0_10 , upvalues : _ENV
     OpenWindow((WinResConfig.MailWindow).name, UILayer.HUD)
   end
 )
                                                                           else
                                                                             if id == ControlID.Shop_Recharge then
                                                                               ld("Shop", function(...)
-    -- function num : 0_0_13 , upvalues : _ENV
+    -- function num : 0_0_11 , upvalues : _ENV
     (ShopMgr.ExternalGotoShop)(ShopType.Recharge)
   end
 )
                                                                             else
                                                                               if id == ControlID.Shop_Gift then
                                                                                 ld("Shop", function(...)
-    -- function num : 0_0_14 , upvalues : _ENV
+    -- function num : 0_0_12 , upvalues : _ENV
     (ShopMgr.ExternalGotoShop)(ShopType.GiftBuy)
   end
 )

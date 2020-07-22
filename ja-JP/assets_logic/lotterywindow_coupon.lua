@@ -22,6 +22,10 @@ LotteryWindow_Coupon.RefreshWindow = function(uis, ...)
   end
   ;
   (LotteryWindow_Coupon.InitAnimation)()
+  ;
+  (LotteryWindow_Activity.HideOrShowFxMain)(false)
+  ;
+  (LotteryWindow_Activity2.HideOrShowFxMain)(false)
 end
 
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R7 in 'UnsetPending'

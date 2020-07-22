@@ -120,9 +120,6 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
   for k,v in ipairs(fashionInfo) do
     print("v.isLock", v.fashionID, v.isLock)
     local uiMap = (uis.ContentList):AddItemFromPool()
-    if selectedItem == nil then
-      selectedItem = uiMap
-    end
     ;
     (table.insert)(fashionItems, uiMap)
     local cardkChoiceComp = uiMap:GetChild("CardChoiceComp")
@@ -162,15 +159,15 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
       ;
       ((cardkChoiceComp:GetChild("CardChoicePic")):GetController("c1")).selectedIndex = 0
       local stageState = GetCard_StageStateUis(cardkChoiceComp:GetChild("StageState"))
-      -- DECOMPILER ERROR at PC171: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC167: Confused about usage of register: R16 in 'UnsetPending'
 
       ;
       (stageState.StageNumberTxt).text = (v.qualityData).level
-      -- DECOMPILER ERROR at PC177: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC173: Confused about usage of register: R16 in 'UnsetPending'
 
       ;
       (stageState.WordTxt).text = (PUtil.get)(171)
-      -- DECOMPILER ERROR at PC187: Confused about usage of register: R16 in 'UnsetPending'
+      -- DECOMPILER ERROR at PC183: Confused about usage of register: R16 in 'UnsetPending'
 
       ;
       (stageState.c1Ctr).selectedIndex = tonumber((split((v.qualityData).level_show, ":"))[1])
@@ -178,18 +175,18 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
       do
         ;
         ((cardkChoiceComp:GetChild("CardChoicePic")):GetController("c1")).selectedIndex = 1
-        -- DECOMPILER ERROR at PC203: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC199: Unhandled construct in 'MakeBoolean' P1
 
         if lastClickIndex == -1 and cardData.fashionId == v.fashionID then
           lastClickIndex = k
           selectedFashionId = v.fashionID
         end
-        -- DECOMPILER ERROR at PC214: Unhandled construct in 'MakeBoolean' P1
+        -- DECOMPILER ERROR at PC210: Unhandled construct in 'MakeBoolean' P1
 
         if lastClickIndex ~= k or cardData.fashionId == v.fashionID then
           c1Ctr.selectedIndex = 1
           local stageState = GetCard_StageStateUis(cardkChoiceComp:GetChild("StageState"))
-          -- DECOMPILER ERROR at PC225: Confused about usage of register: R16 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC221: Confused about usage of register: R16 in 'UnsetPending'
 
           ;
           (stageState.WordTxt).text = (PUtil.get)(68)
@@ -200,17 +197,17 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
               if lastClickIndex == k then
                 (CardChoiceWindow.SetFashionItemState)(uiMap)
               end
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out IF_STMT
 
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out DO_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out DO_STMT
 
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out IF_ELSE_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out IF_ELSE_STMT
 
-              -- DECOMPILER ERROR at PC236: LeaveBlock: unexpected jumping out IF_STMT
+              -- DECOMPILER ERROR at PC232: LeaveBlock: unexpected jumping out IF_STMT
 
             end
           end
@@ -272,7 +269,7 @@ CardChoiceWindow.RefreshWindow = function(isInit, isReqBack, ...)
   local selectBtn = nil
   ;
   ((uis.ImageSetBtn).onClick):Clear()
-  -- DECOMPILER ERROR at PC258: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC254: Confused about usage of register: R4 in 'UnsetPending'
 
   ;
   ((uis.ImageSetBtn).onClick):Add(function(...)
@@ -306,12 +303,15 @@ CardChoiceWindow.CheckIsLock = function(fashionId, data, ...)
 end
 
 CardChoiceWindow.SetFashionItemState = function(fashionItem, ...)
-  -- function num : 0_4 , upvalues : _ENV, fashionItems
+  -- function num : 0_4 , upvalues : _ENV, fashionItems, selectedItem
   for index,value in ipairs(fashionItems) do
     ((value:GetChild("CardChoiceComp")):GetController("c2")).selectedIndex = 0
   end
   if fashionItem then
     ((fashionItem:GetChild("CardChoiceComp")):GetController("c2")).selectedIndex = 1
+    if selectedItem == nil then
+      selectedItem = fashionItem
+    end
   else
     return 
   end

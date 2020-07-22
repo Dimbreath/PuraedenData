@@ -33,7 +33,8 @@ local preData = {}
 local afterData = {}
 local isPlayingNumEffects = {false, false, false, false, false, false, false, false, false}
 local autoUpCondition = {}
--- DECOMPILER ERROR at PC50: Confused about usage of register: R31 in 'UnsetPending'
+local isAutoUpClick = false
+-- DECOMPILER ERROR at PC51: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.Init = function(uis, ...)
   -- function num : 0_0 , upvalues : skillPanel, starUrl, _ENV, skillList, cardData, growType, cardLevel, battleNumTxt
@@ -54,15 +55,15 @@ Card_SkillUpWindow.Init = function(uis, ...)
   battleNumTxt = (uis.MessageGrp).BattleTwoTxt
   ;
   (Card_SkillUpWindow.RefreshWindow)(true)
-  -- DECOMPILER ERROR at PC50: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC49: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
-  (((skillPanel.SkillEffectGrp).SkillAllUp).WordTxt).text = (PUtil.get)(226)
+  ((skillPanel.SkillAllUp).WordTxt).text = (PUtil.get)(226)
   ;
-  ((((skillPanel.SkillEffectGrp).SkillAllUp).AllUpBtn):GetChild("title")).text = (PUtil.get)(227)
+  (((skillPanel.SkillAllUp).AllUpBtn):GetChild("title")).text = (PUtil.get)(227)
 end
 
--- DECOMPILER ERROR at PC53: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.RefreshWindow = function(isInit, ...)
   -- function num : 0_1 , upvalues : skillsData, autoUpCondition, _ENV, cardData, skills
@@ -106,7 +107,7 @@ Card_SkillUpWindow.RefreshWindow = function(isInit, ...)
   end
 end
 
--- DECOMPILER ERROR at PC56: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC57: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.SetScrollView = function(isInit, ...)
   -- function num : 0_2 , upvalues : _ENV, skillList, enableClick, skillPrefabs, skills
@@ -122,10 +123,10 @@ Card_SkillUpWindow.SetScrollView = function(isInit, ...)
   end
 end
 
--- DECOMPILER ERROR at PC59: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC60: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
-  -- function num : 0_3 , upvalues : skills, cardData, autoUpCondition, _ENV, skillPanel, growType
+  -- function num : 0_3 , upvalues : skills, cardData, autoUpCondition, _ENV, skillPanel, growType, isAutoUpClick
   local isAllSkillMax = true
   for i = 1, #skills do
     -- DECOMPILER ERROR at PC14: Unhandled construct in 'MakeBoolean' P1
@@ -144,33 +145,33 @@ Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
   local functionData = ((TableData.gTable).BaseFunctionData)[ControlID.AutoSkillLvlUp]
   local limitLvl = tonumber((split(functionData.open_condition, ":"))[3])
   local isFunctionLock = limitLvl > (ActorData.GetLevel)()
-  -- DECOMPILER ERROR at PC43: Confused about usage of register: R4 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC42: Confused about usage of register: R4 in 'UnsetPending'
 
   if isFunctionLock then
-    ((skillPanel.SkillEffectGrp).c1Ctr).selectedIndex = 1
+    (skillPanel.c1Ctr).selectedIndex = 1
     return 
   else
-    -- DECOMPILER ERROR at PC48: Confused about usage of register: R4 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC46: Confused about usage of register: R4 in 'UnsetPending'
 
-    ((skillPanel.SkillEffectGrp).c1Ctr).selectedIndex = 0
-    -- DECOMPILER ERROR at PC53: Confused about usage of register: R4 in 'UnsetPending'
+    (skillPanel.c1Ctr).selectedIndex = 0
+    -- DECOMPILER ERROR at PC50: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
-    (((skillPanel.SkillEffectGrp).SkillAllUp).SpendBackImage).visible = not isAllSkillMax
+    ((skillPanel.SkillAllUp).SpendBackImage).visible = not isAllSkillMax
+    -- DECOMPILER ERROR at PC54: Confused about usage of register: R4 in 'UnsetPending'
+
+    ;
+    ((skillPanel.SkillAllUp).WordTxt).visible = not isAllSkillMax
     -- DECOMPILER ERROR at PC58: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
-    (((skillPanel.SkillEffectGrp).SkillAllUp).WordTxt).visible = not isAllSkillMax
-    -- DECOMPILER ERROR at PC63: Confused about usage of register: R4 in 'UnsetPending'
+    ((skillPanel.SkillAllUp).SpendLoader).visible = not isAllSkillMax
+    -- DECOMPILER ERROR at PC62: Confused about usage of register: R4 in 'UnsetPending'
 
     ;
-    (((skillPanel.SkillEffectGrp).SkillAllUp).SpendLoader).visible = not isAllSkillMax
-    -- DECOMPILER ERROR at PC68: Confused about usage of register: R4 in 'UnsetPending'
-
-    ;
-    (((skillPanel.SkillEffectGrp).SkillAllUp).SpendTxt).visible = not isAllSkillMax
+    ((skillPanel.SkillAllUp).SpendTxt).visible = not isAllSkillMax
     if isAllSkillMax then
-      ((((skillPanel.SkillEffectGrp).SkillAllUp).AllUpBtn).onClick):Set(function(...)
+      (((skillPanel.SkillAllUp).AllUpBtn).onClick):Set(function(...)
     -- function num : 0_3_0 , upvalues : _ENV
     (MessageMgr.SendCenterTips)((PUtil.get)(52))
   end
@@ -248,14 +249,14 @@ Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
       end
     end
   end
-  -- DECOMPILER ERROR at PC277: Confused about usage of register: R7 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC269: Confused about usage of register: R7 in 'UnsetPending'
 
   if isNeedGoOn == false or totalCost == 0 then
-    (((skillPanel.SkillEffectGrp).SkillAllUp).SpendTxt).text = "[color=#ff5f7b]" .. tostring(fakeSelfGold) .. "[/color]"
+    ((skillPanel.SkillAllUp).SpendTxt).text = "[color=#ff5f7b]" .. tostring(fakeSelfGold) .. "[/color]"
   else
-    -- DECOMPILER ERROR at PC288: Confused about usage of register: R7 in 'UnsetPending'
+    -- DECOMPILER ERROR at PC279: Confused about usage of register: R7 in 'UnsetPending'
 
-    (((skillPanel.SkillEffectGrp).SkillAllUp).SpendTxt).text = "[color=#3dffbd]" .. tostring(totalCost) .. "[/color]"
+    ((skillPanel.SkillAllUp).SpendTxt).text = "[color=#3dffbd]" .. tostring(totalCost) .. "[/color]"
   end
   local skillData = {}
   for index,value in ipairs(finalSkillUp) do
@@ -264,8 +265,8 @@ Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
     end
   end
   ;
-  ((((skillPanel.SkillEffectGrp).SkillAllUp).AllUpBtn).onClick):Set(function(...)
-    -- function num : 0_3_1 , upvalues : isFunctionLock, _ENV, functionData, totalCost, cardData, skillData
+  (((skillPanel.SkillAllUp).AllUpBtn).onClick):Set(function(...)
+    -- function num : 0_3_1 , upvalues : isFunctionLock, _ENV, functionData, totalCost, isAutoUpClick, cardData, skillData
     if isFunctionLock then
       (MessageMgr.SendCenterTips)(functionData.open_des)
       return 
@@ -274,6 +275,7 @@ Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
       (MessageMgr.OpenAssetNotEnoughtWindow)(21100003)
       return 
     else
+      isAutoUpClick = true
       ;
       (CardService.OnReqSkillUp)(cardData.id, 0, 0, skillData)
     end
@@ -282,10 +284,11 @@ Card_SkillUpWindow.SetAutoLevelUpButton = function(...)
   -- DECOMPILER ERROR: 22 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC62: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC63: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.CreatPrefab = function(url, index, sData, ...)
-  -- function num : 0_4 , upvalues : skillList, _ENV, skillPrefabs
+  -- function num : 0_4 , upvalues : skillPrefabs, skillList, _ENV
+  skillPrefabs = {}
   local skillPrefab = skillList:AddItemFromPool(url)
   ;
   (Card_SkillUpWindow.SetPrefabInfo)(skillPrefab, sData[index], index)
@@ -294,7 +297,7 @@ Card_SkillUpWindow.CreatPrefab = function(url, index, sData, ...)
   return skillPrefab
 end
 
--- DECOMPILER ERROR at PC65: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC66: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.SetPrefabInfo = function(obj, skill, _index, ...)
   -- function num : 0_5 , upvalues : _ENV, cardData, starUrl, autoUpCondition, growType, MAXSKILLLEVEL, isLongPress, enableClick, reqSkillID, selectSkillIndex, preData, isSingleClick, effectTimer, fakeLvl, fakeCanLvUpNum, fakeTotalCost, tips1IsTip, tips2IsTip, tips3IsTip, fakeTotalCoin, fakeCastCoin, afterData
@@ -812,7 +815,7 @@ Card_SkillUpWindow.SetPrefabInfo = function(obj, skill, _index, ...)
   end
 end
 
--- DECOMPILER ERROR at PC68: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.OnClose = function(...)
   -- function num : 0_6 , upvalues : skillList, _ENV, skillPanel, skills, battleNumTxt, reqSkillID, skillPrefabs, autoUpCondition, enableClick
@@ -831,7 +834,7 @@ Card_SkillUpWindow.OnClose = function(...)
   enableClick = false
 end
 
--- DECOMPILER ERROR at PC71: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.KillTimersPool = function(...)
   -- function num : 0_7 , upvalues : _ENV, timers
@@ -844,10 +847,10 @@ Card_SkillUpWindow.KillTimersPool = function(...)
   timers = {}
 end
 
--- DECOMPILER ERROR at PC74: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC75: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.ResStageInfo = function(msg, ...)
-  -- function num : 0_8 , upvalues : _ENV, cardData, battleNumTxt, isSingleClick, skillList, selectSkillIndex, afterData, reqSkillID, preData
+  -- function num : 0_8 , upvalues : _ENV, cardData, battleNumTxt, isSingleClick, skillList, selectSkillIndex, afterData, reqSkillID, preData, isAutoUpClick
   local fakeData = (CardData.GetCardData)(cardData.id)
   local emptyData = {}
   ;
@@ -872,12 +875,21 @@ Card_SkillUpWindow.ResStageInfo = function(msg, ...)
         isSingleClick = false
         ;
         (Card_SkillUpWindow.RefreshWindow)(false)
+        if isAutoUpClick then
+          for i = 1, 9 do
+            local hand = skillList:GetChildAt(skillList:ItemIndexToChildIndex(i - 1))
+            local uis = GetCard_SkillDescribeGrpUis(hand)
+            ;
+            (Card_SkillUpWindow.PlayEffects)(uis)
+          end
+          isAutoUpClick = false
+        end
       end
     end
   end
 end
 
--- DECOMPILER ERROR at PC77: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC78: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.PlayEffects = function(uis, ...)
   -- function num : 0_9 , upvalues : _ENV
@@ -888,8 +900,7 @@ Card_SkillUpWindow.PlayEffects = function(uis, ...)
   (uiMap.root):AddChild(holder)
   ;
   (LuaSound.PlaySound)(LuaSound.CARD_UP_FLASH, SoundBank.OTHER)
-  print("升级特效")
-  -- DECOMPILER ERROR at PC31: Confused about usage of register: R3 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC28: Confused about usage of register: R3 in 'UnsetPending'
 
   ;
   (uis.LevelEffectTxt).visible = true
@@ -897,7 +908,7 @@ Card_SkillUpWindow.PlayEffects = function(uis, ...)
   PlayUITrans(uis.root, "skillstart")
 end
 
--- DECOMPILER ERROR at PC80: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC81: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.PlayNumEffects = function(uis, afterData, preData, ...)
   -- function num : 0_10 , upvalues : selectSkillIndex, isPlayingNumEffects, _ENV
@@ -914,7 +925,7 @@ Card_SkillUpWindow.PlayNumEffects = function(uis, afterData, preData, ...)
   end
 end
 
--- DECOMPILER ERROR at PC83: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC84: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.PropertyNumberEffects = function(_uis, index, afterData, preData, ...)
   -- function num : 0_11 , upvalues : _ENV, isPlayingNumEffects
@@ -953,7 +964,7 @@ Card_SkillUpWindow.PropertyNumberEffects = function(_uis, index, afterData, preD
   (Card_SkillUpWindow.NumberUpdate)(_uis, index, afterData, preData)
 end
 
--- DECOMPILER ERROR at PC86: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC87: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.NumberUpdate = function(_uis, index, afterData, preData, ...)
   -- function num : 0_12 , upvalues : _ENV, uniqueTable, isPlayingNumEffects
@@ -1009,7 +1020,7 @@ Card_SkillUpWindow.NumberUpdate = function(_uis, index, afterData, preData, ...)
   end
 end
 
--- DECOMPILER ERROR at PC89: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC90: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.SetSkillAttrData = function(skillID, skillLvl, ...)
   -- function num : 0_13 , upvalues : _ENV
@@ -1036,7 +1047,7 @@ Card_SkillUpWindow.SetSkillAttrData = function(skillID, skillLvl, ...)
   return t
 end
 
--- DECOMPILER ERROR at PC92: Confused about usage of register: R31 in 'UnsetPending'
+-- DECOMPILER ERROR at PC93: Confused about usage of register: R32 in 'UnsetPending'
 
 Card_SkillUpWindow.CancelAllLeanTween = function(...)
   -- function num : 0_14 , upvalues : _ENV, uniqueTable

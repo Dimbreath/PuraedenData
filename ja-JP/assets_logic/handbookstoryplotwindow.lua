@@ -154,7 +154,11 @@ HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
   (obj.onClick):Set(function(...)
     -- function num : 0_4_0 , upvalues : _ENV, stageId, RecordData
     if (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
-      OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY)
+      if openType == (HandBookMgr.AdventureStoryType).Activity then
+        OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY, nil, true)
+      else
+        OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY)
+      end
     else
       ;
       (MessageMgr.SendCenterTips)((PUtil.get)(20000252))

@@ -16,7 +16,17 @@ GetShop_GiftUis = function(ui, ...)
   uis.Reward_3_List = ui:GetChild("Reward_3_List")
   uis.Reward_4_List = ui:GetChild("Reward_4_List")
   uis.Reward_5_List = ui:GetChild("Reward_5_List")
+  uis.Reward_6_List = ui:GetChild("Reward_6_List")
+  uis.Reward_7_List = ui:GetChild("Reward_7_List")
+  uis.Reward_8_List = ui:GetChild("Reward_8_List")
+  uis.NumberImage = ui:GetChild("NumberImage")
+  uis.NumberTxt = ui:GetChild("NumberTxt")
+  uis.Decorate_04_Image = ui:GetChild("Decorate_04_Image")
+  uis.Decorate_05_Image = ui:GetChild("Decorate_05_Image")
+  uis.TipsTxt = ui:GetChild("TipsTxt")
   uis.c1Ctr = ui:GetController("c1")
+  uis.c2Ctr = ui:GetController("c2")
+  uis.c3Ctr = ui:GetController("c3")
   uis.root = ui
   return uis
 end

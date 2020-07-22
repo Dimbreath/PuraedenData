@@ -29,15 +29,26 @@ end
 
 -- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
 
-SlotsData.GetCurrentType = function(...)
-  -- function num : 0_2 , upvalues : _ENV
-  return (SlotsData.SlotType).ACTIVITY_SLOT
+SlotsData.ChangeTotalRound = function(round, ...)
+  -- function num : 0_2 , upvalues : self
+  if round == nil then
+    return self.roundTotalChange
+  else
+    self.roundTotalChange = round
+  end
 end
 
 -- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
 
+SlotsData.GetCurrentType = function(...)
+  -- function num : 0_3 , upvalues : _ENV
+  return (SlotsData.SlotType).ACTIVITY_SLOT
+end
+
+-- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+
 SlotsData.CanReset = function(reset, ...)
-  -- function num : 0_3 , upvalues : self
+  -- function num : 0_4 , upvalues : self
   if reset == nil then
     return self.Reset
   else
@@ -45,18 +56,45 @@ SlotsData.CanReset = function(reset, ...)
   end
 end
 
--- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
 
 SlotsData.GetItemData = function(data, ...)
-  -- function num : 0_4 , upvalues : self
+  -- function num : 0_5 , upvalues : self
   self.ItemData = data
 end
 
--- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
 
-SlotsData.GetItemTimes = function(poolId, ...)
-  -- function num : 0_5 , upvalues : self, _ENV
-  local mData = self.ItemData
+SlotsData.SetRoundItemData = function(Items, ...)
+  -- function num : 0_6 , upvalues : _ENV, self
+  local isContain = false
+  for _,v in ipairs(self.ItemData) do
+    if v.round == Items.round then
+      v.data = Items.data
+      isContain = true
+    end
+  end
+  if not isContain then
+    (table.insert)(self.ItemData, Items)
+  end
+end
+
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
+
+SlotsData.GetItemTimes = function(round, poolId, ...)
+  -- function num : 0_7 , upvalues : _ENV, self
+  local mData = nil
+  for _,v in ipairs(self.ItemData) do
+    if v.round == round then
+      mData = v.data
+    end
+  end
+  if mData == -1 then
+    return -1
+  end
+  if mData == nil then
+    return 0
+  end
   for _,v in ipairs(mData) do
     if v.SlotsPoolId == poolId then
       return v.GetNum

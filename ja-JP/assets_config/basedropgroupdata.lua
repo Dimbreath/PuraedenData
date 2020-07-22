@@ -1731,6 +1731,8 @@ BaseDropGroupData = {
 , 
 [22800203] = {id = 22800203, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:999"}
 , 
+[22800204] = {id = 22800204, type = 2, propType = 2, assetType = 2, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:999"}
+, 
 [28010001] = {id = 28010001, type = 2, propType = 2, assetType = 2, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:999"}
 , 
 [28010002] = {id = 28010002, type = 2, propType = 2, assetType = 2, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:999"}
@@ -1831,39 +1833,39 @@ BaseDropGroupData = {
 , 
 [28020001] = {id = 28020001, type = 1, propType = 1, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 2, titles = "29000001:1:10000", level_limit = "1:999"}
 , 
-[28300001] = {id = 28300001, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:13"}
+[28300001] = {id = 28300001, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:8"}
 , 
-[28300002] = {id = 28300002, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "14:17"}
+[28300002] = {id = 28300002, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "9:14"}
 , 
-[28300003] = {id = 28300003, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "18:21"}
+[28300003] = {id = 28300003, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "15:18"}
 , 
-[28300004] = {id = 28300004, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "22:25"}
+[28300004] = {id = 28300004, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "19:22"}
 , 
-[28300005] = {id = 28300005, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "26:29"}
+[28300005] = {id = 28300005, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "23:26"}
 , 
-[28300006] = {id = 28300006, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "30:34"}
+[28300006] = {id = 28300006, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "27:30"}
 , 
-[28300007] = {id = 28300007, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "35:39"}
+[28300007] = {id = 28300007, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "31:35"}
 , 
-[28300008] = {id = 28300008, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "40:44"}
+[28300008] = {id = 28300008, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "36:40"}
 , 
-[28300009] = {id = 28300009, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "45:49"}
+[28300009] = {id = 28300009, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "41:45"}
 , 
-[28300010] = {id = 28300010, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "50:51"}
+[28300010] = {id = 28300010, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "46:50"}
 , 
-[28300011] = {id = 28300011, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "52:54"}
+[28300011] = {id = 28300011, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "51:52"}
 , 
-[28300012] = {id = 28300012, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "55:56"}
+[28300012] = {id = 28300012, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "53:55"}
 , 
-[28300013] = {id = 28300013, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "57:59"}
+[28300013] = {id = 28300013, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "56:57"}
 , 
-[28300014] = {id = 28300014, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "60:61"}
+[28300014] = {id = 28300014, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "58:60"}
 , 
-[28300015] = {id = 28300015, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "62:64"}
+[28300015] = {id = 28300015, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "61:62"}
 , 
-[28300016] = {id = 28300016, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "65:66"}
+[28300016] = {id = 28300016, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "63:65"}
 , 
-[28300017] = {id = 28300017, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "67:70"}
+[28300017] = {id = 28300017, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "65:70"}
 , 
 [28300018] = {id = 28300018, type = 1, propType = 2, assetType = 0, cardType = 0, equipType = 0, equips = "0", titleType = 0, titles = "0", level_limit = "1:13"}
 , 

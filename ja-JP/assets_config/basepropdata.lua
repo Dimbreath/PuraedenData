@@ -115,7 +115,9 @@ BasePropData = {
 , 
 [21123008] = {id = 21123008, name = (PUtil.get)(82123008), remark = (PUtil.get)(83121001, 55, (PUtil.get)(81013008)), icon = "ItemIcon:11300008", quality = 3, type = 2, effect_value = "11300008", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423008", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013}
 , 
-[21121107] = {id = 21121107, name = (PUtil.get)(82121107), remark = (PUtil.get)(83121001, 30, (PUtil.get)(81011107)), icon = "ItemIcon:11101007", quality = 3, type = 2, effect_value = "11101007", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77421107", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9890013}
+[21121107] = {id = 21121107, name = (PUtil.get)(82121107), remark = (PUtil.get)(83121001, 30, (PUtil.get)(81011107)), icon = "ItemIcon:11101007", quality = 3, type = 2, effect_value = "11101007", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31015, go_to_id = "77421107", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 6, reward_sort = 9890013}
+, 
+[21123010] = {id = 21123010, name = (PUtil.get)(82123010), remark = (PUtil.get)(83121001, 55, (PUtil.get)(81013010)), icon = "ItemIcon:11300008", quality = 3, type = 2, effect_value = "11300008", can_use = 0, use_level = "0", auto_open = 0, bag_type = 3, sort = 31001, go_to_id = "77423008", superposition = 9999999, can_sell = 1, sell_warn = 1, sell_price = 100, energy_exp = 9, reward_sort = 9890013}
 , 
 [21130001] = {id = 21130001, name = (PUtil.get)(82130001), remark = (PUtil.get)(83130001, 30), icon = "ItemIcon:21130001", quality = 1, type = 3, effect_value = "30", can_use = 0, use_level = "0", auto_open = 0, bag_type = 2, sort = 20405, go_to_id = "77230001:77330001", superposition = 9999999, can_sell = 1, sell_warn = 0, sell_price = 100, energy_exp = 0, reward_sort = 9490001}
 , 
@@ -239,7 +241,9 @@ BasePropData = {
 , 
 [21500402] = {id = 21500402, name = (PUtil.get)(82500402), remark = (PUtil.get)(83500402), icon = "ItemIcon:21500402", quality = 4, type = 8, effect_value = "2102", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 10202, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9949000}
 , 
-[21500403] = {id = 21500403, name = (PUtil.get)(82500403), remark = (PUtil.get)(83500403), icon = "ItemIcon:21500403", quality = 4, type = 8, effect_value = "2103", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 10202, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9789000}
+[21500403] = {id = 21500403, name = (PUtil.get)(82500403), remark = (PUtil.get)(83500403), icon = "ItemIcon:21500403", quality = 4, type = 8, effect_value = "2103", can_use = 1, use_level = "0", auto_open = 1, bag_type = 1, sort = 10202, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9789000}
+, 
+[21500404] = {id = 21500404, name = (PUtil.get)(82500404), remark = (PUtil.get)(83500404), icon = "ItemIcon:21500401", quality = 4, type = 8, effect_value = "2104", can_use = 1, use_level = "0", auto_open = 1, bag_type = 1, sort = 10202, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9789000}
 , 
 [21500502] = {id = 21500502, name = (PUtil.get)(82500502), remark = (PUtil.get)(83500502), icon = "ItemIcon:21500303", quality = 3, type = 8, effect_value = "5000", can_use = 1, use_level = "0", auto_open = 0, bag_type = 1, sort = 30000, superposition = 9999999, can_sell = 0, sell_warn = 0, sell_price = 0, energy_exp = 0, reward_sort = 9970000}
 , 

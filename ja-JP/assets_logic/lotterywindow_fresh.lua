@@ -26,6 +26,10 @@ LotteryWindow_Fresh.RefreshWindow = function(uis, ...)
     ;
     (LotteryWindow_Fresh.ReceiveInitData)()
   end
+  ;
+  (LotteryWindow_Activity.HideOrShowFxMain)(false)
+  ;
+  (LotteryWindow_Activity2.HideOrShowFxMain)(false)
 end
 
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R8 in 'UnsetPending'

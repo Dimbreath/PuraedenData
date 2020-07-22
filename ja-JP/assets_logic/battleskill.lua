@@ -120,16 +120,24 @@ end
 -- DECOMPILER ERROR at PC30: Confused about usage of register: R6 in 'UnsetPending'
 
 BattleSkill.GetSkillLevel = function(cardUid, skillId, ...)
-  -- function num : 0_6 , upvalues : ipairs, _ENV, pairs
-  for _,v in ipairs(BattleData.allCardList) do
-    if v:GetCardUid() == cardUid then
-      for k,l in pairs(v:GetSkillInfo()) do
+  -- function num : 0_6 , upvalues : _ENV, pairs
+  if cardUid == nil or skillId == nil then
+    return 0
+  end
+  local skillConfig = (TableData.GetBaseSkillData)(skillId)
+  if skillConfig then
+    local skillType = skillConfig.type
+    local card = (BattleData.GetCardInfoByUid)(cardUid)
+    if card then
+      for k,l in pairs(card:GetSkillInfo()) do
+        local id = l.id
+        local config = (TableData.GetBaseSkillData)(id)
         if not l.value then
           do
-            do return l.id ~= skillId or 0 end
-            -- DECOMPILER ERROR at PC22: LeaveBlock: unexpected jumping out IF_THEN_STMT
+            do return not config or config.type ~= skillType or 0 end
+            -- DECOMPILER ERROR at PC39: LeaveBlock: unexpected jumping out IF_THEN_STMT
 
-            -- DECOMPILER ERROR at PC22: LeaveBlock: unexpected jumping out IF_STMT
+            -- DECOMPILER ERROR at PC39: LeaveBlock: unexpected jumping out IF_STMT
 
           end
         end

@@ -20,6 +20,8 @@ ActorService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResTitleList, ActorService.OnResTitleList)
   ;
   (Net.AddListener)((Proto.MsgName).ResWearTitle, ActorService.OnResWearTitle)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResActivityLottery, ActorService.OnResActivityLottery)
 end
 
 local needInit = false
@@ -172,6 +174,7 @@ ActorService.OnResGoodsChange = function(msg, ...)
   local card, asset = (ActorService.IsChangeCardOrAssets)(msg.goods)
   if not card or asset then
     (CommonWinMgr.RefreshAssets)()
+    UIMgr:SendWindowMessage((WinResConfig.ClearingWindow).name, (WindowMsgEnum.ClearingWindow).E_MSG_PHYSICAL_REFRESH)
   end
   if #msg.goods > 0 then
     if (ActorService.IsContainLottery)(msg.goods) then
@@ -436,6 +439,30 @@ ActorService.OnResWearTitle = function(msg, ...)
   -- function num : 0_20 , upvalues : _ENV
   (ActorData.SetWearTitle)(msg.titleId)
   UIMgr:SendWindowMessage((WinResConfig.TitleWindow).name, (WindowMsgEnum.Title).E_MSG_REFRESH)
+end
+
+-- DECOMPILER ERROR at PC69: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.ReqActivityLottery = function(...)
+  -- function num : 0_21 , upvalues : _ENV
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqActivityLottery, m, (Proto.MsgName).ResActivityLottery)
+  print("请求有哪些活动扭蛋")
+end
+
+-- DECOMPILER ERROR at PC72: Confused about usage of register: R2 in 'UnsetPending'
+
+ActorService.OnResActivityLottery = function(msg, ...)
+  -- function num : 0_22 , upvalues : _ENV
+  print("返回有哪些活动扭蛋")
+  ;
+  (ActorData.SaveLotteryActivityData)(msg.otherLottery)
+  ld("Lottery", function(...)
+    -- function num : 0_22_0 , upvalues : _ENV
+    OpenWindow((WinResConfig.LotteryWindow).name, UILayer.HUD)
+  end
+)
 end
 
 ;

@@ -83,16 +83,19 @@ NoticeWindow.SwitchNextNotice = function(...)
   local gt = (GTween.To)(0, -bgHeight, switchTime)
   gt:OnUpdate(function(...)
     -- function num : 0_3_0 , upvalues : PrepareTxt, gt
-    PrepareTxt.y = (gt.value).x
+    if PrepareTxt then
+      PrepareTxt.y = (gt.value).x
+    end
   end
 )
   gt:OnComplete(function(...)
     -- function num : 0_3_1 , upvalues : rolling, PlayingTxt, PrepareTxt, initPreparePosX, bgHeight
     rolling = true
-    ;
-    (PlayingTxt.relations):ClearAll()
-    PrepareTxt.x = initPreparePosX
-    PrepareTxt.y = bgHeight
+    if PlayingTxt and PrepareTxt then
+      (PlayingTxt.relations):ClearAll()
+      PrepareTxt.x = initPreparePosX
+      PrepareTxt.y = bgHeight
+    end
   end
 )
 end

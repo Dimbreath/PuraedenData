@@ -907,7 +907,7 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
             if isFromGetAway ~= true or not (PUtil.get)(30) then
               btn3.btnTxt = (PUtil.get)(20000025)
               btn3.fun = function(...)
-    -- function num : 0_41_4 , upvalues : _ENV, msg, curStageId
+    -- function num : 0_41_4 , upvalues : _ENV, msg, curStageId, stageData
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.HeroDungeon then
         UIMgr:SetOnShownComplete((WinResConfig.HeroDungeonMainWindow).name, function(...)
@@ -941,23 +941,45 @@ PlotDungeonMgr.RefreshCardState = function(msg, ...)
         else
           if (PlotDungeonMgr.GetStageChapterType)((msg.stageInfo).id) == DungeonType.ActivityDungeon then
             UIMgr:SetOnShownComplete((WinResConfig.ActivityDungeonWindow).name, function(...)
-      -- function num : 0_41_4_2 , upvalues : msg, _ENV
+      -- function num : 0_41_4_2 , upvalues : msg, _ENV, stageData
       local stageID = (msg.stageInfo).id
       OpenPlotPlay((msg.stageInfo).id, PlotPlayTriggerType.AFTER_QUIT_LEVEL)
-      local RecordData = ((TableData.gTable).BaseHandbookAdventureRecordData)[stageID]
-      if msg.isFirst and RecordData ~= nil then
+      if msg.isFirst then
+        local RecordData = ((TableData.gTable).BaseHandbookAdventureRecordData)[stageID]
+        do
+          local openStoryFunc = function(...)
+        -- function num : 0_41_4_2_0 , upvalues : RecordData, _ENV, stageID
+        if RecordData == nil then
+          return 
+        end
+        ;
         (Util.SetPlayerSetting)(PlayerPrefsKeyName.ACTIVITY_DUNGEON_PLOT_DOT, stageID)
         ;
         (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000494, RecordData.sort), function(...)
-        -- function num : 0_41_4_2_0 , upvalues : _ENV, stageID
-        local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
-        local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
-        ;
-        (HandBookService.OnReqAdventureStoryChapter)((ProtoEnum.E_BATTLE_TYPE).ACTIVITY, ActivityData.story_type, stageID)
-      end
+          -- function num : 0_41_4_2_0_0 , upvalues : _ENV, stageID
+          local acID = (ActivityMgr.GetOpenActivityByType)((ActivityMgr.ActivityType).ActivityDungeon)
+          local ActivityData = ((TableData.gTable).BaseActivityData)[acID]
+          ;
+          (HandBookService.OnReqAdventureStoryChapter)((ProtoEnum.E_BATTLE_TYPE).ACTIVITY, ActivityData.story_type, stageID)
+        end
 )
       end
-      UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH_RED)
+
+          local cg_reward = stageData.cg_reward
+          if cg_reward and cg_reward ~= "0" then
+            (CommonWinMgr.OpenCGShow)(tonumber(cg_reward), true, function(...)
+        -- function num : 0_41_4_2_1 , upvalues : openStoryFunc
+        openStoryFunc()
+      end
+)
+          else
+            openStoryFunc()
+          end
+        end
+      end
+      do
+        UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonWindow).name, (WindowMsgEnum.ActivityDungeon).E_MSG_REFRESH_RED)
+      end
     end
 )
           end

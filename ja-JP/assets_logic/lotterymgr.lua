@@ -4,12 +4,26 @@ LotteryMgr = {
 LotteryBackGroundEffectsPool = {}
 , 
 BackGroundEffectsType = {Card_BackGround = UIEffectEnum.UI_GACHA_CANI, Coupon_BackGround = UIEffectEnum.UI_GACHA_CANI}
-}
+, isLotterying = false}
 local self = LotteryMgr
--- DECOMPILER ERROR at PC15: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC16: Confused about usage of register: R1 in 'UnsetPending'
+
+LotteryMgr.SetIsLotterying = function(b, ...)
+  -- function num : 0_0 , upvalues : self
+  self.isLotterying = b
+end
+
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R1 in 'UnsetPending'
+
+LotteryMgr.GetIsLotterying = function(...)
+  -- function num : 0_1 , upvalues : self
+  return self.isLotterying
+end
+
+-- DECOMPILER ERROR at PC22: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.AddBackGroundEffectsToPool = function(tag, effect, ...)
-  -- function num : 0_0 , upvalues : _ENV, self
+  -- function num : 0_2 , upvalues : _ENV, self
   local isExsit = false
   for index,value in ipairs(self.LotteryBackGroundEffectsPool) do
     if value.tag == tag then
@@ -24,10 +38,10 @@ LotteryMgr.AddBackGroundEffectsToPool = function(tag, effect, ...)
   end
 end
 
--- DECOMPILER ERROR at PC18: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC25: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.GetBackGroundEffectFromPoolByTag = function(tag, ...)
-  -- function num : 0_1 , upvalues : _ENV, self
+  -- function num : 0_3 , upvalues : _ENV, self
   local effect = nil
   for index,value in ipairs(self.LotteryBackGroundEffectsPool) do
     if value.tag == tag then
@@ -40,19 +54,19 @@ LotteryMgr.GetBackGroundEffectFromPoolByTag = function(tag, ...)
   end
 end
 
--- DECOMPILER ERROR at PC21: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC28: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.HideAllBackGroundEffects = function(...)
-  -- function num : 0_2 , upvalues : _ENV, self
+  -- function num : 0_4 , upvalues : _ENV, self
   for index,value in ipairs(self.LotteryBackGroundEffectsPool) do
     (value.effect):SetActive(false)
   end
 end
 
--- DECOMPILER ERROR at PC24: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC31: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.RemoveAllBackGroundEffectsFromPool = function(...)
-  -- function num : 0_3 , upvalues : _ENV, self
+  -- function num : 0_5 , upvalues : _ENV, self
   for index,value in ipairs(self.LotteryBackGroundEffectsPool) do
     if value.effect ~= nil then
       (ResHelper.DestroyGameObject)(value.effect)
@@ -61,10 +75,10 @@ LotteryMgr.RemoveAllBackGroundEffectsFromPool = function(...)
   self.LotteryBackGroundEffectsPool = {}
 end
 
--- DECOMPILER ERROR at PC27: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC34: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.CheckAssetIsEnough = function(str, extraNum, ...)
-  -- function num : 0_4 , upvalues : _ENV
+  -- function num : 0_6 , upvalues : _ENV
   if extraNum == nil then
     extraNum = 0
   end
@@ -78,10 +92,10 @@ LotteryMgr.CheckAssetIsEnough = function(str, extraNum, ...)
   end
 end
 
--- DECOMPILER ERROR at PC30: Confused about usage of register: R1 in 'UnsetPending'
+-- DECOMPILER ERROR at PC37: Confused about usage of register: R1 in 'UnsetPending'
 
 LotteryMgr.SetCharacterCompBtnClick = function(comp, cardIds, ...)
-  -- function num : 0_5 , upvalues : _ENV
+  -- function num : 0_7 , upvalues : _ENV
   local ids = split(cardIds, ":")
   for index,value in ipairs(ids) do
     local btn = comp:GetChild("Card_0" .. tostring(index) .. "_Btn")
@@ -89,7 +103,7 @@ LotteryMgr.SetCharacterCompBtnClick = function(comp, cardIds, ...)
       local id = tonumber(value)
       ;
       (btn.onClick):Add(function(...)
-    -- function num : 0_5_0 , upvalues : _ENV, id
+    -- function num : 0_7_0 , upvalues : _ENV, id
     OpenWindow("CardDetailsWindow", UILayer.HUD, id)
   end
 )
@@ -111,10 +125,10 @@ local isEndEffectPlay = false
 local lotteryData = nil
 local effectType = 1
 local tipsEffect = nil
--- DECOMPILER ERROR at PC47: Confused about usage of register: R20 in 'UnsetPending'
+-- DECOMPILER ERROR at PC54: Confused about usage of register: R20 in 'UnsetPending'
 
 LotteryMgr.PlayLotteryEffects = function(_callBack, para, ...)
-  -- function num : 0_6 , upvalues : isFingerTouchEnable, isClick, boolSlider, curSliderLength, animPercent, isAutoOpen, isEndEffectPlay, callBackFunc, lotteryData, _ENV, lotteryEffect, tipsEffect, gachaCamera, bookItem, effectType
+  -- function num : 0_8 , upvalues : isFingerTouchEnable, isClick, boolSlider, curSliderLength, animPercent, isAutoOpen, isEndEffectPlay, callBackFunc, lotteryData, _ENV, lotteryEffect, tipsEffect, gachaCamera, bookItem, effectType
   isFingerTouchEnable = false
   isClick = false
   boolSlider = 0
@@ -151,24 +165,24 @@ LotteryMgr.PlayLotteryEffects = function(_callBack, para, ...)
   (Util.PlayAnimation)(bookItem, "idle2")
   ;
   (SimpleTimer.setTimeout)(cameraTime, function(...)
-    -- function num : 0_6_0 , upvalues : _ENV, tipsEffect
+    -- function num : 0_8_0 , upvalues : _ENV, tipsEffect
     (UpdateMgr.AddUpdateHandler)(LotteryMgr.Update)
     tipsEffect:SetActive(true)
   end
 )
   ;
   (SimpleTimer.setTimeout)(cameraTime + 0.3, function(...)
-    -- function num : 0_6_1 , upvalues : isFingerTouchEnable
+    -- function num : 0_8_1 , upvalues : isFingerTouchEnable
     isFingerTouchEnable = true
   end
 )
 end
 
 local lerpLength = 200
--- DECOMPILER ERROR at PC51: Confused about usage of register: R21 in 'UnsetPending'
+-- DECOMPILER ERROR at PC58: Confused about usage of register: R21 in 'UnsetPending'
 
 LotteryMgr.Update = function(...)
-  -- function num : 0_7 , upvalues : isFingerTouchEnable, _ENV, lastClickPosX, isClick, tipsEffect, unlockEffect1, unlockEffect2, lerpLength, isAutoOpen, curSliderLength, animPercent, fakeTotalSliderLength, bookItem, gachaCamera, isEndEffectPlay, gachaEndEffect, callBackFunc, lotteryEffect
+  -- function num : 0_9 , upvalues : isFingerTouchEnable, _ENV, lastClickPosX, isClick, tipsEffect, unlockEffect1, unlockEffect2, lerpLength, isAutoOpen, curSliderLength, animPercent, fakeTotalSliderLength, bookItem, gachaCamera, isEndEffectPlay, gachaEndEffect, callBackFunc, lotteryEffect
   if isFingerTouchEnable then
     if (Input.GetMouseButtonDown)(0) then
       lastClickPosX = (Input.mousePosition).x
@@ -248,13 +262,13 @@ LotteryMgr.Update = function(...)
           gachaEndEffect:SetActive(true)
           ;
           (SimpleTimer.setTimeout)(3.7, function(...)
-    -- function num : 0_7_0 , upvalues : callBackFunc
+    -- function num : 0_9_0 , upvalues : callBackFunc
     callBackFunc()
   end
 )
           ;
           (SimpleTimer.setTimeout)(3.8, function(...)
-    -- function num : 0_7_1 , upvalues : gachaEndEffect, _ENV, lotteryEffect
+    -- function num : 0_9_1 , upvalues : gachaEndEffect, _ENV, lotteryEffect
     gachaEndEffect:SetActive(false)
     ;
     (LotteryMgr.ResetCardQualityEffects)()
@@ -263,15 +277,15 @@ LotteryMgr.Update = function(...)
 )
           ;
           (SimpleTimer.setTimeout)(0.1, function(...)
-    -- function num : 0_7_2 , upvalues : _ENV, animPercent, unlockEffect1, unlockEffect2
+    -- function num : 0_9_2 , upvalues : _ENV, animPercent, unlockEffect1, unlockEffect2
     (((LeanTween.value)(animPercent, 0, 0.8)):setOnUpdate(function(value, ...)
-      -- function num : 0_7_2_0 , upvalues : _ENV, unlockEffect1, unlockEffect2
+      -- function num : 0_9_2_0 , upvalues : _ENV, unlockEffect1, unlockEffect2
       (LotteryMgr.SetAllParticleAlpha)(unlockEffect1, value)
       ;
       (LotteryMgr.SetAllParticleAlpha)(unlockEffect2, value)
     end
 )):setOnComplete(function(...)
-      -- function num : 0_7_2_1 , upvalues : unlockEffect1, unlockEffect2
+      -- function num : 0_9_2_1 , upvalues : unlockEffect1, unlockEffect2
       unlockEffect1:SetActive(false)
       unlockEffect2:SetActive(false)
     end
@@ -301,10 +315,10 @@ LotteryMgr.Update = function(...)
   end
 end
 
--- DECOMPILER ERROR at PC54: Confused about usage of register: R21 in 'UnsetPending'
+-- DECOMPILER ERROR at PC61: Confused about usage of register: R21 in 'UnsetPending'
 
 LotteryMgr.ShowWhichColor = function(...)
-  -- function num : 0_8 , upvalues : effectType, gachaEndEffect, lotteryEffect, unlockEffect1, unlockEffect2, _ENV
+  -- function num : 0_10 , upvalues : effectType, gachaEndEffect, lotteryEffect, unlockEffect1, unlockEffect2, _ENV
   if effectType == 1 then
     gachaEndEffect = ((lotteryEffect.transform):Find("FX_gacha_end_eff_blue")).gameObject
     unlockEffect1 = ((lotteryEffect.transform):Find("FX_ui_openbook_blue")).gameObject
@@ -329,10 +343,10 @@ LotteryMgr.ShowWhichColor = function(...)
   (LotteryMgr.ResetCardQualityEffects)()
 end
 
--- DECOMPILER ERROR at PC57: Confused about usage of register: R21 in 'UnsetPending'
+-- DECOMPILER ERROR at PC64: Confused about usage of register: R21 in 'UnsetPending'
 
 LotteryMgr.SetAllParticleAlpha = function(item, alpha, ...)
-  -- function num : 0_9 , upvalues : _ENV
+  -- function num : 0_11 , upvalues : _ENV
   if alpha >= 0.05 then
     alpha = 2.5 * alpha - 0.125
   else
@@ -351,10 +365,10 @@ LotteryMgr.SetAllParticleAlpha = function(item, alpha, ...)
   end
 end
 
--- DECOMPILER ERROR at PC60: Confused about usage of register: R21 in 'UnsetPending'
+-- DECOMPILER ERROR at PC67: Confused about usage of register: R21 in 'UnsetPending'
 
 LotteryMgr.ResetCardQualityEffects = function(...)
-  -- function num : 0_10 , upvalues : lotteryEffect, _ENV
+  -- function num : 0_12 , upvalues : lotteryEffect, _ENV
   local eb1 = ((lotteryEffect.transform):Find("FX_ui_openbook_blue")).gameObject
   local eb2 = ((lotteryEffect.transform):Find("gacha_book/Bone001/Bone021/blue_light")).gameObject
   local ep1 = ((lotteryEffect.transform):Find("FX_ui_openbook_purple")).gameObject

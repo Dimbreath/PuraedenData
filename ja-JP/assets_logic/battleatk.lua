@@ -173,8 +173,8 @@ end
 
 -- DECOMPILER ERROR at PC49: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsetNormalAttackInfo = function(atkCard, ...)
-  -- function num : 0_6 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert, ipairs
+BattleAtk.InsetNormalAttackInfo = function(atkCard, isDoubleAttack, ...)
+  -- function num : 0_6 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   if IsBattleServer == nil then
@@ -187,6 +187,9 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, ...)
     if defCard then
       local atkInfo = (self.InitAtkInfo)(atkCard, {defCard}, skillConfig)
       self.curAtkInfo = atkInfo
+      if isDoubleAttack == true then
+        atkInfo.isDoubleAttack = true
+      end
       ;
       (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
       ;
@@ -196,52 +199,47 @@ BattleAtk.InsetNormalAttackInfo = function(atkCard, ...)
         ;
         (BattleDataCount.DealHitCritBuff)({defCardInfo}, atkInfo)
         if (BattleBuff.IsAttackDouble)(atkCard) == true then
-          local curTargetCards_double = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
-          if #curTargetCards_double > 0 then
-            local doubleAtkInfo = (self.InitAtkInfo)(atkCard, {curTargetCards_double[1]}, skillConfig, true)
-            doubleAtkInfo.isDoubleAttack = true
-            t_insert(atkInfo.doubleAtkInfo, doubleAtkInfo)
-            ;
-            (BattleDataCount.GetNormalAtkDataCount)(atkCard, curTargetCards_double[1], doubleAtkInfo, atkCard, atkInfo)
+          BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_6_0 , upvalues : _ENV, atkCard
+    (BattleAtk.InsetNormalAttackInfo)(atkCard, true)
+  end
+
+        end
+        ;
+        (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
+        local assistCard = (self.IsAssistAtk)(atkCard)
+        if #assistCard > 0 and defCard:IsDead() ~= true and #curTargetCards <= 1 then
+          atkInfo.moveCamera = true
+          for _,card in ipairs(assistCard) do
+            if defCard:IsDead() ~= true then
+              local assistSkillConfig = card:GetAssistSkillConfig()
+              local oneAssistAtkInfo = (self.InitAtkInfo)(card, {defCard}, assistSkillConfig)
+              t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
+              ;
+              (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
+            end
           end
         end
         do
-          ;
-          (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
-          local assistCard = (self.IsAssistAtk)(atkCard)
-          if #assistCard > 0 and defCard:IsDead() ~= true and #curTargetCards <= 1 then
-            atkInfo.moveCamera = true
-            for _,card in ipairs(assistCard) do
-              if defCard:IsDead() ~= true then
-                local assistSkillConfig = card:GetAssistSkillConfig()
-                local oneAssistAtkInfo = (self.InitAtkInfo)(card, {defCard}, assistSkillConfig)
-                t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
-                ;
-                (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
-              end
-            end
-          end
           do
             do
-              do
-                if atkCard and atkCard:GetCampFlag() == defCard:GetCampFlag() then
-                  atkInfo.targetSelf = true
-                end
-                if atkCard:IsDead() ~= true then
-                  (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
-                  ;
-                  (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_ATTACK)
-                end
-                if defCard:IsDead() ~= true then
-                  (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
-                end
-                ;
-                (BattleDataCount.DealDamageBuff)(atkInfo)
-                atkInfo.atkFail = true
-                t_insert((BattleData.curRoundData).attackInfo, atkInfo)
-                ;
-                (self.InsetAttackFailInfo)(atkCard)
+              if atkCard and atkCard:GetCampFlag() == defCard:GetCampFlag() then
+                atkInfo.targetSelf = true
               end
+              if atkCard:IsDead() ~= true then
+                (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
+                ;
+                (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_ATTACK)
+              end
+              if defCard:IsDead() ~= true then
+                (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
+              end
+              ;
+              (BattleDataCount.DealDamageBuff)(atkInfo)
+              atkInfo.atkFail = true
+              t_insert((BattleData.curRoundData).attackInfo, atkInfo)
+              ;
+              (self.InsetAttackFailInfo)(atkCard)
             end
           end
         end
@@ -252,8 +250,8 @@ end
 
 -- DECOMPILER ERROR at PC52: Confused about usage of register: R12 in 'UnsetPending'
 
-BattleAtk.InsertSmallSkillInfo = function(atkCard, ...)
-  -- function num : 0_7 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, t_insert, ipairs
+BattleAtk.InsertSmallSkillInfo = function(atkCard, isDoubleAttack, ...)
+  -- function num : 0_7 , upvalues : _ENV, self, BattleBuffSettleRoundType, BattleBuffDeductionRoundType, ipairs, t_insert
   local BattleDataCount = BattleDataCount
   local BattleData = BattleData
   if IsBattleServer == nil then
@@ -264,6 +262,9 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, ...)
   if #curTargetCards > 0 then
     local atkInfo = (self.InitAtkInfo)(atkCard, curTargetCards, skillConfig)
     self.curAtkInfo = atkInfo
+    if isDoubleAttack == true then
+      atkInfo.isDoubleAttack = true
+    end
     atkInfo.moveCamera = true
     ;
     (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.BEFORE_ATTACK)
@@ -277,65 +278,57 @@ BattleAtk.InsertSmallSkillInfo = function(atkCard, ...)
         ;
         (BattleDataCount.DealTreatDirectBuff)(atkCard, atkInfo)
         if (BattleBuff.IsAttackDouble)(atkCard) == true then
-          local curTargetCards_double = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
-          if #curTargetCards_double > 0 then
-            local doubleAtkInfo = (self.InitAtkInfo)(atkCard, curTargetCards_double, skillConfig, true)
-            doubleAtkInfo.isDoubleAttack = true
-            t_insert(atkInfo.doubleAtkInfo, doubleAtkInfo)
-            ;
-            (BattleDataCount.GetTreatmentCount)(atkCard, curTargetCards_double, doubleAtkInfo)
-          end
+          BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_7_0 , upvalues : _ENV, atkCard
+    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+  end
+
         end
       else
-        do
-          local defCardInfoTable = (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards, atkInfo, atkCard)
-          ;
-          (BattleDataCount.DealHitCritBuff)(defCardInfoTable, atkInfo)
-          if (BattleBuff.IsAttackDouble)(atkCard) == true then
-            local curTargetCards_double = (BattleChoose.GetAtkTarget)(atkCard, skillConfig)
-            if #curTargetCards_double > 0 then
-              local doubleAtkInfo = (self.InitAtkInfo)(atkCard, curTargetCards_double, skillConfig, true)
-              doubleAtkInfo.isDoubleAttack = true
-              t_insert(atkInfo.doubleAtkInfo, doubleAtkInfo)
-              ;
-              (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards_double, doubleAtkInfo, atkCard)
+        local defCardInfoTable = (BattleDataCount.GetSkillDataCount)(atkCard, curTargetCards, atkInfo, atkCard)
+        ;
+        (BattleDataCount.DealHitCritBuff)(defCardInfoTable, atkInfo)
+        if (BattleBuff.IsAttackDouble)(atkCard) == true then
+          BattleData.forceNextAttackFunc = function(...)
+    -- function num : 0_7_1 , upvalues : _ENV, atkCard
+    (BattleAtk.InsertSmallSkillInfo)(atkCard, true)
+  end
+
+        end
+      end
+      do
+        ;
+        (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
+        if isTreatment == false and #curTargetCards <= 1 then
+          local assistCard = (self.IsAssistAtk)(atkCard)
+          if #assistCard > 0 and defCard:IsDead() ~= true then
+            for _,card in ipairs(assistCard) do
+              if defCard:IsDead() ~= true then
+                local assistSkillConfig = card:GetAssistSkillConfig()
+                local oneAssistAtkInfo = (self.InitAtkInfo)(card, curTargetCards, assistSkillConfig)
+                t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
+                ;
+                (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
+              end
             end
           end
+        end
+        do
           do
-            ;
-            (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.NOW)
-            if isTreatment == false and #curTargetCards <= 1 then
-              local assistCard = (self.IsAssistAtk)(atkCard)
-              if #assistCard > 0 and defCard:IsDead() ~= true then
-                for _,card in ipairs(assistCard) do
-                  if defCard:IsDead() ~= true then
-                    local assistSkillConfig = card:GetAssistSkillConfig()
-                    local oneAssistAtkInfo = (self.InitAtkInfo)(card, curTargetCards, assistSkillConfig)
-                    t_insert(atkInfo.assistAtkInfo, oneAssistAtkInfo)
-                    ;
-                    (BattleDataCount.GetNormalAtkDataCount)(card, defCard, oneAssistAtkInfo, atkCard, atkInfo)
-                  end
-                end
-              end
-            end
             do
-              do
-                do
-                  if atkCard:IsDead() ~= true then
-                    (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
-                    ;
-                    (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_ATTACK)
-                  end
-                  ;
-                  (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
-                  ;
-                  (BattleDataCount.DealDamageBuff)(atkInfo)
-                  atkInfo.atkFail = true
-                  t_insert((BattleData.curRoundData).attackInfo, atkInfo)
-                  ;
-                  (self.InsetAttackFailInfo)(atkCard)
-                end
+              if atkCard:IsDead() ~= true then
+                (BattleDataCount.DealActiveBuff)(atkCard, atkInfo, BattleBuffSettleRoundType.AFTER_ATTACK)
+                ;
+                (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_ATTACK)
               end
+              ;
+              (BattleDataCount.UpdateBuffCount)(atkInfo, BattleBuffDeductionRoundType.AFTER_HIT)
+              ;
+              (BattleDataCount.DealDamageBuff)(atkInfo)
+              atkInfo.atkFail = true
+              t_insert((BattleData.curRoundData).attackInfo, atkInfo)
+              ;
+              (self.InsetAttackFailInfo)(atkCard)
             end
           end
         end

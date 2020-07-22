@@ -771,15 +771,17 @@ BaseSoundPathData = {
 , 
 [222010203] = {id = 222010203, play_frame = 11, path = "sfx_dinai_pt_whoosh_11fr", bank = "dinai"}
 , 
-[222010301] = {id = 222010301, play_frame = 14, path = "sfx_dinai_small_tx_14fr", bank = "dinai"}
+[222010301] = {id = 222010301, play_frame = 10, path = "sfx_dinai_small_tx_10fr", bank = "dinai"}
 , 
-[222010302] = {id = 222010302, play_frame = 43, path = "sfx_dinai_small_tx_43fr", bank = "dinai"}
+[222010302] = {id = 222010302, play_frame = 14, path = "sfx_dinai_small_tx_14fr", bank = "dinai"}
 , 
-[222010303] = {id = 222010303, play_frame = 48, path = "sfx_dinai_small_tx_45fr", bank = "dinai"}
+[222010303] = {id = 222010303, play_frame = 43, path = "sfx_dinai_small_tx_43fr", bank = "dinai"}
 , 
-[222010304] = {id = 222010304, play_frame = 77, path = "sfx_dinai_small_tx_77fr", bank = "dinai"}
+[222010304] = {id = 222010304, play_frame = 48, path = "sfx_dinai_small_tx_45fr", bank = "dinai"}
 , 
-[222010305] = {id = 222010305, play_frame = 83, path = "sfx_dinai_small_tx_83fr", bank = "dinai"}
+[222010305] = {id = 222010305, play_frame = 77, path = "sfx_dinai_small_tx_77fr", bank = "dinai"}
+, 
+[222010306] = {id = 222010306, play_frame = 83, path = "sfx_dinai_small_tx_83fr", bank = "dinai"}
 , 
 [222020101] = {id = 222020101, play_frame = 18, path = "sfx_maluta_big_tx_18fr", bank = "maluta"}
 , 

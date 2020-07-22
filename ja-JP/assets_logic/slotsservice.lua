@@ -31,6 +31,8 @@ SlotsService.OnResSlotsData = function(msg, ...)
   (SlotsData.SlotRound)(msg.round)
   ;
   (SlotsData.GetItemData)(msg.RewardItems)
+  ;
+  (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
   if msg.type == 1 then
     OpenWindow((WinResConfig.ActivityDungeonExchangeWindow).name, UILayer.HUD)
   end
@@ -51,10 +53,11 @@ end
 SlotsService.OnResSlotsReset = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
   (SlotsData.SlotRound)(msg.round)
+  local total = (SlotsData.ChangeTotalRound)()
+  ;
+  (SlotsData.ChangeTotalRound)(total + 1)
   ;
   (SlotsData.CanReset)(false)
-  ;
-  (SlotsData.GetItemData)({})
   UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_RESET)
 end
 
@@ -73,16 +76,21 @@ end
 
 SlotsService.ResSlotsOperation = function(msg, ...)
   -- function num : 0_6 , upvalues : _ENV
-  (SlotsData.GetItemData)(msg.RewardItems)
+  local preSlot = (SlotsData.SlotRound)()
+  if msg.resetRound and preSlot < msg.round then
+    (SlotsData.SetRoundItemData)({round = preSlot, data = -1})
+  end
+  ;
+  (SlotsData.SetRoundItemData)((msg.RewardItems)[1])
   ;
   (SlotsData.CanReset)(msg.reset)
-  local mSlot = (SlotsData.SlotRound)()
   ;
-  (SlotsData.ChangeRound)(mSlot < msg.round)
+  (SlotsData.ChangeTotalRound)(msg.totalRoundNum)
+  ;
+  (SlotsData.ChangeRound)(msg.resetRound)
   ;
   (SlotsData.SlotRound)(msg.round)
   UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_REFRESH)
-  -- DECOMPILER ERROR: 1 unprocessed JMP targets
 end
 
 ;

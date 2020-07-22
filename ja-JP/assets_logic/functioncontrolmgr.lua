@@ -43,8 +43,12 @@ FunctionControlMgr.OpenFunction = function(fID, ...)
         if functionData.id == ControlID.HandBook_Story then
           (Util.ShowGuideTips)(GuideTipsCheckPoint.UnlockHandBookStory)
         else
-          if functionData.id == ControlID.HandBook_Relation then
-            (HandBookData.CheckFetterData)()
+          if functionData.id == ControlID.AutoSkillLvlUp then
+            (Util.ShowGuideTips)(GuideTipsCheckPoint.AutoSkillLvlUp)
+          else
+            if functionData.id == ControlID.HandBook_Relation then
+              (HandBookData.CheckFetterData)()
+            end
           end
         end
       end

@@ -225,7 +225,7 @@ GuideTipsWindow.SetContent = function(item, data, ...)
     ;
     (item:GetChild("Word_02_Txt")).text = (PUtil.get)(config.remark, (data.Args)[1])
   else
-    if data.Type == GuideTipsCheckPoint.UnlockAssaultLeader or data.Type == GuideTipsCheckPoint.UnlockAssaultTheif or data.Type == GuideTipsCheckPoint.UnlockChallengeMage or data.Type == GuideTipsCheckPoint.UnlockNewTower or data.Type == GuideTipsCheckPoint.AdventrureWish or data.Type == GuideTipsCheckPoint.UnlockNewFetter or data.Type == GuideTipsCheckPoint.UnlockHandBookStory then
+    if data.Type == GuideTipsCheckPoint.UnlockAssaultLeader or data.Type == GuideTipsCheckPoint.UnlockAssaultTheif or data.Type == GuideTipsCheckPoint.UnlockChallengeMage or data.Type == GuideTipsCheckPoint.UnlockNewTower or data.Type == GuideTipsCheckPoint.AdventrureWish or data.Type == GuideTipsCheckPoint.UnlockNewFetter or data.Type == GuideTipsCheckPoint.UnlockHandBookStory or data.Type == GuideTipsCheckPoint.AutoSkillLvlUp then
       (item:GetChild("Word_01_Txt")).text = (PUtil.get)(config.name)
       ;
       (item:GetChild("Word_02_Txt")).text = (PUtil.get)(config.remark)

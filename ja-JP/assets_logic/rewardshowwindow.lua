@@ -50,6 +50,8 @@ RewardShowWindow.OnInit = function(bridge, ...)
   (LuaSound.PlaySound)(LuaSound.COMMON_SHOW_REWARD, SoundBank.OTHER)
   ;
   (Util.SetOnClickDelay)(0.2)
+  ;
+  (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.RewardShowWindow).name, closeFunc)
 end
 
 RewardShowWindow.ItemRenderer = function(index, obj, ...)

@@ -39,6 +39,10 @@ BuildingSureWindow.InitText = function(...)
 
   ;
   ((uis.BuildingSureGrp).RateWord_A_Txt).text = (PUtil.get)(60000429)
+  -- DECOMPILER ERROR at PC34: Confused about usage of register: R0 in 'UnsetPending'
+
+  ;
+  ((uis.BuildingSureGrp).ExplainTxt).text = (PUtil.get)(60000529)
 end
 
 BuildingSureWindow.InitButtonEvent = function(...)

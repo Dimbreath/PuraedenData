@@ -895,5 +895,72 @@ MessageMgr.OpenMonsterDetailWindow = function(defaultStage, formation, stageCoun
   OpenWindow((WinResConfig.MonsterDetailWindow).name, UILayer.HUD, defaultStage, formation, stageCount, setStageItem, stageLockChecker, getStageTip, getMonsterGroups, LockAction)
 end
 
+local IgnoreWindowList = {(WinResConfig.PlotPlayPanelWindow).name, (WinResConfig.LoadingWindow).name, (WinResConfig.PlotChapterFinshWindow).name, (WinResConfig.HandBookCGShowWindow).name, (WinResConfig.PlotChapterBoxGetWindow).name, (WinResConfig.BattleFailConvergeWindow).name, (WinResConfig.CardGetShowWindow).name}
+local CloseAppWindow = {(WinResConfig.LoginWindow).name, (WinResConfig.HomeWindow).name}
+local mWindowFunc = {}
+MessageMgr.AndroidBackBtnFun = function(winName, ...)
+  -- function num : 0_48 , upvalues : MessageMgr, IgnoreWindowList, _ENV, CloseAppWindow, mWindowFunc
+  if not (MessageMgr.IsInSpecialList)(IgnoreWindowList, winName) then
+    if (GuideMgr.IsInMainGuide)() or UIMgr:IsWindowOpen((WinResConfig.GuidePictureWindow).name) then
+      return 
+    end
+    if (MessageMgr.IsInSpecialList)(CloseAppWindow, winName) then
+      (MessageMgr.OpenConfirmWindow)((PUtil.get)(20000521), function(...)
+    -- function num : 0_48_0 , upvalues : _ENV
+    (Application.Quit)()
+  end
+, nil, nil, nil, nil, nil, UILayer.HUD1)
+    else
+      if winName == (WinResConfig.BattleUIWindow).name then
+        if OvertureMgr.isPlaying == true then
+          return 
+        end
+        if BattleData.battleType == (ProtoEnum.E_BATTLE_TYPE).ARENA then
+          OpenWindow((WinResConfig.SystemSetWindow).name, UILayer.HUD, SystemSetType.Arena, BattleData.Replay)
+        else
+          OpenWindow((WinResConfig.SystemSetWindow).name, UILayer.HUD, SystemSetType.Battle)
+        end
+      else
+        if winName == (WinResConfig.ConfirmWindow).name then
+          UIMgr:SendWindowMessage((WinResConfig.ConfirmWindow).name, (WindowMsgEnum.MessageWindow).E_MSG_CLOSE_CANCEL)
+        else
+          if winName == (WinResConfig.LotteryWindow).name and not (LotteryMgr.GetIsLotterying)() then
+            UIMgr:CloseWindow(winName)
+          end
+        end
+      end
+    end
+  end
+  local func = mWindowFunc[winName]
+  if func then
+    func()
+  else
+    UIMgr:CloseWindow(winName)
+  end
+end
+
+MessageMgr.OnRegisterBackWinFunc = function(winName, func, ...)
+  -- function num : 0_49 , upvalues : mWindowFunc
+  if winName == nil or func == nil then
+    return 
+  end
+  mWindowFunc[winName] = func
+end
+
+MessageMgr.SetAndroidBackWaitTime = function(...)
+  -- function num : 0_50
+  return 0.3
+end
+
+MessageMgr.IsInSpecialList = function(list, str, ...)
+  -- function num : 0_51 , upvalues : _ENV
+  for _,v in pairs(list) do
+    if v == str then
+      return true
+    end
+  end
+  return false
+end
+
 return MessageMgr
 

@@ -171,6 +171,7 @@ teamB = {}
                                       self.saveClientBattleData = {}
                                       self.saveChallengeSummarizeData = {}
                                     end
+                                    self.forceNextAttackFunc = nil
                                     self.savedSkillList = {}
                                   end
                                 end
@@ -621,7 +622,7 @@ end
 
 -- DECOMPILER ERROR at PC89: Confused about usage of register: R8 in 'UnsetPending'
 
-BattleData.AddSkillAtk = function(battleCard, ...)
+BattleData.AddSkillAtk = function(battleCard, isOnClick, ...)
   -- function num : 0_25 , upvalues : self, ipairs, BattleCardCamp, _ENV, t_insert
   local maxCount = 1
   local skillAtkList = self.skillAtkList
@@ -657,6 +658,9 @@ BattleData.AddSkillAtk = function(battleCard, ...)
           t_insert(self.skillAtkList, {copyCardUid = copyCardUid, campFlag = BattleCardCamp.LEFT, cardUid = battleCard:GetCardUid(), skillConfig = skillConfig})
         else
           loge("没有可以复制的技能")
+          if isOnClick == true then
+            (MessageMgr.SendCenterTips)((PUtil.get)(40001003))
+          end
           return 
         end
       else

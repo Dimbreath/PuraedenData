@@ -5,7 +5,7 @@ local PlayerLevelUpWindow = {}
 local uis, contentPane = nil, nil
 local argTable = {}
 PlayerLevelUpWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, PlayerLevelUpWindow
   bridgeObj:SetView((WinResConfig.PlayerLevelUpWindow).package, (WinResConfig.PlayerLevelUpWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -17,17 +17,20 @@ PlayerLevelUpWindow.OnInit = function(bridgeObj, ...)
   ;
   (GuideData.RegisterGuideAndControl)(ControlID.LevelUp_SureBtn, uis.TouchScreenBtn, (WinResConfig.PlayerLevelUpWindow).name)
   ;
-  ((uis.TouchScreenBtn).onClick):Set(function(...)
-    -- function num : 0_0_0 , upvalues : _ENV
-    (FunctionControlMgr.OpenFunctionWindow)()
-    UIMgr:CloseWindow((WinResConfig.PlayerLevelUpWindow).name)
-    UIMgr:SendWindowMessage((WinResConfig.BattleWinConvergeWindow).name, 1)
-  end
-)
+  ((uis.TouchScreenBtn).onClick):Set(PlayerLevelUpWindow.OnCloseWindow)
+  ;
+  (MessageMgr.OnRegisterBackWinFunc)((WinResConfig.PlayerLevelUpWindow).name, PlayerLevelUpWindow.OnCloseWindow)
+end
+
+PlayerLevelUpWindow.OnCloseWindow = function(...)
+  -- function num : 0_1 , upvalues : _ENV
+  (FunctionControlMgr.OpenFunctionWindow)()
+  UIMgr:CloseWindow((WinResConfig.PlayerLevelUpWindow).name)
+  UIMgr:SendWindowMessage((WinResConfig.BattleWinConvergeWindow).name, 1)
 end
 
 PlayerLevelUpWindow.OnShown = function(...)
-  -- function num : 0_1 , upvalues : uis, _ENV, PlayerLevelUpWindow
+  -- function num : 0_2 , upvalues : uis, _ENV, PlayerLevelUpWindow
   -- DECOMPILER ERROR at PC5: Confused about usage of register: R0 in 'UnsetPending'
 
   (uis.WordTxt).text = (PUtil.get)(20000222)
@@ -69,9 +72,9 @@ PlayerLevelUpWindow.OnShown = function(...)
 end
 
 PlayerLevelUpWindow.CheckGuideTips = function(...)
-  -- function num : 0_2 , upvalues : _ENV
+  -- function num : 0_3 , upvalues : _ENV
   local dungeonChecker = function(checker, type, ...)
-    -- function num : 0_2_0 , upvalues : _ENV
+    -- function num : 0_3_0 , upvalues : _ENV
     local chapter = checker()
     if chapter == nil then
       return 
@@ -96,7 +99,7 @@ PlayerLevelUpWindow.CheckGuideTips = function(...)
   end
 
   local dailydungeonChecker = function(controlID, type, ...)
-    -- function num : 0_2_1 , upvalues : _ENV
+    -- function num : 0_3_1 , upvalues : _ENV
     local config = ((TableData.gTable).BaseFunctionData)[controlID]
     local condition = split(config.open_condition, ":")
     if tonumber(condition[3]) == (ActorData.GetLevel)() and (Util.CheckCondition)(config.open_condition, true) then
@@ -107,11 +110,11 @@ PlayerLevelUpWindow.CheckGuideTips = function(...)
 end
 
 PlayerLevelUpWindow.OnHide = function(...)
-  -- function num : 0_3
+  -- function num : 0_4
 end
 
 PlayerLevelUpWindow.OnClose = function(...)
-  -- function num : 0_4 , upvalues : _ENV, uis, contentPane, argTable
+  -- function num : 0_5 , upvalues : _ENV, uis, contentPane, argTable
   (GuideData.AbolishControlRefer)((WinResConfig.PlayerLevelUpWindow).name)
   ;
   (Util.RecycleUIModel)(uis.CardLoader)
@@ -121,7 +124,7 @@ PlayerLevelUpWindow.OnClose = function(...)
 end
 
 PlayerLevelUpWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_5
+  -- function num : 0_6
 end
 
 return PlayerLevelUpWindow
