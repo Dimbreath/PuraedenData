@@ -8,6 +8,8 @@ LotteryService.Init = function(...)
   (Net.AddListener)((Proto.MsgName).ResLotteryInit, LotteryService.OnResLotteryInit)
   ;
   (Net.AddListener)((Proto.MsgName).ResLotteryDraw, LotteryService.OnResLotteryDraw)
+  ;
+  (Net.AddListener)((Proto.MsgName).ResLotteryRecord, LotteryService.OnResLotteryRecord)
 end
 
 -- DECOMPILER ERROR at PC7: Confused about usage of register: R0 in 'UnsetPending'
@@ -114,6 +116,34 @@ LotteryService.OnResLotteryDraw = function(msg, ...)
         end
       end
     end
+  end
+end
+
+-- DECOMPILER ERROR at PC19: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.ReqLotteryRecord = function(...)
+  -- function num : 0_5 , upvalues : _ENV
+  print("--请求扭蛋记录")
+  local m = {}
+  ;
+  (Net.Send)((Proto.MsgName).ReqLotteryRecord, m, (Proto.MsgName).ResLotteryRecord)
+end
+
+-- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'
+
+LotteryService.OnResLotteryRecord = function(msg, ...)
+  -- function num : 0_6 , upvalues : _ENV
+  print("--返回扭蛋记录", msg, msg.lotteryRecord)
+  local recordNum = 0
+  for key,value in pairs(msg.lotteryRecord) do
+    recordNum = recordNum + 1
+  end
+  if recordNum == 0 then
+    (MessageMgr.SendCenterTips)((PUtil.get)(233))
+    return 
+  end
+  if msg and msg.lotteryRecord then
+    OpenWindow((WinResConfig.LotteryRecordWindow).name, UILayer.HUD, msg.lotteryRecord)
   end
 end
 

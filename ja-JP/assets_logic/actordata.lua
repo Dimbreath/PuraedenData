@@ -714,7 +714,7 @@ ActorData.GetPropsTypeData = function(type, ...)
   local propsData = self.propInfo
   for _,v in ipairs(propsData) do
     local PropData = BasePropData[v.id]
-    if tonumber(PropData.type) == tonumber(type) then
+    if PropData and tonumber(PropData.type) == tonumber(type) then
       t_insert(data, v)
     end
   end

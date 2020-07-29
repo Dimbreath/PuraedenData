@@ -134,7 +134,7 @@ HandBookCardPlotBattleWindow.InitToolsSlider = function(...)
     local fashionId = tonumber(inputTxt.text)
     local fashionConfig = ((TableData.gTable).BaseFashionData)[fashionId]
     if not fashionConfig then
-      (MessageMgr.SendCenterTips)("没找到.." .. fashionId .. "啊睿哥")
+      print("没找到.." .. fashionId .. "啊睿哥")
       return 
     end
     inputTxt.text = ""
@@ -152,7 +152,7 @@ HandBookCardPlotBattleWindow.InitToolsSlider = function(...)
     currentIndex = currentIndex + 1
     local fashion = (HandBookCardPlotBattleWindow.GetNextFashionID)()
     if not fashion then
-      (MessageMgr.SendCenterTips)("没了")
+      print("没了")
       return 
     end
     ;

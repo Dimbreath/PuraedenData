@@ -9,9 +9,10 @@ local mailList = {}
 local isDelete = false
 local MAX_MAIL_NUM = 100
 local constTenIndex = 0
+local PowerMax = 0
 local MailItemState = {NoItemNoRead = 0, NoItemIsRead = 1, IsItemNoReadNoGet = 2, IsItemIsReadNoGet = 3, IsItemIsReadIsGet = 4}
 MailWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, MailWindow, mailScroll, itemScroll, MAX_MAIL_NUM
+  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, MailWindow, mailScroll, itemScroll, MAX_MAIL_NUM, PowerMax
   bridgeObj:SetView((WinResConfig.MailWindow).package, (WinResConfig.MailWindow).comName)
   contentPane = bridgeObj.contentPane
   contentPane:Center()
@@ -48,6 +49,7 @@ MailWindow.OnInit = function(bridgeObj, ...)
   (MailWindow.SetListVirtual)()
   ;
   (MailWindow.UpdateTaskSpine)()
+  PowerMax = tonumber((split((((TableData.gTable).BaseFixedData)[72000002]).array_value, ":"))[2])
   ;
   (MailService.ReqMailList)()
 end
@@ -160,7 +162,7 @@ MailWindow.RefreshMailNumber = function(number, ...)
 end
 
 MailWindow.RefreshMailDetail = function(detailInfo, ...)
-  -- function num : 0_5 , upvalues : MailWindow, _ENV, uis
+  -- function num : 0_5 , upvalues : MailWindow, _ENV, uis, PowerMax
   local selectedIndex = 0
   if detailInfo.hasAnnex == true then
     selectedIndex = 2
@@ -231,7 +233,20 @@ MailWindow.RefreshMailDetail = function(detailInfo, ...)
       ((uis.GetBtn).onClick):Clear()
       ;
       ((uis.GetBtn).onClick):Add(function(...)
-    -- function num : 0_5_0 , upvalues : _ENV, detailInfo
+    -- function num : 0_5_0 , upvalues : _ENV, detailInfo, PowerMax
+    local power = 0
+    local configData = ((TableData.gTable).BaseAssetData)[AssetType.PHYSICAL]
+    for index,value in ipairs(detailInfo.annexList) do
+      if value.type == PropType.ASSET and value.id == AssetType.PHYSICAL then
+        power = value.value
+        local havePower = (ActorData.GetAssetCount)(AssetType.PHYSICAL)
+        if PowerMax < power + havePower then
+          (MessageMgr.SendCenterTips)((PUtil.get)(234))
+          return 
+        end
+      end
+    end
+    ;
     (MailService.ReqGetAllMailAnnex)(detailInfo.id)
   end
 )

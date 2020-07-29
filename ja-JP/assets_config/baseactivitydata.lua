@@ -51,7 +51,9 @@ BaseActivityData = {
 , 
 [33000602] = {id = 33000602, type = 9, open_condition = "72501001:0:1", initial_condition = 1, time_type = 1, relative_begin_time = 0, relative_end_time = 1209600, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "6", parameter2 = "0", add_banner = "PATH", fashion_id = 0}
 , 
-[33000603] = {id = 33000603, type = 8, name = (PUtil.get)(87300601), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202007160200:MX0", end_time = "5:202007232359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "8", parameter2 = "0", add_banner = "PATH", fashion_id = 0}
+[33000603] = {id = 33000603, type = 8, name = (PUtil.get)(87300601), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202007310500:MX0", end_time = "5:202008072359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "8", parameter2 = "0", add_banner = "PATH", fashion_id = 0}
+, 
+[33000604] = {id = 33000604, type = 8, name = (PUtil.get)(87300601), remark = (PUtil.get)(87300001), open_condition = "72501001:0:1", initial_condition = 0, time_type = 0, begin_time = "5:202008080500:MX0", end_time = "5:202008152359:MX0", relative_begin_time = 0, relative_end_time = 0, reward_time = 0, post_time = 0, task_group = "0", mail_id = "0", parameter1 = "9", parameter2 = "0", add_banner = "PATH", fashion_id = 0}
 }
 return BaseActivityData
 

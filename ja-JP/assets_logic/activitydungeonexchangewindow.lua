@@ -625,6 +625,19 @@ ActivityDungeonExchangeWindow.HandleMessage = function(msgId, para, ...)
   end
 )
           end
+        else
+          do
+            if msgId == (WindowMsgEnum.ActivityDungeonExchange).E_MSG_BTN_REFRESH then
+              (ActivityDungeonExchangeWindow.InitBtn)()
+            end
+            if msgId == (WindowMsgEnum.NETBrokenReconnect).E_MSG_RECONNECT_Ok then
+              (ActivityDungeonExchangeWindow.SetRoundShow)((SlotsData.SlotRound)())
+              ;
+              (ActivityDungeonExchangeWindow.SetResetShow)()
+              ;
+              (ActivityDungeonExchangeWindow.InitBtn)()
+            end
+          end
         end
       end
     end

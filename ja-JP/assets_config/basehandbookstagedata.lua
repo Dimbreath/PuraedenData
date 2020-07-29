@@ -1000,6 +1000,46 @@ BaseHandbookStageData = {
 [51405009] = {id = 51405009, icon = "HandBook:map_1_09", card_id = 11301006, index = 9, type = 2, open_condition = "72501008:11301006:9", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405008, next = 51405010, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
 , 
 [51405010] = {id = 51405010, icon = "HandBook:map_1_10", card_id = 11301006, index = 10, type = 2, open_condition = "72501008:11301006:10", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405009, next = 0, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405101] = {id = 51405101, icon = "HandBook:map_1_01", card_id = 11300008, index = 1, type = 2, open_condition = "72501008:11300008:1", first_reward = "2:21100001:50", cg_reward = "0", pre = 0, next = 51405102, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405102] = {id = 51405102, icon = "HandBook:map_1_02", card_id = 11300008, index = 2, type = 2, open_condition = "72501008:11300008:2", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405101, next = 51405103, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405103] = {id = 51405103, icon = "HandBook:map_1_03", card_id = 11300008, index = 3, type = 2, open_condition = "72501008:11300008:3", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405102, next = 51405104, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405104] = {id = 51405104, icon = "HandBook:map_1_04", card_id = 11300008, index = 4, type = 2, open_condition = "72501008:11300008:4", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405103, next = 51405105, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405105] = {id = 51405105, icon = "HandBook:map_1_05", card_id = 11300008, index = 5, type = 2, open_condition = "72501008:11300008:5", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405104, next = 51405106, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405106] = {id = 51405106, icon = "HandBook:map_1_06", card_id = 11300008, index = 6, type = 2, open_condition = "72501008:11300008:6", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405105, next = 51405107, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405107] = {id = 51405107, icon = "HandBook:map_1_07", card_id = 11300008, index = 7, type = 2, open_condition = "72501008:11300008:7", first_reward = "2:21100001:50", letter_reward = "26231060", cg_reward = "0", pre = 51405106, next = 51405108, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405108] = {id = 51405108, icon = "HandBook:map_1_08", card_id = 11300008, index = 8, type = 2, open_condition = "72501008:11300008:8", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405107, next = 51405109, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405109] = {id = 51405109, icon = "HandBook:map_1_09", card_id = 11300008, index = 9, type = 2, open_condition = "72501008:11300008:9", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405108, next = 51405110, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405110] = {id = 51405110, icon = "HandBook:map_1_10", card_id = 11300008, index = 10, type = 2, open_condition = "72501008:11300008:10", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405109, next = 0, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405201] = {id = 51405201, icon = "HandBook:map_1_01", card_id = 11101007, index = 1, type = 2, open_condition = "72501008:11101007:1", first_reward = "2:21100001:50", cg_reward = "0", pre = 0, next = 51405202, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405202] = {id = 51405202, icon = "HandBook:map_1_02", card_id = 11101007, index = 2, type = 2, open_condition = "72501008:11101007:2", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405201, next = 51405203, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405203] = {id = 51405203, icon = "HandBook:map_1_03", card_id = 11101007, index = 3, type = 2, open_condition = "72501008:11101007:3", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405202, next = 51405204, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405204] = {id = 51405204, icon = "HandBook:map_1_04", card_id = 11101007, index = 4, type = 2, open_condition = "72501008:11101007:4", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405203, next = 51405205, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405205] = {id = 51405205, icon = "HandBook:map_1_05", card_id = 11101007, index = 5, type = 2, open_condition = "72501008:11101007:5", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405204, next = 51405206, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405206] = {id = 51405206, icon = "HandBook:map_1_06", card_id = 11101007, index = 6, type = 2, open_condition = "72501008:11101007:6", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405205, next = 51405207, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405207] = {id = 51405207, icon = "HandBook:map_1_07", card_id = 11101007, index = 7, type = 2, open_condition = "72501008:11101007:7", first_reward = "2:21100001:50", letter_reward = "26231060", cg_reward = "0", pre = 51405206, next = 51405208, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405208] = {id = 51405208, icon = "HandBook:map_1_08", card_id = 11101007, index = 8, type = 2, open_condition = "72501008:11101007:8", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405207, next = 51405209, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405209] = {id = 51405209, icon = "HandBook:map_1_09", card_id = 11101007, index = 9, type = 2, open_condition = "72501008:11101007:9", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405208, next = 51405210, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
+, 
+[51405210] = {id = 51405210, icon = "HandBook:map_1_10", card_id = 11101007, index = 10, type = 2, open_condition = "72501008:11101007:10", first_reward = "2:21100001:50", cg_reward = "0", pre = 51405209, next = 0, fc = 0, embattle_monster_ids = "0", embattle_count_limit = 0, embattle_need_id = "0", monster_group_list = "0", buff_id = "0", story_id = "0", story_times = "0"}
 }
 return BaseHandbookStageData
 

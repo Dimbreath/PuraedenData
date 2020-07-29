@@ -1217,6 +1217,9 @@ HomeWindow.HandleMessage = function(msgId, para, ...)
       end
     end
   end
+  if msgId == (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION then
+    (HomeWindow.AutoPlayVoiceAndBubble)()
+  end
 end
 
 return HomeWindow

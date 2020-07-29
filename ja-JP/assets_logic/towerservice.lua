@@ -46,8 +46,12 @@ TowerService.ReqEnterTower = function(id, formation, isSweep, ...)
   m.towerStageId = id
   m.cardInfo = formation
   m.isSweep = isSweep
-  ;
-  (Net.Send)((Proto.MsgName).ReqInTower, m, (Proto.MsgName).ResInTower)
+  if isSweep then
+    (Net.Send)((Proto.MsgName).ReqInTower, m, (Proto.MsgName).ResInTower)
+  else
+    ;
+    (Net.Send)((Proto.MsgName).ReqInTower, m, (Proto.MsgName).InitBattleData)
+  end
 end
 
 -- DECOMPILER ERROR at PC16: Confused about usage of register: R0 in 'UnsetPending'
@@ -174,7 +178,7 @@ TowerService.ReqInTowerEncounter = function(formation, ...)
   local m = {}
   m.cardInfo = formation
   ;
-  (Net.Send)((Proto.MsgName).ReqInTowerEncounter, m, (Proto.MsgName).ResInTowerEncounter)
+  (Net.Send)((Proto.MsgName).ReqInTowerEncounter, m, (Proto.MsgName).InitBattleData)
 end
 
 -- DECOMPILER ERROR at PC40: Confused about usage of register: R0 in 'UnsetPending'

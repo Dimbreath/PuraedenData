@@ -129,7 +129,7 @@ HandBookStoryPlotWindow.OnRenderChapterList = function(index, obj, ...)
 end
 
 HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
-  -- function num : 0_4 , upvalues : _ENV, stageList
+  -- function num : 0_4 , upvalues : _ENV, stageList, argTable
   obj = obj:GetChild("DetailsGrp")
   index = index + 1
   local stageId = tonumber(stageList[index])
@@ -152,16 +152,19 @@ HandBookStoryPlotWindow.OnRenderDetailList = function(index, obj, ...)
   (obj:GetChild("LockTxt")).text = (PUtil.get)(60000085)
   ;
   (obj.onClick):Set(function(...)
-    -- function num : 0_4_0 , upvalues : _ENV, stageId, RecordData
+    -- function num : 0_4_0 , upvalues : _ENV, stageId, argTable, RecordData
     if (HandBookMgr.AdventureStoryStageIsOpen)(stageId) then
+      local openType = argTable[1]
       if openType == (HandBookMgr.AdventureStoryType).Activity then
         OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY, nil, true)
       else
         OpenPlotPlay(RecordData.story_id, PlotPlayTriggerType.INSTANTLY_PLAY)
       end
     else
-      ;
-      (MessageMgr.SendCenterTips)((PUtil.get)(20000252))
+      do
+        ;
+        (MessageMgr.SendCenterTips)((PUtil.get)(20000252))
+      end
     end
   end
 )

@@ -11,7 +11,7 @@ local oriPosX, oriPosY, oriScale, fashionData = nil, nil, nil, nil
 local isSkip = false
 local picesNum = 0
 local clickEnable = false
-local holder, showModel = nil, nil
+local showModel = nil
 local cards = {}
 local cardIndex = 1
 local callBack = nil
@@ -19,8 +19,10 @@ local isCardTable = false
 local video = (CS.VideoManager).Instance
 local FxManager = (require("FxManager"))
 local UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END = nil, nil
+local lastClickIndex = 1
+local fxMainEffect = nil
 PiceGetShowWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, cardID, picesNum, cards, callBack, cardIndex, clickEnable, isCardTable, PiceGetShowWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, cardID, picesNum, cards, callBack, cardIndex, lastClickIndex, fxMainEffect, clickEnable, isCardTable, PiceGetShowWindow
   bridgeObj:SetView((WinResConfig.PiceGetShowWindow).package, (WinResConfig.PiceGetShowWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -41,7 +43,9 @@ PiceGetShowWindow.OnInit = function(bridgeObj, ...)
     callBack = argTable[4]
   end
   cardIndex = 1
-  -- DECOMPILER ERROR at PC48: Confused about usage of register: R1 in 'UnsetPending'
+  lastClickIndex = 1
+  fxMainEffect = nil
+  -- DECOMPILER ERROR at PC52: Confused about usage of register: R1 in 'UnsetPending'
 
   ;
   ((uis.CardGetShowEffectGrp).SkipBtn).visible = false
@@ -153,7 +157,7 @@ PiceGetShowWindow.CardLines = function(...)
 end
 
 PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
-  -- function num : 0_2 , upvalues : _ENV, uis, PiceGetShowWindow, FxManager, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, clickEnable, picesNum
+  -- function num : 0_2 , upvalues : _ENV, uis, PiceGetShowWindow, FxManager, lastClickIndex, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, clickEnable, picesNum
   (LuaSound.PlaySound)(LuaSound.CARD_GET_SHOW, SoundBank.OTHER)
   -- DECOMPILER ERROR at PC12: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -186,8 +190,11 @@ PiceGetShowWindow.RefreshDetailInfo = function(excelData, ...)
       (btn.onClick):ClearCallFunc()
       ;
       (btn.onClick):Add(function(...)
-    -- function num : 0_2_0 , upvalues : PiceGetShowWindow, i, fashionIds, excelData
-    (PiceGetShowWindow.ChangeFashion)(i, fashionIds, excelData)
+    -- function num : 0_2_0 , upvalues : lastClickIndex, i, PiceGetShowWindow, fashionIds, excelData
+    if lastClickIndex ~= i then
+      (PiceGetShowWindow.ChangeFashion)(i, fashionIds, excelData)
+      lastClickIndex = i
+    end
   end
 )
     end
@@ -295,7 +302,7 @@ PiceGetShowWindow.CheckIsHaveVideo = function(...)
 end
 
 PiceGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
-  -- function num : 0_5 , upvalues : _ENV, uis, holder, contentPane, PiceGetShowWindow, FxManager
+  -- function num : 0_5 , upvalues : _ENV, uis, fxMainEffect, contentPane, PiceGetShowWindow, FxManager
   local fashionId = tonumber(fashionIds[index])
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   ;
@@ -308,37 +315,43 @@ PiceGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
 
     ;
     ((uis.CardGetEffect).root).visible = false
-    local effect = nil
-    holder = (LuaEffect.AddNotDeletedUIEffect)(fashionData.show_cg, Vector3.zero, 1)
-    holder:SetXY(contentPane.width / 2, contentPane.height / 2)
-    contentPane:AddChildAt(holder, 0)
-  else
-    do
-      -- DECOMPILER ERROR at PC42: Overwrote pending register: R5 in 'AssignReg'
-
-      -- DECOMPILER ERROR at PC49: Confused about usage of register: R5 in 'UnsetPending'
-
-      if (effect.root).visible == false then
-        ((uis.CardGetEffect).root).visible = true
-        ;
-        (PiceGetShowWindow.SetIntelligenceEffect)(excelData.intelligence)
-      end
-      -- DECOMPILER ERROR at PC55: Confused about usage of register: R5 in 'UnsetPending'
-
-      ;
-      (uis.c2Ctr).selectedIndex = excelData.intelligence
+    if fxMainEffect == nil then
+      local effect = nil
+      fxMainEffect = (LuaEffect.AddNotDeletedUIEffect)(fashionData.show_cg, Vector3.zero, 1)
+      fxMainEffect:SetXY(contentPane.width / 2, contentPane.height / 2)
+      contentPane:AddChildAt(fxMainEffect, 0)
+    else
       do
-        local obj = (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
-        if fashionData.type ~= 3 then
-          FxManager:SetShutterEffect(obj, (uis.CardLoader).image)
-        end
-        -- DECOMPILER ERROR at PC83: Confused about usage of register: R5 in 'UnsetPending'
+        fxMainEffect.visible = true
+        -- DECOMPILER ERROR at PC47: Overwrote pending register: R5 in 'AssignReg'
 
-        if fashionData.unlock_remark then
-          ((uis.PicExplain).WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
+        if effect ~= nil then
+          fxMainEffect.visible = false
         end
+        -- DECOMPILER ERROR at PC58: Confused about usage of register: R5 in 'UnsetPending'
+
+        if ((uis.CardGetEffect).root).visible == false then
+          ((uis.CardGetEffect).root).visible = true
+          ;
+          (PiceGetShowWindow.SetIntelligenceEffect)(excelData.intelligence)
+        end
+        -- DECOMPILER ERROR at PC64: Confused about usage of register: R5 in 'UnsetPending'
+
         ;
-        (PiceGetShowWindow.GetUnlockText)(fashionData)
+        (uis.c2Ctr).selectedIndex = excelData.intelligence
+        do
+          local obj = (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
+          if fashionData.type ~= 3 then
+            FxManager:SetShutterEffect(obj, (uis.CardLoader).image)
+          end
+          -- DECOMPILER ERROR at PC92: Confused about usage of register: R5 in 'UnsetPending'
+
+          if fashionData.unlock_remark then
+            ((uis.PicExplain).WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
+          end
+          ;
+          (PiceGetShowWindow.GetUnlockText)(fashionData)
+        end
       end
     end
   end
@@ -361,7 +374,7 @@ PiceGetShowWindow.SetIntelligenceEffect = function(intelligence, ...)
 end
 
 PiceGetShowWindow.OnClose = function(...)
-  -- function num : 0_7 , upvalues : _ENV, uis, contentPane, controller, argTable, moveIndex, isMoving, fashionData, isSkip, picesNum, clickEnable, cards, callBack, holder, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, showModel
+  -- function num : 0_7 , upvalues : _ENV, uis, contentPane, controller, argTable, moveIndex, isMoving, fashionData, isSkip, picesNum, clickEnable, cards, callBack, fxMainEffect, UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END, showModel
   (AudioManager.DisposeCurAudioAndBubble)()
   uis = nil
   contentPane = nil
@@ -375,9 +388,9 @@ PiceGetShowWindow.OnClose = function(...)
   clickEnable = false
   cards = {}
   callBack = nil
-  if holder then
-    (LuaEffect.DestroyEffect)(holder)
-    holder = nil
+  if fxMainEffect then
+    (LuaEffect.DestroyEffect)(fxMainEffect)
+    fxMainEffect = nil
   end
   if UI_LOTTERY_REWARD_TEXT ~= nil then
     (ResHelper.DestroyGameObject)(UI_LOTTERY_REWARD_TEXT)

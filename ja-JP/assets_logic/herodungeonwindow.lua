@@ -47,7 +47,7 @@ HeroDungeonWindow.OnInit = function(bridge, ...)
   ;
   (HeroDungeonWindow.InitChapter)()
   TopLoaderList = {}
-  canClick = true
+  canClick = false
   ;
   (HeroDungeonWindow.InitFunctionControl)()
   ;
@@ -240,7 +240,7 @@ HeroDungeonWindow.PlayBookAni = function(loaderList, aniName, ...)
 end
 
 HeroDungeonWindow.CreateAndPlayBookAni = function(bookIndex, aniName, right, func, ...)
-  -- function num : 0_8 , upvalues : bookNameList, startIndex, _ENV, uis, HeroDungeonWindow, currentIndex, canClick, initPos, TopLoaderList, mRoot
+  -- function num : 0_8 , upvalues : bookNameList, startIndex, _ENV, uis, HeroDungeonWindow, currentIndex, initPos, TopLoaderList, mRoot
   local NameList = bookNameList[bookIndex]
   local loaderList = {}
   local index = 0
@@ -257,17 +257,16 @@ HeroDungeonWindow.CreateAndPlayBookAni = function(bookIndex, aniName, right, fun
       (Util.RecycleUIModel)(loader, false)
       ;
       (Util.ShowUIModel)(NameList[i], loader, nil, false, function(model, ...)
-    -- function num : 0_8_0 , upvalues : _ENV, i, aniName, func, HeroDungeonWindow, currentIndex, canClick
+    -- function num : 0_8_0 , upvalues : _ENV, i, aniName, func, HeroDungeonWindow, currentIndex
     (CSLuaUtil.SetGOScale)(model, 100, 100, 100, false)
     if i == 1 then
       (SkeletonAnimationUtil.SetAnimation)(model, 0, aniName, false, function(...)
-      -- function num : 0_8_0_0 , upvalues : func, HeroDungeonWindow, currentIndex, canClick
+      -- function num : 0_8_0_0 , upvalues : func, HeroDungeonWindow, currentIndex
       if func then
         func()
       end
       ;
       (HeroDungeonWindow.SetBookCharacter)(currentIndex)
-      canClick = true
     end
 , true)
     else
@@ -351,14 +350,16 @@ HeroDungeonWindow.OnClickItem = function(index, ...)
 end
 
 HeroDungeonWindow.SetBookCharacter = function(index, ...)
-  -- function num : 0_12 , upvalues : uis, chapters, _ENV
+  -- function num : 0_12 , upvalues : uis, chapters, _ENV, canClick
   -- DECOMPILER ERROR at PC2: Confused about usage of register: R1 in 'UnsetPending'
 
   ((uis.CardQ).root).visible = true
   local modelName = (chapters[index]).book_monter_show
   ;
   (Util.CreateMiniModelByPath)(((uis.CardQ).root):GetChild("n18"), modelName, function(model, ...)
-    -- function num : 0_12_0 , upvalues : _ENV
+    -- function num : 0_12_0 , upvalues : canClick, _ENV
+    canClick = true
+    ;
     (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.LAND, false, function(...)
       -- function num : 0_12_0_0 , upvalues : _ENV, model
       (SkeletonAnimationUtil.SetAnimation)(model, 0, BattleCardState.IDLE, true)

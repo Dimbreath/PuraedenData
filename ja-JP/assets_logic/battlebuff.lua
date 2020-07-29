@@ -903,7 +903,8 @@ effectRounds = {}
           end
         end
       end
-      self:SetBuffTimeStamp(tostring((os.time)()))
+      local time = tostring((os.time)() * 1000 + (math.random)(1000)) .. BattleData.atkIndex
+      self:SetBuffTimeStamp(time)
       self:SetEffectTable(effectTable)
       local m = {buffId = self:GetBuffId(), atkPos = self:GetAtkPos(), curDefPos = self:GetCurDefPos(), activeCount = self:GetActiveCount(), totalCount = self:GetTotalCount(), settleRoundType = self:GetSettleRoundType(), deductionRoundType = self:GetDeductionRoundType(), activeForever = self:GetActiveForever(), shieldHp = self:GetShieldHp(), usedShieldHp = self:GetUsedShieldHp(), buffTimeStamp = self:GetBuffTimeStamp()}
       if needCopy == true then

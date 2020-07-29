@@ -84,7 +84,7 @@ ExpeditionService.OnReqIntoExpedition = function(StageId, cards, ...)
         (Net.Send)((Proto.MsgName).ReqInExpedition, m, (Proto.MsgName).ResShopExpedition)
       else
         ;
-        (Net.Send)((Proto.MsgName).ReqInExpedition, m, (Proto.MsgName).ResInExpedition)
+        (Net.Send)((Proto.MsgName).ReqInExpedition, m, (Proto.MsgName).InitBattleData)
       end
     end
   end

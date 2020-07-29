@@ -131,6 +131,10 @@ BattleDataWindow.SetCardData = function(model, data, maxDamage, maxDefense, ...)
 )
       ;
       (table.insert)(tweenList, gt2)
+      -- DECOMPILER ERROR at PC102: Confused about usage of register: R15 in 'UnsetPending'
+
+      ;
+      ((CardModel.Order).OrderMyTxt).text = data.Order
     end
   else
     ChangeUIController(model, "c1", 1)

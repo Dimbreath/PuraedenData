@@ -228,7 +228,7 @@ HandBookService.OnReqInCGCopyStage = function(stageId, cardList, ...)
   m.stageId = stageId
   m.cardList = (Util.CovertLoaclFormationToRemote)(cardList)
   ;
-  (Net.Send)((Proto.MsgName).ReqInCGCopyStage, m, (Proto.MsgName).ResInCGCopyStage)
+  (Net.Send)((Proto.MsgName).ReqInCGCopyStage, m, (Proto.MsgName).InitBattleData)
 end
 
 -- DECOMPILER ERROR at PC55: Confused about usage of register: R3 in 'UnsetPending'

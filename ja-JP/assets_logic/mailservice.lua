@@ -62,6 +62,10 @@ end
 
 MailService.OnResGetMailAnnex = function(msg, ...)
   -- function num : 0_4 , upvalues : _ENV
+  if msg.vitFailed then
+    (MessageMgr.SendCenterTips)((PUtil.get)(234))
+    return 
+  end
   local list = (MailData.ChangeMailIsTaken)(msg.mailList)
   UIMgr:SendWindowMessage((WinResConfig.MailWindow).name, (WindowMsgEnum.Mail).E_MSG_MAIL_LIST, {mailList = list})
 end

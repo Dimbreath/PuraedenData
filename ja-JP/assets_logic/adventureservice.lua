@@ -197,7 +197,7 @@ AdventureService.ReqInAdventureBattleEmba = function(nodeId, mustWin, cards, ...
   m.mustWin = mustWin
   m.myCards = cards
   ;
-  (Net.Send)((Proto.MsgName).ReqInAdventureBattleEmba, m, (Proto.MsgName).ResInAdventureBattleEmba)
+  (Net.Send)((Proto.MsgName).ReqInAdventureBattleEmba, m, (Proto.MsgName).InitBattleData)
 end
 
 -- DECOMPILER ERROR at PC47: Confused about usage of register: R1 in 'UnsetPending'

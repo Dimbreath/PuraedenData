@@ -163,15 +163,67 @@ CommonWinMgr.ClearGestureMultiple = function(...)
 end
 
 CommonWinMgr.OpenBattleDataWindow = function(BattleDataS, ...)
-  -- function num : 0_15 , upvalues : _ENV
+  -- function num : 0_15 , upvalues : CommonWinMgr, _ENV
   if not BattleDataS or #BattleDataS <= 0 then
     return 
   end
+  ;
+  (CommonWinMgr.InitBattleAttackOrder)(BattleDataS)
   OpenWindow((WinResConfig.BattleDataWindow).name, UILayer.HUD, BattleDataS)
 end
 
+CommonWinMgr.InitBattleAttackOrder = function(BattleDataS, ...)
+  -- function num : 0_16 , upvalues : _ENV
+  local totalCount = #BattleDataS
+  local eachData = nil
+  for totalI = 1, totalCount do
+    eachData = BattleDataS[totalI]
+    local spdInfo = {}
+    local count = #eachData.SelfCardData
+    local selfIndexInfo = {}
+    for i = 1, count do
+      (table.insert)(spdInfo, {Uid = (((eachData.SelfCardData)[i]).CardData).uid, Speed = (((eachData.SelfCardData)[i]).CardData).spd, IsSelf = true, Pos = i})
+      selfIndexInfo[(((eachData.SelfCardData)[i]).CardData).uid] = i
+    end
+    local enemyIndexInfo = {}
+    count = #eachData.EnemyCardData
+    for i = 1, count do
+      (table.insert)(spdInfo, {Uid = (((eachData.EnemyCardData)[i]).CardData).uid, Speed = (((eachData.EnemyCardData)[i]).CardData).spd, IsSelf = false, Pos = i})
+      enemyIndexInfo[(((eachData.EnemyCardData)[i]).CardData).uid] = i
+    end
+    ;
+    (table.sort)(spdInfo, function(a, b, ...)
+    -- function num : 0_16_0
+    local aSelf = 0
+    local bSelf = 0
+    if a.IsSelf then
+      aSelf = 0.1
+    end
+    if b.IsSelf then
+      bSelf = 0.1
+    end
+    do return b.Speed + bSelf + (6 - b.Pos) * 0.01 < a.Speed + aSelf + (6 - a.Pos) * 0.01 end
+    -- DECOMPILER ERROR: 1 unprocessed JMP targets
+  end
+)
+    local count = #spdInfo
+    for i = 1, count do
+      -- DECOMPILER ERROR at PC88: Confused about usage of register: R16 in 'UnsetPending'
+
+      if selfIndexInfo[(spdInfo[i]).Uid] ~= nil then
+        ((eachData.SelfCardData)[selfIndexInfo[(spdInfo[i]).Uid]]).Order = i
+      else
+        -- DECOMPILER ERROR at PC95: Confused about usage of register: R16 in 'UnsetPending'
+
+        ;
+        ((eachData.EnemyCardData)[enemyIndexInfo[(spdInfo[i]).Uid]]).Order = i
+      end
+    end
+  end
+end
+
 CommonWinMgr.OpenDailyDungeonBattleWindow = function(sData, ...)
-  -- function num : 0_16 , upvalues : _ENV, CommonWinMgr
+  -- function num : 0_17 , upvalues : _ENV, CommonWinMgr
   local m = {}
   m.BattleType = (ProtoEnum.E_BATTLE_TYPE).EXP
   local StageData = ((TableData.gTable).BaseTrialStageData)[tonumber(BattleData.stageId)]
@@ -184,7 +236,7 @@ CommonWinMgr.OpenDailyDungeonBattleWindow = function(sData, ...)
   local btn2 = {}
   btn2.btnTxt = (PUtil.get)(60000004)
   local callBack = function(...)
-    -- function num : 0_16_0 , upvalues : sData, _ENV
+    -- function num : 0_17_0 , upvalues : sData, _ENV
     if sData.isDraw then
       local isDraw = (sData.isDraw)[1]
     end
@@ -199,15 +251,15 @@ CommonWinMgr.OpenDailyDungeonBattleWindow = function(sData, ...)
   end
 
   btn2.fun = function(...)
-    -- function num : 0_16_1 , upvalues : _ENV, callBack
+    -- function num : 0_17_1 , upvalues : _ENV, callBack
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       UIMgr:SetOnShownComplete((WinResConfig.DailyDungeonDifficultyWindow).name, function(...)
-      -- function num : 0_16_1_0 , upvalues : callBack
+      -- function num : 0_17_1_0 , upvalues : callBack
       callBack()
     end
 )
       ld("Battle", function(...)
-      -- function num : 0_16_1_1 , upvalues : _ENV
+      -- function num : 0_17_1_1 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -222,7 +274,7 @@ CommonWinMgr.OpenDailyDungeonBattleWindow = function(sData, ...)
 end
 
 CommonWinMgr.OpenArenaBattleWindow = function(sData, ...)
-  -- function num : 0_17 , upvalues : _ENV, CommonWinMgr
+  -- function num : 0_18 , upvalues : _ENV, CommonWinMgr
   if sData.isSuccess == true then
     local m = {}
     m.BattleType = (ProtoEnum.E_BATTLE_TYPE).ARENA
@@ -237,10 +289,10 @@ CommonWinMgr.OpenArenaBattleWindow = function(sData, ...)
     local btn2 = {}
     btn2.btnTxt = (PUtil.get)(20000024)
     btn2.fun = function(...)
-    -- function num : 0_17_0 , upvalues : _ENV
+    -- function num : 0_18_0 , upvalues : _ENV
     if UIMgr:IsWindowOpen((WinResConfig.BattleUIWindow).name) == true then
       ld("Battle", function(...)
-      -- function num : 0_17_0_0 , upvalues : _ENV
+      -- function num : 0_18_0_0 , upvalues : _ENV
       (BattleMgr.CloseBattle)()
     end
 )
@@ -265,7 +317,7 @@ CommonWinMgr.OpenArenaBattleWindow = function(sData, ...)
 end
 
 CommonWinMgr.OpenCommonFcUp = function(cardId, ...)
-  -- function num : 0_18 , upvalues : _ENV
+  -- function num : 0_19 , upvalues : _ENV
   loge("准备打开战斗力变化      ")
   if cardId then
     local fcInfo = (CardData.fcChangeList)[cardId]
@@ -296,19 +348,19 @@ CommonWinMgr.OpenCommonFcUp = function(cardId, ...)
 end
 
 CommonWinMgr.OpenCGShow = function(CGid, isGet, fun, ...)
-  -- function num : 0_19 , upvalues : _ENV
+  -- function num : 0_20 , upvalues : _ENV
   OpenWindow((WinResConfig.HandBookCGShowWindow).name, UILayer.HUD, CGid, isGet, fun)
 end
 
 local m = {}
 CommonWinMgr.OpenBattleSettleConvergeWindow = function(data, ...)
-  -- function num : 0_20 , upvalues : _ENV
+  -- function num : 0_21 , upvalues : _ENV
   OpenWindow((WinResConfig.BattleWinConvergeWindow).name, UILayer.HUD, data)
 end
 
 local m = {}
 CommonWinMgr.OpenBattleFailConvergeWindow = function(data, ...)
-  -- function num : 0_21 , upvalues : _ENV
+  -- function num : 0_22 , upvalues : _ENV
   OpenWindow((WinResConfig.BattleFailConvergeWindow).name, UILayer.HUD, data)
 end
 

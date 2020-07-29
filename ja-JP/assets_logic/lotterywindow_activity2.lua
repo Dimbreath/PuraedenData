@@ -3,11 +3,11 @@
 LotteryWindow_Activity2 = {}
 local LotteryCardId = {single = 24000071, ten = 24000072, day = 24000073}
 local CostType = {Free = 1, Ticket = 2, Diamond = 3}
-local LotteryType = {Card = 1, Equip = 2, Coupon = 3, Fresh = 4, ShilianBiChu = 6, HuoDongUp = 7, HuoDongUp2 = 8}
+local LotteryType = {Card = 1, Equip = 2, Coupon = 3, Fresh = 4, ShilianBiChu = 6, HuoDongUp = 7, HuoDongUp2 = 8, HuoDongUp3 = 9}
 local countTimer = nil
-local lotteryType = 8
+local lotteryType = LotteryType.HuoDongUp2
 local fx_main, uis, beginTime, endTime = nil, nil, nil, nil
--- DECOMPILER ERROR at PC23: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC24: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.RefreshWindow = function(_uis, ...)
   -- function num : 0_0 , upvalues : uis, _ENV
@@ -16,11 +16,9 @@ LotteryWindow_Activity2.RefreshWindow = function(_uis, ...)
   end
   ;
   (LotteryWindow_Activity2.PreLoadFxMain)(uis)
-  ;
-  (LotteryWindow_Activity2.ReceiveInitData)()
 end
 
--- DECOMPILER ERROR at PC26: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC27: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.HideOrShowFxMain = function(isShow, ...)
   -- function num : 0_1 , upvalues : fx_main
@@ -29,7 +27,7 @@ LotteryWindow_Activity2.HideOrShowFxMain = function(isShow, ...)
   end
 end
 
--- DECOMPILER ERROR at PC29: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC30: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.PreLoadFxMain = function(uis, ...)
   -- function num : 0_2 , upvalues : _ENV, lotteryType, fx_main
@@ -57,7 +55,13 @@ LotteryWindow_Activity2.PreLoadFxMain = function(uis, ...)
           ;
           (LotteryWindow_Activity.HideOrShowFxMain)(false)
           ;
-          (LotteryWindow_Activity2.HideOrShowFxMain)(true)
+          (LotteryWindow_Activity3.HideOrShowFxMain)(false)
+          if LotteryWindow_Activity4 then
+            (LotteryWindow_Activity4.HideOrShowFxMain)(false)
+          end
+          if (LotteryMgr.GetIsLotterying)() ~= true then
+            (LotteryWindow_Activity2.HideOrShowFxMain)(true)
+          end
           ;
           (Util.RecycleUIModel)((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader)
           local boneModel = (Util.ShowUIModel)(fashionData.spd_bundle, (((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).CardLoader, fashionData.show_spine_type)
@@ -80,7 +84,7 @@ LotteryWindow_Activity2.PreLoadFxMain = function(uis, ...)
           (((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).Card_A1_Btn):GetChild("PicLoader")).url = (Util.GetItemUrl)(cardData.lottery_pic)
         end
         do
-          -- DECOMPILER ERROR at PC161: Confused about usage of register: R3 in 'UnsetPending'
+          -- DECOMPILER ERROR at PC177: Confused about usage of register: R3 in 'UnsetPending'
 
           ;
           ((((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).CharacterNewCardUpComp).c1Ctr).selectedIndex = 1
@@ -103,7 +107,7 @@ LotteryWindow_Activity2.PreLoadFxMain = function(uis, ...)
   end
 end
 
--- DECOMPILER ERROR at PC32: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC33: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.ReceiveInitData = function(...)
   -- function num : 0_3 , upvalues : _ENV, beginTime, endTime, countTimer, uis, LotteryCardId
@@ -151,7 +155,7 @@ LotteryWindow_Activity2.ReceiveInitData = function(...)
   (LotteryWindow_Activity2.SetButtonInfo)(((uis.LotteryPanelGrp).GetCha_NewCardUpGrp).SpecialOneTimeBtn, LotteryCardId.day, 0, lData.dayLottery)
 end
 
--- DECOMPILER ERROR at PC35: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC36: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.SetButtonInfo = function(btn, id, freeNum, dayLottery, sound, ...)
   -- function num : 0_4 , upvalues : _ENV, uis, LotteryCardId, beginTime, endTime, CostType
@@ -293,7 +297,7 @@ LotteryWindow_Activity2.SetButtonInfo = function(btn, id, freeNum, dayLottery, s
   -- DECOMPILER ERROR: 15 unprocessed JMP targets
 end
 
--- DECOMPILER ERROR at PC38: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC39: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.ReceiveDrawedData = function(para, ...)
   -- function num : 0_5 , upvalues : _ENV, lotteryType
@@ -307,7 +311,7 @@ LotteryWindow_Activity2.ReceiveDrawedData = function(para, ...)
 , para)
 end
 
--- DECOMPILER ERROR at PC41: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC42: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.ShowResult = function(para, ...)
   -- function num : 0_6 , upvalues : _ENV
@@ -316,7 +320,7 @@ LotteryWindow_Activity2.ShowResult = function(para, ...)
   (LotteryMgr.HideAllBackGroundEffects)()
 end
 
--- DECOMPILER ERROR at PC44: Confused about usage of register: R9 in 'UnsetPending'
+-- DECOMPILER ERROR at PC45: Confused about usage of register: R9 in 'UnsetPending'
 
 LotteryWindow_Activity2.OnClose = function(...)
   -- function num : 0_7 , upvalues : uis, _ENV, fx_main

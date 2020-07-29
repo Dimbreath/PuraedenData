@@ -1833,7 +1833,7 @@ FormationWindow.CustomSort = function(a, b, ...)
 end
 
 FormationWindow.RefreshSpeedSort = function(...)
-  -- function num : 0_60 , upvalues : FormationWindow, myselfFightDate, enemyFightDate, _ENV, enemyIsCustom
+  -- function num : 0_60 , upvalues : FormationWindow, myselfFightDate, enemyFightDate, _ENV, mFormationType, enemyIsCustom
   for i = 1, 6 do
     local selfModel = (FormationWindow.GetModelTemplate)(true, i)
     local enemyModel = (FormationWindow.GetModelTemplate)(false, i)
@@ -1845,14 +1845,16 @@ FormationWindow.RefreshSpeedSort = function(...)
       ;
       (FormationWindow.SetSpeedFrameShow)(GetFormation_ModelTemplateUis(selfModel), false, false)
     end
-    if not enemyIsCustom and enemy and tonumber(enemy) > 0 then
-      (FormationWindow.SetSpeedSort)(enemyModel, false, enemy)
-    else
-      if enemyIsCustom and enemy and enemy.fashionId and tonumber(enemy.fashionId) > 0 then
+    if mFormationType ~= FormationType.Single then
+      if not enemyIsCustom and enemy and tonumber(enemy) > 0 then
         (FormationWindow.SetSpeedSort)(enemyModel, false, enemy)
       else
-        ;
-        (FormationWindow.SetSpeedFrameShow)(GetFormation_ModelTemplateUis(enemyModel), false, false)
+        if enemyIsCustom and enemy and enemy.fashionId and tonumber(enemy.fashionId) > 0 then
+          (FormationWindow.SetSpeedSort)(enemyModel, false, enemy)
+        else
+          ;
+          (FormationWindow.SetSpeedFrameShow)(GetFormation_ModelTemplateUis(enemyModel), false, false)
+        end
       end
     end
   end

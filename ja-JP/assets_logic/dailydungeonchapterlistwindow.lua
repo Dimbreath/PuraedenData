@@ -44,7 +44,7 @@ DailyDungeonChapterListWindow.UpdateOneDungeonByType = function(type, index, ...
   -- function num : 0_2 , upvalues : DailyDungeonChapterListWindow, _ENV, bgList
   local clickFuncTable = {DailyDungeonChapterListWindow.onClickGoldGrp, DailyDungeonChapterListWindow.onClickCardExpGrp, DailyDungeonChapterListWindow.onClickEquipMaterial}
   local functionID = {ControlID.Daily_Gold, ControlID.Daily_Medical, ControlID.Daily_Crystal}
-  local bgName = {"GoldImage", "ExpImage", "EquipImage"}
+  local bgName = {"ExpImage", "GoldImage", "EquipImage"}
   local trialData = (DailyDungeonData.GetTrialDataByType)(type)
   local trialHand = (DailyDungeonChapterListWindow.GetTrialHandByType)(type)
   local trialConfig = (DailyDungeonData.GetTrialConfigByType)(type)

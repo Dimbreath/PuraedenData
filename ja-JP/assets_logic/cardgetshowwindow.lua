@@ -14,10 +14,12 @@ local isSkip = false
 local isTheLast = false
 local isTheFirst = false
 local picesNum = 0
-local holder, showModel = nil, nil
+local showModel = nil
 local FxManager = require("FxManager")
+local lastClickIndex = 1
+local fxMainEffect = nil
 CardGetShowWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, cardID, isLottery, moveConfig, isAutoClose, isHave, picesNum, isTheLast, isTheFirst, CardGetShowWindow
+  -- function num : 0_0 , upvalues : _ENV, contentPane, argTable, uis, lastClickIndex, fxMainEffect, cardID, isLottery, moveConfig, isAutoClose, isHave, picesNum, isTheLast, isTheFirst, CardGetShowWindow
   bridgeObj:SetView((WinResConfig.CardGetShowWindow).package, (WinResConfig.CardGetShowWindow).comName)
   contentPane = bridgeObj.contentPane
   argTable = bridgeObj.argTable
@@ -25,6 +27,8 @@ CardGetShowWindow.OnInit = function(bridgeObj, ...)
   uis = GetCardPop_CardGetShowUis(contentPane)
   ;
   (GuideData.RegisterGuideAndControl)(ControlID.GetCard_SureBtn, (uis.CardGetShowEffectGrp).EffcetLoader, (WinResConfig.CardGetShowWindow).name)
+  lastClickIndex = 1
+  fxMainEffect = nil
   if argTable[1] then
     cardID = argTable[1]
   else
@@ -57,7 +61,7 @@ CardGetShowWindow.OnInit = function(bridgeObj, ...)
   end
   local excelData = ((TableData.gTable).BaseCardData)[cardID]
   isTheFirst = not isTheFirst or excelData.intelligence < 2
-  -- DECOMPILER ERROR at PC97: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC101: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   ((uis.WhiteEffect).root).visible = isTheFirst
@@ -158,7 +162,7 @@ CardGetShowWindow.ClassicInit = function(...)
 end
 
 CardGetShowWindow.RefreshDetailInfo = function(...)
-  -- function num : 0_2 , upvalues : _ENV, cardID, uis, CardGetShowWindow, FxManager, isHave, isAutoClose, moveConfig
+  -- function num : 0_2 , upvalues : _ENV, cardID, uis, CardGetShowWindow, FxManager, lastClickIndex, isHave, isAutoClose, moveConfig
   local excelData = ((TableData.gTable).BaseCardData)[cardID]
   -- DECOMPILER ERROR at PC10: Confused about usage of register: R1 in 'UnsetPending'
 
@@ -191,8 +195,11 @@ CardGetShowWindow.RefreshDetailInfo = function(...)
       (btn.onClick):ClearCallFunc()
       ;
       (btn.onClick):Add(function(...)
-    -- function num : 0_2_0 , upvalues : CardGetShowWindow, i, fashionIds, excelData
-    (CardGetShowWindow.ChangeFashion)(i, fashionIds, excelData)
+    -- function num : 0_2_0 , upvalues : lastClickIndex, i, CardGetShowWindow, fashionIds, excelData
+    if lastClickIndex ~= i then
+      (CardGetShowWindow.ChangeFashion)(i, fashionIds, excelData)
+      lastClickIndex = i
+    end
   end
 )
     end
@@ -293,50 +300,55 @@ CardGetShowWindow.SetIntelligenceEffect = function(intelligence, ...)
 end
 
 CardGetShowWindow.ChangeFashion = function(index, fashionIds, excelData, ...)
-  -- function num : 0_5 , upvalues : _ENV, uis, CardGetShowWindow, holder, contentPane, FxManager
+  -- function num : 0_5 , upvalues : _ENV, uis, fxMainEffect, contentPane, FxManager, CardGetShowWindow
   local fashionId = tonumber(fashionIds[index])
   local fashionData = ((TableData.gTable).BaseFashionData)[fashionId]
   ;
   (Util.RecycleUIModel)(uis.CardLoader)
-  ;
-  (CardGetShowWindow.ClearHolder)()
-  -- DECOMPILER ERROR at PC17: Confused about usage of register: R5 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC15: Confused about usage of register: R5 in 'UnsetPending'
 
   if fashionData.show_cg ~= nil then
     (uis.c2Ctr).selectedIndex = 0
-    local effect = nil
-    holder = (LuaEffect.AddNotDeletedUIEffect)(fashionData.show_cg, Vector3.zero, 1)
-    holder:SetXY(contentPane.width / 2, contentPane.height / 2)
-    contentPane:AddChildAt(holder, contentPane:GetChildIndex(uis.CardLoader))
-  else
-    do
-      -- DECOMPILER ERROR at PC44: Overwrote pending register: R5 in 'AssignReg'
-
-      -- DECOMPILER ERROR at PC46: Confused about usage of register: R5 in 'UnsetPending'
-
-      effect.selectedIndex = excelData.intelligence
+    if fxMainEffect == nil then
+      local effect = nil
+      fxMainEffect = (LuaEffect.AddNotDeletedUIEffect)(fashionData.show_cg, Vector3.zero, 1)
+      fxMainEffect:SetXY(contentPane.width / 2, contentPane.height / 2)
+      contentPane:AddChildAt(fxMainEffect, contentPane:GetChildIndex(uis.CardLoader))
+    else
       do
-        local obj = (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
-        if fashionData.type ~= 3 then
-          FxManager:SetShutterEffect(obj, (uis.CardLoader).image, Vector3(0, 0, -28))
-        end
-        -- DECOMPILER ERROR at PC79: Confused about usage of register: R5 in 'UnsetPending'
+        fxMainEffect.visible = true
+        -- DECOMPILER ERROR at PC47: Overwrote pending register: R5 in 'AssignReg'
 
-        if fashionData.unlock_remark then
-          ((uis.PicExplain).WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
+        if effect ~= nil then
+          fxMainEffect.visible = false
         end
+        -- DECOMPILER ERROR at PC53: Confused about usage of register: R5 in 'UnsetPending'
+
         ;
-        (CardGetShowWindow.GetUnlockText)(fashionData)
+        (uis.c2Ctr).selectedIndex = excelData.intelligence
+        do
+          local obj = (Util.CreateShowModel)(fashionId, uis.CardLoader, true, false, true)
+          if fashionData.type ~= 3 then
+            FxManager:SetShutterEffect(obj, (uis.CardLoader).image, Vector3(0, 0, -28))
+          end
+          -- DECOMPILER ERROR at PC86: Confused about usage of register: R5 in 'UnsetPending'
+
+          if fashionData.unlock_remark then
+            ((uis.PicExplain).WordTxt).text = (PUtil.get)(186, fashionData.unlock_remark)
+          end
+          ;
+          (CardGetShowWindow.GetUnlockText)(fashionData)
+        end
       end
     end
   end
 end
 
 CardGetShowWindow.ClearHolder = function(...)
-  -- function num : 0_6 , upvalues : holder, _ENV
-  if holder then
-    (LuaEffect.DestroyEffect)(holder)
-    holder = nil
+  -- function num : 0_6 , upvalues : fxMainEffect, _ENV
+  if fxMainEffect then
+    (LuaEffect.DestroyEffect)(fxMainEffect)
+    fxMainEffect = nil
   end
 end
 

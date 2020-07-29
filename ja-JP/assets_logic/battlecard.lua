@@ -2447,6 +2447,8 @@ effectTable = {eff}
       if self:GetDisPlayHp() <= 0 then
         print("已死亡，buff导致 阵位：", self:GetPosIndex())
         self:Die()
+      else
+        self:Stand()
       end
     end
 )

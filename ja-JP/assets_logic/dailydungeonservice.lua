@@ -35,7 +35,7 @@ DailyDungeonService.ReqInTrial = function(cardInfo, id, isSweep, ...)
   t.id = id
   t.isSweep = isSweep
   ;
-  (Net.Send)((Proto.MsgName).ReqInTrial, t, (Proto.MsgName).ResInTrial)
+  (Net.Send)((Proto.MsgName).ReqInTrial, t, (Proto.MsgName).InitBattleData)
 end
 
 -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'

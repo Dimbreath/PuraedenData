@@ -251,6 +251,7 @@ CardService.OnResSetMainCover = function(msg, ...)
     (ActorData.SetFashionShow)(msg.fashionId)
   end
   UIMgr:SendWindowMessage("CardChoiceWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
+  UIMgr:SendWindowMessage("HomeWindow", (WindowMsgEnum.CardWindow).E_MSG_CARD_SETMAINFASHION, {})
 end
 
 -- DECOMPILER ERROR at PC61: Confused about usage of register: R0 in 'UnsetPending'

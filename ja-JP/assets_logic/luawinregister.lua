@@ -38,6 +38,8 @@ LotteryRewardWindow = {name = "LotteryRewardWindow", package = "Lottery", comNam
 , 
 LotteryProbabilityWindow = {name = "LotteryProbabilityWindow", package = "Lottery", comName = "Probability", hideBelow = false, notReopen = true}
 , 
+LotteryRecordWindow = {name = "LotteryRecordWindow", package = "Lottery", comName = "Record", hideBelow = false, notReopen = true}
+, 
 CardChoiceWindow = {name = "CardChoiceWindow", package = "Card", comName = "CardChoice", hideBelow = false}
 , 
 CardListWindow = {name = "CardListWindow", package = "Card", comName = "CardList", hideBelow = true}
@@ -439,7 +441,7 @@ AssetShop = {E_MSG_DIAMOND = 1, E_MSG_GOLD = 2, E_MSG_PHYSICAL = 3}
 , 
 ActivityCarnival = {E_MSG_CHANGE_GROUP = 1, E_MSG_GET_TASK = 2, E_MSG_GET_INTEGER = 3, E_MSG_GET_COUNTDOWN = 4}
 , 
-ActivityDungeon = {E_MSG_REFRESH = 1, E_MSG_SET_COUNTDOWN = 2, E_MSG_REFRESH_RED = 3}
+ActivityDungeon = {E_MSG_REFRESH = 1, E_MSG_SET_COUNTDOWN = 2, E_MSG_REFRESH_RED = 3, E_MSG_SHOW_DIFFICULT_RED = 4}
 , 
 ActivityMainDungeon = {E_MSG_SET_TIME = 1}
 , 
@@ -447,7 +449,7 @@ Announcement = {E_MSG_REFRESH = 1, E_MSG_REFRESH_TITLE = 2}
 , 
 GuideTips = {E_MSG_SHOW_TIPS = 1}
 , 
-ActivityDungeonExchange = {E_MSG_SHOW_RESULT = 1, E_MSG_RESET = 2, E_MSG_REFRESH = 3}
+ActivityDungeonExchange = {E_MSG_SHOW_RESULT = 1, E_MSG_RESET = 2, E_MSG_REFRESH = 3, E_MSG_BTN_REFRESH = 4}
 , 
 Title = {E_MSG_REFRESH = 1, E_MSG_RED_DOT = 2}
 }
@@ -460,7 +462,7 @@ ActorInfoWindow = {"CardHeadIconCircle", "Title"}
 , 
 BattleUIWindow = {"MonsterHeadCircle", "BattleArtNumber", "BattleCharacterHead", "BattleCorizontalCardIcon", "CardHeadIconCircle", "BuffIcon"}
 , 
-BattleDataWindow = {"MonsterHeadSquare"}
+BattleDataWindow = {"MonsterHeadSquare", "Formation"}
 , 
 CardListWindow = {"CharacterHeadBanner"}
 , 

@@ -193,7 +193,7 @@ PlotPlayWindow.InitToolsSlider = function(...)
     local stageID = tonumber(inputTxt.text)
     currentSelect = stageList[stageID]
     if not currentSelect then
-      (MessageMgr.SendCenterTips)("没找到.." .. stageID .. "啊睿哥")
+      print("没找到.." .. stageID .. "啊睿哥")
       return 
     end
     toolsStageID = stageID
@@ -207,12 +207,12 @@ end
 PlotPlayWindow.SetStateAni = function(index, ...)
   -- function num : 0_3 , upvalues : currentSelect, _ENV, toolsState, PlotPlayWindow
   if currentSelect == nil then
-    (MessageMgr.SendCenterTips)("先选择一个关卡啊睿哥")
+    print("先选择一个关卡啊睿哥")
     return 
   end
   toolsState = index
   local objModel = GetPlotDungeon_PlotSkipBtnUis(currentSelect)
-  -- DECOMPILER ERROR at PC13: Confused about usage of register: R2 in 'UnsetPending'
+  -- DECOMPILER ERROR at PC12: Confused about usage of register: R2 in 'UnsetPending'
 
   ;
   (objModel.c1Ctr).selectedIndex = index

@@ -175,6 +175,7 @@ ActorService.OnResGoodsChange = function(msg, ...)
   if not card or asset then
     (CommonWinMgr.RefreshAssets)()
     UIMgr:SendWindowMessage((WinResConfig.ClearingWindow).name, (WindowMsgEnum.ClearingWindow).E_MSG_PHYSICAL_REFRESH)
+    UIMgr:SendWindowMessage((WinResConfig.ActivityDungeonExchangeWindow).name, (WindowMsgEnum.ActivityDungeonExchange).E_MSG_BTN_REFRESH)
   end
   if #msg.goods > 0 then
     if (ActorService.IsContainLottery)(msg.goods) then

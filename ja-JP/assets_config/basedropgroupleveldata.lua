@@ -213,6 +213,12 @@ BaseDropGroupLevelData = {
 , 
 [27201403] = {id = 27201403, type = 2019, level_limit = "1:999", drop_ids = "24180003"}
 , 
+[27201501] = {id = 27201501, type = 2020, level_limit = "1:999", drop_ids = "24190001"}
+, 
+[27201502] = {id = 27201502, type = 2021, level_limit = "1:999", drop_ids = "24190002"}
+, 
+[27201503] = {id = 27201503, type = 2022, level_limit = "1:999", drop_ids = "24190003"}
+, 
 [27300101] = {id = 27300101, type = 3001, level_limit = "22:28", drop_ids = "22901001"}
 , 
 [27300102] = {id = 27300102, type = 3002, level_limit = "29:34", drop_ids = "22901002"}

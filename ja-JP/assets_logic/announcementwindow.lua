@@ -55,6 +55,12 @@ AnnouncementWindow.InitList = function(...)
 
   ;
   ((uis.Announcement).BtnList).itemRenderer = AnnouncementWindow.RefreshTitleItem
+  ;
+  ((((uis.Announcement).BtnList).scrollPane).onScroll):Add(function(...)
+    -- function num : 0_4_0 , upvalues : AnnouncementWindow
+    (AnnouncementWindow.CheckArrow)()
+  end
+)
 end
 
 AnnouncementWindow.InitButtonEvent = function(...)
@@ -107,11 +113,55 @@ AnnouncementWindow.Init = function(...)
   ;
   ((uis.Announcement).BtnList).numItems = count
   ;
+  (AnnouncementWindow.CheckArrow)()
+  ;
   (RedDotMgr.RefreshTreeUI)((WinResConfig.AnnouncementWindow).name)
 end
 
+AnnouncementWindow.CheckArrow = function(...)
+  -- function num : 0_11 , upvalues : uis
+  -- DECOMPILER ERROR at PC13: Confused about usage of register: R0 in 'UnsetPending'
+
+  if (((uis.Announcement).BtnList).scrollPane).contentHeight <= (((uis.Announcement).BtnList).scrollPane).viewHeight then
+    (((uis.Announcement).Up).root).visible = false
+    -- DECOMPILER ERROR at PC17: Confused about usage of register: R0 in 'UnsetPending'
+
+    ;
+    (((uis.Announcement).Down).root).visible = false
+  else
+    -- DECOMPILER ERROR at PC28: Confused about usage of register: R0 in 'UnsetPending'
+
+    if (((uis.Announcement).BtnList).scrollPane).isTopMost then
+      (((uis.Announcement).Down).root).visible = true
+      -- DECOMPILER ERROR at PC32: Confused about usage of register: R0 in 'UnsetPending'
+
+      ;
+      (((uis.Announcement).Up).root).visible = false
+    else
+      -- DECOMPILER ERROR at PC43: Confused about usage of register: R0 in 'UnsetPending'
+
+      if (((uis.Announcement).BtnList).scrollPane).isBottomMost then
+        (((uis.Announcement).Down).root).visible = false
+        -- DECOMPILER ERROR at PC47: Confused about usage of register: R0 in 'UnsetPending'
+
+        ;
+        (((uis.Announcement).Up).root).visible = true
+      else
+        -- DECOMPILER ERROR at PC52: Confused about usage of register: R0 in 'UnsetPending'
+
+        ;
+        (((uis.Announcement).Up).root).visible = true
+        -- DECOMPILER ERROR at PC56: Confused about usage of register: R0 in 'UnsetPending'
+
+        ;
+        (((uis.Announcement).Down).root).visible = true
+      end
+    end
+  end
+end
+
 AnnouncementWindow.OnClose = function(...)
-  -- function num : 0_11 , upvalues : AnnouncementWindow, uis, contentPane, argTable
+  -- function num : 0_12 , upvalues : AnnouncementWindow, uis, contentPane, argTable
   (AnnouncementWindow.RemoveEvent)()
   uis = nil
   contentPane = nil
@@ -119,7 +169,7 @@ AnnouncementWindow.OnClose = function(...)
 end
 
 AnnouncementWindow.RefreshTitleItem = function(index, item, ...)
-  -- function num : 0_12 , upvalues : _ENV, _currentId, AnnouncementWindow, uis
+  -- function num : 0_13 , upvalues : _ENV, _currentId, AnnouncementWindow, uis
   local data = (AnnouncementData.ListData)[index + 1]
   item.selected = data.id == _currentId
   if (data.title):find("http") then
@@ -129,7 +179,7 @@ AnnouncementWindow.RefreshTitleItem = function(index, item, ...)
   ((item:GetChild("LabelTips")):GetChild("TipsLoader")).url = data.subscript
   ;
   (item.onClick):Set(function(...)
-    -- function num : 0_12_0 , upvalues : _currentId, data, AnnouncementWindow, uis
+    -- function num : 0_13_0 , upvalues : _currentId, data, AnnouncementWindow, uis
     _currentId = data.id
     ;
     (AnnouncementWindow.ClickTitleItem)(data.id)
@@ -141,7 +191,7 @@ AnnouncementWindow.RefreshTitleItem = function(index, item, ...)
 end
 
 AnnouncementWindow.ClickTitleItem = function(id, ...)
-  -- function num : 0_13 , upvalues : _ENV, AnnouncementWindow
+  -- function num : 0_14 , upvalues : _ENV, AnnouncementWindow
   if (AnnouncementData.ContentData)[id] == nil then
     (AnnouncementMgr.ReqAnnouncementContent)(id)
   else
@@ -151,7 +201,7 @@ AnnouncementWindow.ClickTitleItem = function(id, ...)
 end
 
 AnnouncementWindow.SetDatePanel = function(panel, ...)
-  -- function num : 0_14 , upvalues : argTable, _ENV
+  -- function num : 0_15 , upvalues : argTable, _ENV
   local datePanel = panel:GetChild("Date")
   datePanel.visible = not argTable[1]
   ;
@@ -161,7 +211,7 @@ AnnouncementWindow.SetDatePanel = function(panel, ...)
 end
 
 AnnouncementWindow.RefreshContent = function(content, ...)
-  -- function num : 0_15 , upvalues : uis, _ENV, argTable, AnnouncementWindow, _lastPos, _originPos, _textOffsetX
+  -- function num : 0_16 , upvalues : uis, _ENV, argTable, AnnouncementWindow, _lastPos, _originPos, _textOffsetX
   ((uis.Announcement).ContentList):RemoveChildrenToPool()
   ;
   ((uis.Announcement).ImageList):RemoveChildrenToPool()
@@ -197,7 +247,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
         imgPanel = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.AnnouncementWindow).package, AnnouncementData.CONTENT_IMG_RESOURCE))
         local loader = imgPanel:GetChild("ImageLoader")
         loader.loaded = function(...)
-    -- function num : 0_15_0 , upvalues : loader
+    -- function num : 0_16_0 , upvalues : loader
     loader:SetSize(loader.width, (loader.texture).height)
   end
 
@@ -210,7 +260,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
         imgPanel = list:AddItemFromPool((UIPackage.GetItemURL)((WinResConfig.AnnouncementWindow).package, AnnouncementData.CONTENT_BIG_IMG_RESOURCE))
         local loader = imgPanel:GetChild("ImageLoader")
         loader.loaded = function(...)
-    -- function num : 0_15_1 , upvalues : loader
+    -- function num : 0_16_1 , upvalues : loader
     loader:SetSize(loader.width, (loader.texture).height)
   end
 
@@ -231,7 +281,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
           btn.text = (PUtil.get)(60000072)
           ;
           (btn.onClick):Set(function(...)
-    -- function num : 0_15_2 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_2 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -246,7 +296,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             (imgPanel:GetController("c1")).selectedIndex = 0
             ;
             (imgPanel.onClick):Set(function(...)
-    -- function num : 0_15_3 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_3 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -274,7 +324,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
             btn.text = (PUtil.get)(60000072)
             ;
             (btn.onClick):Set(function(...)
-    -- function num : 0_15_4 , upvalues : _lastPos, uis, _ENV, eachData
+    -- function num : 0_16_4 , upvalues : _lastPos, uis, _ENV, eachData
     _lastPos = (((uis.Announcement).ContentList).scrollPane).posY
     ld("GetWay")
     ;
@@ -306,7 +356,7 @@ AnnouncementWindow.RefreshContent = function(content, ...)
 end
 
 AnnouncementWindow.SetTextFormat = function(text, format, ...)
-  -- function num : 0_16 , upvalues : _textOffsetY, _lineGap, _ENV
+  -- function num : 0_17 , upvalues : _textOffsetY, _lineGap, _ENV
   if _textOffsetY == nil then
     _textOffsetY = {top = text.y, bottom = (text.parent).height - text.y - text.height}
     _lineGap = -5
@@ -343,13 +393,13 @@ AnnouncementWindow.SetTextFormat = function(text, format, ...)
 end
 
 AnnouncementWindow.ClickCloseBtn = function(...)
-  -- function num : 0_17 , upvalues : _ENV
+  -- function num : 0_18 , upvalues : _ENV
   (RedDotMgr.RefreshTreeUI)((WinResConfig.HomeWindow).name)
   UIMgr:CloseWindow((WinResConfig.AnnouncementWindow).name)
 end
 
 AnnouncementWindow.HandleMessage = function(msgId, para, ...)
-  -- function num : 0_18 , upvalues : _ENV, AnnouncementWindow
+  -- function num : 0_19 , upvalues : _ENV, AnnouncementWindow
   if msgId == (WindowMsgEnum.Announcement).E_MSG_REFRESH then
     (AnnouncementWindow.RefreshContent)(para)
   else

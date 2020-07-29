@@ -66,8 +66,15 @@ DailyDungeonSweepWindow.UpdateSweepList = function(...)
   end
 end
 
+local typeTable = {
+[PlayType.RoleExpDungeon] = {index = 2, displayType = PlayType.CoinDungeon}
+, 
+[PlayType.CoinDungeon] = {index = 1, displayType = PlayType.RoleExpDungeon}
+, 
+[PlayType.EquipmentExpDungeon] = {index = 3, displayType = PlayType.EquipmentExpDungeon}
+}
 DailyDungeonSweepWindow.UpdateOneSweepList = function(oneSweepList, trialType, trialIndex, ...)
-  -- function num : 0_4 , upvalues : _ENV, DailyDungeonSweepWindow
+  -- function num : 0_4 , upvalues : _ENV, typeTable, DailyDungeonSweepWindow
   if oneSweepList and trialType then
     local NameTxt = oneSweepList:GetChild("NameTxt")
     local remainTime = (DailyDungeonData.GetRemainChallengeTime)(trialType)
@@ -81,19 +88,19 @@ DailyDungeonSweepWindow.UpdateOneSweepList = function(oneSweepList, trialType, t
     local trialDataList = (DailyDungeonData.GetTrialDataListByType)(trialType)
     for index,trialData in ipairs(trialDataList) do
       local oneSweepTrial = list:AddItemFromPool((Util.GetResUrl)("DailyDungeon:SweepDungeonChoice"))
-      ChangeUIController(oneSweepTrial, "c1", trialIndex - 1)
+      ChangeUIController(oneSweepTrial, "c1", (typeTable[trialType]).index - 1)
       ;
-      (DailyDungeonSweepWindow.UpdateOneSweepTrial)(trialType, oneSweepTrial, trialData, index)
+      (DailyDungeonSweepWindow.UpdateOneSweepTrial)(trialType, oneSweepTrial, trialData, index, (typeTable[trialType]).displayType)
     end
   end
 end
 
-DailyDungeonSweepWindow.UpdateOneSweepTrial = function(trialType, oneSweepTrial, trialData, index, ...)
+DailyDungeonSweepWindow.UpdateOneSweepTrial = function(trialType, oneSweepTrial, trialData, index, displayType, ...)
   -- function num : 0_5 , upvalues : _ENV, sweepHandTable, selectIds
   if oneSweepTrial and trialData then
     local trialId = trialData.id
     do
-      local btn = oneSweepTrial:GetChild("Dungeon_" .. trialType .. "_Btn")
+      local btn = oneSweepTrial:GetChild("Dungeon_" .. displayType .. "_Btn")
       ChangeUIController(btn, "c2", index - 1)
       local canSweep = false
       local schedule = (DailyDungeonData.GetTrialStageSchedule)(trialId)

@@ -111,7 +111,7 @@ PlotDungeonService.ReqStartChallenge = function(stageId, cardInfo, ...)
   m.id = stageId
   m.cardInfo = cardInfo
   ;
-  (Net.Send)((Proto.MsgName).ReqInStage, m, (Proto.MsgName).ResInStage)
+  (Net.Send)((Proto.MsgName).ReqInStage, m, (Proto.MsgName).InitBattleData)
 end
 
 -- DECOMPILER ERROR at PC22: Confused about usage of register: R0 in 'UnsetPending'

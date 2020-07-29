@@ -20,7 +20,7 @@ GetBattleDataCount_BattleDataModelUis = function(ui, ...)
   uis.Enemy_05_Grp = GetBattleDataCount_RecordBattleDataCardGrpUis(ui:GetChild("Enemy_05_Grp"))
   uis.Enemy_06_Grp = GetBattleDataCount_RecordBattleDataCardGrpUis(ui:GetChild("Enemy_06_Grp"))
   uis.EnemyGrp = ui:GetChild("EnemyGrp")
-  uis.Decorate_05_Image = ui:GetChild("Decorate_05_Image")
+  uis.VSImage = ui:GetChild("VSImage")
   uis.c1Ctr = ui:GetController("c1")
   uis.root = ui
   return uis
