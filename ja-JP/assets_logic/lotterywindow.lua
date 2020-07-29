@@ -23,17 +23,11 @@ local video = (CS.VideoManager).Instance
 local UI_LOTTERY_REWARD_TEXT, UI_LOTTERY_REWARD_END = nil, nil
 local lotteryBtns = {}
 LotteryWindow.OnInit = function(bridgeObj, ...)
-  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, LotteryWindow, LotteryType
+  -- function num : 0_0 , upvalues : _ENV, contentPane, uis, LotteryType, LotteryWindow
   bridgeObj:SetView((WinResConfig.LotteryWindow).package, (WinResConfig.LotteryWindow).comName)
   contentPane = bridgeObj.contentPane
   contentPane:Center()
   uis = GetLottery_LotteryUis(contentPane)
-  ;
-  (LotteryWindow.ClassicInit)(true)
-  ;
-  (LotteryWindow.BindingUI)()
-  ;
-  (LotteryWindow.InitFunctionControl)()
   ResHelper = CS.ResHelper
   ;
   (ResHelper.ClearAllCache)()
@@ -46,6 +40,12 @@ LotteryWindow.OnInit = function(bridgeObj, ...)
   if (ActorData.GetLotteryActivityNum)(LotteryType.HuoDongUp) then
     (LotteryWindow_Activity.PreLoadFxMain)(uis)
   end
+  ;
+  (LotteryWindow.ClassicInit)(true)
+  ;
+  (LotteryWindow.BindingUI)()
+  ;
+  (LotteryWindow.InitFunctionControl)()
 end
 
 LotteryWindow.BindingUI = function(...)
